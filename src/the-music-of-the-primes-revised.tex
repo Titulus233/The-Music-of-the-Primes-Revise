@@ -55,7 +55,7 @@
 \afterfolio{514}{a,b}
 \afterfolio{518}{a}
 \afterfolio{520}{a,b,c,d,e,f,g,h,i,j,k,l,m,n}
-\afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad,ae,af,ag}
+\afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad,ae,af,ag,ah,ai,aj}
 \afterfolio{558}{a}
 \newcount\originalfolio
 \newcount\physicalfolio
@@ -147,7 +147,7 @@ the closed strip. The last sum includes every missing boundary copy.
 \pagelink{520c}{520c--n}, \pagelink{522i}{522i--m} & The balanced prime sum and a one-sided criterion counting only principal prime ideals over totally imaginary fields.\\[3pt]
 \pagelink{522}{522--522e}, \pagelink{522f}{522f--h} & The prime-sum criterion, the Chapter~13 test space and a CM curve for which the cap loses multiplicity.\\[3pt]
 \pagelink{522n}{522n--o}, \pagelink{522p}{522p--v} & Square-root fluctuations in the cubic splitting count.\\[3pt]
-\pagelink{522w}{522w--y}, \pagelink{522z}{522z--ac}, \mbox{\pagelink{522ad}{522ad--ag}} & Two translates, short prime intervals, and cancellation between distinct primes at unbounded scales.\\
+\pagelink{522w}{522w--y}, \pagelink{522z}{522z--ac}, \mbox{\pagelink{522ad}{522ad--ag}}, \mbox{\pagelink{522ah}{522ah--aj}} & Short prime intervals, cancellation between distinct primes, and a mean-square bound over norm twists.\\
 \end{tabular}
 
 \point{Scope} The Hecke prime-sum criterion is an equivalence.
@@ -2431,8 +2431,9 @@ averaging and oscillations for the cubic splitting count. Equations
 prime interval has length of order $\sqrt X\log X$. Reconstructing the
 fixed test in (46) costs the reciprocal log width. An independent
 bound at widths $X^{-o(1)}$ in (47) would give zero location.
-For the fixed test, the normalized distinct-prime term in (52) reaches
-its lower limit along unbounded scales. Its upper limit remains open.
+The fixed-test ratio in (52) attains its lower limit. Its positive
+part satisfies an averaged upper bound at frequencies of order $X$
+by (54). The bound in (55) with $U=o(\log X)$ remains open.
 
 The fixed-place calculation on page 495 fails over $\Q$. The two-prime
 obstruction on page 495b rules out a fixed norm-translation-invariant
@@ -3801,6 +3802,133 @@ All three functions have real Dirichlet coefficients. Thus at
 $\omega=0$ the real function $R_0$ above is the original
 $B_{\chi,1}$ itself. In all three examples the fixed-width correlation
 in (45) vanishes at arbitrarily large separations.
+
+\leaf{522ah}{Frequency averages}{13.3 \quad THE UPPER BOUND FOR ONE HECKE COMPONENT}{A mean-square bound over norm twists}
+Keep $F$, $\chi$ and $h=h_1$ fixed. For $t\ge1$ set $X=e^t$,
+$a_p(t)=b_\chi(p)(\log p)p^{-1/2}h(\log p-t)$ and
+\[
+ F_t(v)=\sum_p a_p(t)e^{iv(\log p-t)}
+               -\delta_\chi\sqrt X\,H(1/2+iv).
+\]
+Then $P_v(t)=\Re(e^{ivt}F_t(v))$ in (50). Write $Z_v(t)$ for the
+complex zero sum whose real part is $R_v(t)$ on \pg{522ad}. The same
+explicit formula gives $Z_v(t)=-e^{ivt}F_t(v)+O_{F,h}(1)$ uniformly
+in real $v$. The absolute bounds for the higher prime powers and the
+archimedean kernels are independent of $v$, and the remaining pole
+is $O_h(X^{-1/2})$.
+
+For every $U\ge1$ and $A>0$ one has
+\[
+ \frac1U\int_U^{2U}|F_t(v)|^2\dd v
+ \ll_{F,h,A}(1+X/U)(1+t)+\delta_\chi X(1+U)^{-A}.
+ \tag{54}
+\]
+In particular for $U\ge X$ the mean of $\max(C_v(t),0)$ is
+$O_{F,h}(1+t)$, since $C_v(t)\le P_v(t)^2$. All the norm
+twists use the same base character $\chi$ over $F$.
+
+For coefficients supported on integers $n\le N$, the mean-value
+bound for $\sum_n c_n n^{iv}$ on $[U,2U]$ is
+$\int|\sum c_n n^{iv}|^2\dd v\ll (U+N)\sum|c_n|^2$.
+For a direct proof, majorize the interval indicator by a smooth
+nonnegative bump in $v/U$. After expansion, the absolute kernel
+is $\ll U(1+U|\log(n/m)|)^{-2}$. As
+$|\log(n/m)|\ge |n-m|/N$, its row sums are $O(U+N)$. The inequality
+$2|c_nc_m|\le |c_n|^2+|c_m|^2$ gives the bound. The sharper classical
+mean-value theorem is due to
+\citetitle{https://doi.org/10.1112/jlms/s2-8.1.73}{Montgomery and Vaughan}.
+
+Here $p\le e^\ell X$. Chebyshev's estimate gives
+$\sum_p|a_p(t)|^2\ll_{F,h}1+t$, and the same bound holds after
+differentiating $h(\log p-t)$ in $t$. Apply the mean-value bound to
+the prime sum, removing the common phase $e^{-ivt}$. The pole
+contributes $O_{h,A}(X(1+U)^{-A})$ by the rapid decay of $H$.
+This proves (54).
+
+\leaf{522ai}{Frequency averages}{13.3 \quad RETURN TO THE ORIGINAL CHARACTER}{How fast the frequency interval may move}
+Let $U=U(t)\ge1$ with $U(t)=o(t)$ as $t\to\infty$. For every such
+function the two statements below are equivalent for the fixed $\chi$.
+\[
+ \mathrm{RH}_\chi\quad\Longleftrightarrow\quad
+ \frac1U\int_U^{2U}|F_t(v)|^2\dd v
+             \ll_{\chi,h,U,\epsilon} e^{\epsilon t}
+        \quad\text{for every }\epsilon>0 .
+ \tag{55}
+\]
+In particular the band may move to infinity. To recover the value at
+frequency zero, regard $F_t(v)$ as a Fourier transform in $v$. Its
+measure is supported on $[-\ell,\ell]$ and has total variation
+$O_{F,h}(\sqrt X)$. The atoms have displacements $\log p-t$.
+The continuous term has density $-\delta_\chi\sqrt X e^{y/2}h(y)$.
+
+Write $L=\log(t/U)$ and $n=\lceil2t/L\rceil$ for large $t$. The
+degree-$n$ Taylor polynomial $p$ of $F_t$ at zero satisfies
+\[
+ \sup_{0\le v\le2U}|F_t(v)-p(v)|
+ \ll_{F,h}e^{t/2}\big(2e\ell U/(n+1)\big)^{n+1}\ll e^{-t}.
+\]
+Indeed the real-axis exponential remainder is at most
+$|vy|^{n+1}/(n+1)!$, and $\log((n+1)/(2e\ell U))=L-\log L+O(1)$.
+Here $L\to\infty$, $L\le\log t$, and $n=o(t)$.
+
+For any polynomial of this degree,
+$|p(0)|\le C^n\sqrt{2(n+1)}\,\|p\|_{L^2([U,2U],\,\dd v/U)}$
+with an absolute $C$. Split the interval into $n+1$ equal parts of
+length $a=U/(n+1)$. In the middle half of each choose a node where
+$|p|\le\sqrt{2(n+1)}\|p\|_2$ in this normalized norm. Nodes $i,j$
+are separated by at least $a|i-j|/2$. The sum of the absolute
+Lagrange weights at zero is at most
+$(4(n+1))^n\sum_{i=0}^n1/(i!(n-i)!)\le C^n$.
+
+Thus the right side of (55) gives $|F_t(0)|\ll_\epsilon e^{\epsilon t}$
+for every $\epsilon>0$. The bounded remainder in $Z_0(t)$ preserves
+this estimate. Its Laplace residues in (45) exclude every right-hand
+zero. Conversely, on the critical line $|Z_v(t)|\le Z_v(0)$ by the
+nonnegative spectral weights. The diagonal bound on \pg{522aj} gives
+$|F_t(v)|\ll_{\chi,h}\log(2+|v|)$, which proves (55) for $U=o(t)$.
+
+\leaf{522aj}{Simultaneous estimates}{13.3 \quad ONE FREQUENCY AT A CONTINUUM OF SCALES}{Which norm twists satisfy the correlation bound}
+For $U$ sufficiently large, outside a subset of $[U,2U]$ of
+Lebesgue measure $O_{\chi,h}(U/\log U)$, the same frequency $v$ satisfies
+\[
+ |Z_v(t)|\le\tfrac12 Z_v(0)
+ \qquad\left(1\le t\le \tfrac12\log(U\log U)\right).
+ \tag{56}
+\]
+Here $Z_v(0)=dM\log |v|+O_{\chi,h}(1)$ as $|v|\to\infty$,
+where $M=h(0)$. In fact the archimedean multiplier of each shifted
+gamma factor in (44) is $\log|v|+O_\chi(1)$ for integration
+frequencies $|u|\le |v|/2$ by Stirling's formula. Elsewhere its
+absolute value is $O_\chi(\log(2+|u|+|v|))$ and $|G(iu)|^2$ decays
+rapidly. Plancherel gives the factor $M$. On the diagonal there are no
+prime shifts, and the conductor and pole terms are bounded. On a
+bounded range of $v$ the same formula gives $Z_v(0)=O_{\chi,h}(1)$.
+
+Set $S_v(t)=\sum_p a_p(t)p^{iv}$. Its square has coefficients
+supported up to $e^{2\ell}X^2$. Each product of two primes has at
+most two ordered factorizations. The squared coefficient norm is
+therefore at most $2(\sum_p|a_p(t)|^2)^2$. Applying the mean-value
+estimate on \pg{522ah} gives
+\[
+ \int_U^{2U}\big(|S_v(t)|^4+|\partial_t S_v(t)|^4\big)\dd v
+                   \ll_{F,h}(U+e^{2t})(1+t)^2 .
+\]
+The derivative uses the same argument with $a'_p(t)$.
+On a unit interval the fourth power of the supremum of a smooth
+function is bounded by a constant times the integral of its fourth
+power and that of its derivative, by the fundamental theorem of
+calculus and H\"older's inequality. Cover $[1,T]$ by unit intervals
+and integrate in $v$. This bounds the integral of the supremum
+of $|S_v|^4$ by $O_{F,h}(U(1+T)^3+e^{2T}(1+T)^2)$.
+
+At $T=\tfrac12\log(U\log U)$ the bound is $O_{F,h}(U\log^3 U)$.
+Markov's inequality at threshold $dM\log U/3$ gives the asserted
+exceptional measure. The positive pole is $O_{\chi,h}(1)$ throughout
+this range by rapid decay, so $Z_v(t)=-S_v(t)+O_{F,h}(1)$ there.
+This proves (56). For any fixed zero, its individual contribution
+on this range is $O_{\rho,h,A}(U^{-A})$ for every $A>0$, since its
+coefficient is $H(\rho-1/2+iv)$ and $e^{t/2}\le(U\log U)^{1/4}$.
+The mean needed in (55) concerns frequencies $U=o(\log X)$.
 
 \sourcepages{523}{535}{The multiplicity assertion and its dependence on the norm section are treated on pages 522f--h.}
 \sourcepages{536}{555}{}
