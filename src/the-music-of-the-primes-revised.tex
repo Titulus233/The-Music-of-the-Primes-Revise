@@ -54,7 +54,7 @@
 \afterfolio{508}{a}
 \afterfolio{514}{a,b}
 \afterfolio{518}{a}
-\afterfolio{520}{a,b,c,d,e,f,g,h,i,j,k,l,m,n}
+\afterfolio{520}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r}
 \afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,al,am,an,ao}
 \afterfolio{558}{a}
 \newcount\originalfolio
@@ -143,7 +143,7 @@ the closed strip. The last sum includes every missing boundary copy.
 \pagelink{488a}{488a--d}, \pagelink{488e}{488e--f}, \pagelink{489a}{489a--b} & Finite levels exhaust the component even when all primes up to a growing bound are imposed together.\\[3pt]
 \pagelink{495}{495--495b} & A counterexample at $2$ and an obstruction to recovering two prime traces with a fixed lift.\\[3pt]
 \pagelink{508a}{508a}, \pagelink{518a}{518a} & A valid rational fundamental domain and the lower-cutoff term at the real place.\\[3pt]
-\pagelink{514a}{514a--b}, \pagelink{520}{520--520b} & The full-strip formula, the omitted zeros and the consequence of a fixed zero-free half-plane.\\[3pt]
+\pagelink{514a}{514a--b}, \pagelink{520}{520--520b} & The full-strip formula, \pagelink{520o}{finite-height bounds for its defect} and \pagelink{520r}{a square-root prime estimate (520o--r)}.\\[3pt]
 \pagelink{520c}{520c--n}, \pagelink{522i}{522i--m} & The balanced prime sum and a one-sided criterion counting only principal prime ideals over totally imaginary fields.\\[3pt]
 \pagelink{522}{522--522e}, \pagelink{522f}{522f--h} & The prime-sum criterion, the Chapter~13 test space and a CM curve for which the cap loses multiplicity.\\[3pt]
 \pagelink{522n}{522n--o}, \pagelink{522p}{522p--v} & Square-root fluctuations in the cubic splitting count.\\[3pt]
@@ -1505,7 +1505,7 @@ The residue argument on \pg{29} detects every zero strictly to the right
 of the boundary; reflection covers the left. If all zeros are in the
 closed strip, the residual boundary terms are $O_h(e^{\alpha\tau})$ by
 absolute summability. Thus (19) detects location even at a width with
-a boundary zero. One test suffices as on \pg{522}.
+a boundary zero. The fixed test on \pg{520o} detects every such zero.
 
 For a fixed test supported away from norm one, only finitely many primes
 occur in $W$. On translating to $h_\tau$ the available prime powers
@@ -2184,6 +2184,172 @@ of (20l) applies unchanged. At $\beta_\chi=1/2$ it gives the required
 upper bound for the negative part. Page \pagelink{522i}{522i} explains
 why these nontrivial components and ordinary $\zeta$ suffice.
 
+\leaf{520o}{A fixed test for the defect}{12.5.1 \quad A TEST SUPPORTED BETWEEN LOG NORMS ONE AND TWO}{A zero detector with explicit decay in height}
+There is a fixed nonnegative $h_*\in C_c^\infty((1,2))$ of integral
+one whose transform $H_*(z)=\int h_*(x)e^{zx}\dd x$ is nonzero for
+$|\Re z|\le1/2$. With $a=(\log 2)/4$, it satisfies
+\[
+ |H_*(\sigma+iu)|\le 8e^{-a\sqrt{|u|}}
+       \qquad (-1/2\le\sigma\le1/2,\ u\in\R).
+ \tag{20u}
+\]
+The same test is used for every number field, character and strip width.
+
+Put $a_j=1/(2j(j+1))$ for $j\ge1$. Take independent $Y_j$ uniform on
+$[0,a_j]$ and let $Y=5/4+\sum_{j\ge1}Y_j$. Its support is contained
+in $[5/4,7/4]$. Tilt its law by $e^Y/M$, where $M=\mathbb E e^Y$.
+The transform of this probability measure is
+\[
+ H_*(z)=M^{-1}e^{5(1+z)/4}
+           \prod_{j\ge1}\frac{e^{a_j(1+z)}-1}{a_j(1+z)} .
+\]
+Each factor is $1+O_K(a_j)$ on a compact set $K$. The locally uniform
+product is nonzero for $\Re z>-1$, since no numerator vanishes there
+and $\sum_j a_j<\infty$.
+
+At $z=\sigma+iu$ in the stated strip the absolute value of a factor is
+at most $e^{a_j(1+\sigma)}\min(1,2/(a_j|u|))$ for $u\ne0$. The
+exponentials outside the minima have product, including the prefactor,
+at most $e^{(3/2)(7/4)-5/4}=e^{11/8}$ since $M\ge e^{5/4}$.
+For $1\le j\le\lfloor\sqrt{|u|}/4\rfloor$ one has
+$2/(a_j|u|)=4j(j+1)/|u|\le1/2$. Multiplying gives (20u) because
+$2e^{11/8}<8$. At $u=0$ the same inequality follows from the
+exponential bound alone.
+
+Fourier inversion on $\sigma=0$ gives the tilted law a smooth
+density, since every polynomial times its transform is integrable.
+This density is the required $h_*$. In the Laplace transform of its
+translated defect in (18), the residue at an omitted $\lambda$ is
+$(m_\lambda-n_{\alpha,s}(\lambda))H_*(\lambda)$. Every uncounted
+copy therefore contributes to a nonzero residue at its own zero.
+
+\leaf{520p}{Bounds for the trace defect}{12.5.1 \quad THE WIDTH REACHED BY A ZERO-FREE REGION}{Removing two margins from the full strip}
+Use $h_{*,\tau}(x)=h_*(x-\tau)$ for a fixed normalized Hecke
+character $\chi$ and any Sobolev degree $s\ge0$. For large $\tau$ put
+$D(\tau)=(\log\tau)^{2/3}(\log\log\tau)^{1/3}$.
+There is a constant $b_\chi>0$ such that the actual defect in (18)
+satisfies both estimates
+\begin{align*}
+ |E_{\alpha,\chi}(h_{*,\tau})|
+   &\ll_\chi \exp\big((1/2-b_\chi/D(\tau))\tau\big)
+                              &&(0\le\alpha\le1/2),\\
+ |E_{\alpha,\chi}(h_{*,\tau})|
+   &\ll_\chi e^{-a\tau^2/4}
+            &&(1/2-b_\chi/D(\tau)\le\alpha\le1/2).
+ \tag{20v}
+\end{align*}
+The constants are independent of $s$ and $\alpha$. Thus at the
+second width the full trace and the strip trace agree up to the
+displayed absolute error.
+
+Take $T=\tau^4$. By
+\citetitle{https://doi.org/10.1112/S0025579300013000}{Coleman's
+zero-free region} and reflection, every nontrivial zero up to
+height $T$ satisfies
+\[
+ |\Re(\rho-1/2)|\le 1/2-2b_\chi/D(\tau).
+\]
+Indeed $\log T=4\log\tau$, and at bounded height the finitely many
+nontrivial zeros lie strictly between real parts zero and one.
+The fixed-character threshold includes any exceptional real zero.
+The zero count gives $\sum_\rho m_\rho e^{-a\sqrt{|\Im\rho|}/2}<\infty$,
+where the sum here ranges over distinct zeros. Consequently the part
+of (18) above $T$ has absolute value at most
+\[
+ 8 e^{\tau/2-a\sqrt T/2}\sum_\rho m_\rho e^{-a\sqrt{|\Im\rho|}/2}
+       \ll_\chi e^{-a\tau^2/4}.
+\]
+Below $T$, each exponential $e^{\tau\Re(\rho-1/2)}$ is bounded
+by the low-height strip and the coefficients are absolutely summable
+by (20u). This proves the first estimate. In the second range every
+low zero is strictly interior and is counted with its entire order
+by (4), so only the tail remains. These widths approach $1/2$ as
+$\tau\to\infty$. The growth bound in (19) at arbitrarily small
+fixed widths still requires an independent argument.
+
+\leaf{520q}{The defect for ordinary zeta}{12.5.1 \quad A UNIFORM ESTIMATE AT EVERY STRIP WIDTH}{An explicit finite range for the narrow-strip trace}
+For ordinary $\zeta$, Sobolev degree four and the same $h_*$, put
+$T_0=3\cdot10^{12}$. At every $0\le\alpha\le1/2$ one has
+\begin{align*}
+ |G_\alpha(h_{*,\tau})-W(h_{*,\tau})|
+   &\le 24 T_0^2 e^{\tau/2-a\sqrt{T_0}} &&(\tau\ge0),\\
+ |G_\alpha(h_{*,\tau})-W(h_{*,\tau})|
+   &< e^{-140000} &&(0\le\tau\le300000).
+ \tag{20w}
+\end{align*}
+Here
+\citetitle{https://doi.org/10.1112/blms.12460}{Platt and Trudgian}
+proved that all zeros with $0<\Im\rho\le T_0$ are simple and lie on
+the critical line. Conjugation includes the negative heights and the
+alternating eta series excludes a real zero in $(0,1)$. All verified
+zeros are counted by (4), including at $\alpha=0$, where the boundary
+allowance is two. Formula (18) therefore has only $|\Im\rho|>T_0$
+in its defect.
+
+An explicit bound on the sum of inverse squares of these ordinates
+follows from the completed Riemann function
+$\xi(s)=s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)/2$. Taking the
+difference of its Hadamard logarithmic derivatives at $2$ and $-1$
+and using $\xi(s)=\xi(1-s)$ gives
+\[
+ \sum_\rho\Re\frac{1}{2-\rho}
+ =\frac{\xi'(2)}{\xi(2)}
+ =\frac32-\frac{\log\pi+\gamma_{\rm E}}2
+          +\frac{\zeta'(2)}{\zeta(2)}<\frac32 .
+\]
+Here and below zeros are counted with multiplicity. The difference
+series converges absolutely. Reflection $\rho\mapsto1-\bar\rho$
+identifies the two sums of real parts. For $|u|=|\Im\rho|\ge2$,
+$\Re(1/(2-\rho))\ge1/(4+u^2)\ge1/(2u^2)$, so the sum of $u^{-2}$
+over these zeros is less than three.
+
+The function $u^2 e^{-a\sqrt u}$ is decreasing for $\sqrt u>4/a$.
+Using (20u) in (18) above $T_0$ and summing against $u^{-2}$ gives
+the first line of (20w). Since $a>0.17$, $\sqrt{T_0}>1.73\cdot10^6$
+and $\log(24T_0^2)<61$, the second line follows at its upper endpoint.
+
+\leaf{520r}{A finite square-root estimate}{12.5.1 \quad THE PRIME SUM AT THE VERIFIED SCALES}{A square-root bound for the weighted prime count}
+Put $v_*(u)=u^{-1/2}h_*(\log u)$ for $u>0$. For ordinary $\zeta$,
+\[
+ \left|\sum_{n\ge2}\Lambda(n)v_*(n/X)-XH_*(1/2)\right|
+       \le 10^5\sqrt X \qquad(1\le X\le e^{300000}).
+ \tag{20x}
+\]
+The main coefficient is between $e^{5/8}$ and $e^{7/8}$ by the
+support and normalization of $h_*$. With this same numerical constant,
+the inequality for all $X\ge1$ is equivalent to the Riemann hypothesis.
+
+The Mellin transform of $v_*$ is $H_*(s-1/2)$. The ordinary explicit
+formula (23) gives the error in (20x) as
+\[
+ -\sqrt X\sum_\rho m_\rho H_*(\rho-1/2)e^{(\rho-1/2)\log X}
+       -\sum_{k\ge1} X^{-2k}H_*(-2k-1/2),
+\]
+where the first sum runs over distinct nontrivial zeros. The second
+sum is at most $1/(e^{5/2}-1)<1$ since $h_*$ is a probability
+density supported above $5/4$ and $X\ge1$.
+
+At width zero and degree four, the first term after division by
+$-\sqrt X$ splits as $S_0(h_{*,\tau})+E_0(h_{*,\tau})$ with
+$\tau=\log X$, as in (18). Only zeros on the critical line occur
+in $S_0$. The positive sum on \pg{520q} bounds
+$\sum_\rho m_\rho/(4+(\Im\rho)^2)$ by $3/2$. Hence, by (20u),
+\[
+ |S_0(h_{*,\tau})|
+ \le \sum_\rho m_\rho |H_*(i\Im\rho)|
+ \le 12\big(4+(4/a)^4e^{-4}\big)<80000 .
+\]
+Indeed $\sup_{u\ge0}u^2e^{-a\sqrt u}=(4/a)^4e^{-4}$. Adding (20w)
+and the trivial-zero sum proves (20x).
+
+Under RH this absolute sum bounds the full nontrivial-zero sum
+after normalization for every $X$, including all multiplicities.
+Conversely, the Mellin transform argument of (21), with this $v_*$,
+excludes every zero in $\Re s>1/2$ if (20x) holds for all $X$,
+since the residue is $-m_\rho H_*(\rho-1/2)\ne0$. Unconditionally, for
+$\tau=\log X$ sufficiently large, the first line of (20v) at width
+zero gives the prime error $O(Xe^{-b_\zeta\tau/D(\tau)})$.
+
 \sourcepages{521}{521}{The one-sided estimate is on page 520h and the reduced range of indices on page 520n.}
 \leaf{522}{One prime sum}{13.3 \quad THE RIEMANN ZETA FUNCTION}{One smooth weight detects every zero}
 There is a fixed nonnegative $v\in C_c^\infty((0,\infty))$, chosen
@@ -2445,8 +2611,9 @@ The order correction
 (13g) can be nonzero, but (13i) removes it from the iterated scalar
 trace and (13j) bounds its translated contribution. The real-place
 lower-cutoff term (17a) persists in the balanced
-regime. The external half-planes on page 520b give (20b). Reaching (19)
-for widths tending to zero still requires additional cancellation.
+regime. Equation (20v) removes margins of width $b_\chi/D(\tau)$ with
+exponentially small defect. Reaching (19) at every positive fixed
+width still requires additional cancellation.
 Consequently the narrow-strip main theorem and the deduction of GRH remain
 conditional. Equations (12), (18), and (23) use actual zero orders.
 For $F=\Q$, (13.3.1.1) would require simplicity at every noncentral
