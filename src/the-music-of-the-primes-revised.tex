@@ -53,7 +53,7 @@
 \afterfolio{495}{a,b}
 \afterfolio{508}{a}
 \afterfolio{514}{a,b,c,d,e}
-\afterfolio{518}{a,b,c,d,e,f}
+\afterfolio{518}{a,b,c,d,e,f,g,h,i,j}
 \afterfolio{520}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v}
 \afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,al,am,an,ao}
 \afterfolio{558}{a}
@@ -142,7 +142,7 @@ the closed strip. The last sum includes every missing boundary copy.
 \pagelink{476a}{476a}, \pagelink{480a}{480a}, \pagelink{484a}{484a--b} & Truncated prime layers coincide. Before truncation their individual quotients give the prime traces.\\[3pt]
 \pagelink{488a}{488a--d}, \pagelink{488e}{488e--f}, \pagelink{489a}{489a--b} & Finite levels exhaust the component even when all primes up to a growing bound are imposed together.\\[3pt]
 \pagelink{495}{495--495b} & A counterexample at $2$ and an obstruction to recovering two prime traces with a fixed lift.\\[3pt]
-\pagelink{508a}{508a}, \pagelink{518a}{518a--d}, \pagelink{518e}{518e--f} & Rational fundamental domains, cutoff lifts and the finite-place trace of the descended Fourier operator.\\[3pt]
+\pagelink{508a}{508a}, \pagelink{518a}{518a--f}, \pagelink{518g}{518g--j} & Cutoff lifts, \pagelink{518i}{a uniform Hecke trace at moving prime norms} and \pagelink{518j}{growth in the narrow Hilbert space}.\\[3pt]
 \pagelink{514a}{514a--b}, \pagelink{514c}{514c--e}, \pagelink{520}{520} & Full-strip formula, endpoint traces, \pagelink{520r}{a finite square-root bound} and \pagelink{520s}{prime weights of the narrow projection (520s--v)}.\\[3pt]
 \pagelink{520c}{520c--n}, \pagelink{522i}{522i--m} & The balanced prime sum and a one-sided criterion counting only principal prime ideals over totally imaginary fields.\\[3pt]
 \pagelink{522}{522--522e}, \pagelink{522f}{522f--h} & The prime-sum criterion, the Chapter~13 test space and a CM curve for which the cap loses multiplicity.\\[3pt]
@@ -1547,7 +1547,7 @@ with this selected boundary contribution and the infinite-place and pole
 terms, to the precision in (19), remains the global comparison.
 
 \sourcepages{515}{515}{}
-\sourcepages{516}{518}{The lower endpoint, cutoff domains and the finite-place Fourier calculation are on pages 518a--518f.}
+\sourcepages{516}{518}{For cutoff domains and the trace with a growing set of places see pages 518a--518j.}
 \leaf{518a}{The real place}{12.4.1 \quad THE LOWER CUTOFF}{The finite endpoint term}
 Take $F=\Q$, $S=\{\infty\}$. In Step II on page 516, multiplication by
 the one-sided cutoff, equal to one near $x=0$, is asserted to map
@@ -1800,6 +1800,170 @@ For $h_\tau$ as on \pg{514e}, include all primes through $e^{\tau+2}$.
 The right side then equals $W_\chi(h_\tau)$ exactly at every translate.
 Comparison of this descended operator with the narrow arithmetic
 projection to the accuracy of (19) remains open.
+
+\leaf{518g}{The Hecke component}{12.4.1 \quad SEMILOCAL FOURIER TRANSFORMATION OVER A NUMBER FIELD}{Descent for a fixed Hecke character}
+Let $F$ be a number field and $\chi$ a unitary Hecke character. Let
+$S$ contain the archimedean places, the conductor of $\chi$ and the
+primes dividing the different of $F$. Put
+$J_S=F_S^\times/\mathcal O_{F,S}^\times$ and fix the standard global
+additive character with self-dual local measures. The restriction
+$\chi_S=\prod_{v\in S}\chi_v$ is trivial on $\mathcal O_{F,S}^\times$
+by the global character identity. The $S$-unit theorem makes the
+norm-one subgroup $J_S^1$ compact. Use probability measure on $J_S^1$
+and Lebesgue measure in $x=\log|j|$ on the quotient by $J_S^1$.
+
+Use the component coordinate
+$\widehat g_\chi(t)=\int_{J_S}g(j)\chi_S(j)|j|^{-it}\dd j$.
+This incorporates the value of $\chi_S$ on a section of the norm.
+On that component $A_h$ is convolution in $x$ with multiplier
+$\widehat h(t)$, and $M_r$ multiplies by $r(x)$. For
+$Vf(j)=|j|^{1/2}\sum_{\xi\in\mathcal O_{F,S}^\times}f(\xi j)$
+unfolding gives the product of local zeta integrals for a pure tensor
+$f$, up to the fixed Haar normalization. Absolute convergence follows
+from the integrability of $|f(g)|\,|g|^{1/2}$ for multiplicative Haar
+measure. At a fixed compact character these transforms decay rapidly
+in $t$ by integrating in the real log radius at one archimedean place.
+At its lower endpoint the factor $|g_v|_v^{1/2}$ controls every such
+derivative. At the upper endpoint use Schwartz decay. The other local
+integrals stay bounded. Thus each centered component is in $L^2$.
+
+Compact smooth tests on $J_S$ lift to Bruhat functions compactly
+supported inside $F_S^\times$. Indeed $\mathcal O_{F,S}^\times$ is
+discrete there. Cover the support by finitely many quotient charts
+on which an inverse section exists, split the test by a smooth
+partition of unity and extend each piece by zero. Include the factor
+$|j|^{-1/2}$ for $V$. These lifts give a dense set in each component.
+On pure tensors Tate's local equations give
+\[
+  \widehat{V\mathcal F_S f}_{\bar\chi}(-t)
+       =v_{\chi,S}(t)\widehat{V f}_\chi(t),\qquad
+  v_{\chi,S}(t)=\prod_{v\in S}v_{\chi,v}(t),\quad |v_{\chi,S}(t)|=1.
+\]
+Linear combinations cover the Bruhat space. As on \pg{518e}, reflection
+and this phase define a unitary between the indicated components.
+The kernel proof of (17.8) applies verbatim on the log line.
+For $h$ of positive support, integrating $\widehat h\,i v_{\chi,S}'/v_{\chi,S}$
+against $\dd t/(2\pi)$ gives the restricted Weil distribution
+$W_{\chi,S}(h)$. The unramified factors give (17.1), and the gamma
+factors give the archimedean term on \pg{522w}. Local epsilon factors
+are constant times exponentials in $t$ and contribute only at $x=0$.
+
+\leaf{518h}{The two cutoff profiles}{12.4.1 \quad THE TRACES OF DILATED LOG CUTOFFS}{Which choice of endpoints gives the Weil term}
+Let $r_1,r_2\in C_c^\infty(\R)$ be real. Put $r_{j,L}(x)=r_j(x/L)$
+and write $\mathcal T_{S,L}(h)$ for the trace in (17.8) with these
+two cutoffs and the component on \pg{518g}. Define
+\[
+ a_0=\int r_1(x)r_2(-x)\dd x,\qquad
+ b_1=\int r_1'(x)r_2(-x)\dd x .
+\]
+For $h$ of positive support and fixed $S$,
+\[
+         \mathcal T_{S,L}(h)=-b_1 W_{\chi,S}(h)+O_{\chi,S,h,r_1,r_2}(L^{-1}).
+ \tag{17.10}
+\]
+To see the endpoints explicitly set $z=L(t-u)$ in (17.8). With
+$v=v_{\chi,S}$ and Fourier measure $\dd\mu(u)=\dd u/(2\pi)$ the result is
+\[
+ L\int \widehat r_1(z)\widehat r_2(z)\int
+       \widehat h(u)\overline{v(u)}v(u+z/L)\dd\mu(u)\dd\mu(z).
+\]
+Taylor expansion in $z/L$ gives the constant contribution
+$L a_0 h(0)=0$. The first moment of
+$\widehat r_1\widehat r_2$ is $-i b_1$ by Fourier inversion of $r_1'$.
+The linear term is therefore $-b_1 W_{\chi,S}(h)$.
+The second derivative estimate on \pg{518i} bounds the integral
+remainder absolutely and also gives a uniform version of (17.10).
+
+\point{Two profiles that give coefficient one}
+Take $0\le r_1,r_2\le1$. Choose $r_1$ equal to one on $[-1,1]$,
+zero off $(-2,2)$, with transitions on $[-2,-1]$ and $[1,2]$.
+Choose $r_2$ equal to one on $[-2,1/4]$ and zero off $(-3,3/4)$.
+Then $r_2(-x)$ equals one on the falling transition of $r_1$ and
+zero on its rising transition. Hence $b_1=-1$. Both dilated profiles
+are identically one on any fixed compact interval for large $L$.
+If both profiles are even then $b_1=0$ by oddness, and the same
+limit on a positive-support test is zero. These profiles are dilated
+in the log coordinate. Their transition intervals grow with $L$.
+
+\leaf{518i}{Uniformity in the prime cutoff}{12.4.1 \quad THE SEMILOCAL TRACE UNDER TRANSLATION}{A joint estimate for all primes in the test}
+Fix $F,\chi$, $h\in C_c^\infty((1,2))$ and the profiles with $b_1=-1$
+on \pg{518h}. Let $X=e^\tau\ge1$, $Y=e^2X$ and let $S(Y)$ contain
+exactly the fixed places on \pg{518g} and every prime ideal of norm
+at most $Y$. Then for $L\ge1$,
+\[
+ \boxed{\quad
+  \mathcal T_{S(Y),L}(h_\tau)=W_\chi(h_\tau)+O_{F,\chi,h,r_1,r_2}(Y/L).
+ \quad}
+ \tag{17.11}
+\]
+In particular $L=X^{1+A}$ gives absolute error $O(X^{-A})$ for every
+fixed $A>0$. Here $L$ is the width parameter in log norm. The bound
+uses neither the global explicit formula nor a zero-density estimate.
+
+\point{Proof} At an unramified place of norm $q$ the logarithmic
+derivative of the phase in (17.1) is bounded by
+$2(\log q)q^{-1/2}/(1-q^{-1/2})$. Its derivative is bounded by
+$2(\log q)^2q^{-1/2}/(1-q^{-1/2})^2$. In degree $d$ the sum of the
+residue degrees above a rational prime is at most $d$. Thus
+$\sum_{N\mathfrak p\le u}\log N\mathfrak p\ll_d u$ by Chebyshev's
+bound $\sum_{p\le u}\log p\ll u$. Partial summation gives total
+bounds $O_d(\sqrt Y)$ and $O_d(\sqrt Y\log(2Y))$, respectively.
+The finitely many exceptional local normalizations only add constants.
+The archimedean logarithmic derivatives and their derivatives are
+$O_\chi(\log(2+|u|))$ and $O_\chi(1)$ by the gamma factors.
+Writing $v=v_{\chi,S(Y)}$, differentiating the product on the real
+axis and using $|v|=1$ gives
+\[
+                     |v''(u)|\ll_{F,\chi} Y+\log^2(2+|u|).
+\]
+Along the Taylor segment $u+\theta z/L$, $0\le\theta\le1$, the
+logarithm is at most $\log(2+|u|)+\log(2+|z|)$.
+The remainder on \pg{518h} is bounded after integration by $O(Y/L)$,
+since both cutoff transforms decay rapidly and
+$|\widehat h_\tau(u)|=|\widehat h(u)|$. Every prime power in the test
+has norm below $Y$, so $W_{\chi,S(Y)}(h_\tau)=W_\chi(h_\tau)$.
+This proves (17.11) simultaneously as the test, cutoffs and set of
+finite places vary. The estimate concerns the semilocal quotient in
+ordinary $L^2$. The comparison still needed for (19) concerns the
+weighted arithmetic projection of Chapter 10.
+
+\leaf{518j}{The weighted limit}{12.4.1 \quad THE SEMILOCAL FOURIER OPERATORS AS THE SET GROWS}{A fixed input with unbounded weighted norm}
+Take ordinary $\zeta$, $S(Y)=\{\infty\}\cup\{p:p\le Y\}$, and use the
+trivial compact component to identify each norm line with $\R$. Fix
+$0<b<\alpha<1/2$, $s\ge0$, and nonzero $g\in C_c^\infty(\R)$,
+$g\ge0$. Put $\mathcal X=L^2(e^{2\alpha|x|}(1+x^2)^{s/2}\dd x)$.
+For the unitary $\mathcal U_{S(Y)}$ of \pg{518g} one has for large $Y$
+\[
+ \|\mathcal U_{S(Y)}g\|_{\mathcal X}
+ \gg_{\alpha,b,g,s}
+       \prod_{p\le Y}\frac{1-p^{-1/2-b}}{1-p^{-1/2+b}}
+ \ \ge\ \exp\!\left(c_b\frac{Y^{1/2+b}}{\log Y}\right)
+ \tag{17.12}
+\]
+with $c_b>0$. In particular these outputs cannot converge in the
+original weighted Hilbert space even on this one fixed test.
+
+Indeed on the real frequency axis
+$\widehat{\mathcal U_{S(Y)}g}(-t)=v_{S(Y)}(t)\widehat g(t)$.
+For fixed $Y$ the phase continues holomorphically to $|\Im t|<1/2$.
+On each smaller closed strip the finite factors are bounded, and
+the real gamma ratio has polynomial growth by Stirling's formula.
+The transform of $g$ decays rapidly there. Contour shift to both
+lines $|\Im t|=\beta$ with $\alpha<\beta<1/2$ gives
+$|\mathcal U_{S(Y)}g(x)|\ll_{Y,g,\beta}e^{-\beta|x|}$.
+Thus the output belongs to $\mathcal X$ for every finite $Y$,
+and its transform at $-ib$ is $v_{S(Y)}(ib)\widehat g(ib)$.
+
+Evaluation there is continuous by Cauchy--Schwarz since $b<\alpha$.
+Also $\widehat g(ib)=\int e^{bx}g(x)\dd x>0$. The archimedean factor
+at $ib$ is $\Gamma_\R(1/2-b)/\Gamma_\R(1/2+b)>0$. Formula (17.1)
+gives the displayed positive ratio at each finite place. Its
+logarithm is at least $p^{-1/2+b}(1-p^{-2b})$ by integration of
+$1/(1-u)$ between the two powers of $p^{-1}$. For all sufficiently
+large $p\le Y$ this is at least $\tfrac12Y^{-1/2+b}$. Chebyshev's
+lower bound $\pi(Y)\gg Y/\log Y$ now gives (17.12).
+Scalar traces in (17.11) have a limit with a power-saving error
+despite this growth of the individual Fourier outputs.
 
 \sourcepages{519}{519}{For the established identity and the hypothesis needed on a narrow strip see page 520.}
 \leaf{520}{Narrow strips}{12.5.1 \quad THE TRACE IDENTITY}{The contribution outside the strip}

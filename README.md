@@ -1,12 +1,12 @@
 # The Music of the Primes
 
-**Last updated 21 November 2026.** Revision `2026-11-21.11` adds **folios 518b–518f, equations (17.5)–(17.9)** to Chapter 12. The revised manuscript has 1,037 pages.
+**Last updated 21 November 2026.** Revision `2026-11-21.12` adds **folios 518g–518j, equations (17.10)–(17.12)** to Chapter 12. The revised manuscript has 1,041 pages.
 
-The rational semilocal Fourier operator gives the Weil terms for ordinary zeta and fixed primitive Dirichlet characters. Step II on original folio 516 fails on the additive test space already for the real place and the prime 2. On the idelic quotient a two-sided norm cutoff has an explicit polar-free lift. The one-sided cutoff preserves a logarithmic term that rules out any such lift. [Dated results and proofs](PROGRESS.md)
+For every fixed number field and unitary Hecke character, a trace with two smooth cutoffs recovers the Weil distribution on translated tests. Include all prime ideals up to norm $Y=e^2X$, where $\log X$ is the translation. The error is $O(Y/L)$ with cutoff width $L$ in log norm. Taking $L=X^{1+A}$ gives $O(X^{-A})$ for any fixed $A>0$. The proof uses local Fourier factors and the elementary prime count. The choice of cutoff endpoints determines the coefficient of the Weil term. [Dated results and proofs](PROGRESS.md)
 
-The arithmetic projection on a narrow strip recovers the weight of each prime power. This holds for ordinary zeta, fixed primitive Dirichlet characters and imaginary quadratic ideal class characters at every positive half-width below $1/2$. It also holds for any fixed Hecke character in the wider strips specified on folio 520t. For the first three cases, tests confined to small neighborhoods of the prime norms recover their entire weighted sum up to $O(X^{-A})$ for any fixed $A>0$, even at half-width $1/\log X$.
+For ordinary zeta, fixed primitive Dirichlet characters and imaginary quadratic ideal class characters, the narrow arithmetic projection recovers every prime-power weight. This holds even at half-width $1/\log X$ when the neighborhoods of the prime norms shrink as in (20aa). For general Hecke characters, folio 520t gives the range from the available density bound.
 
-**Open proof.** In the ranges just stated, equation (20aa) reduces (19) to the trace on a test that vanishes around every prime-power norm. The local weights follow from the full-strip explicit formula and unconditional zero-density estimates. The remaining trace still needs an independent growth bound for arbitrarily small fixed half-widths as $X\to\infty$. For ordinary zeta the all-scale square-root bound (20x) is equivalent to RH. It holds for the specified weight up to $e^{300000}$. The general Hecke zero-location claim remains open.
+**Open proof.** Equation (19) requires comparison of the trace in ordinary $L^2$ with the global arithmetic projection on an arbitrarily narrow fixed strip. For zeta, (17.12) shows that the semilocal Fourier transforms of one fixed test already grow without bound in the required weighted norm. In the ranges of (20aa), the remaining discrepancy can be tested away from every prime-power norm. Its growth as $X\to\infty$ is open. For ordinary zeta the all-scale square-root bound (20x) is equivalent to RH. The general Hecke zero-location claim remains open.
 
 [Original manuscript (940-page PDF)](https://math216.wordpress.com/wp-content/uploads/2026/11/the-music-of-the-primes.pdf) · [Revised manuscript (PDF)](output/pdf/the-music-of-the-primes-revised.pdf) · [Editable revision (TeX)](src/the-music-of-the-primes-revised.tex)
 
@@ -18,6 +18,7 @@ The arithmetic projection on a narrow strip recovers the weight of each prime po
 | 495–495b, 514a–514b, 520 | The original local identity (11.3.2.1) gives $0$ on one side and $\log 2$ on the other. Equations (17) and (18) give the full-strip identity and the narrow-strip defect. |
 | 514c–514e | The unramified local Fourier factor gives the prime weights. The endpoint trace (17.3) recovers the full sum of these weights with finite cutoffs under translation. |
 | 518a–518f | The mixed additive cutoff fails. A lift on the rational semilocal quotient gives the finite trace (17.8). Its Fourier factor determines both the real and finite Weil terms in (17.9). |
+| 518g–518j | Fourier descent for every Hecke component, the coefficient selected by the two cutoff profiles, the uniform error $O(Y/L)$ and a fixed-input obstruction to convergence in the narrow weighted space. |
 | 520c–520n, 522–522b | A fixed smooth prime weight gives a criterion for the Riemann hypothesis in (21) and its per-character Hecke analogue in (24). |
 | 520o–520r | A normalized test detects every missed zero. A zero-free region bounds the Hecke trace defect at all large scales. Finite-height verification for ordinary zeta yields the explicit inequalities (20w) and (20x). |
 | 520s–520v | A zero-density bound makes the primitive of the strip defect continuous. The jump of the global trace primitive at $n$ is $\Lambda_\chi(n)/\sqrt n$. Equation (20aa) isolates all such jumps in a growing interval. |
@@ -30,7 +31,7 @@ The arithmetic projection on a narrow strip recovers the weight of each prime po
 | 522ak–522am | The diagonal contribution to a frequency average, an exact formula for the short-interval variance and the zero strip implied by a bound for that variance. |
 | 522an–522ao | A finite-height bound for the sharp interval variance and an unconditional saving over $X/U$ for all $1\le U\le X^{a_\chi}$ with a fixed $a_\chi>0$. |
 
-Folio numbers follow the manuscript. A letter suffix identifies an inserted page. Folios 518b–518f are PDF pages 547–551. Folios 520o–520v and 522an–522ao are pages 568–575 and 617–618. The contents on manuscript folio 2 link to the proofs.
+Folio numbers follow the manuscript. A letter suffix identifies an inserted page. Folios 518g–518j are PDF pages 552–555. Folios 520s–520v and 522an–522ao are pages 576–579 and 621–622. The contents on manuscript folio 2 link to the proofs.
 
 ## Files and build
 
