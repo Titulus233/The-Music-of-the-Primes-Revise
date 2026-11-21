@@ -1,5 +1,21 @@
 # Proof progress
 
+## 2026-11-21 · Revision `2026-11-21.9`
+
+Folios 514c–514e are pages 539–541 of the [1,028-page edition][pdf9]. The cutoffs act on the weighted norm line used for the arithmetic quotient in Chapter 10.
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [514e · (17.4)][f514e] | The left endpoint gives every positive finite-place term for every translate with source cutoff $Y=e^2X$. One prime already requires $Y$ of order $X$ along a sequence. The two endpoints together have zero trace. Comparison with the global projection to the precision of (19) remains open. | [ecaa340][edge] |
+| [514d · (17.3)][f514d] | For a finite set of unramified prime ideals, ideal Möbius inversion turns the endpoint trace into the sum over prime ideal powers. It holds at every strip width, including the full width, and every Sobolev degree $s\ge0$. | [ecaa340][edge] |
+| [514c · (17.1)–(17.2)][f514c] | Fourier transformation of local balls determines both signs of the prime distribution. On the weighted line a half-line commutator gives its positive part as an ordinary trace at widths below $1/2$. | [ecaa340][edge] |
+
+[edge]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/ecaa340b043c1de031fdec792eb528931f80ed64
+[pdf9]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/ecaa340b043c1de031fdec792eb528931f80ed64/output/pdf/the-music-of-the-primes-revised.pdf
+[f514c]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/ecaa340b043c1de031fdec792eb528931f80ed64/src/the-music-of-the-primes-revised.tex#L1424
+[f514d]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/ecaa340b043c1de031fdec792eb528931f80ed64/src/the-music-of-the-primes-revised.tex#L1464
+[f514e]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/ecaa340b043c1de031fdec792eb528931f80ed64/src/the-music-of-the-primes-revised.tex#L1509
+
 ## 2026-11-21 · Revision `2026-11-21.8`
 
 Folios 520o–520r are pages 560–563 of the [1,025-page edition][pdf8]. All four statements use the same fixed test. The logarithmic translation is $\tau=\log X$.
