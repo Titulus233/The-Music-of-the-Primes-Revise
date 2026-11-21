@@ -1,5 +1,23 @@
 # Proof progress
 
+## 2026-11-21 · Revision `2026-11-21.10`
+
+Folios 520s–520v are pages 567–570 of the [1,032-page edition][pdf10]. They compare the arithmetic projection of Chapter 10 directly with the prime weights in (17.4).
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [520v · (20aa)][f520v] | Small neighborhoods of all prime-power norms in one translate recover the entire finite-place sum up to $O(X^{-A})$ for any prescribed $A>0$. For zeta, fixed primitive Dirichlet characters and imaginary quadratic ideal class characters this also holds at half-width $1/\log X$. Equation (19) reduces to a bound on the test left after removing those neighborhoods. | [0ed27d3][jumps] |
+| [520u · (20z)][f520u] | A test of height one shrinking to $\log n$ gives the limit $\Lambda_\chi(n)/\sqrt n$ for the global distribution. The trace of the projected convolution has the opposite limit. At all integer norms the error can be made $o(n^{-1/2})$ with a single power-law choice of radius at fixed width. | [0ed27d3][jumps] |
+| [520t · range of (20y)][f520t] | The zero-density input holds for the three families above at every fixed positive half-width below $1/2$. For arbitrary Hecke characters the log-free density theorem gives an explicit condition on the strip in terms of its density exponent. | [0ed27d3][jumps] |
+| [520s · (20y)][f520s] | A count $O(T^{1-\delta}\log^B T)$ for the omitted copies gives a defect $O(\sqrt{x}\,r^\delta\log^B(3/r))$ for a smooth test centered at log norm $\log x$ with radius $r$. The defect has a continuous primitive. Both assertions include omitted boundary multiplicities. | [0ed27d3][jumps] |
+
+[jumps]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/0ed27d39e765e328893116eb8c7ab38d0b23b319
+[pdf10]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/0ed27d39e765e328893116eb8c7ab38d0b23b319/output/pdf/the-music-of-the-primes-revised.pdf
+[f520s]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/0ed27d39e765e328893116eb8c7ab38d0b23b319/src/the-music-of-the-primes-revised.tex#L2478
+[f520t]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/0ed27d39e765e328893116eb8c7ab38d0b23b319/src/the-music-of-the-primes-revised.tex#L2521
+[f520u]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/0ed27d39e765e328893116eb8c7ab38d0b23b319/src/the-music-of-the-primes-revised.tex#L2564
+[f520v]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/0ed27d39e765e328893116eb8c7ab38d0b23b319/src/the-music-of-the-primes-revised.tex#L2604
+
 ## 2026-11-21 · Revision `2026-11-21.9`
 
 Folios 514c–514e are pages 539–541 of the [1,028-page edition][pdf9]. The cutoffs act on the weighted norm line used for the arithmetic quotient in Chapter 10.
