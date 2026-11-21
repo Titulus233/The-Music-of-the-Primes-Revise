@@ -1,10 +1,27 @@
 # Proof progress
 
+## 2026-11-21 · Revision `2026-11-21.14`
+
+Folios 514k–514n are pages 547–550 of the [1,050-page edition][pdf14]. The outstanding estimate in §12.3 concerns the positive real part of the separated Möbius sum, averaged over arbitrarily distant intervals. [Open proof obligation](OPEN_PROBLEMS.md)
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [514n · (17.4i)][f514n] | At each fixed width and for every $\varepsilon>0$, a bounded mean of $X^{-\alpha-\varepsilon}[\operatorname{Re}Q_{\alpha,\chi}(X)]_+$ on one unbounded sequence of intervals $[Y,Y^2]$ is equivalent to zero location in the closed strip. The sequence can depend on the field, character, width and exponent. | [92c242e][windows] |
+| [514l · (17.4g)–(17.4h)][f514l] and [514m][f514m] | If a zero lies outside the strip, there is a centered real part $b>\alpha$ such that the mean of $X^{-b}[\operatorname{Re}Q_{\alpha,\chi}(X)]_+$ is at least $c/\sqrt{\log Y}$ on every sufficiently distant interval $[Y,Y^2]$. The proof uses a positive measure and includes real zeros and complex characters. | [92c242e][windows] |
+| [514k · (17.4f)][f514k] | For $D=[F:\mathbb Q]$, the kernel of the fixed test has decay $O(\exp(-c y^{1/(4D)}))$. All pairs with $dn\le eX/(\log(2X))^{4D+1}$ together cost $O_A(X^{-A})$ in absolute value for every fixed $A>0$. | [92c242e][windows] |
+
+[windows]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/92c242ebbfb35cef729d4f52b3caa88451ddd002
+[pdf14]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/92c242ebbfb35cef729d4f52b3caa88451ddd002/output/pdf/the-music-of-the-primes-revised.pdf
+[f514k]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/92c242ebbfb35cef729d4f52b3caa88451ddd002/src/the-music-of-the-primes-revised.tex#L1759
+[f514l]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/92c242ebbfb35cef729d4f52b3caa88451ddd002/src/the-music-of-the-primes-revised.tex#L1800
+[f514m]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/92c242ebbfb35cef729d4f52b3caa88451ddd002/src/the-music-of-the-primes-revised.tex#L1848
+[f514n]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/92c242ebbfb35cef729d4f52b3caa88451ddd002/src/the-music-of-the-primes-revised.tex#L1892
+
 ## 2026-11-21 · Revision `2026-11-21.13`
 
 Folios 514f–514j are pages 542–546 of the [1,046-page edition][pdf13]. Section 12.3 compares the global narrow-strip trace directly with the finite trace of (17.11) at $Y=e^2X$ and $L=X^2$.
 
-The open proof obligation is the signed estimate in (17.4d) on folio 514i for all sufficiently large $X$. By the zero transfer in (36) on folio 522n, the estimate for the trivial character and the normalized infinite-order characters of finite conductor one over totally imaginary Galois fields would give the full Hecke claim. [Open proof obligation](OPEN_PROBLEMS.md) · [780bf0c][obligation]
+The open proof obligation is the signed estimate in (17.4d) on folio 514i for all sufficiently large $X$. By the zero transfer in (36) on folio 522n, the estimate for the trivial character and the normalized infinite-order characters of finite conductor one over totally imaginary Galois fields would give the full Hecke claim. [Open proof obligation in this edition](https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/780bf0c039d64f66fddec6f6f91f2e4d876b199e/OPEN_PROBLEMS.md) · [780bf0c][obligation]
 
 | Folios and equations | Result | Commit |
 | --- | --- | --- |

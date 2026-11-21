@@ -1,36 +1,35 @@
 # Open proof obligation for Hecke GRH
 
-## Bound the global trace minus the finite trace at all large scales
+## Bound the positive part of the separated Möbius sum on arbitrarily distant intervals
 
-In revision `2026-11-21.13`, §12.3, the open step is to prove
-
-$$
-\left|G_{\alpha,\chi}(g_{\log X})-\mathcal T_{S(\mathrm e^2X),X^2}(g_{\log X})\right|
-\ll_{F,\chi,\alpha,\varepsilon} X^{\alpha+\varepsilon}
-$$
-
-for all sufficiently large $X$ and every $\varepsilon>0$. One sequence of fixed half-widths tending to zero suffices, for example $\alpha=2^{-j}$ for integers $j\ge 2$. The constant may depend on the field, character and width. Use the single test $g=(\partial_x+1/2)^3h_*$, with $g_t(x)=g(x-t)$. Its Mellin weight removes the principal pole and is nonzero at every nontrivial zero. [Fixed test, (20u)][detector] · [Pole removal, folio 514h][filter]
-
-**The arithmetic estimate.** With $\eta=1/4$, equation (17.4d) makes the trace bound equivalent to
+In revision `2026-11-21.14`, the outstanding arithmetic estimate is (17.4i). Fix the field $F$, the character $\chi$, and a strip half-width $0<\alpha<1/2$. For every $\varepsilon>0$, prove that some sequence $Y_j\to\infty$ satisfies
 
 $$
-\left|\frac{1}{\sqrt X}
-\sum_{\substack{X^{1/4}<d,n\le \mathrm e\sqrt X\\ |d-n|>X^\alpha}}
-u_\chi(d)u_\chi(n)K_2\!\left(\frac{X}{dn}\right)\right|
-\ll_{F,\chi,\alpha,\varepsilon} X^{\alpha+\varepsilon}.
+\frac{1}{\log Y_j}\int_{Y_j}^{Y_j^2}
+   \frac{[\operatorname{Re}Q_{\alpha,\chi}(X)]_+}{X^{\alpha+\varepsilon}}\,
+   \frac{dX}{X}\ \le\ C_{F,\chi,\alpha,\varepsilon}
+\quad\text{for every }j .
 $$
 
-Here $u_\chi(n)=\sum_{N\mathfrak a=n}\mu_F(\mathfrak a)\chi(\mathfrak a)$, and $K_2$ is the kernel formed from $-L_f(s,\chi)L_f'(s,\chi)$ and $g$ on folio 514g. The absolute value surrounds the entire sum, so cancellation between separated pairs counts toward the bound. [Kernel, folio 514g][kernel] · [Separated pairs, (17.4d)][pairs]
+Here $[r]_+=\max(r,0)$. The positive part is taken **after** summing all the pairs. The interval sequence may depend on $F,\chi,\alpha,\varepsilon$. For Hecke GRH it suffices to use the widths $\alpha=2^{-k}$, $k\ge2$. [Criterion, (17.4i)][criterion]
 
-**Characters required.** It suffices to prove this estimate over totally imaginary fields $F$ that are Galois over $\mathbb Q$, for the trivial character and for each normalized infinite-order character unramified at every finite place. Removing a norm twist preserves the real parts of zeros. If the normalized character has finite order, its zeros persist in a Dedekind zeta function of such a field. If it has infinite order, its zeros persist in a character of the second kind. [Zero transfer, folio 522n][transfer]
+**The sum to estimate.** Put $D=[F:\mathbb Q]$ and $H_X=\mathrm e^{-1}(\log(2X))^{4D+1}$. Then
 
-**Why this closes the proof.** At $Y=\mathrm e^2X$ and $L=X^2$, (17.11) bounds the finite trace minus the Weil distribution by $O(X^{-1})$. The trace bound would then give (19) for $g$, making the Laplace transform of the translated strip defect holomorphic on $\Re z>\alpha$. A zero $\rho$ with $\Re\rho>1/2+\alpha$ would give a nonzero residue at $z=\rho-1/2$. Letting the widths tend to zero and applying the functional equation gives Hecke GRH. Conversely, under Hecke GRH every zero is interior at each positive width, so (18) makes the global trace equal the Weil distribution and (17.11) gives the required bound. [Finite trace, (17.11)][finite] · [Strip defect, (18)–(19)][defect] · [Residue argument, folio 29][residue]
+$$
+Q_{\alpha,\chi}(X)=\frac{1}{\sqrt X}
+\sum_{\substack{d,n\le\mathrm e\sqrt X,\ dn>X/H_X\\ |d-n|>X^\alpha}}
+  u_\chi(d)u_\chi(n)K_2\!\left(\frac{X}{dn}\right).
+$$
 
-[detector]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/5b96f531c6139993e1e6505301e56b6480500703/src/the-music-of-the-primes-revised.tex#L2889
-[filter]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/5b96f531c6139993e1e6505301e56b6480500703/src/the-music-of-the-primes-revised.tex#L1665
-[kernel]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/5b96f531c6139993e1e6505301e56b6480500703/src/the-music-of-the-primes-revised.tex#L1591
-[pairs]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/5b96f531c6139993e1e6505301e56b6480500703/src/the-music-of-the-primes-revised.tex#L1677
-[transfer]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/5b96f531c6139993e1e6505301e56b6480500703/src/the-music-of-the-primes-revised.tex#L3939
-[finite]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/5b96f531c6139993e1e6505301e56b6480500703/src/the-music-of-the-primes-revised.tex#L2098
-[defect]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/5b96f531c6139993e1e6505301e56b6480500703/src/the-music-of-the-primes-revised.tex#L2179
-[residue]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/5b96f531c6139993e1e6505301e56b6480500703/src/the-music-of-the-primes-revised.tex#L194
+The coefficient is $u_\chi(n)=\sum_{N\mathfrak a=n}\mu_F(\mathfrak a)\chi(\mathfrak a)$. The kernel $K_2$ on folio 514g uses the fixed test $g=(\partial_x+1/2)^3h_*$ from folios 514h and 520o. For every fixed $A>0$, the pairs with $dn\le X/H_X$ contribute $O_A(X^{-A})$ in absolute value. [Kernel definition][kernel] · [Norm cutoff, (17.4f)][cutoff] · [Signed sum, (17.4g)][sum]
+
+**Characters required.** It suffices to treat the trivial character and the normalized infinite-order characters unramified at every finite place, over totally imaginary fields Galois over $\mathbb Q$. The real parts of zeros survive normalization and transfer to these cases. [Field and character reduction, folio 522n][transfer]
+
+**Why this proves (19).** A zero outside the strip forces a centered real part $b>\alpha$ for which the displayed mean grows at least as $Y^{b-\alpha-\varepsilon}/\sqrt{\log Y}$ on every sufficiently distant interval when $0<\varepsilon<b-\alpha$. Bounded means on the chosen sequence would exclude that zero. Taking the widths to zero gives zero location, and the strip defect formula then gives (19). [Local lower bound, (17.4h)][sum] · [Strip defect, (18)–(19)][defect]
+
+[criterion]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/92c242ebbfb35cef729d4f52b3caa88451ddd002/src/the-music-of-the-primes-revised.tex#L1892
+[kernel]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/92c242ebbfb35cef729d4f52b3caa88451ddd002/src/the-music-of-the-primes-revised.tex#L1591
+[cutoff]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/92c242ebbfb35cef729d4f52b3caa88451ddd002/src/the-music-of-the-primes-revised.tex#L1759
+[sum]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/92c242ebbfb35cef729d4f52b3caa88451ddd002/src/the-music-of-the-primes-revised.tex#L1800
+[transfer]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/92c242ebbfb35cef729d4f52b3caa88451ddd002/src/the-music-of-the-primes-revised.tex#L4115
+[defect]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/92c242ebbfb35cef729d4f52b3caa88451ddd002/src/the-music-of-the-primes-revised.tex#L2355
