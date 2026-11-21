@@ -1,5 +1,48 @@
 # Proof progress
 
+## 2026-11-21 · The cubic Bessel period at 13
+
+**The determinant character gives a zero double-step row for every Schwartz vector in the relative models below.** The first descending theta lift already has zero local Hom space at 13. Changing the splitting can restore a nonzero local functional, while cancelling the terminal cubic character in the global integral. A global row retaining that character remains open. [Manuscript audit and original statement of the period problem](https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/3eeb84b) · [Active problem](OPEN_PROBLEMS.md)
+
+### Spaces and the period
+
+Write $K=\mathbb Q(\delta)$, $\delta=\sqrt{-23}$, $T=U(1)$ and $\nu(t)=\psi([\mathfrak a(t)])$ for the character of $T(\mathbb A)$ read from the fractional ideal of a norm-one idèle. A prime $\mathfrak p\mid13$ generates the class group. The local element $z=(13,13^{-1})$ represents $[\mathfrak p/\bar{\mathfrak p}]=r^2$ for $r=[\mathfrak p]$, so $\nu_{13}(13)$ is a primitive cube root of unity. [Serre, §5.3](https://www.math.mcgill.ca/goren/SeminarOnCohomology/Serre.pdf)
+
+Let $I_a$ denote the positive identity Hermitian form, $H$ the hyperbolic plane with Gram matrix $\left(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\right)$, and $L^-=\langle-1\rangle$. The definite spaces have Gram matrices $I_a,\delta I_b,I_c$. The two dual pairs used in the descending integral are $(U(V),U(W))$ and $(U(W),U(V'))$, where
+
+$$
+V=H\oplus I_a\oplus L^-,\qquad W=\delta(H\oplus I_b),\qquad V'=I_c\oplus L^-.
+$$
+
+The choice $(a,b,c)=(1,4,7)$ starts on the torus. The choice $(76,94,112)$ uses its determinant pullback $i(f)(u)=f([\mathfrak a(\det u)])$ and has the top and lower ranks prescribed by the external grid for $(k,m,t)=(8,4,17)$. In that grid $r_0=k+m-1$ and $\dim X_j=r_0+1+m(r_0+5)+j(t+1)$. Thus $\dim X_0\ge32$ for $m\ge2$ and $\dim X_0\ge76$ for a recursive double step ($m\ge4$). The field and period data here define relative models. [Rank constraints](https://github.com/TomasOrtega/RH/blob/a6ac91a412dcbaab31801355ec5707024a71bf65/extracted/lean/src/Formalism/LocalRingCardinality/Params.lean#L6) · [Grid dimensions](https://github.com/TomasOrtega/RH/blob/a6ac91a412dcbaab31801355ec5707024a71bf65/extracted/lean/src/Development/AbelianVarietyTheory/Definitions/Divisors/LeastSplitAuxiliaryPrimeThetaChainSpec.lean#L121) · [Bessel and Fourier–Jacobi spaces](https://github.com/TomasOrtega/RH/blob/a6ac91a412dcbaab31801355ec5707024a71bf65/extracted/lean/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/ExistsWeilDatumAnisotropicKernelPair.lean#L24)
+
+Use the free $\mathcal O_K$-lattices in these bases, the standard additive character of $\mathbb A/\mathbb Q$, and self-dual additive measures. Take trivial splitting characters for even-dimensional spaces. For an odd-dimensional space choose a unitary extension $\eta$ of $\chi_{-23}$. One choice on principal ideals prime to $(\delta)$ is $\eta((u))=(\frac{u\bmod\delta}{23})u/|u|$. It is unchanged under $u\mapsto-u$. Write $w=(1+\delta)/2$ and choose $\mathfrak p=(13,w-5)$. Then $\mathfrak p^3=(31+12w)$, so taking the principal complex cube root of $\eta((31+12w))$ for $\eta(\mathfrak p)$ fixes an extension. Standard lattice indicators at finite places and a Gaussian on a real Schrödinger polarization give test vectors. The vanishing holds for every choice of those vectors.
+
+Write $[G]=G(\mathbb Q)\backslash G(\mathbb A)$. With $e,f_0$ the hyperbolic basis of $H$ and $\ell$ the basis of $L^-$, let $N$ be the unipotent radical stabilizing $Ke$ in $U(V)$. Set $n\ell=\ell+u(n)e$ and $\xi_N(n)=\mathbf e(\operatorname{Tr}_{K/\mathbb Q}u(n))$. Embed $U(I_a)$ by the identity on $H\oplus L^-$. For the nonzero automorphic function $F(v)=\nu(\det v)$ on $[U(V')]$, define
+
+$$
+B_1(f)(g)=\int_{[U(I_a)]}\!\int_{[N]} i(f)(h)\overline{\xi_N(n)}
+\bigl(\Theta_{W\to V,\Phi_1}\Theta_{V'\to W,\Phi_2}F\bigr)(n\iota(h)g)\,dn\,dh .
+$$
+
+Here $\Theta_{A\to B,\Phi}F(b)=\int_{[U(A)]}F(a)\sum_x(\omega(a,b)\Phi)(x)\,da$ in a rational Schrödinger polarization. This is the rank-one Bessel integral of a double lift on the left of the source unfolding. The chosen terminal determinant character is bounded and need not be rapidly decreasing. The inner integral converges absolutely: in the doubled unitary group the Siegel rank is $e_0=b+2$ and $(c+1)-\operatorname{Witt}(V')=c>e_0$ in both models. Weil convergence applied to the product of the theta kernel with its conjugate gives square integrability, then absolute integrability by finite volume. [Double-step integrand](https://github.com/TomasOrtega/RH/blob/a6ac91a412dcbaab31801355ec5707024a71bf65/extracted/lean/src/Development/AbelianVarietyTheory/Definitions/LatticeFrames/IsQuasiFam.lean#L77) · [Quotient-integral formulation](https://github.com/TomasOrtega/RH/blob/a6ac91a412dcbaab31801355ec5707024a71bf65/extracted/lean/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/BesselPeriodDoubleStepIteratedQuotientIntegral.lean#L56) · [Column-period identity](https://github.com/TomasOrtega/RH/blob/a6ac91a412dcbaab31801355ec5707024a71bf65/extracted/lean/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/QEqColPer.lean#L21) · [Gan–Qiu–Takeda, §3.2](https://arxiv.org/pdf/1207.4709#page=14)
+
+### Hecke action and vanishing
+
+Put $D_z=\iota(zI_a)$. Since $a\equiv1\pmod3$ in both models, right translation of the determinant pullback by $zI_a$ and its inverse gives $i(Sf)$ after summation. Changing $h$ in the integral proves, for any convergent endpoint and every $g$,
+
+$$
+B_1(Sf)(g)=B_1(f)(D_zg)+B_1(f)(D_z^{-1}g).
+$$
+
+This is the Hecke action of the embedded torus on the period row. At $g=1$ it acts on the first Schwartz vector by $\omega(D_z,1)+\omega(D_z^{-1},1)$. In the $1,4,7$ model this is $13^3\Phi_1(D_z^{-1}X)+13^{-3}\Phi_1(D_zX)$ on $4\times6$ matrices. The ambient spherical action has a separate description on the definite theta lifts in dimensions $76,94,112$. With the trivial splittings the split matrix action is $\omega(g,h)\Phi(X)=|\det g|^{-b/2}|\det h|^{a/2}\Phi(g^{-1}Xh)$ for a pair of ranks $a,b$. Simultaneous central translation acts trivially. Thus the central spherical correspondence $R_{13I_{112}}+R_{13^{-1}I_{112}}$ transfers $S$ through both lifts. The embedded $D_z$ on the lower Bessel group fixes its complementary three-dimensional subspace. [Split matrix model, Mínguez, §1.4](https://www.numdam.org/item/10.24033/asens.2080.pdf)
+
+For the inner lift let $d=c+1$, $e_0=b+2$ and $k_v=\mathbb Q_{13}$. Its large factor $G=\mathrm{GL}_d(k_v)$ acts on $\mathcal S(M_{d,e_0}(k_v))$ by $|\det g|^{-e_0/2}\Phi(g^{-1}X)$. Its splitting character on this factor is trivial because the chosen character for $W$ is trivial. With all other data fixed, a nonzero global lift would give a local functional transforming by $\nu_{13}^{-1}\circ\det$.
+
+Filter the matrix space by rank $j$. On each stratum, fixing the kernel leaves the space of injective $d\times j$ matrices, a single $G$-orbit. Lebesgue measure on that orbit transforms in the normalized model by $|\det|^{j-e_0/2}$. Any relatively equivariant distribution must have the same character on the stabilizer, by Frobenius reciprocity. Since $j\le e_0<d$, the standard stabilizer contains a diagonal matrix of determinant $13$ acting identically on the image. It would require $\nu_{13}(13)^{-1}=13^{e_0/2-j}$, impossible on every stratum. The kernel Grassmannian has local trivializations, and the rank filtration of compactly supported locally constant functions exhausts the matrix space. Hence the local Hom space is zero. The inner theta lift and $B_1(P\delta_1)$ vanish for every test vector. This obstruction occurs before evaluation of the Bessel functional.
+
+For comparison, twist the action on the large factor by $\nu_{13}^{-1}\circ\det$. With $j=e_0/2$, integration of $\Phi([Y\;0])$ over $M_{d,j}(k_v)$ now gives an equivariant functional taking the value $1$ on the standard lattice indicator. The Jacobian cancels the modulus in the Weil action. The character $x\mapsto\nu(x/\bar x)$ on $\mathbb A_K^\times$ is trivial on rational idèles and permits this change of splitting. Twisting the large-group action globally by $\nu^{-1}\circ\det$ cancels $F(v)=\nu(\det v)$ in the inner theta integral. A terminal representation with a compatible local theta quotient and a surviving global cubic period is the next problem.
+
 ## 2026-11-21 · Revision `2026-11-21.16`
 
 Folios 514u–514x are pages 557–560 of the [1,060-page edition][pdf16]. Section 12.3 restricts the product of the outer norms to a squarefree integer and groups all its factorizations into a single divisor weight. [Open proof obligation](OPEN_PROBLEMS.md)
