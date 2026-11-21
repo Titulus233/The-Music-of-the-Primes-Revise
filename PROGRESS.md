@@ -2,11 +2,11 @@
 
 ## 2026-11-21 · The cubic Bessel period at 13
 
-**The determinant character gives a zero double-step row for every Schwartz vector in the relative models below.** The first descending theta lift already has zero local Hom space at 13. Changing the splitting can restore a nonzero local functional, while cancelling the terminal cubic character in the global integral. A global row retaining that character remains open. [Manuscript audit and original statement of the period problem](https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/3eeb84b) · [Active problem](OPEN_PROBLEMS.md)
+**The determinant character gives a zero double-step row for every Schwartz vector in the relative models below.** The first descending theta lift already has zero local Hom space at 13. Changing the splitting can restore a nonzero local functional, while cancelling the terminal cubic character in the global integral. A global row retaining that character remains open. [Proof commit](https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/e1c8d0eb94444da08beb4e3dd2f6459a88b9e697) · [Manuscript audit and statement of the period problem](https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/3eeb84b) · [Active problem](OPEN_PROBLEMS.md)
 
 ### Spaces and the period
 
-Write $K=\mathbb Q(\delta)$, $\delta=\sqrt{-23}$, $T=U(1)$ and $\nu(t)=\psi([\mathfrak a(t)])$ for the character of $T(\mathbb A)$ read from the fractional ideal of a norm-one idèle. A prime $\mathfrak p\mid13$ generates the class group. The local element $z=(13,13^{-1})$ represents $[\mathfrak p/\bar{\mathfrak p}]=r^2$ for $r=[\mathfrak p]$, so $\nu_{13}(13)$ is a primitive cube root of unity. [Serre, §5.3](https://www.math.mcgill.ca/goren/SeminarOnCohomology/Serre.pdf)
+Write $K=\mathbb Q(\delta)$, $\delta=\sqrt{-23}$, $T=U(1)$ and $\nu(t)=\psi([\mathfrak a(t)])$ for the character of $T(\mathbb A)$ read from the fractional ideal of a norm-one idèle. The finite torus quotient by its maximal compact subgroup maps isomorphically to $C_3$. The ideal of $x/\bar x$ has square class $[\mathfrak a(x)]^2$, and squaring is bijective on $C_3$. A principal ideal of a norm-one idèle has a generator of norm one since that norm is a positive rational unit at every finite prime. A prime $\mathfrak p\mid13$ generates the class group. The local element $z=(13,13^{-1})$ represents $[\mathfrak p/\bar{\mathfrak p}]=r^2$ for $r=[\mathfrak p]$, so $\nu_{13}(13)$ is a primitive cube root of unity. [Serre, §5.3](https://www.math.mcgill.ca/goren/SeminarOnCohomology/Serre.pdf)
 
 Let $I_a$ denote the positive identity Hermitian form, $H$ the hyperbolic plane with Gram matrix $\left(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\right)$, and $L^-=\langle-1\rangle$. The definite spaces have Gram matrices $I_a,\delta I_b,I_c$. The two dual pairs used in the descending integral are $(U(V),U(W))$ and $(U(W),U(V'))$, where
 
@@ -18,7 +18,7 @@ The choice $(a,b,c)=(1,4,7)$ starts on the torus. The choice $(76,94,112)$ uses 
 
 Use the free $\mathcal O_K$-lattices in these bases, the standard additive character of $\mathbb A/\mathbb Q$, and self-dual additive measures. Take trivial splitting characters for even-dimensional spaces. For an odd-dimensional space choose a unitary extension $\eta$ of $\chi_{-23}$. One choice on principal ideals prime to $(\delta)$ is $\eta((u))=(\frac{u\bmod\delta}{23})u/|u|$. It is unchanged under $u\mapsto-u$. Write $w=(1+\delta)/2$ and choose $\mathfrak p=(13,w-5)$. Then $\mathfrak p^3=(31+12w)$, so taking the principal complex cube root of $\eta((31+12w))$ for $\eta(\mathfrak p)$ fixes an extension. Standard lattice indicators at finite places and a Gaussian on a real Schrödinger polarization give test vectors. The vanishing holds for every choice of those vectors.
 
-Write $[G]=G(\mathbb Q)\backslash G(\mathbb A)$. With $e,f_0$ the hyperbolic basis of $H$ and $\ell$ the basis of $L^-$, let $N$ be the unipotent radical stabilizing $Ke$ in $U(V)$. Set $n\ell=\ell+u(n)e$ and $\xi_N(n)=\mathbf e(\operatorname{Tr}_{K/\mathbb Q}u(n))$. Embed $U(I_a)$ by the identity on $H\oplus L^-$. For the nonzero automorphic function $F(v)=\nu(\det v)$ on $[U(V')]$, define
+Write $[G]=G(\mathbb Q)\backslash G(\mathbb A)$. With $e,f_0$ the hyperbolic basis of $H$ and $\ell$ the basis of $L^-$, let $N$ be the unipotent radical stabilizing $Ke$ in $U(V)$. Set $n\ell=\ell+u(n)e$ and $\xi_N(n)=\mathbf e(\operatorname{Tr}_{K/\mathbb Q}(\delta u(n)))$. Embed $U(I_a)$ by the identity on $H\oplus L^-$. For the nonzero automorphic function $F(v)=\nu(\det v)$ on $[U(V')]$, define
 
 $$
 B_1(f)(g)=\int_{[U(I_a)]}\!\int_{[N]} i(f)(h)\overline{\xi_N(n)}
@@ -45,7 +45,7 @@ For comparison, twist the action on the large factor by $\nu_{13}^{-1}\circ\det$
 
 ## 2026-11-21 · Revision `2026-11-21.16`
 
-Folios 514u–514x are pages 557–560 of the [1,060-page edition][pdf16]. Section 12.3 restricts the product of the outer norms to a squarefree integer and groups all its factorizations into a single divisor weight. [Open proof obligation](OPEN_PROBLEMS.md)
+Folios 514u–514x are pages 557–560 of the [1,060-page edition][pdf16]. Section 12.3 restricts the product of the outer norms to a squarefree integer and groups all its factorizations into a single divisor weight. [Archived interval criterion][f514x]
 
 | Folios and equations | Result | Commit |
 | --- | --- | --- |
