@@ -52,7 +52,7 @@
 \afterfolio{489}{a,b}
 \afterfolio{495}{a,b}
 \afterfolio{508}{a}
-\afterfolio{514}{a,b,c,d,e,f,g,h,i,j}
+\afterfolio{514}{a,b,c,d,e,f,g,h,i,j,k,l,m,n}
 \afterfolio{518}{a,b,c,d,e,f,g,h,i,j}
 \afterfolio{520}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v}
 \afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,al,am,an,ao}
@@ -143,7 +143,7 @@ the closed strip. The last sum includes every missing boundary copy.
 \pagelink{488a}{488a--d}, \pagelink{488e}{488e--f}, \pagelink{489a}{489a--b} & Finite levels exhaust the component even when all primes up to a growing bound are imposed together.\\[3pt]
 \pagelink{495}{495--495b} & A counterexample at $2$ and an obstruction to recovering two prime traces with a fixed lift.\\[3pt]
 \pagelink{508a}{508a}, \pagelink{518a}{518a--f}, \pagelink{518g}{518g--j} & Cutoff lifts, \pagelink{518i}{a uniform Hecke trace at moving prime norms} and \pagelink{518j}{growth in the narrow Hilbert space}.\\[3pt]
-\pagelink{514a}{514a--e}, \pagelink{514f}{514f--j}, \pagelink{520}{520} & \pagelink{514h}{A direct bound for the two traces}, finite prime weights and \pagelink{520s}{their recovery on narrow strips}.\\[3pt]
+\pagelink{514a}{514a--e}, \pagelink{514f}{514f--j}, \pagelink{514k}{514k--n} & \pagelink{514h}{The scalar trace difference} and \pagelink{514n}{the one-sided mean that suffices on arbitrarily distant intervals}.\\[3pt]
 \pagelink{520c}{520c--n}, \pagelink{522i}{522i--m} & The balanced prime sum and a one-sided criterion counting only principal prime ideals over totally imaginary fields.\\[3pt]
 \pagelink{522}{522--522e}, \pagelink{522f}{522f--h} & The prime-sum criterion, the Chapter~13 test space and a CM curve for which the cap loses multiplicity.\\[3pt]
 \pagelink{522n}{522n--o}, \pagelink{522p}{522p--v} & Square-root fluctuations in the cubic splitting count.\\[3pt]
@@ -1755,6 +1755,182 @@ term costs $e^{t/2}\int_0^\infty u^2 e^{-c\Psi(t+u)}\dd u
 halving $c$. This rate at unbounded scales still has limiting power
 $1/2$. For arbitrarily small fixed $\alpha$ the bound in (19)
 remains open.
+
+\leaf{514k}{The kernel for the fixed test}{12.3 \quad THE RANGE OF THE TWO IDEAL NORMS}{Decay outside a logarithmic range}
+Fix a normalized unitary Hecke character $\chi$ over a field $F$ of
+degree $D$. Use $g=(\partial_x+1/2)^3h_*$ with $h_*$ from (20u).
+For the kernel $K_2$ on \pg{514g} there are $c,C>0$ depending only
+on $F,\chi$ and this test such that
+\[
+                 |K_2(y)|\le C\exp(-c y^{1/(4D)})\qquad(y\ge1).
+                 \tag{17.4f}
+\]
+In particular, write $\ell_X=\log(2X)$ and $H_X=e^{-1}\ell_X^{4D+1}$.
+Among all pairs $d,n\le e\sqrt X$, those with $dn\le X/H_X$ make
+an absolute contribution $O_{A,F,\chi}(X^{-A})$ to the normalized
+sum in (17.4b), for every fixed $A>0$. Each retained norm therefore
+exceeds $\sqrt X/\ell_X^{4D+1}$. Within $K_2(X/(dn))$ the inner
+ideal-product norm is at most $e^{7/4}H_X$, by the support of $g$.
+
+\point{Proof of the decay}
+The Mellin weight of $g$ is $V_g(z)=(1-z)^3H_*(z-1/2)$.
+The possible pole of $-L_\chi L_\chi'$ at one has order at most
+three, so the residue defining $K_2$ vanishes. On $z=-k+it$,
+for integers $k\ge1$, the product on \pg{520o} gives
+\[
+ |V_g(-k+it)|\ll (1+k+|t|)^3 e^{-5k/4-c_0\sqrt{|t|}} .
+\]
+Indeed each uniform factor on that page is an integral of
+$e^{a_j(1/2-k+it)u}$ for $0\le u\le1$, of modulus at most
+$\min(1,2/(a_j|t|))$ for $t\ne0$. The first
+$\lfloor\sqrt{|t|}/4\rfloor$ factors are at most $1/2$ for large
+$|t|$. The prefactor supplies $e^{-5k/4}$.
+
+Move the Mellin integral to $\Re z=-k$. By (20f), the product of
+the two Hecke factors there is bounded by
+$C_1^{k+1}(1+k+|t|)^{2Dk+C_2}$. Integrating against the preceding
+weight gives $|K_2(y)|\le C_3 k^{C_4}(C_3 k^{4D}/y)^k$ for large
+$k$. Here the moment of $|t|^m e^{-c_0\sqrt{|t|}}$ on the positive
+half-line is $2c_0^{-2m-2}\Gamma(2m+2)$. Take
+$k=\lfloor c_1y^{1/(4D)}\rfloor$ with small fixed $c_1>0$.
+On the discarded pairs $y\ge H_X$, so the exponential saves
+$\exp(-c'\ell_X^{1+1/(4D)})$. This absorbs the $O(X)$ pairs and
+their divisor bounds from \pg{514g}.
+
+\leaf{514l}{The signed sum on an interval}{12.3 \quad A LOCAL LOWER BOUND FROM AN EXTERIOR ZERO}{How a zero forces a positive contribution}
+At fixed $0<\alpha<1/2$ denote the remaining arithmetic sum by
+\[
+ Q_{\alpha,\chi}(X)=\frac1{\sqrt X}
+ \sum_{\substack{d,n\le e\sqrt X,\ dn>X/H_X\\ |d-n|>X^\alpha}}
+ u_\chi(d)u_\chi(n)K_2\!\left(\frac{X}{dn}\right).
+ \tag{17.4g}
+\]
+Equations (17.4d) and (17.4f) give
+$\Delta_{\alpha,\chi,g}(X)=Q_{\alpha,\chi}(X)+O_\epsilon(X^{\alpha+\epsilon})$
+for every $\epsilon>0$, with $F,\chi,\alpha$ fixed. In fact the two
+arithmetic sums in (17.4d) and (17.4g) differ by $O_A(X^{-A})$
+at each sufficiently large $X$, since the retained indices exceed
+$X^{1/4}$ there.
+
+Write $[r]_+=\max(r,0)$. If an exterior zero has centered real part
+greater than $\alpha$, there is a centered zero of this character or
+its conjugate with real part $b>\alpha$ such that, for every sufficiently
+large $Y$,
+\[
+ \frac1{\log Y}\int_Y^{Y^2}
+          \frac{[\Re Q_{\alpha,\chi}(X)]_+}{X^b}\frac{\dd X}{X}
+              \gg_{\chi,\alpha,b,\gamma} \frac1{\sqrt{\log Y}} .
+ \tag{17.4h}
+\]
+Here $\gamma$ is the ordinate used below. The lower bound holds for
+the positive part of the real component even for a complex character.
+
+\point{The spectral coefficients and their signs}
+Let $B(t)=\Re(G_{\alpha,\chi}-W_\chi)(g_t)$ for $t\ge0$.
+Set $d_\lambda=m_\lambda-n_{\alpha,s}(\lambda)$, with zero value
+off the centered zero set of $\chi$. Extend $B$ to all real $t$ by
+the real part of (18). Since $g$ is real this is
+\[
+ B(t)=\sum_\lambda a_\lambda e^{\lambda t},\qquad
+ a_\lambda=\tfrac12(d_\lambda+d_{\bar\lambda})
+                    (1/2-\lambda)^3 H_*(\lambda).
+\]
+Sum over the union with the conjugate zero set, retaining only
+nonzero coefficients. The transform in (20u) detects each exterior
+zero, and $a_\lambda>0$ for every retained real $\lambda$.
+Also $\sum |a_\lambda|<\infty$ and $|B(t)|\ll e^{|t|/2}$.
+By (17.11) and (17.4g),
+$B(t)-\Re Q_{\alpha,\chi}(e^t)=O_\epsilon(e^{(\alpha+\epsilon)t})$
+as $t\to\infty$. Choose an ordinate $\gamma$ of an exterior zero
+on the right and take $b$ maximal at that ordinate in this sum.
+There are finitely many candidates and $a_{b+i\gamma}\ne0$.
+
+\leaf{514m}{A positive averaging measure}{12.3 \quad LOCALIZATION AT THE ORDINATE OF A ZERO}{Isolating one coefficient with a positive weight}
+Fix $\kappa=1/512$ and write $\Phi(w)=w+\kappa w^2$. For the two
+frequencies $v=0,\gamma$ put $w=\lambda-b-iv$. Since $|\Re w|<1$,
+only finitely many nonreal $w$ have $\Re\Phi(w)\ge-1$.
+Construct a compactly supported probability measure $\nu$ on $\R$
+whose transform $M(w)=\int e^{wx}\dd\nu(x)$ vanishes at all these
+nonreal points. For each such $w=u+iy$ take $s=\pi/|y|$ and
+convolve the two-point probabilities
+\[
+                  \frac{\delta_0+e^{-us}\delta_s}{1+e^{-us}}.
+\]
+The corresponding factor of $M(w)$ is zero since $e^{iys}=-1$.
+The empty convolution is $\delta_0$. In all cases $M(0)=1$ and
+$M(u)>0$ for real $u$.
+
+For $T\ge1$ convolve $\nu$ with the Gaussian density of mean $T$
+and variance $2\kappa T$, and call the resulting density $W_T$.
+Its mass is one. The two integrals
+\[
+ I_v(T)=\int_{\R} W_T(t)e^{-(b+iv)t}B(t)\dd t
+       =\sum_\lambda a_\lambda M(w)e^{T\Phi(w)}
+\]
+follow from the Gaussian moment formula. Absolute summability of
+the coefficients and their bounded real parts justify the exchange.
+The transform $M$ is bounded on $|\Re w|\le1$. Thus the surviving
+nonreal $w$ contribute $O(e^{-T})$ to each integral.
+
+In $I_0$ all terms with real $w$ are nonnegative, by the real
+coefficient sign on \pg{514l}. Hence $I_0(T)\ge-C e^{-T}$.
+In $I_\gamma$ the real $w$ come from the finitely many zeros at the
+chosen ordinate. The term at $w=0$ equals $a_{b+i\gamma}$.
+The others have $-1<w<0$ and $\Phi(w)<0$, so
+$I_\gamma(T)\to a_{b+i\gamma}$. This includes $\gamma=0$.
+
+For $f(t)=e^{-bt}B(t)$ the nonnegative density now gives
+\[
+ \int W_T(t)[f(t)]_+\dd t
+   =\tfrac12\left(\int W_T(t)|f(t)|\dd t+ I_0(T)\right)
+   \ge \tfrac12\bigl(|I_\gamma(T)|+I_0(T)\bigr).
+\]
+The right side stays bounded below by a positive constant for all
+sufficiently large $T$. The averaging measure is used only to prove
+this implication of a hypothetical zero.
+
+\leaf{514n}{The remaining arithmetic estimate}{12.3 \quad A ONE-SIDED ESTIMATE ON SPARSE WINDOWS}{An average on arbitrarily distant intervals suffices}
+Since $\nu$ has fixed compact support,
+$W_T(t)\ll T^{-1/2}\exp(-(t-T)^2/(8\kappa T))$.
+Outside $J_T=[2T/3,4T/3]$, the growth bound on \pg{514l} gives
+$|f(t)|\ll e^{|t|}\le e^{4|t-T|}$. Our choice of $\kappa$ leaves
+$\int_{\R\setminus J_T}W_T|f|\ll e^{-cT}$ with $c>0$.
+On $J_T$ the density is at most $C/\sqrt T$, so the positive lower
+bound on \pg{514m} gives
+\[
+                   \int_{J_T} e^{-bt}[B(t)]_+\dd t\gg\sqrt T .
+\]
+Replace $B(t)$ by $\Re Q_{\alpha,\chi}(e^t)$ using \pg{514l} with
+$\epsilon=(b-\alpha)/2$. The positive-part function is
+$1$-Lipschitz, so the weighted integral changes by $O(e^{-c'T})$.
+Setting $Y=\exp(2T/3)$ proves (17.4h) for every sufficiently large $Y$.
+
+\point{The arithmetic bound}
+At each fixed width $\alpha$, all zeros of the component lie in the
+closed strip if and only if, for every $\epsilon>0$,
+\[
+ \liminf_{Y\to\infty}
+ \frac1{\log Y}\int_Y^{Y^2}
+      \frac{[\Re Q_{\alpha,\chi}(X)]_+}{X^{\alpha+\epsilon}}
+          \frac{\dd X}{X}<\infty .
+ \tag{17.4i}
+\]
+Indeed an exterior zero gives $b>\alpha$ by reflection and
+\pg{514l}. For $0<\epsilon<b-\alpha$, (17.4h) bounds the mean in
+(17.4i) below by $cY^{b-\alpha-\epsilon}/\sqrt{\log Y}$ on
+\emph{every} sufficiently distant interval. Conversely, when all
+zeros are in the strip, (18) leaves only missing boundary copies,
+and $B(t)=O(e^{\alpha t})$. The comparison on \pg{514l} with
+$\epsilon/2$ bounds the mean by $O(Y^{-\epsilon/2})$.
+
+Thus an independent arithmetic upper bound for this positive mean
+along any sequence $Y\to\infty$ would suffice. The sequence can
+depend on the character, the width and $\epsilon$. One sequence of
+fixed widths $\alpha\downarrow0$ gives zero location for the
+component. By (36) it suffices to treat the trivial character and
+the normalized infinite-order characters of finite conductor one over
+totally imaginary fields Galois over $\Q$. The required arithmetic
+upper bound on those intervals remains open.
 
 \sourcepages{515}{515}{}
 \sourcepages{516}{518}{For cutoff domains and the trace with a growing set of places see pages 518a--518j.}
