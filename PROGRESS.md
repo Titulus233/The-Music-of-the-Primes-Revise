@@ -1,5 +1,76 @@
 # Proof progress
 
+## 2026-11-21 · Revision `2026-11-21.12`
+
+Folios 518g–518j are pages 552–555 of the [1,041-page edition][pdf12]. The finite-place cutoff is $Y=e^2X$ and the real parameter $L$ measures cutoff width in the logarithm of the norm.
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [518i · (17.11)][f518i] | For every fixed unitary Hecke character over a number field, the semilocal trace with the specified two cutoffs differs from the full Weil distribution of the translated test by $O(Y/L)$. Setting $L=X^{1+A}$ yields $O(X^{-A})$ at all translates. The proof uses the local gamma and Euler factors and Chebyshev’s prime bound independently of the global zero sum. | [c50ccd1][joint] |
+| [518j · (17.12)][f518j] | For ordinary zeta the semilocal Fourier transforms of the same nonnegative smooth input have weighted norm at least a constant times $\exp(c_bY^{1/2+b}/\log Y)$ at every $0<b<\alpha<1/2$. Their scalar traces approximate the Weil distribution, but the transforms do not converge on this test in the narrow weighted Hilbert space. Equation (19) still requires a comparison with its arithmetic projection. | [c50ccd1][joint] |
+| [518h · (17.10)][f518h] | The first-order term is the Weil distribution times the negative integral of the first cutoff’s derivative against the reflected second cutoff. Explicit smooth profiles give coefficient one. Two even profiles give zero in this dilation limit. | [c50ccd1][joint] |
+| [518g · extension of (17.8)–(17.9)][f518g] | Tate’s local equations descend additive Fourier transformation to the centered norm line for each unitary Hecke character, using smooth compact lifts on the semilocal quotient. | [c50ccd1][joint] |
+
+[joint]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/c50ccd138c29a89f800a8740d16b49a525fd52d6
+[pdf12]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/c50ccd138c29a89f800a8740d16b49a525fd52d6/output/pdf/the-music-of-the-primes-revised.pdf
+[f518g]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/c50ccd138c29a89f800a8740d16b49a525fd52d6/src/the-music-of-the-primes-revised.tex#L1804
+[f518h]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/c50ccd138c29a89f800a8740d16b49a525fd52d6/src/the-music-of-the-primes-revised.tex#L1851
+[f518i]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/c50ccd138c29a89f800a8740d16b49a525fd52d6/src/the-music-of-the-primes-revised.tex#L1888
+[f518j]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/c50ccd138c29a89f800a8740d16b49a525fd52d6/src/the-music-of-the-primes-revised.tex#L1930
+
+## 2026-11-21 · Revision `2026-11-21.11`
+
+Folios 518b–518f are pages 547–551 of the [1,037-page edition][pdf11]. The statements concern Step II on original folio 516 and the trace at a finite set of places in Theorem 12.4.1.1.
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [518f · (17.9)][f518f] | On the rational semilocal quotient, the logarithm of the norm and its additive Fourier conjugate give the real and finite Weil terms as one localized trace. This holds for every translate once the set contains the conductor primes and the primes seen by the test. | [d7b1531][semilocal] |
+| [518e · (17.8)][f518e] | Tate’s local functional equations give a unitary Fourier operator after theta descent. The trace with two smooth compact norm cutoffs is an absolutely convergent integral of the ratio of its Fourier factors at two frequencies. | [d7b1531][semilocal] |
+| [518c · (17.6)][f518c] and [518d · (17.7)][f518d] | Every two-sided smooth cutoff of a rational semilocal theta function has an explicit polar-free lift. For a Gaussian and $r$ finite primes, the one-sided cutoff preserves a leading term proportional to $\log^r(1/y)$ at small norm $y$. No polar-free lift can have this asymptotic. | [d7b1531][semilocal] |
+| [518b · (17.5)][f518b] | A continuous multiplier invariant under the diagonal action of $p$ on $\mathbb R\times\mathbb Q_p$ is constant if it carries the Gaussian times the unit ball indicator into the additive Schwartz–Bruhat space. The cutoff and its Fourier conjugate therefore fail the mapping asserted on folio 516. | [d7b1531][semilocal] |
+
+[semilocal]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/d7b15313b1de29afa474b83b804efe50f125cc58
+[pdf11]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/d7b15313b1de29afa474b83b804efe50f125cc58/output/pdf/the-music-of-the-primes-revised.pdf
+[f518b]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/d7b15313b1de29afa474b83b804efe50f125cc58/src/the-music-of-the-primes-revised.tex#L1601
+[f518c]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/d7b15313b1de29afa474b83b804efe50f125cc58/src/the-music-of-the-primes-revised.tex#L1640
+[f518d]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/d7b15313b1de29afa474b83b804efe50f125cc58/src/the-music-of-the-primes-revised.tex#L1680
+[f518e]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/d7b15313b1de29afa474b83b804efe50f125cc58/src/the-music-of-the-primes-revised.tex#L1717
+[f518f]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/d7b15313b1de29afa474b83b804efe50f125cc58/src/the-music-of-the-primes-revised.tex#L1763
+
+## 2026-11-21 · Revision `2026-11-21.10`
+
+Folios 520s–520v are pages 567–570 of the [1,032-page edition][pdf10]. They compare the arithmetic projection of Chapter 10 directly with the prime weights in (17.4).
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [520v · (20aa)][f520v] | Small neighborhoods of all prime-power norms in one translate recover the entire finite-place sum up to $O(X^{-A})$ for any prescribed $A>0$. For zeta, fixed primitive Dirichlet characters and imaginary quadratic ideal class characters this also holds at half-width $1/\log X$. Equation (19) reduces to a bound on the test left after removing those neighborhoods. | [0ed27d3][jumps] |
+| [520u · (20z)][f520u] | A test of height one shrinking to $\log n$ gives the limit $\Lambda_\chi(n)/\sqrt n$ for the global distribution. The trace of the projected convolution has the opposite limit. At all integer norms the error can be made $o(n^{-1/2})$ with a single power-law choice of radius at fixed width. | [0ed27d3][jumps] |
+| [520t · range of (20y)][f520t] | The zero-density input holds for the three families above at every fixed positive half-width below $1/2$. For arbitrary Hecke characters the log-free density theorem gives an explicit condition on the strip in terms of its density exponent. | [0ed27d3][jumps] |
+| [520s · (20y)][f520s] | A count $O(T^{1-\delta}\log^B T)$ for the omitted copies gives a defect $O(\sqrt{x}\,r^\delta\log^B(3/r))$ for a smooth test centered at log norm $\log x$ with radius $r$. The defect has a continuous primitive. Both assertions include omitted boundary multiplicities. | [0ed27d3][jumps] |
+
+[jumps]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/0ed27d39e765e328893116eb8c7ab38d0b23b319
+[pdf10]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/0ed27d39e765e328893116eb8c7ab38d0b23b319/output/pdf/the-music-of-the-primes-revised.pdf
+[f520s]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/0ed27d39e765e328893116eb8c7ab38d0b23b319/src/the-music-of-the-primes-revised.tex#L2478
+[f520t]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/0ed27d39e765e328893116eb8c7ab38d0b23b319/src/the-music-of-the-primes-revised.tex#L2521
+[f520u]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/0ed27d39e765e328893116eb8c7ab38d0b23b319/src/the-music-of-the-primes-revised.tex#L2564
+[f520v]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/0ed27d39e765e328893116eb8c7ab38d0b23b319/src/the-music-of-the-primes-revised.tex#L2604
+
+## 2026-11-21 · Revision `2026-11-21.9`
+
+Folios 514c–514e are pages 539–541 of the [1,028-page edition][pdf9]. The cutoffs act on the weighted norm line used for the arithmetic quotient in Chapter 10.
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [514e · (17.4)][f514e] | The left endpoint gives every positive finite-place term for every translate with source cutoff $Y=e^2X$. One prime already requires $Y$ of order $X$ along a sequence. The two endpoints together have zero trace. Comparison with the global projection to the precision of (19) remains open. | [ecaa340][edge] |
+| [514d · (17.3)][f514d] | For a finite set of unramified prime ideals, ideal Möbius inversion turns the endpoint trace into the sum over prime ideal powers. It holds at every strip width, including the full width, and every Sobolev degree $s\ge0$. | [ecaa340][edge] |
+| [514c · (17.1)–(17.2)][f514c] | Fourier transformation of local balls determines both signs of the prime distribution. On the weighted line a half-line commutator gives its positive part as an ordinary trace at widths below $1/2$. | [ecaa340][edge] |
+
+[edge]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/ecaa340b043c1de031fdec792eb528931f80ed64
+[pdf9]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/ecaa340b043c1de031fdec792eb528931f80ed64/output/pdf/the-music-of-the-primes-revised.pdf
+[f514c]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/ecaa340b043c1de031fdec792eb528931f80ed64/src/the-music-of-the-primes-revised.tex#L1424
+[f514d]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/ecaa340b043c1de031fdec792eb528931f80ed64/src/the-music-of-the-primes-revised.tex#L1464
+[f514e]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/ecaa340b043c1de031fdec792eb528931f80ed64/src/the-music-of-the-primes-revised.tex#L1509
+
 ## 2026-11-21 · Revision `2026-11-21.8`
 
 Folios 520o–520r are pages 560–563 of the [1,025-page edition][pdf8]. All four statements use the same fixed test. The logarithmic translation is $\tau=\log X$.
