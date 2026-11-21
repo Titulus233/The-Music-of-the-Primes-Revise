@@ -1,5 +1,15 @@
 # Proof progress
 
+## 2026-11-21 · Revision `2026-11-21.6`
+
+Folios 522ak–522am are pages 598–600 of the [1,019-page edition][pdf6]. Near prime norm $X$, an interval of log length $1/U$ has ordinary length of order $X/U$.
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [522am · (59)][f522am] | For any prescribed $U=X^{o(1)}\ge1$, a normalized short-interval variance of $O_{\chi,h,U,\epsilon}(X^\epsilon)$ for every $\epsilon>0$ is equivalent to RH for the fixed character. For $U=X^\theta$, the same upper bound confines every nontrivial zero to within $\theta/2$ of the critical line. The estimate for $U=\exp(\sqrt{\log X})$ remains open. | [9abdc42][variance] |
+| [522al · (58)][f522al] | Integrating squared local prime counts gives a triangular kernel on pairs and a squared sinc weight in frequency. Distinct pairs enter only at log distance at most $1/U$. Their total contribution, including the continuous pole subtraction when present, has absolute value $O_{F,h}(X/U)$. | [9abdc42][variance] |
+| [522ak · (57)][f522ak] | On every frequency interval of length $U\ge X/\log X$ the unweighted mean square is $O_{F,h}(\log X)$. If $U\log X/X\to\infty$, its leading term is $r_\chi J(0)\log X$, uniformly in the position of the interval. The two-prime sieve controls the error for a smooth frequency weight. | [9abdc42][variance] |
+
 ## 2026-11-21 · Revision `2026-11-21.5`
 
 Folios 522ah–522aj are pages 595–597 of the [1,016-page edition][pdf5]. The field and Hecke character stay fixed. The mean is over the real frequency $v$ of the norm twist in $[U,2U]$.
@@ -63,6 +73,11 @@ The [1,002-page edition][pdf1] records the following results. Folio numbers are 
 | [446–446d · (4)–(9), original Theorem 10.2.2.1][f446] | Translates of an arithmetic theta generator span the closed space defined by the zero conditions. Formula (4) gives the exact boundary multiplicity at every strip width and Sobolev degree, including width zero. | [4a9ad57][edition] |
 | [29 · (1)–(3)][f29] | Translating a compactly supported test and taking a Laplace transform produces a pole at each omitted zero. Equality of the full and narrow traces on all these tests forces the omitted set to be empty. | [4a9ad57][edition] |
 
+[variance]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/9abdc42fd396b4c6f3d7b8dca3a9aebf594b0881
+[pdf6]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/9abdc42fd396b4c6f3d7b8dca3a9aebf594b0881/output/pdf/the-music-of-the-primes-revised.pdf
+[f522am]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/9abdc42fd396b4c6f3d7b8dca3a9aebf594b0881/src/the-music-of-the-primes-revised.tex#L4013
+[f522al]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/9abdc42fd396b4c6f3d7b8dca3a9aebf594b0881/src/the-music-of-the-primes-revised.tex#L3974
+[f522ak]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/9abdc42fd396b4c6f3d7b8dca3a9aebf594b0881/src/the-music-of-the-primes-revised.tex#L3933
 [frequency]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/7913485a8dd1d3461711d5822d1ecc5453be52bc
 [pdf5]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/7913485a8dd1d3461711d5822d1ecc5453be52bc/output/pdf/the-music-of-the-primes-revised.pdf
 [f522aj]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/7913485a8dd1d3461711d5822d1ecc5453be52bc/src/the-music-of-the-primes-revised.tex#L3890
