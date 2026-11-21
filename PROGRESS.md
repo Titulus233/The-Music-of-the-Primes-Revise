@@ -1,5 +1,16 @@
 # Proof progress
 
+## 2026-11-21 · Revision `2026-11-21.4`
+
+Folios 522ad–522ag are pages 591–594 of the [1,013-page edition][pdf4]. The test has fixed log support throughout.
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [522ag · (53)][f522ag] | Pairs at distance at most $Y$ make an absolute contribution $O_{d,h}(Y)$. Along an unbounded sequence, pairs farther apart than a fixed positive multiple of $\log X$ supply at least half the diagonal term in negative signed contribution, with pole subtraction for the principal component. For ordinary zeta and both dihedral examples, the original correlation (45) vanishes at arbitrarily large separations. | [dbb1904][pairs] |
+| [522af · (52)][f522af] | For each fixed Hecke character and all but finitely many frequencies in $[1,2]$, the ratio of the centered distinct-pair term to the diagonal has lower limit $-1$. A finite upper bound at all sufficiently large scales is equivalent to zero location for that character. | [dbb1904][pairs] |
+| [522ae · (51)][f522ae] | The diagonal is of order $\log X$. Its leading coefficient, including the oscillation from the frequency shift, follows from the two character products on $F\otimes_{\mathbb Q} F$. | [dbb1904][pairs] |
+| [522ad · (50)][f522ad] | The square of the centered real prime sum splits exactly into the diagonal and the signed contribution from distinct pairs. The prime sum recovers the real part of the translated trace up to bounded error. | [dbb1904][pairs] |
+
 ## 2026-11-21 · Revision `2026-11-21.3`
 
 Folios 522z–522ac are pages 587–590 of the [1,009-page edition][pdf3]. Here $X$ is the central prime norm and $t=\log X$ is the separation of the two test functions.
@@ -42,6 +53,12 @@ The [1,002-page edition][pdf1] records the following results. Folio numbers are 
 | [446–446d · (4)–(9), original Theorem 10.2.2.1][f446] | Translates of an arithmetic theta generator span the closed space defined by the zero conditions. Formula (4) gives the exact boundary multiplicity at every strip width and Sobolev degree, including width zero. | [4a9ad57][edition] |
 | [29 · (1)–(3)][f29] | Translating a compactly supported test and taking a Laplace transform produces a pole at each omitted zero. Equality of the full and narrow traces on all these tests forces the omitted set to be empty. | [4a9ad57][edition] |
 
+[pairs]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/dbb190435bdd4a21e7ba4c37a3818b763af9495e
+[pdf4]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/dbb190435bdd4a21e7ba4c37a3818b763af9495e/output/pdf/the-music-of-the-primes-revised.pdf
+[f522ag]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/dbb190435bdd4a21e7ba4c37a3818b763af9495e/src/the-music-of-the-primes-revised.tex#L3758
+[f522af]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/dbb190435bdd4a21e7ba4c37a3818b763af9495e/src/the-music-of-the-primes-revised.tex#L3709
+[f522ae]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/dbb190435bdd4a21e7ba4c37a3818b763af9495e/src/the-music-of-the-primes-revised.tex#L3670
+[f522ad]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/dbb190435bdd4a21e7ba4c37a3818b763af9495e/src/the-music-of-the-primes-revised.tex#L3627
 [intervals]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/41d0a7dda379e7a0443c68e1dc35fd6c7d852266
 [pdf3]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/41d0a7dda379e7a0443c68e1dc35fd6c7d852266/output/pdf/the-music-of-the-primes-revised.pdf
 [f522ac]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/41d0a7dda379e7a0443c68e1dc35fd6c7d852266/src/the-music-of-the-primes-revised.tex#L3578
