@@ -1,5 +1,24 @@
 # Proof progress
 
+## 2026-11-21 · Revision `2026-11-21.13`
+
+Folios 514f–514j are pages 542–546 of the [1,046-page edition][pdf13]. Section 12.3 compares the global narrow-strip trace directly with the finite trace of (17.11) at $Y=e^2X$ and $L=X^2$.
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [514i · (17.4d)][f514i] | For any fixed $0<\alpha<1/2$ and $0<\eta<1/2$, all pairs except $X^{1/2-\eta}<d,e\le e\sqrt X$ with $|d-e|>X^\alpha$ are already within $O(X^{\alpha+\epsilon})$. This holds for each nonprincipal character and for the filtered principal test. An all-scale bound for the separated pairs gives (19) for the original tests. | [5b96f53][scalar] |
+| [514h · (17.4c)][f514h] | Double partial summation bounds the normalized quadratic term by a fixed kernel variation times $B_\chi(e\sqrt X)^2/\sqrt X$, where $B_\chi(T)$ is the largest absolute Möbius partial sum through $T$. A third-order differential operator removes the principal residue while retaining every nontrivial zero of the fixed detector. | [5b96f53][scalar] |
+| [514j · (17.4e)][f514j] | For zeta, Hurst’s complete sieve through $10^{16}$ bounds the filtered scalar difference by $C_g X^\alpha+eC_{1,g}^{(2)}+O_g(X^{-1/2})$ for $1\le X\le10^{32}/e^2$. At unbounded scales the cited Mertens estimate gives $O_{\alpha,h}(X^\alpha+\sqrt X\exp[-c(\log X)^{3/5}(\log\log X)^{-1/5}])$ for every original test. | [5b96f53][scalar] |
+| [514f · (17.4a)][f514f] and [514g · (17.4b)][f514g] | Squaring the error of a truncated reciprocal Euler series puts its first possible coefficient beyond the test support. The scalar trace difference becomes a finite quadratic sum of ideal Möbius coefficients, the projected convolution and an explicit principal residue. | [5b96f53][scalar] |
+
+[scalar]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/5b96f531c6139993e1e6505301e56b6480500703
+[pdf13]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/5b96f531c6139993e1e6505301e56b6480500703/output/pdf/the-music-of-the-primes-revised.pdf
+[f514f]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/5b96f531c6139993e1e6505301e56b6480500703/src/the-music-of-the-primes-revised.tex#L1549
+[f514g]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/5b96f531c6139993e1e6505301e56b6480500703/src/the-music-of-the-primes-revised.tex#L1591
+[f514h]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/5b96f531c6139993e1e6505301e56b6480500703/src/the-music-of-the-primes-revised.tex#L1638
+[f514i]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/5b96f531c6139993e1e6505301e56b6480500703/src/the-music-of-the-primes-revised.tex#L1677
+[f514j]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/5b96f531c6139993e1e6505301e56b6480500703/src/the-music-of-the-primes-revised.tex#L1719
+
 ## 2026-11-21 · Revision `2026-11-21.12`
 
 Folios 518g–518j are pages 552–555 of the [1,041-page edition][pdf12]. The finite-place cutoff is $Y=e^2X$ and the real parameter $L$ measures cutoff width in the logarithm of the norm.
