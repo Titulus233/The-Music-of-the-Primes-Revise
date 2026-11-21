@@ -52,7 +52,7 @@
 \afterfolio{489}{a,b}
 \afterfolio{495}{a,b}
 \afterfolio{508}{a}
-\afterfolio{514}{a,b}
+\afterfolio{514}{a,b,c,d,e}
 \afterfolio{518}{a}
 \afterfolio{520}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r}
 \afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,al,am,an,ao}
@@ -143,7 +143,7 @@ the closed strip. The last sum includes every missing boundary copy.
 \pagelink{488a}{488a--d}, \pagelink{488e}{488e--f}, \pagelink{489a}{489a--b} & Finite levels exhaust the component even when all primes up to a growing bound are imposed together.\\[3pt]
 \pagelink{495}{495--495b} & A counterexample at $2$ and an obstruction to recovering two prime traces with a fixed lift.\\[3pt]
 \pagelink{508a}{508a}, \pagelink{518a}{518a} & A valid rational fundamental domain and the lower-cutoff term at the real place.\\[3pt]
-\pagelink{514a}{514a--b}, \pagelink{520}{520--520b} & The full-strip formula, \pagelink{520o}{finite-height bounds for its defect} and \pagelink{520r}{a square-root prime estimate (520o--r)}.\\[3pt]
+\pagelink{514a}{514a--b}, \pagelink{514c}{514c--e}, \pagelink{520}{520} & Full-strip formula, finite-cutoff prime traces and \pagelink{520r}{a square-root prime estimate (520o--r)}.\\[3pt]
 \pagelink{520c}{520c--n}, \pagelink{522i}{522i--m} & The balanced prime sum and a one-sided criterion counting only principal prime ideals over totally imaginary fields.\\[3pt]
 \pagelink{522}{522--522e}, \pagelink{522f}{522f--h} & The prime-sum criterion, the Chapter~13 test space and a CM curve for which the cap loses multiplicity.\\[3pt]
 \pagelink{522n}{522n--o}, \pagelink{522p}{522p--v} & Square-root fluctuations in the cubic splitting count.\\[3pt]
@@ -1330,7 +1330,7 @@ integrable regular diagonal in (16).
 
 \sourcepages{509}{512}{The pointwise regularity statement for lifts is qualified on page 508a.}
 \sourcepages{513}{513}{}
-\sourcepages{514}{514}{Section 12.3 continues on page 514a. Section 12.4 concerns a fixed finite set of places.}
+\sourcepages{514}{514}{The full-strip formula and the finite-place boundary trace are on pages 514a--514e.}
 \leaf{514a}{The full critical strip}{12.3 \quad THE GLOBAL TRACE OVER THE RATIONALS}{Weil's distribution in log coordinates}
 Let $h\in C_c^\infty(\R)$ with $h(0)=0$ and
 $B(h)=H(\tfrac12)+H(-\tfrac12)$. Normalize the Haar measure on each
@@ -1420,6 +1420,131 @@ $\prod_{p\le P}(1-p^{-1/2})^{-1}\to\infty$, since $\sum_p1/p=\infty$.
 Point evaluation is continuous and nonzero there. The local trace formula
 thus supplies each prime distribution independently. Its identification
 with a shell of the global projection is the additional global assertion.
+
+\leaf{514c}{The local Fourier factor}{12.3 \quad AN UNRAMIFIED FINITE PLACE}{The prime distribution from a boundary trace}
+Let $q=N\mathfrak p$, $l=\log q$, $a=\chi_{\mathfrak p}(\varpi)$ and
+$\eta=a/\sqrt q$ as on \pg{514b}. Use an additive character of conductor
+$\mathcal O$ and its self-dual measure. For $f_m=\mathbf1_{\varpi^m\mathcal O}$,
+$m\in\Z$, orthogonality gives $\widehat f_m=q^{-m}f_{-m}$. In the
+multiplicative measure of unit volume on $\mathcal O^\times$, write
+\[
+ \mathcal M_a f(t)=\int_{F_{\mathfrak p}^\times}
+ f(x)a^{\operatorname{ord}_{\mathfrak p}(x)}|x|_{\mathfrak p}^{1/2-it}\dd^\times x .
+\]
+For $z=\eta e^{itl}$ the shell integrals give $\mathcal M_a f_m(t)=z^m/(1-z)$.
+Thus $\mathcal M_{\bar a}\widehat f_m(-t)=v(t)\mathcal M_a f_m(t)$ with
+$v(t)=(1-z)/(1-\bar z)$. Its logarithmic derivative is
+\[
+  i\,v'(t)/v(t)=l\sum_{k\ge1}
+           \big(\eta^k e^{itkl}+\bar\eta^{\,k}e^{-itkl}\big).
+ \tag{17.1}
+\]
+The series converges absolutely. Pairing it against
+$(2\pi)^{-1}\int h(x)e^{-itx}\dd x$ gives both prime-power sums on \pg{514b}.
+
+\point{A trace on the norm line}
+In $\mathcal X=L^2(\R,e^{2\alpha|x|}(1+x^2)^{s/2}\dd x)$, put
+$H_+=M_{\mathbf1_{[0,\infty)}}$ and $B=I-\eta T_{-l}$.
+For $0\le\alpha<1/2$, $s\ge0$, and $h\in C_c^\infty(\R)$,
+\[
+ \Tr_{\mathcal X}\big(A_h[H_+,B]B^{-1}\big)
+       =l\sum_{k\ge1}\eta^k h(kl).
+ \tag{17.2}
+\]
+Indeed $[H_+,B]=\eta M_{\mathbf1_{[-l,0)}}T_{-l}$. For a bounded interval $I$
+and a real shift $u$, the localized kernel of $A_h M_{\mathbf1_I}T_{-u}$
+has trace $|I|h(u)$. Its input variable lies in $I+u$ and its output in
+$I+\supp h$. The Fourier-series argument on \pg{514a} gives trace class
+and the diagonal integral, with the two weight factors canceling pointwise.
+The Neumann series for $B^{-1}$ converges in operator norm since
+$\|T_y\|\ll_s e^{\alpha|y|}(1+|y|)^{s/2}$. Multiplication by the trace-class
+operator $A_h[H_+,B]$ gives trace-norm convergence and proves (17.2).
+Reflection of the line and conjugation of $a$ give the negative arguments in (17.1).
+
+\leaf{514d}{A finite trace}{12.3 \quad THE PRIME SUM AT A FINITE CUTOFF}{The contribution of one endpoint}
+Let $T$ be a finite set of prime ideals unramified for $\chi$ and
+$B_T=\prod_{\mathfrak p\in T}(I-\eta_{\mathfrak p}T_{-\log N\mathfrak p})$.
+Write $a(\mathfrak n)$ for the multiplicative extension of $a_{\mathfrak p}$
+to integral ideals supported on $T$, including $a(\mathcal O_F)=1$.
+For $L>0$ and $Y\ge1$ put
+\[
+ D_L=M_{\mathbf1_{[0,L)}},\qquad J_L=M_{\mathbf1_{[-L,0)}},\qquad
+ C_{T,Y}=\sum_{\substack{\mathfrak n\ {\rm supported\ on}\ T\\N\mathfrak n\le Y}}
+  \frac{a(\mathfrak n)}{\sqrt{N\mathfrak n}}\,T_{-\log N\mathfrak n}.
+\]
+If $\supp h\subset(0,L]$, $h\in C_c^\infty(\R)$ and $Y\ge e^L$, then
+\[
+ \Tr_{\mathcal X}\big(A_h J_L[D_L,B_T]C_{T,Y}\big)=
+ \sum_{\mathfrak p\in T}\sum_{k\ge1}
+  \frac{a_{\mathfrak p}^{\,k}\log N\mathfrak p}{(N\mathfrak p)^{k/2}}\,
+               h(k\log N\mathfrak p).
+ \tag{17.3}
+\]
+This finite identity holds at every $0\le\alpha\le1/2$ and $s\ge0$.
+
+\point{Proof} Expand $B_T$ over squarefree products $\mathfrak d$ in $T$.
+Their coefficients are $\mu_F(\mathfrak d)a(\mathfrak d)/\sqrt{N\mathfrak d}$,
+where $\mu_F$ is the ideal M\"obius function. For $l=\log N\mathfrak d$
+the commutator with $T_{-l}$ multiplies that shift by
+$d_L(x)-d_L(x+l)$, where $d_L=\mathbf1_{[0,L)}$.
+The term from $\mathfrak d,\mathfrak n$ has trace proportional to
+$h(\log N(\mathfrak d\mathfrak n))$. When this is nonzero, $0\le l\le L$.
+On $[-L,0)$ the difference of the two indicators is
+$-\mathbf1_{[-l,0)}$. By the diagonal integral on \pg{514c}, its factor
+in the trace is $-l$. Every summand is trace class, including when
+$l>L$, since the localized multiplier has bounded interval support.
+
+For $\mathfrak m=\mathfrak d\mathfrak n$ in the support of the test,
+$N\mathfrak n\le N\mathfrak m\le e^L\le Y$. Thus the coefficient of
+$a(\mathfrak m)h(\log N\mathfrak m)/\sqrt{N\mathfrak m}$ is the entire sum
+\[
+       -\sum_{\mathfrak d\mid\mathfrak m}\mu_F(\mathfrak d)\log N\mathfrak d
+       =\Lambda_F(\mathfrak m).
+\]
+For $\mathfrak m=\mathfrak p^k$, only $1,\mathfrak p$ enter and the sum is
+$\log N\mathfrak p$. With two or more distinct prime factors, the signs
+from the other factors cancel the coefficient of each $\log N\mathfrak p$.
+The unit ideal contributes zero. This proves (17.3).
+
+\leaf{514e}{Moving norm support}{12.3 \quad FINITE PLACES UNDER TRANSLATION}{Which endpoint survives the cutoff}
+Fix $h\in C_c^\infty((1,2))$, $X=e^\tau\ge1$ and $h_\tau(x)=h(x-\tau)$.
+In (17.3) take $L=\tau+2$, $Y=e^2X$ and let $T$ contain precisely the
+unramified prime ideals of norm at most $Y$. In this choice all three
+cutoffs vary with the support. Equation (17.3) gives the positive
+finite-place part of the Hecke--Weil distribution at every translate,
+\begin{align*}
+ \Tr_{\mathcal X}\big(A_{h_\tau}J_L[D_L,B_T]C_{T,Y}\big)
+      &=\sum_{n\ge2}\frac{\Lambda_\chi(n)}{\sqrt n}\,h(\log(n/X)),\\
+ \Lambda_\chi(n)&=
+   \sum_{\substack{N\mathfrak p^k=n\\ \mathfrak p\ {\rm unramified},\ k\ge1}}
+             a_{\mathfrak p}^{\,k}\log N\mathfrak p .
+ \tag{17.4}
+\end{align*}
+Several prime ideals can have the same integer norm. Their phases and
+residue degrees enter before summing the coefficients. A place ramified
+for the character has local Euler factor one.
+
+\point{Size of the source cutoff}
+For $T=\{\mathfrak p\}$ the coefficient at $k\log q\le L$ in the
+left-endpoint trace is $l\eta^k\mathbf1_{q^{k-1}\le Y}$. It arises
+only from $\mathfrak d=\mathfrak p$ and $\mathfrak n=\mathfrak p^{k-1}$.
+For example, fix $t_0\in(1,2)$ and a test supported in an interval of
+length less than $\log 2$ with $h(t_0)=1$. At
+$\tau_k=k\log 2-t_0$ for the rational prime $2$ and the trivial
+character, its single prime-power term requires
+$Y\ge 2^{k-1}=(e^{t_0}/2)e^{\tau_k}$. Thus a source cutoff of order $X$
+is necessary along these translates, even at one place.
+
+\point{The second endpoint}
+The unselected trace $\Tr_{\mathcal X}(A_h[D_L,B_T]C_{T,Y})$ is exactly zero
+for every finite $T,Y,L$ and every smooth compactly supported $h$.
+Indeed each translated monomial has diagonal integral proportional to
+$\int_{\R}(d_L(x)-d_L(x+l))\dd x=0$.
+For $l\le L$ the interval $[L-l,L)$ contributes $+l$ and cancels the
+$-l$ on $[-l,0)$. In (17.4) the multiplier $J_L$ selects the latter
+endpoint before tracing. Identifying the global projection on \pg{520}
+with this selected boundary contribution and the infinite-place and pole
+terms, to the precision in (19), remains the global comparison.
 
 \sourcepages{515}{515}{}
 \sourcepages{516}{518}{The real-place range and the lower endpoint in (12.4.1.23) are calculated on page 518a.}

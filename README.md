@@ -1,10 +1,10 @@
 # The Music of the Primes
 
-**Last updated 21 November 2026.** Revision `2026-11-21.8` adds **folios 520o–520r, equations (20u)–(20x)** in Chapter 12. The Chapter 13 variance estimate is on folio 522ao, equation (61). The revised manuscript has 1,025 pages.
+**Last updated 21 November 2026.** Revision `2026-11-21.9` adds **folios 514c–514e, equations (17.1)–(17.4)** to Chapter 12. The revised manuscript has 1,028 pages.
 
-For ordinary zeta, one fixed smooth weight gives a prime-sum error at most $10^5\sqrt X$ for every $1\le X\le e^{300000}$. With the same test, the strip defect $G_\alpha-W$ in (18) has absolute value less than $e^{-140000}$ at **every** strip half-width, including zero, for $0\le\log X\le300000$ in Sobolev degree four. The proof uses the published verification of the zeros through height $3\cdot10^{12}$ and bounds the entire remaining tail analytically. [Dated results and proofs](PROGRESS.md) · [Platt and Trudgian](https://doi.org/10.1112/blms.12460)
+For every fixed unitary Hecke character, the trace at the left endpoint of a finite log interval equals the sum over all prime ideal powers seen by the test. For a test translated by $\log X$, a source norm cutoff of $e^2X$ suffices. A test at powers of 2 shows why the cutoff must grow at least linearly along some translates. Including both endpoints makes the trace zero. [Dated results and proofs](PROGRESS.md)
 
-**Open proof.** For ordinary zeta the square-root inequality (20x) for all $X\ge1$ is equivalent to RH. For every fixed Hecke character, equation (20v) gives a trace defect exponentially small in $(\log X)^2$ on strips whose half-width tends to $1/2$. Equation (19) still needs an independent estimate at arbitrarily small fixed half-widths as $X\to\infty$. The general Hecke zero-location claim remains open.
+**Open proof.** Equation (17.4) computes the finite-place terms from Euler factors. Equation (19) still requires an independent comparison with the actual arithmetic projection at arbitrarily small fixed strip half-widths as $X\to\infty$. For ordinary zeta, the square-root bound (20x) at all scales is equivalent to RH. It holds for the specified weight throughout $1\le X\le e^{300000}$. The general Hecke zero-location claim remains open.
 
 [Original manuscript (940-page PDF)](https://math216.wordpress.com/wp-content/uploads/2026/11/the-music-of-the-primes.pdf) · [Revised manuscript (PDF)](output/pdf/the-music-of-the-primes-revised.pdf) · [Editable revision (TeX)](src/the-music-of-the-primes-revised.tex)
 
@@ -14,6 +14,7 @@ For ordinary zeta, one fixed smooth weight gives a prime-sum error at most $10^5
 | --- | --- |
 | 29, 446–446d, 463–463b | A residue detects each omitted zero. The arithmetic theta space determines the multiplicities at the strip boundary. A resolvent estimate gives the trace without a zero-spacing assumption. |
 | 495–495b, 514a–514b, 520 | The original local identity (11.3.2.1) gives $0$ on one side and $\log 2$ on the other. Equations (17) and (18) give the full-strip identity and the narrow-strip defect. |
+| 514c–514e | The unramified local Fourier factor gives the prime weights. The endpoint trace (17.3) recovers the full sum of these weights with finite cutoffs under translation. |
 | 520c–520n, 522–522b | A fixed smooth prime weight gives a criterion for the Riemann hypothesis in (21) and its per-character Hecke analogue in (24). |
 | 520o–520r | A normalized test detects every missed zero. A zero-free region bounds the Hecke trace defect at all large scales. Finite-height verification for ordinary zeta yields the explicit inequalities (20w) and (20x). |
 | 522f–522h | A Hecke zero of order at least three gives a counterexample to the multiplicity cap used in Chapter 13. |
@@ -25,7 +26,7 @@ For ordinary zeta, one fixed smooth weight gives a prime-sum error at most $10^5
 | 522ak–522am | The diagonal contribution to a frequency average, an exact formula for the short-interval variance and the zero strip implied by a bound for that variance. |
 | 522an–522ao | A finite-height bound for the sharp interval variance and an unconditional saving over $X/U$ for all $1\le U\le X^{a_\chi}$ with a fixed $a_\chi>0$. |
 
-Folio numbers follow the manuscript. A letter suffix identifies an inserted page. Folios 520o–520r are PDF pages 560–563. Folios 522an–522ao are pages 605–606 in this edition. The contents on manuscript folio 2 link to the proofs.
+Folio numbers follow the manuscript. A letter suffix identifies an inserted page. Folios 514c–514e are PDF pages 539–541. Folios 520o–520r and 522an–522ao are pages 563–566 and 608–609. The contents on manuscript folio 2 link to the proofs.
 
 ## Files and build
 
