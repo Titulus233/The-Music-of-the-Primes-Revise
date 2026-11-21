@@ -54,7 +54,7 @@
 \afterfolio{508}{a}
 \afterfolio{514}{a,b,c,d,e}
 \afterfolio{518}{a}
-\afterfolio{520}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r}
+\afterfolio{520}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v}
 \afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,al,am,an,ao}
 \afterfolio{558}{a}
 \newcount\originalfolio
@@ -143,7 +143,7 @@ the closed strip. The last sum includes every missing boundary copy.
 \pagelink{488a}{488a--d}, \pagelink{488e}{488e--f}, \pagelink{489a}{489a--b} & Finite levels exhaust the component even when all primes up to a growing bound are imposed together.\\[3pt]
 \pagelink{495}{495--495b} & A counterexample at $2$ and an obstruction to recovering two prime traces with a fixed lift.\\[3pt]
 \pagelink{508a}{508a}, \pagelink{518a}{518a} & A valid rational fundamental domain and the lower-cutoff term at the real place.\\[3pt]
-\pagelink{514a}{514a--b}, \pagelink{514c}{514c--e}, \pagelink{520}{520} & Full-strip formula, finite-cutoff prime traces and \pagelink{520r}{a square-root prime estimate (520o--r)}.\\[3pt]
+\pagelink{514a}{514a--b}, \pagelink{514c}{514c--e}, \pagelink{520}{520} & Full-strip formula, endpoint traces, \pagelink{520r}{a finite square-root bound} and \pagelink{520s}{prime weights of the narrow projection (520s--v)}.\\[3pt]
 \pagelink{520c}{520c--n}, \pagelink{522i}{522i--m} & The balanced prime sum and a one-sided criterion counting only principal prime ideals over totally imaginary fields.\\[3pt]
 \pagelink{522}{522--522e}, \pagelink{522f}{522f--h} & The prime-sum criterion, the Chapter~13 test space and a CM curve for which the cap loses multiplicity.\\[3pt]
 \pagelink{522n}{522n--o}, \pagelink{522p}{522p--v} & Square-root fluctuations in the cubic splitting count.\\[3pt]
@@ -2474,6 +2474,173 @@ excludes every zero in $\Re s>1/2$ if (20x) holds for all $X$,
 since the residue is $-m_\rho H_*(\rho-1/2)\ne0$. Unconditionally, for
 $\tau=\log X$ sufficiently large, the first line of (20v) at width
 zero gives the prime error $O(Xe^{-b_\zeta\tau/D(\tau)})$.
+
+\leaf{520s}{Localization of the strip defect}{12.5.1 \quad THE ARITHMETIC PROJECTION ON SHORT TESTS}{A local bound from the omitted zero count}
+Fix a unitary Hecke character $\chi$, a Sobolev degree $s\ge0$ and
+$0<\alpha<1/2$. Set $d_\lambda=m_\lambda-n_{\alpha,s}(\lambda)$ in (18)
+and $D_\alpha(T)=\sum_{|\Im\lambda|\le T}d_\lambda$. Suppose that
+\[
+ D_\alpha(T)\le C(2+T)^{1-\delta}\log^B(3+T)
+      \qquad(T\ge0,\quad 0<\delta<1,\quad B\ge0).
+\]
+For $b\in C_c^\infty((-1,1))$ put $b_{t,r}(y)=b((y-t)/r)$.
+If $t\ge0$, $0<r\le1$ and $t>r$, then the defect of the actual
+arithmetic projection on \pg{520} satisfies
+\[
+ |(G_{\alpha,\chi}-W_\chi)(b_{t,r})|
+   \ll_{b,B} C e^{t/2}r^\delta\log^B(3/r).
+ \tag{20y}
+\]
+The implied constant is uniform in $\delta$. In fact the transform of
+the bump at $\lambda$ is $re^{\lambda t}\int b(u)e^{r\lambda u}\dd u$.
+Integrating by parts in $e^{ir(\Im\lambda)u}$ bounds it by
+$C_b r e^{t/2}(1+r|\Im\lambda|)^{-3}$, using only three derivatives.
+Sum (18) first up to $1/r$ and then on $2^j/r<|\Im\lambda|\le2^{j+1}/r$.
+After extracting the right side of (20y), the tail costs at most a
+constant times $\sum_{j\ge0}2^{-2j}(1+j)^B$. This proof covers any
+family of profiles supported in $[-1,1]$ with uniformly bounded first
+three derivatives and supremum norm.
+
+\point{Primitive of the defect}
+On positive log norms a primitive of $G_{\alpha,\chi}-W_\chi$ is
+\[
+                  F_\alpha(t)=\sum_{d_\lambda>0}
+                           d_\lambda\,e^{\lambda t}/\lambda .
+\]
+Every term has $|\Re\lambda|\ge\alpha$. The series converges absolutely,
+locally uniformly, since dyadic summation gives
+$\sum_{|\Im\lambda|>1} d_\lambda/|\lambda|<\infty$.
+Integration by parts against a compactly supported smooth test recovers
+(18) as the distributional derivative. For $|u|\le r\le1$,
+$|(e^{\lambda u}-1)/\lambda|\ll\min(r,|\lambda|^{-1})$.
+Splitting at $1/r$ gives
+$|F_\alpha(t+u)-F_\alpha(t)|\ll_{C,\delta,B} e^{t/2}r^\delta\log^B(3/r)$
+for $t\ge0$. Thus this part of the primitive is continuous across each
+prime norm. Its size as $t\to\infty$ still depends on the omitted zeros.
+
+\leaf{520t}{Zero densities and strip widths}{12.5.1 \quad RANGES OF THE LOCAL COMPARISON}{Strips for which the local bound holds}
+The functional equation reflects a zero of the same component across
+the critical line at the same ordinate. All interior copies are counted
+in full by (4). Hence $D_\alpha(T)\le2N_\chi(1/2+\alpha,T)$, with the
+two-sided height convention of \pg{522ao}. This includes uncounted
+boundary multiplicities at every Sobolev degree.
+
+\point{Rational characters}
+For $\zeta$, Ingham's density theorem gives (20y) with $B=5$ and
+\[
+ \delta=\delta_\alpha
+     =1-\frac{3(1/2-\alpha)}{3/2-\alpha}
+     =\frac{2\alpha}{3/2-\alpha},\qquad 0<\alpha<1/2 .
+\]
+In particular the constant can be taken uniform for $0<\alpha\le1/8$.
+This also follows directly from the explicit bound for
+$1/2\le\sigma\le5/8$ at heights $T\ge3\cdot10^{12}$ and the total zero
+count below that height.
+\citetitle{https://doi.org/10.1093/qmath/os-11.1.201}{Ingham (1940)} and
+\citetitle{https://arxiv.org/abs/2507.15184}{Chourasiya and Simoni\v c,
+Corollary 1}.
+For a fixed primitive Dirichlet character the same $\delta_\alpha$ works
+with $B=13$. Montgomery bounds the sum of the nonnegative counts over
+primitive characters of conductor at most $Q$ by
+$(Q^2T)^{3(1-\sigma)/(2-\sigma)}\log^{13}(2QT)$ for $Q,T\ge2$.
+Choose $Q$ once to include the conductor.
+\citetitle{https://doi.org/10.1007/BFb0060863}{Montgomery, Theorem 12.1}.
+
+\point{Hecke characters}
+For ideal class characters of an imaginary quadratic field,
+Rezvyakova's dyadic count is $O_\chi(T^{1-c(\sigma-1/2)}\log T)$ for an
+absolute $c>0$. Decrease $c$ to at most one and sum the dyadic intervals.
+For negative ordinates apply the same theorem to the conjugate character.
+This gives (20y) with $\delta=c\alpha$, $B=1$, including the character
+of discriminant $-23$ on \pg{522l}.
+\citetitle{https://arxiv.org/abs/2411.18492}{Rezvyakova, Lemma 2}.
+
+For every fixed number field and Hecke character, the log-free density
+theorem on \pg{522ao} gives (20y) as soon as $A_\chi(1/2-\alpha)<1$.
+One may take any $0<\delta<1-A_\chi(1/2-\alpha)$ and $B=0$.
+A fixed unitary norm twist shifts ordinates by a constant and preserves
+each stated density estimate with a constant depending on the twist.
+
+\leaf{520u}{Individual prime weights}{12.5.1 \quad RECOVERY FROM THE NARROW PROJECTION}{The jump at a prime-power norm}
+Let $\alpha,\chi$ satisfy the density bound on \pg{520s}.
+For $b\in C_c^\infty((-1,1))$ with $b(0)=1$ and every real $x>1$,
+\[
+ \lim_{r\downarrow0}G_{\alpha,\chi}(b_{\log x,r})
+       =\frac{\Lambda_\chi(x)}{\sqrt x},
+ \qquad
+ \lim_{r\downarrow0}\Tr(A_{b_{\log x,r}}P_\alpha)
+       =-\frac{\Lambda_\chi(x)}{\sqrt x}.
+ \tag{20z}
+\]
+The coefficient in (17.4) is extended by zero off the integer norms.
+For sufficiently small $r$ the support avoids zero and every other prime
+power norm. The finite-place part of $W_\chi$ then has the displayed
+value. Its archimedean density is smooth on the positive half-line.
+The gamma integral on \pg{522w} gives absolute density at most
+$d e^{-y/2}/(1-e^{-2y})$ at $y>0$, where $d=[F:\Q]$. Indeed each
+$\Gamma_\R(s+\mu_j)$ has $\Re\mu_j\ge0$. Its log kernel on that
+half-line has modulus $e^{-(1/2+\Re\mu_j)y}/(1-e^{-2y})$.
+The archimedean and polar contributions are therefore $O_{\chi,x,b}(r)$.
+Equation (20y) and $G_{\alpha,\chi}=B_\chi-\Tr(A_hP_\alpha)$ prove both limits.
+
+In particular, on the positive half-line a primitive of the actual
+$G_{\alpha,\chi}$ is the sum of $F_\alpha$, an integral of the
+archimedean density and a step function with jumps
+$\Lambda_\chi(n)/\sqrt n$. This identifies the jump even when the
+twisted contributions of several prime ideals at a given norm cancel.
+
+\point{An error uniform in the norm}
+For integers $n\ge2$ and $0<r\le1/(4n)$ the test at $\log n$
+isolates $n$, since $\log(1+1/n)\ge1/(n+1)$. Hence
+\[
+ \left|G_{\alpha,\chi}(b_{\log n,r})-\frac{\Lambda_\chi(n)}{\sqrt n}\right|
+ \ll_{\chi,b,B} C\sqrt n\,r^\delta\log^B(3/r)+r/\sqrt n .
+\]
+For $r=n^{-K}$ and $K\delta>1$, the discrepancy is
+$O_{\alpha,\chi,b,K,\eta}(n^{-1/2-\eta})$ as $n\to\infty$ for every
+$0<\eta<K\delta-1$. No lower bound on an individual complex
+coefficient is required.
+
+\leaf{520v}{The complementary test}{12.5.1 \quad ALL PRIME NORMS IN ONE TRANSLATE}{Separating the prime values from the open estimate}
+Fix $h\in C_c^\infty((1,2))$, $X=e^\tau$, and let $0\le b\le1$ be
+smooth, supported in $(-1,1)$ and equal to one near zero. For $0<r<1$,
+let $\mathcal N$ consist of integer prime-power norms with
+$\log n\in[\tau+1-r,\tau+2+r]$. Write
+\[
+ h_{\rm near}(y)=h(y-\tau)\sum_{n\in\mathcal N}b((y-\log n)/r),
+ \qquad h_{\rm away}(y)=h(y-\tau)-h_{\rm near}(y).
+\]
+There are $O(X)$ centers and their spacing is $\gg X^{-1}$.
+When $r=o(X^{-1})$, the bumps are disjoint for large $X$ and
+$h_{\rm away}$ vanishes on a neighborhood of every prime-power norm
+in log coordinates. Under the hypothesis of (20y), given $A>0$ choose
+$r=X^{-K}$, $K>(A+3/2)/\delta$. Then
+\begin{align*}
+ G_{\alpha,\chi}(h_{\rm near})
+   &=\sum_{n\ge2}\frac{\Lambda_\chi(n)}{\sqrt n}h(\log(n/X))+O(X^{-A}),\\
+ (G_{\alpha,\chi}-W_\chi)(h_\tau)
+   &=(G_{\alpha,\chi}-W_{\infty,\chi})(h_{\rm away})+O(X^{-A}).
+ \tag{20aa}
+\end{align*}
+Here $W_{\infty,\chi}$ is the archimedean part and the constants may
+depend on the fixed test, character, strip and $A$. For each center
+the rescaled profile is $b(u)h(\log n-\tau+ru)$, with uniformly
+bounded derivatives through order three. Apply (20y) and sum to obtain
+$O(X^{3/2}r^\delta\log^B(3/r))$. The archimedean contribution on
+these same bumps is $O_{F,h,b}(X^{1/2}r)$ by \pg{520u}. The finite-place
+contribution on $h_{\rm away}$ vanishes exactly. These facts prove (20aa).
+
+\point{A strip shrinking towards the critical line}
+For $\zeta$ and each fixed primitive Dirichlet character, (20aa) still
+holds with $\alpha=1/\log X$ and $r=\exp(-K(\log X)^2)$ whenever
+$4K/3>A+3/2$. Indeed $\delta_\alpha\ge4\alpha/3$, so the bound for
+the sum of the defects is $O(X^{3/2-4K/3}(\log X)^{2B})$.
+For the imaginary quadratic class characters on \pg{520t}, take
+$cK>A+3/2$ instead. All constants here are independent of $X$.
+The test $h_{\rm away}$ still carries the pole term when the character
+is principal. Equation (19) requires a bound for its global trace as
+$X$ grows. The local calculation used the full-strip explicit formula
+and a zero-density theorem.
 
 \sourcepages{521}{521}{The one-sided estimate is on page 520h and the reduced range of indices on page 520n.}
 \leaf{522}{One prime sum}{13.3 \quad THE RIEMANN ZETA FUNCTION}{One smooth weight detects every zero}

@@ -1,10 +1,10 @@
 # The Music of the Primes
 
-**Last updated 21 November 2026.** Revision `2026-11-21.9` adds **folios 514c–514e, equations (17.1)–(17.4)** to Chapter 12. The revised manuscript has 1,028 pages.
+**Last updated 21 November 2026.** Revision `2026-11-21.10` adds **folios 520s–520v, equations (20y)–(20aa)** to Chapter 12. The revised manuscript has 1,032 pages.
 
-For every fixed unitary Hecke character, the trace at the left endpoint of a finite log interval equals the sum over all prime ideal powers seen by the test. For a test translated by $\log X$, a source norm cutoff of $e^2X$ suffices. A test at powers of 2 shows why the cutoff must grow at least linearly along some translates. Including both endpoints makes the trace zero. [Dated results and proofs](PROGRESS.md)
+The arithmetic projection on a narrow strip recovers the weight of each prime power. This holds for ordinary zeta, fixed primitive Dirichlet characters and imaginary quadratic ideal class characters at every positive half-width below $1/2$. It also holds for any fixed Hecke character in the wider strips specified on folio 520t. For the first three cases, tests confined to small neighborhoods of the prime norms recover their entire weighted sum up to $O(X^{-A})$ for any fixed $A>0$, even at half-width $1/\log X$. [Dated results and proofs](PROGRESS.md)
 
-**Open proof.** Equation (17.4) computes the finite-place terms from Euler factors. Equation (19) still requires an independent comparison with the actual arithmetic projection at arbitrarily small fixed strip half-widths as $X\to\infty$. For ordinary zeta, the square-root bound (20x) at all scales is equivalent to RH. It holds for the specified weight throughout $1\le X\le e^{300000}$. The general Hecke zero-location claim remains open.
+**Open proof.** In the ranges just stated, equation (20aa) reduces (19) to the trace on a test that vanishes around every prime-power norm. The local weights follow from the full-strip explicit formula and unconditional zero-density estimates. The remaining trace still needs an independent growth bound for arbitrarily small fixed half-widths as $X\to\infty$. For ordinary zeta the all-scale square-root bound (20x) is equivalent to RH. It holds for the specified weight up to $e^{300000}$. The general Hecke zero-location claim remains open.
 
 [Original manuscript (940-page PDF)](https://math216.wordpress.com/wp-content/uploads/2026/11/the-music-of-the-primes.pdf) · [Revised manuscript (PDF)](output/pdf/the-music-of-the-primes-revised.pdf) · [Editable revision (TeX)](src/the-music-of-the-primes-revised.tex)
 
@@ -17,6 +17,7 @@ For every fixed unitary Hecke character, the trace at the left endpoint of a fin
 | 514c–514e | The unramified local Fourier factor gives the prime weights. The endpoint trace (17.3) recovers the full sum of these weights with finite cutoffs under translation. |
 | 520c–520n, 522–522b | A fixed smooth prime weight gives a criterion for the Riemann hypothesis in (21) and its per-character Hecke analogue in (24). |
 | 520o–520r | A normalized test detects every missed zero. A zero-free region bounds the Hecke trace defect at all large scales. Finite-height verification for ordinary zeta yields the explicit inequalities (20w) and (20x). |
+| 520s–520v | A zero-density bound makes the primitive of the strip defect continuous. The jump of the global trace primitive at $n$ is $\Lambda_\chi(n)/\sqrt n$. Equation (20aa) isolates all such jumps in a growing interval. |
 | 522f–522h | A Hecke zero of order at least three gives a counterexample to the multiplicity cap used in Chapter 13. |
 | 522l–522v | Principal prime ideals, finite-height Gaussian averages, and the two-sided oscillation in (42). |
 | 522w–522y | A lower bound for the Weil form on a log interval, its dependence on the conductor, and the correlation that must stay bounded for widely separated translates. |
@@ -26,7 +27,7 @@ For every fixed unitary Hecke character, the trace at the left endpoint of a fin
 | 522ak–522am | The diagonal contribution to a frequency average, an exact formula for the short-interval variance and the zero strip implied by a bound for that variance. |
 | 522an–522ao | A finite-height bound for the sharp interval variance and an unconditional saving over $X/U$ for all $1\le U\le X^{a_\chi}$ with a fixed $a_\chi>0$. |
 
-Folio numbers follow the manuscript. A letter suffix identifies an inserted page. Folios 514c–514e are PDF pages 539–541. Folios 520o–520r and 522an–522ao are pages 563–566 and 608–609. The contents on manuscript folio 2 link to the proofs.
+Folio numbers follow the manuscript. A letter suffix identifies an inserted page. Folios 514c–514e are PDF pages 539–541. Folios 520o–520v and 522an–522ao are pages 563–570 and 612–613. The contents on manuscript folio 2 link to the proofs.
 
 ## Files and build
 
