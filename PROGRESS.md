@@ -1,5 +1,15 @@
 # Proof progress
 
+## 2026-11-21 · Revision `2026-11-21.5`
+
+Folios 522ah–522aj are pages 595–597 of the [1,016-page edition][pdf5]. The field and Hecke character stay fixed. The mean is over the real frequency $v$ of the norm twist in $[U,2U]$.
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [522aj · (56)][f522aj] | For all but a set of frequencies of measure $O_{\chi,h}(U/\log U)$, the same twist has correlation at most half its diagonal value in absolute value at every scale $e\le X\le\sqrt{U\log U}$. Each fixed zero contributes $O_{\rho,h,A}(U^{-A})$ throughout this range for every $A>0$. | [7913485][frequency] |
+| [522ai · (55)][f522ai] | For any prescribed $1\le U=o(\log X)$, a mean-square bound of $O_{\chi,h,U,\epsilon}(X^\epsilon)$ at every sufficiently large $X$ for every $\epsilon>0$ is equivalent to RH for the fixed character. Polynomial interpolation recovers the frequency-zero value. An independent estimate in this range remains open. | [7913485][frequency] |
+| [522ah · (54)][f522ah] | When $U\ge X$, the centered prime sum has mean square $O_{F,h}(1+\log X)$. This also bounds the mean of the positive part of the distinct-pair contribution from (50). The proof uses a Dirichlet polynomial mean-value estimate and includes the pole subtraction for the principal character. | [7913485][frequency] |
+
 ## 2026-11-21 · Revision `2026-11-21.4`
 
 Folios 522ad–522ag are pages 591–594 of the [1,013-page edition][pdf4]. The test has fixed log support throughout.
@@ -53,6 +63,11 @@ The [1,002-page edition][pdf1] records the following results. Folio numbers are 
 | [446–446d · (4)–(9), original Theorem 10.2.2.1][f446] | Translates of an arithmetic theta generator span the closed space defined by the zero conditions. Formula (4) gives the exact boundary multiplicity at every strip width and Sobolev degree, including width zero. | [4a9ad57][edition] |
 | [29 · (1)–(3)][f29] | Translating a compactly supported test and taking a Laplace transform produces a pole at each omitted zero. Equality of the full and narrow traces on all these tests forces the omitted set to be empty. | [4a9ad57][edition] |
 
+[frequency]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/7913485a8dd1d3461711d5822d1ecc5453be52bc
+[pdf5]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/7913485a8dd1d3461711d5822d1ecc5453be52bc/output/pdf/the-music-of-the-primes-revised.pdf
+[f522aj]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/7913485a8dd1d3461711d5822d1ecc5453be52bc/src/the-music-of-the-primes-revised.tex#L3890
+[f522ai]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/7913485a8dd1d3461711d5822d1ecc5453be52bc/src/the-music-of-the-primes-revised.tex#L3848
+[f522ah]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/7913485a8dd1d3461711d5822d1ecc5453be52bc/src/the-music-of-the-primes-revised.tex#L3806
 [pairs]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/dbb190435bdd4a21e7ba4c37a3818b763af9495e
 [pdf4]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/dbb190435bdd4a21e7ba4c37a3818b763af9495e/output/pdf/the-music-of-the-primes-revised.pdf
 [f522ag]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/dbb190435bdd4a21e7ba4c37a3818b763af9495e/src/the-music-of-the-primes-revised.tex#L3758
