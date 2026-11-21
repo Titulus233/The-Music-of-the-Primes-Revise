@@ -1,8 +1,18 @@
 # Proof progress
 
+## 2026-11-21 · Revision `2026-11-21.2`
+
+Folios 522w–522y are pages 584–586 of this [1,005-page edition][pdf2]. They treat the full Weil form, including the terms at log norm zero.
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [522y · (45)][f522y] | For one fixed smooth test, zero location for a given character is equivalent to bounding its correlation with every translate by its diagonal value. Equations (43)–(44) prove the bound for separations up to $1/64$ for every character. The bound at arbitrarily large separations for one fixed character remains open. | [f9159dc][positivity] |
+| [522x · (43)–(44)][f522x] | If $R$ is the logarithm of the absolute conductor divided by the field degree, positivity holds for support lengths up to $(2-\epsilon)\log R$ whenever $0<\epsilon<2$ and $R$ is sufficiently large. The finite contribution uses only rational prime powers up to $e^L$, where $L$ is the support length. | [f9159dc][positivity] |
+| [522w · (43)][f522w] | For every unitary Hecke character and every nonzero smooth test supported in a log interval of length at most $1/16$, the Weil quadratic form exceeds one quarter of the squared $L^2$ norm. The proof uses the archimedean integral, the finite conductor and the pole terms. | [f9159dc][positivity] |
+
 ## 2026-11-21 · Revision `2026-11-21.1`
 
-This edition of the 1,002-page [revised manuscript](output/pdf/the-music-of-the-primes-revised.pdf) records the following results. Folio numbers are printed in the manuscript. Each source link opens the corresponding proof in this revision.
+The [1,002-page edition][pdf1] records the following results. Folio numbers are printed in the manuscript. Each source link opens the corresponding proof in this revision.
 
 | Folios and equations | Result | Commit |
 | --- | --- | --- |
@@ -21,7 +31,13 @@ This edition of the 1,002-page [revised manuscript](output/pdf/the-music-of-the-
 | [446–446d · (4)–(9), original Theorem 10.2.2.1][f446] | Translates of an arithmetic theta generator span the closed space defined by the zero conditions. Formula (4) gives the exact boundary multiplicity at every strip width and Sobolev degree, including width zero. | [4a9ad57][edition] |
 | [29 · (1)–(3)][f29] | Translating a compactly supported test and taking a Laplace transform produces a pole at each omitted zero. Equality of the full and narrow traces on all these tests forces the omitted set to be empty. | [4a9ad57][edition] |
 
+[positivity]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/f9159dc95c748a43c0eefad4b801c9f993302220
+[pdf2]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/f9159dc95c748a43c0eefad4b801c9f993302220/output/pdf/the-music-of-the-primes-revised.pdf
+[f522y]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/f9159dc95c748a43c0eefad4b801c9f993302220/src/the-music-of-the-primes-revised.tex#L3400
+[f522x]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/f9159dc95c748a43c0eefad4b801c9f993302220/src/the-music-of-the-primes-revised.tex#L3356
+[f522w]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/f9159dc95c748a43c0eefad4b801c9f993302220/src/the-music-of-the-primes-revised.tex#L3307
 [edition]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/4a9ad5765d4a2dfb237f874695ee4f4a07817867
+[pdf1]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/4a9ad5765d4a2dfb237f874695ee4f4a07817867/output/pdf/the-music-of-the-primes-revised.pdf
 [f522v]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/4a9ad5765d4a2dfb237f874695ee4f4a07817867/src/the-music-of-the-primes-revised.tex#L3256
 [f522u]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/4a9ad5765d4a2dfb237f874695ee4f4a07817867/src/the-music-of-the-primes-revised.tex#L3203
 [f522r]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/4a9ad5765d4a2dfb237f874695ee4f4a07817867/src/the-music-of-the-primes-revised.tex#L3059
