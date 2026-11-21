@@ -52,7 +52,7 @@
 \afterfolio{489}{a,b}
 \afterfolio{495}{a,b}
 \afterfolio{508}{a}
-\afterfolio{514}{a,b,c,d,e,f,g,h,i,j,k,l,m,n}
+\afterfolio{514}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t}
 \afterfolio{518}{a,b,c,d,e,f,g,h,i,j}
 \afterfolio{520}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v}
 \afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,al,am,an,ao}
@@ -143,7 +143,7 @@ the closed strip. The last sum includes every missing boundary copy.
 \pagelink{488a}{488a--d}, \pagelink{488e}{488e--f}, \pagelink{489a}{489a--b} & Finite levels exhaust the component even when all primes up to a growing bound are imposed together.\\[3pt]
 \pagelink{495}{495--495b} & A counterexample at $2$ and an obstruction to recovering two prime traces with a fixed lift.\\[3pt]
 \pagelink{508a}{508a}, \pagelink{518a}{518a--f}, \pagelink{518g}{518g--j} & Cutoff lifts, \pagelink{518i}{a uniform Hecke trace at moving prime norms} and \pagelink{518j}{growth in the narrow Hilbert space}.\\[3pt]
-\pagelink{514a}{514a--e}, \pagelink{514f}{514f--j}, \pagelink{514k}{514k--n} & \pagelink{514h}{The scalar trace difference} and \pagelink{514n}{the one-sided mean that suffices on arbitrarily distant intervals}.\\[3pt]
+\pagelink{514a}{514a--e}, \pagelink{514f}{514f--j}, \pagelink{514k}{514k--n}, \pagelink{514o}{514o--t} & \pagelink{514h}{The scalar trace difference}, \pagelink{514o}{the shared-prime bound} and \pagelink{514t}{the remaining mean over coprime norms}.\\[3pt]
 \pagelink{520c}{520c--n}, \pagelink{522i}{522i--m} & The balanced prime sum and a one-sided criterion counting only principal prime ideals over totally imaginary fields.\\[3pt]
 \pagelink{522}{522--522e}, \pagelink{522f}{522f--h} & The prime-sum criterion, the Chapter~13 test space and a CM curve for which the cap loses multiplicity.\\[3pt]
 \pagelink{522n}{522n--o}, \pagelink{522p}{522p--v} & Square-root fluctuations in the cubic splitting count.\\[3pt]
@@ -1931,6 +1931,254 @@ component. By (36) it suffices to treat the trivial character and
 the normalized infinite-order characters of finite conductor one over
 totally imaginary fields Galois over $\Q$. The required arithmetic
 upper bound on those intervals remains open.
+
+\leaf{514o}{Pairs sharing a large prime}{12.3 \quad A BOUND FOR TERMS IN THE ORIGINAL TRACE}{The contribution from a common rational prime}
+Fix the field, normalized character and test $g$ of \pg{514k}.
+Let $J_P(X)$ be the part of the signed sum (17.4g) for which some
+\emph{rational} prime $p>P$ divides both $d$ and $n$. Each pair is
+counted once. Write $A(x)=A_{v_g}(x)$ as in (17.4a). If
+$A(x)\ll x^\sigma$ for $x\ge e^{-7/4}$, with $1/2<\sigma\le1$,
+then for $X,P\ge2$ and every $\epsilon>0$,
+\[
+ |J_P(X)|\ll_{F,\chi,\sigma,\epsilon}
+ \frac{X^{\sigma-1/2}}{P^{2\sigma-1}\log(2P)}
+   +X^\epsilon\left(1+\frac{X^\alpha}{P\log(2P)}\right).
+ \tag{17.4j}
+\]
+Chebyshev's prime bound gives $\sigma=1$: at rational prime powers
+the absolute Hecke von Mangoldt coefficients are at most
+$[F:\Q]\log p$. With
+\citetitle{https://hexagonmath.org/2610.00216v2}{Hu's Theorem 1.2}
+one may take $\sigma=7/8$, by the absolutely summable zero expansion
+in (17.4a), (18) and $V_g(1)=0$. Thus for every fixed
+$0<\alpha<3/8$, all pairs counted by $J_P$ at
+$P=X^{1/2-4\alpha/3}$ together contribute
+$O_{F,\chi,\alpha,\epsilon}(X^{\alpha+\epsilon})$ at all large $X$.
+
+\point{Proof from the common-divisor sum}
+Put $T=e\sqrt X$. First include every $d,n\le T$, with kernel
+$K_2(X/(dn))$ and normalization $X^{-1/2}$. Formula (17.4k) on
+\pg{514p} gives the part with no shared prime $p>P$. In its difference
+from the unrestricted sum the coefficient at $m=1$ cancels.
+The first term of (17.4j) now follows by applying $|A(X/m)|\ll(X/m)^\sigma$
+and (17.4l). The arithmetic error in (17.4k) is $O_\epsilon(X^\epsilon)$,
+uniformly in $P$.
+
+Restoring $dn>X/H_X$ costs $O_A(X^{-A})$ by (17.4f). There are at
+most $T$ diagonal pairs. Among the other pairs with $|d-n|\le X^\alpha$,
+a common prime $p>P$ divides both $d$ and the nonzero difference.
+There are at most $2(T/p)(X^\alpha/p)$ such pairs for each $p$.
+Partial summation of the Chebyshev bound gives
+$\sum_{p>P}p^{-2}\ll1/(P\log(2P))$. The divisor bound on $u_\chi$
+and boundedness of $K_2$ give the second term in (17.4j).
+
+\leaf{514p}{The common-divisor identity}{12.3 \quad A FINITE SCALAR SUM AND ITS EULER FACTORS}{Removing shared primes from the two indices}
+Let $U_P(X)$ be the unrestricted rectangle on \pg{514o} with the
+condition that $d,n$ share no prime $p>P$. Group all Euler factors of
+$L=L_f(\,\cdot\,,\chi)$ above a rational prime $p$ as
+$L_p(s)=1/P_p(p^{-s})$. The reciprocal polynomial $P_p$ has constant
+term one, degree at most $D=[F:\Q]$ and absolute coefficient sum
+at most $2^D$. For $\Re s>1$ put
+\[
+ B_P(s)=\sum_{m\ge1}b_P(m)m^{-s}
+       =\prod_{p>P}\bigl(1-(L_p(s)-1)^2\bigr).
+\]
+Then, uniformly for $P\ge2$,
+\[
+ U_P(X)=-\frac1{\sqrt X}\sum_{m\le e^{7/4}X}b_P(m)A(X/m)
+                         +O_{F,\chi,\epsilon}(X^\epsilon).
+ \tag{17.4k}
+\]
+With $P=\infty$ the multiplier is one. For any fixed $\sigma>1/2$,
+\[
+        b_P(1)=1,\qquad
+        \sum_{m>1}\frac{|b_P(m)|}{m^\sigma}
+           \ll_{D,\sigma}\frac{P^{1-2\sigma}}{\log(2P)}.
+ \tag{17.4l}
+\]
+Indeed the absolute coefficient sum of $L_p-1$ at $\sigma$ is at
+most $(1-p^{-\sigma})^{-D}-1\ll_{D,\sigma}p^{-\sigma}$. Multiply
+the local majorants $1+C_{D,\sigma}p^{-2\sigma}$ and sum over
+$p>P$ by partial summation. This also gives absolute convergence on
+every such line.
+
+\point{The shifted reciprocal}
+By M\"obius inversion on the rational gcd, $U_P$ is a sum over
+squarefree $r\le T$ with every $p\mid r$ greater than $P$, weighted
+by $\mu(r)$. Put $Z=X/r^2$, $u=u_\chi$ and
+\[
+ U_r^*(s)=\sum_{j\ge1}u(rj)j^{-s}=F_r(s)/L(s),\qquad
+ F_r(s)=\prod_{p\mid r}
+       \frac{P_p(p^{-s})-1}{p^{-s}P_p(p^{-s})}.
+\]
+At $p\mid r$ the new local coefficients are $u(p^{j+1})$ for
+$j\ge0$, which proves the formula without dividing by $u(p)$.
+In particular it also applies at primes with no degree-one ideal.
+
+\leaf{514q}{The truncation after gcd inversion}{12.3 \quad A UNIFORM ARITHMETIC REMAINDER}{The linear terms cost a subpower of the scale}
+Truncate $U_r^*$ at $j\le T/r$ to obtain $M_r(s)$. Each coefficient
+of $(U_r^*-M_r)^2$ through $(T/r)^2=e^2 Z$ is zero. Thus multiplying
+by $-LL'$ and applying the test $v_g$ at $Z$ gives the same result as
+applying it to
+\[
+                       -2L' F_r M_r+(L'/L)F_r^2 .
+\]
+The square has no coefficient in the support of the test. In summing
+the second term over $r$ one may extend to all eligible $r$, since
+$e^{7/4}X/r^2<1$ for $r>T$. The resulting multiplier of $L'/L$ is
+$\sum_r\mu(r)r^{-2s}F_r(s)^2=B_P(s)$. Its local identity is
+$p^{-s}F_p(s)=1-L_p(s)$. This gives the prime sum and its sign in
+(17.4k).
+
+For the first term move each inverse Mellin integral to
+$\Re s=\delta$, where $0<\delta<1/2$. The factor $V_g$ removes
+the pole of $L'$ at one. The denominators of $F_r$ have no zeros
+in $\Re s>0$. On the new line each local factor of $F_r$ is bounded
+by a constant depending only on $D,\delta$, since $(P_p(x)-1)/x$
+is a polynomial and $|L_p|\le(1-p^{-\delta})^{-D}$.
+Consequently $|F_r|\ll_{D,\delta,\eta}r^\eta$ for any $\eta>0$.
+The rapid decay of $V_g$ absorbs the polynomial growth of $L'$ on
+this line; the same bounds on a fixed strip justify the contour shift.
+
+For $0<\eta<\delta$, the contribution from the linear term for one
+$r$, including the normalization $X^{-1/2}$, is at most a constant
+times
+\[
+ X^{\delta-1/2}r^{-2\delta+2\eta}
+        \sum_{j\le T/r}j^{-\delta+\eta}
+    \ll X^{(\delta+\eta)/2}r^{-1-\delta+\eta}.
+\]
+Here $|u(rj)|\ll_{F,\eta}(rj)^\eta$. The right side is summable
+over all $r$ with a constant independent of the eligible primes.
+Choosing $\delta,\eta$ small in terms of $\epsilon$ proves (17.4k).
+
+\leaf{514r}{Deleting the small primes}{12.3 \quad A COMMON CUTOFF ON EACH INTERVAL}{A sum over coprime norms with growing least prime}
+For $X\in[Y,Y^2]$ take the largest primorial $R=\prod_{p\le P}p$
+with $R^{2D}\le(\log(2Y))^{1/2}$. For all sufficiently large $Y$,
+$P$ is its largest prime and $P\to\infty$. Put
+$E_R(s)=\prod_{p\mid R}P_p(p^{-s})$ and $L_R=L E_R$.
+Define $K_{2,R}(y)$ as on \pg{514g} using $-L_R L_R'$ and $V_g$.
+The residue vanishes. The arithmetic sum on this interval is
+\[
+ C_Y(X)=\frac1{\sqrt X}
+ \sum_{\substack{d,n\le e\sqrt X,\ (d,n)=1,\ (dn,R)=1\\
+  X/H_X<dn<e^{7/4}X/P,\ |d-n|>X^\alpha}}
+             u_\chi(d)u_\chi(n)K_{2,R}\!\left(\frac{X}{dn}\right).
+ \tag{17.4m}
+\]
+In particular $C_Y$ counts coprime \emph{integer norms}. The number
+of candidate pairs, even before the gcd conditions, is
+$O(X(1+\log P)/P)=o(X)$ uniformly on these intervals.
+Indeed for $B=e^{7/4}X/P$ the count is at most
+$\sum_{d\le T}\min(T,B/d)\ll B(1+\log(T^2/B))$ for large $Y$.
+
+\point{The kernel after deletion}
+The coefficients of $1/L_R$ are $u_\chi(n)\mathbf1_{(n,R)=1}$.
+The inner norm in $K_{2,R}(y)$ must exceed $P$, since the derivative
+$L_R'$ has no unit-ideal coefficient. Its weight
+vanishes beyond $e^{7/4}y$. This gives the upper product cutoff in
+(17.4m), including equality by smoothness.
+
+Expand $-L_R L_R'=(-LL')E_R^2-L^2 E_R E_R'$. The two finite
+polynomials have indices $j\le R^{2D}$ and combined absolute
+coefficient sum $\ll R^{2D}(1+D\log R)$. The kernels of $-LL'$
+and $L^2$ against $V_g$ are bounded on $y>0$ and both satisfy
+(17.4f) for $y\ge1$: the same proof applies to $L^2$ and the possible
+double pole is canceled. Thus $K_{2,R}$ is a finite sum of these
+kernels at $y/j$, and $\sup_y|K_{2,R}(y)|\ll\log(2X)$.
+For $y\ge H_X$ each argument is at least
+$e^{-1}\ell_X^{4D+1/2}$. The lower product cutoff therefore costs
+$O_A(X^{-A})$ uniformly. The discarded near-diagonal pairs cost
+$O_\epsilon(X^{\alpha+\epsilon})$ as on \pg{514i}.
+
+\leaf{514s}{The arithmetic comparison on each interval}{12.3 \quad UNIFORMITY IN THE DELETED PRIMES}{The prime sum for the coprime pairs}
+Use the multiplier $B_P$ from (17.4k) for the primes above $P$,
+and keep the original prime sum $A$. Uniformly for $Y\le X\le Y^2$,
+\[
+ C_Y(X)=-\frac1{\sqrt X}\sum_{m\le e^{7/4}X} b_P(m)A(X/m)
+                             +O_{F,\chi,\alpha,\epsilon}(X^{\alpha+\epsilon}).
+ \tag{17.4n}
+\]
+To see this, start with (17.4k) for $L_R$. Its coefficients vanish
+on all multiples of primes at most $P$, so the restriction there
+is precisely $(d,n)=1$. For eligible $r$ the factors $F_r$ are
+unchanged. In the linear estimate on \pg{514q} the only new factor
+in the bound for $L_R'$ is at most $O(R^D(1+D\log R))$.
+This follows from $L_R'=L'E_R+LE_R'$ and the absolute coefficient
+bounds for the finite polynomials on $\Re s=\delta$. This factor is
+a power of $\log(2X)$ and is absorbed by taking a smaller $\delta$.
+Folio \pagelink{514r}{514r} bounds the changes from the two cutoffs.
+
+Replacing the prime sum of $L_R$ by that of $L$ costs
+$O_{F,g}(\log R)$ at each scale. At each omitted prime ideal the
+log support has length $1/2$, so at most one power contributes, and
+$\sum_{\mathfrak p\mid p}\log N\mathfrak p\le D\log p$.
+After convolution this error is
+$O_\delta(X^\delta\log R)$ by (17.4l) at $\sigma=1/2+\delta$.
+This proves (17.4n) with constants independent of the interval.
+
+\point{Detection is uniform in the cutoff}
+Put $\eta=\alpha/2$. For $x\ge1$, (17.4a), (17.11) and (18) give
+\[
+ -A(x)/\sqrt x=\sum_{\Re\lambda>\eta}m_\lambda H_g(\lambda)x^\lambda
+                         +O_{\chi,g}(x^\eta).
+\]
+Indeed $V_g(1)=0$, and the complementary zero sum is absolutely
+$O(x^\eta)$. In (17.4n) first use this expansion for $m\le X$.
+For $m>X$ its retained terms at $x=X/m$ have total absolute size
+$O(x^\eta)$ since $x<1$. The prime sum itself vanishes when
+$x<e^{-7/4}$ and is bounded on $e^{-7/4}\le x<1$.
+Using (17.4l) at $1/2+\eta$ therefore extends each retained
+$m$-sum to infinity at total cost $O(X^\eta)$. The multiplier of
+$m_\lambda H_g(\lambda)X^\lambda$ is exactly $B_P(1/2+\lambda)$.
+
+\leaf{514t}{The coprime mean}{12.3 \quad THE ARITHMETIC ESTIMATE FOR THE REDUCED SUM}{One interval mean over coprime norms suffices}
+At every fixed $0<\alpha<1/2$ the nontrivial zeros of the component
+lie in the closed strip if and only if, for every $\epsilon>0$,
+\[
+ \liminf_{Y\to\infty}\frac1{\log Y}
+       \int_Y^{Y^2}X^{-\alpha-\epsilon}
+                 [\Re C_Y(X)]_+\frac{\dd X}{X}<\infty .
+ \tag{17.4o}
+\]
+The cutoff $P$ in $C_Y$ is fixed within each integral by \pg{514r}.
+All the prime coefficients and the kernel in (17.4m) are arithmetic.
+
+\point{Proof}
+For $\Re\lambda>\eta=\alpha/2$, (17.4l) gives
+$|B_P(1/2+\lambda)-1|=o(1)$ uniformly as $Y\to\infty$.
+By \pg{514s}, up to $O_\epsilon(X^{\alpha+\epsilon})$ on the
+interval, $\Re C_Y(X)$ is an exponential sum in $t=\log X$ with
+coefficient at $\lambda$ equal to
+\[
+ \frac{H_g(\lambda)}2\!
+ \left(m_\lambda B_P(1/2+\lambda)
+       +m_{\bar\lambda}\overline{B_P(1/2+\bar\lambda)}\right).
+\]
+Set $m_\lambda=0$ off the centered zero set of the character. The sum of the
+absolute coefficients is uniformly bounded. For all large $Y$,
+each real coefficient is positive since $H_g(\lambda)>0$ for real
+$\lambda$ in this strip. At each retained exponent the coefficient
+converges to $\tfrac12(m_\lambda+m_{\bar\lambda})H_g(\lambda)\ne0$.
+
+If a zero lies outside the strip, choose an ordinate $\gamma$ with
+rightmost centered real part $b>\alpha$ in the symmetrized sum.
+The positive averaging measure on \pg{514m} uses only the exponents
+and is fixed for these intervals. Apply that argument to the last
+spectral sum extended to all real $t$, with its coefficients fixed
+at the current $Y$. Its bound $O(e^{|t|/2})$ is uniform. The
+unmodulated integral is at least $-C e^{-T}$, and the modulated
+integral tends to the displayed nonzero limit at $b+i\gamma$,
+with $T=\tfrac32\log Y$. The tail bound on \pg{514n} is uniform as
+well. Returning to $C_Y$ on the interval gives the lower bound
+$cY^{b-\alpha-\epsilon}/\sqrt{\log Y}$ for the mean whenever
+$0<\epsilon<b-\alpha$. If all zeros are in the strip, the spectral
+sum is $O(X^\alpha)$ and (17.4n) with $\epsilon/2$ gives a mean
+$O(Y^{-\epsilon/2})$. This proves both directions.
+
+The missing input for Hecke GRH is an arithmetic upper bound in
+(17.4o) along arbitrarily distant intervals for widths tending to
+zero and the characters specified on \pg{522n}.
 
 \sourcepages{515}{515}{}
 \sourcepages{516}{518}{For cutoff domains and the trace with a growing set of places see pages 518a--518j.}
