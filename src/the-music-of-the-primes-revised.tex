@@ -55,7 +55,7 @@
 \afterfolio{514}{a,b}
 \afterfolio{518}{a}
 \afterfolio{520}{a,b,c,d,e,f,g,h,i,j,k,l,m,n}
-\afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad,ae,af,ag,ah,ai,aj}
+\afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,al,am}
 \afterfolio{558}{a}
 \newcount\originalfolio
 \newcount\physicalfolio
@@ -147,7 +147,7 @@ the closed strip. The last sum includes every missing boundary copy.
 \pagelink{520c}{520c--n}, \pagelink{522i}{522i--m} & The balanced prime sum and a one-sided criterion counting only principal prime ideals over totally imaginary fields.\\[3pt]
 \pagelink{522}{522--522e}, \pagelink{522f}{522f--h} & The prime-sum criterion, the Chapter~13 test space and a CM curve for which the cap loses multiplicity.\\[3pt]
 \pagelink{522n}{522n--o}, \pagelink{522p}{522p--v} & Square-root fluctuations in the cubic splitting count.\\[3pt]
-\pagelink{522w}{522w--y}, \pagelink{522z}{522z--ac}, \mbox{\pagelink{522ad}{522ad--ag}}, \mbox{\pagelink{522ah}{522ah--aj}} & Short prime intervals, cancellation between distinct primes, and a mean-square bound over norm twists.\\
+\pagelink{522w}{522w--y}, \pagelink{522z}{522z--ac}, \mbox{\pagelink{522ad}{522ad--ag}}, \mbox{\pagelink{522ah}{522ah--aj}} & Prime correlations, norm twists and \pagelink{522ak}{the variance of local prime counts (522ak--am)}.\\
 \end{tabular}
 
 \point{Scope} The Hecke prime-sum criterion is an equivalence.
@@ -2431,9 +2431,9 @@ averaging and oscillations for the cubic splitting count. Equations
 prime interval has length of order $\sqrt X\log X$. Reconstructing the
 fixed test in (46) costs the reciprocal log width. An independent
 bound at widths $X^{-o(1)}$ in (47) would give zero location.
-The fixed-test ratio in (52) attains its lower limit. Its positive
-part satisfies an averaged upper bound at frequencies of order $X$
-by (54). The bound in (55) with $U=o(\log X)$ remains open.
+The ratio in (52) attains its lower limit. The mean square in (57)
+is $O(\log X)$ for $U\ge X/\log X$. The variance estimate in (59)
+for $U=\exp(\sqrt{\log X})$ remains open.
 
 The fixed-place calculation on page 495 fails over $\Q$. The two-prime
 obstruction on page 495b rules out a fixed norm-translation-invariant
@@ -3929,6 +3929,127 @@ This proves (56). For any fixed zero, its individual contribution
 on this range is $O_{\rho,h,A}(U^{-A})$ for every $A>0$, since its
 coefficient is $H(\rho-1/2+iv)$ and $e^{t/2}\le(U\log U)^{1/4}$.
 The mean needed in (55) concerns frequencies $U=o(\log X)$.
+
+\leaf{522ak}{The mean over a frequency interval}{13.3 \quad THE CONTRIBUTION FROM DISTINCT PRIMES}{The diagonal term in the frequency mean}
+Put $X=e^t$, $t\ge1$, and retain $a_p(t)$ and $F_t$ from \pg{522ah}.
+On the log interval $[-\ell,\ell]$ define the complex measure
+\[
+ \nu_t=\sum_p a_p(t)\,\delta_{\log p-t}
+       -\delta_\chi\sqrt X\,e^{y/2}h(y)\dd y,\qquad
+ \mathcal D_\chi(t)=\sum_p|a_p(t)|^2 .
+\]
+Its Fourier transform with exponent $ivy$ is $F_t(v)$. For every
+$W\in C_c^\infty(\R)$, $U\ge1$ and $b\in\R$ one has
+\[
+ \frac1U\int_\R W\big((v-b)/U\big)|F_t(v)|^2\dd v
+ =\mathcal D_\chi(t)\int_\R W(u)\dd u+O_{F,h,W}(X/U).
+ \tag{57}
+\]
+Here $\mathcal D_\chi(t)/t\to r_\chi J(0)>0$ by (20m) and the
+partial summation on \pg{522ae}. On a sharp interval $[b,b+U]$ the
+mean square is $O_{F,h}(t+X/U)$, uniformly in $b$. As $X\to\infty$
+it is asymptotic to $r_\chi J(0)\log X$ whenever $U\log X/X\to\infty$.
+
+Indeed the proof of (53) bounds each prime coefficient by
+$d(\log p)|h(\log p-t)|/\sqrt p$ and the continuous density in the
+original variable $x$ by $|h(\log x-t)|/\sqrt x$. These same majorants
+apply to $|\nu_t|$. For pairs of distinct points at distance at most
+$Y$ in $x$, their product measure is $O_{F,h}(Y)$ also for $0<Y<1$.
+Distinct primes then contribute zero, and the continuous terms satisfy
+the bound for every $Y$. For $Y>X$ the squared total mass is $O_{F,h}(X)$.
+On the log support, $|x-x'|\le e^\ell X|y-y'|$. Consequently
+\[
+ (|\nu_t|\otimes|\nu_t|)\{0<|y-y'|\le r\}\ll_{F,h} Xr\qquad(r>0).
+\]
+
+Expanding the integral in (57) gives the kernel
+$e^{ibz}\int W(u)e^{iUzu}\dd u$ at $z=y-y'$. On the diagonal only
+prime atoms contribute. Off the diagonal the kernel is
+$O_W((1+U|z|)^{-2})$. The preceding bound on $|z|\le1/U$ and on
+successive dyadic intervals gives a total $O_{F,h,W}(X/U)$.
+A fixed nonnegative smooth majorant of $\mathbf1_{[0,1]}$ gives the
+sharp-interval upper bound. Squeezing that indicator between smooth
+minorants and majorants whose integrals tend to one gives the asymptotic.
+
+\leaf{522al}{Counts in log intervals}{13.3 \quad THE VARIANCE OF LOCAL PRIME COUNTS}{Which pairs enter the short-interval variance}
+For the measure of \pg{522ak} define
+\[
+ E_t(s,U)=\nu_t([s,s+1/U]),\qquad
+ \mathcal V_\chi(t,U)=U\int_\R |E_t(s,U)|^2\dd s \qquad(U\ge1).
+\]
+The prime atoms counted in $E_t(s,U)$ have
+$Xe^s\le p\le Xe^{s+1/U}$ with weight $a_p(t)$. For the principal
+character the continuous mass of exactly the same interval is subtracted.
+For $T(w)=(1-|w|)_+$ and $\operatorname{sinc} u=\sin(u)/u$ extended
+by continuity at zero, one has
+\begin{align*}
+ \mathcal V_\chi(t,U)
+ &=\iint T(U(y-y'))\,\mathrm d\nu_t(y)\,\mathrm d\overline{\nu_t}(y')\\
+ &=\frac1{2\pi U}\int_\R
+       \operatorname{sinc}^2\!\big(v/(2U)\big)|F_t(v)|^2\dd v .
+ \tag{58}
+\end{align*}
+In the first line distinct contributing primes satisfy
+$|p-q|\le e^\ell X/U$. For every $U\ge1$,
+\[
+ \big|\mathcal V_\chi(t,U)-\mathcal D_\chi(t)\big|\ll_{F,h} X/U .
+\]
+In particular $\mathcal V_\chi(t,U)\sim r_\chi J(0)\log X$ when
+$U\log X/X\to\infty$ and $X\to\infty$.
+
+For the first identity in (58), the set of $s$ for which $y$ and $y'$
+belong to the same interval $[s,s+1/U]$ has length
+$U^{-1}T(U(y-y'))$. Fubini applies since $\nu_t$ has finite total
+variation and compact support. The function $T$ is the autocorrelation
+of $\mathbf1_{[-1/2,1/2]}$. Its Fourier representation is
+\[
+ T(w)=(2\pi)^{-1}\int_\R\operatorname{sinc}^2(u/2)e^{iuw}\dd u .
+\]
+Substitution and the change of variable $v=Uu$ give the second line.
+The diagonal in the first line equals $\mathcal D_\chi(t)$. The
+off-diagonal support has $0<|y-y'|\le1/U$, whose absolute mass was
+bounded on \pg{522ak}. This proves the estimate.
+
+\leaf{522am}{A local variance criterion}{13.3 \quad RETURN FROM LOCAL COUNTS TO ZERO LOCATION}{How much cancellation suffices in the variance}
+For every prescribed $U=U(t)\ge1$ satisfying $\log U=o(t)$,
+\[
+ \mathrm{RH}_\chi\quad\Longleftrightarrow\quad
+ \mathcal V_\chi(t,U)\ll_{\chi,h,U,\epsilon} X^\epsilon
+       \quad\text{for every }\epsilon>0\text{ as }X=e^t\to\infty .
+ \tag{59}
+\]
+For example, $U=\exp(\sqrt{\log X})$ only involves pairs of prime
+norms at distance $O(X\exp(-\sqrt{\log X}))$. The variance is an
+integral of the squared centered count over the positions of these
+intervals. Its frequency weight in (58) includes a neighborhood of zero.
+
+Integrating the interval count gives
+$F_t(0)=\nu_t(\R)=U\int E_t(s,U)\dd s$. The support in $s$ has length
+at most $2\ell+1/U$. Cauchy--Schwarz gives
+\[
+ |F_t(0)|^2\le(2\ell U+1)\mathcal V_\chi(t,U).
+\]
+Under the variance estimate in (59) this makes $F_t(0)=O_\epsilon(X^\epsilon)$
+for every $\epsilon>0$. Its bounded difference from $-Z_0(t)$ in (54)
+then makes the Laplace transform of $Z_0$ holomorphic in $\Re z>0$.
+Equation (45) assigns a nonzero residue to every zero in that half-plane.
+Reflection gives zero location for the fixed character.
+
+Conversely, under $\mathrm{RH}_\chi$ the spectral weights on the line
+are nonnegative. Equations (45) and (54) and the diagonal estimate
+on \pg{522aj} give $|F_t(v)|\ll_{\chi,h}\log(2+|v|)$ for all real
+$v$ and $t\ge1$. Thus (58) gives
+$\mathcal V_\chi(t,U)\ll_{\chi,h}\log^2(2+U)$ for every $U\ge1$
+by substituting $v=Uu$ and using the integrability of
+$(1+|u|)^{-2}\log^2(2+|u|)$. This proves the forward implication.
+
+More generally, if $\limsup_{t\to\infty}t^{-1}\log U=\theta<\infty$
+and $\mathcal V_\chi(t,U)\ll_\epsilon X^{\kappa+\epsilon}$ for every
+$\epsilon>0$, with $\kappa\ge0$, the same residue argument gives
+$|\Re\rho-1/2|\le(\theta+\kappa)/2$ for every nontrivial zero.
+At $U=X/\log X$ the unconditional variance bound gives
+$\theta=1$ and $\kappa=0$. An independent bound in (59) for each
+character would give the Hecke generalization of the Riemann hypothesis.
 
 \sourcepages{523}{535}{The multiplicity assertion and its dependence on the norm section are treated on pages 522f--h.}
 \sourcepages{536}{555}{}

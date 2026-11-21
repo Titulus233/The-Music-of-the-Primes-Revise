@@ -1,10 +1,10 @@
 # The Music of the Primes
 
-**Last updated 21 November 2026.** Revision `2026-11-21.5` reaches manuscript folio **522aj, equation (56)**. The revised manuscript has 1,016 pages.
+**Last updated 21 November 2026.** Revision `2026-11-21.6` reaches manuscript folio **522am, equation (59)**. The revised manuscript has 1,019 pages.
 
-Fix a number field and a normalized unitary Hecke character. At prime scale $X$, the centered prime sum in (54) has mean square $O(1+\log X)$ when the frequency of the norm twist ranges over $[U,2U]$ with $U\ge X$. Equation (56) also controls a whole interval of prime scales at once. For large $U$, outside a set of frequencies of measure $O(U/\log U)$, the same twist satisfies the correlation bound for every $e\le X\le\sqrt{U\log U}$. [Dated results and proofs](PROGRESS.md)
+Fix a number field and a normalized unitary Hecke character. At prime scale $X$, the centered prime sum has mean square $O(\log X)$ on every frequency interval of length $U\ge X/\log X$. When $U\log X/X\to\infty$, equation (57) also gives the leading coefficient. In (58) the variance of weighted prime counts in moving intervals of log length $1/U$ is exactly a sum over pairs separated by at most $1/U$ in log norm. Its difference from the diagonal term is $O(X/U)$. [Dated results and proofs](PROGRESS.md)
 
-**Open proof.** Take $U=\sqrt{\log X}$, for example. Equation (55) proves that a mean square of $O_{\chi,h,\epsilon}(X^\epsilon)$ at every sufficiently large $X$, for every $\epsilon>0$, is equivalent to the Riemann hypothesis for the fixed character. This estimate remains open for general Hecke characters, as does the independent geometric growth bound (19) on folio 520.
+**Open proof.** Take $U=\exp(\sqrt{\log X})$. The moving intervals in (58) then have length of order $X\exp(-\sqrt{\log X})$ near $X$. By (59), bounding their normalized variance by $O_{\chi,h,\epsilon}(X^\epsilon)$ for every $\epsilon>0$ and every sufficiently large $X$ is equivalent to the Riemann hypothesis for the fixed character. This variance bound and the independent geometric growth bound (19) on folio 520 remain open. The manuscript's Hecke GRH remains unproved.
 
 [Original manuscript (940-page PDF)](https://math216.wordpress.com/wp-content/uploads/2026/11/the-music-of-the-primes.pdf) · [Revised manuscript (PDF)](output/pdf/the-music-of-the-primes-revised.pdf) · [Editable revision (TeX)](src/the-music-of-the-primes-revised.tex)
 
@@ -21,8 +21,9 @@ Fix a number field and a normalized unitary Hecke character. At prime scale $X$,
 | 522z–522ac | Reconstruction from narrower tests, the resulting zero strip, a short-interval sieve bound valid at every large separation, and a fixed-width estimate for ordinary zeta. |
 | 522ad–522ag | The diagonal prime weight, the lower limit of the signed distinct-pair contribution, and an upper bound for the part from nearby pairs. |
 | 522ah–522aj | A mean-square estimate over norm twists, the zero-location criterion for any prescribed band with $1\le U=o(\log X)$, and simultaneous control at a continuum of prime scales for most high frequencies. |
+| 522ak–522am | The diagonal contribution to a frequency average, an exact formula for the short-interval variance and the zero strip implied by a bound for that variance. |
 
-Folio numbers follow the manuscript. A letter suffix identifies an inserted page. Folios 522ah–522aj are PDF pages 595–597. The contents on manuscript folio 2 link to the proofs.
+Folio numbers follow the manuscript. A letter suffix identifies an inserted page. Folios 522ak–522am are PDF pages 598–600. The contents on manuscript folio 2 link to the proofs.
 
 ## Files and build
 
