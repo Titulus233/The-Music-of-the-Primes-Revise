@@ -52,7 +52,7 @@
 \afterfolio{489}{a,b}
 \afterfolio{495}{a,b}
 \afterfolio{508}{a}
-\afterfolio{514}{a,b,c,d,e}
+\afterfolio{514}{a,b,c,d,e,f,g,h,i,j}
 \afterfolio{518}{a,b,c,d,e,f,g,h,i,j}
 \afterfolio{520}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v}
 \afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,al,am,an,ao}
@@ -143,7 +143,7 @@ the closed strip. The last sum includes every missing boundary copy.
 \pagelink{488a}{488a--d}, \pagelink{488e}{488e--f}, \pagelink{489a}{489a--b} & Finite levels exhaust the component even when all primes up to a growing bound are imposed together.\\[3pt]
 \pagelink{495}{495--495b} & A counterexample at $2$ and an obstruction to recovering two prime traces with a fixed lift.\\[3pt]
 \pagelink{508a}{508a}, \pagelink{518a}{518a--f}, \pagelink{518g}{518g--j} & Cutoff lifts, \pagelink{518i}{a uniform Hecke trace at moving prime norms} and \pagelink{518j}{growth in the narrow Hilbert space}.\\[3pt]
-\pagelink{514a}{514a--b}, \pagelink{514c}{514c--e}, \pagelink{520}{520} & Full-strip formula, endpoint traces, \pagelink{520r}{a finite square-root bound} and \pagelink{520s}{prime weights of the narrow projection (520s--v)}.\\[3pt]
+\pagelink{514a}{514a--e}, \pagelink{514f}{514f--j}, \pagelink{520}{520} & \pagelink{514h}{A direct bound for the two traces}, finite prime weights and \pagelink{520s}{their recovery on narrow strips}.\\[3pt]
 \pagelink{520c}{520c--n}, \pagelink{522i}{522i--m} & The balanced prime sum and a one-sided criterion counting only principal prime ideals over totally imaginary fields.\\[3pt]
 \pagelink{522}{522--522e}, \pagelink{522f}{522f--h} & The prime-sum criterion, the Chapter~13 test space and a CM curve for which the cap loses multiplicity.\\[3pt]
 \pagelink{522n}{522n--o}, \pagelink{522p}{522p--v} & Square-root fluctuations in the cubic splitting count.\\[3pt]
@@ -1330,7 +1330,7 @@ integrable regular diagonal in (16).
 
 \sourcepages{509}{512}{The pointwise regularity statement for lifts is qualified on page 508a.}
 \sourcepages{513}{513}{}
-\sourcepages{514}{514}{The full-strip formula and the finite-place boundary trace are on pages 514a--514e.}
+\sourcepages{514}{514}{The full strip, the prime weights and the scalar comparison with the narrow projection are on pages 514a--514j.}
 \leaf{514a}{The full critical strip}{12.3 \quad THE GLOBAL TRACE OVER THE RATIONALS}{Weil's distribution in log coordinates}
 Let $h\in C_c^\infty(\R)$ with $h(0)=0$ and
 $B(h)=H(\tfrac12)+H(-\tfrac12)$. Normalize the Haar measure on each
@@ -1545,6 +1545,216 @@ $-l$ on $[-l,0)$. In (17.4) the multiplier $J_L$ selects the latter
 endpoint before tracing. Identifying the global projection on \pg{520}
 with this selected boundary contribution and the infinite-place and pole
 terms, to the precision in (19), remains the global comparison.
+
+\leaf{514f}{The global and finite traces}{12.3 \quad THE SCALAR COMPARISON AT A FIXED STRIP WIDTH}{A finite arithmetic expression for the difference}
+Fix $F,\chi$, $h\in C_c^\infty((1,2))$, $s\ge0$ and $0<\alpha<1/2$.
+Use the normalized character of \pg{446c}. A norm twist modulates the
+test and multiplies its translate by a scalar of modulus one. Put
+$X=e^\tau\ge1$, $Y=e^2X$, $L=X^2$ and define the scalar
+\[
+ \Delta_{\alpha,\chi,h}(X)=G_{\alpha,\chi}(h_\tau)
+                       -\mathcal T_{S(Y),X^2}(h_\tau).
+\]
+Write $v(u)=u^{-1/2}h(\log u)$, $V(z)=\int_0^\infty v(u)u^{z-1}\dd u$,
+$\delta_\chi=\mathbf1_{\chi=1}$ and $L_\chi(z)=L_f(z,\chi)$.
+Let $S_{\alpha,\chi}(h_\tau)=\Tr(A_{h_\tau}P_\alpha)$ be the trace
+of the projected convolution. Equations (12) and (17.11) give
+\begin{align*}
+ \Delta_{\alpha,\chi,h}(X)+S_{\alpha,\chi}(h_\tau)
+  &=X^{-1/2}\big(\delta_\chi XV(1)-A_v(X)\big)+O_{F,\chi,h}(X^{-1/2}),\\
+ A_v(X)&=\sum_{\mathfrak a}\Lambda_F(\mathfrak a)\chi(\mathfrak a)
+                       v(N\mathfrak a/X).
+ \tag{17.4a}
+\end{align*}
+The finite-cutoff error is $O(X^{-1})$. The archimedean integral
+and the lower polar term are $O(X^{-1/2})$ on this support by
+\pg{520u}. Also $|S_{\alpha,\chi}(h_\tau)|\le C_{\chi,h}X^\alpha$
+by (12), since the transforms at the zeros are absolutely summable.
+
+Set $T=e\sqrt X$ and
+\[
+ u_\chi(n)=\sum_{N\mathfrak a=n}\mu_F(\mathfrak a)\chi(\mathfrak a),
+ \qquad M_T(z)=\sum_{n\le T}u_\chi(n)n^{-z}.
+\]
+The Dirichlet coefficients of $1-L_\chi M_T$ vanish at all integer
+norms at most $T$ by ideal M\"obius inversion. Its square is supported
+at norms strictly larger than $T^2=e^2X$. In $\Re z>1$ the exact identity
+\[
+ -\frac{L_\chi'}{L_\chi}
+    =(-L_\chi')(2M_T-L_\chi M_T^2)
+       -\frac{L_\chi'}{L_\chi}(1-L_\chi M_T)^2
+\]
+therefore computes $A_v(X)$ from the first term alone. This uses the
+strict upper endpoint of the test support. Both copies of the
+reciprocal coefficients have norm at most $e\sqrt X$.
+
+\leaf{514g}{The polar contribution}{12.3 \quad A SQUARE OF THE TRUNCATED RECIPROCAL}{The residue for an arbitrary test}
+Put $D_1=-L_\chi'$, $D_2=-L_\chi L_\chi'$ and let $a_j(n)$ be the
+Dirichlet coefficients of $D_j$. Define the regularized kernels
+\[
+ K_j(y)=\sum_{n\ge1}a_j(n)v(n/y)
+            -\operatorname*{Res}_{z=1} y^z V(z)D_j(z),\qquad j=1,2.
+\]
+The sums here are finite. For $D_1$ they count ideals with weight
+$\chi(\mathfrak a)\log N\mathfrak a$. For $D_2$ they count pairs with
+weight $\chi(\mathfrak a\mathfrak b)\log N\mathfrak b$. For $y\ge e^{-2}$
+and fixed $j,k,A$ one has $|(y\partial_y)^kK_j(y)|\ll(1+y)^{-A}$.
+Indeed $L_\chi$ is entire apart from a possible simple pole at one.
+Move the inverse Mellin integral for $z^kV(z)D_j(z)$ to $\Re z=-A$.
+On each fixed strip the Hecke functional equation bounds $L_\chi$
+and its derivative polynomially at large height. $V$ has arbitrarily
+rapid vertical decay. The only crossed residue is precisely the one
+subtracted in $K_j$ and its derivatives.
+
+For a principal character define
+\[
+ R_T(X)=\operatorname*{Res}_{z=1}
+       X^z V(z)\frac{-L_\chi'(z)}{L_\chi(z)}
+                     \big(1-L_\chi(z)M_T(z)\big)^2 .
+\]
+For a nonprincipal normalized character set $R_T(X)=0$.
+The function inside the residue has a pole of order at most three.
+Its residue is computable
+from $M_T(1),M_T'(1),M_T''(1)$, $V$ through its second derivative
+and the Laurent coefficients of $L_\chi$ at one. Substituting the
+two kernels into (17.4a) gives
+\[
+ \Delta_{\alpha,\chi,h}(X)+S_{\alpha,\chi}(h_\tau)=
+ \frac{R_T(X)}{\sqrt X}
+ +\frac1{\sqrt X}\sum_{d,e\le T}u_\chi(d)u_\chi(e)
+                           K_2\!\left(\frac{X}{de}\right)
+ +O_{F,\chi,h}(X^{-1/2}).
+ \tag{17.4b}
+\]
+Indeed the residue of $X^zV(z)(-L_\chi'/L_\chi)$ is $\delta_\chi XV(1)$.
+Subtracting the residues of the two finite polynomials times $D_j$
+leaves $R_T$. The linear sum with $K_1(X/d)$ costs $O_A(X^{-A})$
+for every $A$, since $X/d\ge\sqrt X/e$.
+Here $|u_\chi(n)|\ll_{F,\epsilon}n^\epsilon$ by the divisor bound.
+At a rational prime the local reciprocal polynomial is a product of
+at most $[F:\Q]$ factors, so its absolute coefficients obey the
+ordinary degree-$[F:\Q]$ divisor bound.
+
+\leaf{514h}{A bound from short arithmetic data}{12.3 \quad DOUBLE PARTIAL SUMMATION}{An upper bound for the actual scalar difference}
+Let $B_\chi(T)=\max_{1\le t\le T}|\sum_{n\le t}u_\chi(n)|$. On
+$[0,1]^2$ set $k(a,b)=K_2(e^{-2}/(ab))$, extending by zero on the axes.
+The estimates on \pg{514g} give a smooth extension with all derivatives
+zero on the axes. Define the variation constant, independent
+of $X$, $\alpha$ and $T$, by
+\begin{align*}
+ C_{\chi,h}^{(2)}={}&|k(1,1)|+
+ \int_0^1\big(|\partial_1k(a,1)|+|\partial_2k(1,a)|\big)\dd a\\
+ &+\int_0^1\int_0^1|\partial_1\partial_2k(a,b)|\dd a\dd b .
+\end{align*}
+Two applications of partial summation bound the absolute quadratic
+sum in (17.4b) by $C_{\chi,h}^{(2)}B_\chi(T)^2$. Indeed its kernel
+is exactly $k(d/T,e/T)$. Each edge term contains one partial sum
+at $T$ and one at $Ta$ or $Tb$. The integral over the square contains
+the product of the two partial sums there. Taking absolute values gives
+\[
+ |\Delta_{\alpha,\chi,h}(X)|
+ \le C_{\chi,h} X^\alpha+
+      \frac{|R_T(X)|+C_{\chi,h}^{(2)}B_\chi(e\sqrt X)^2}{\sqrt X}
+      +O_{F,\chi,h}(X^{-1/2}).
+ \tag{17.4c}
+\]
+Thus the estimate uses signed M\"obius sums only through the square
+root of the largest norm seen by the original prime test.
+
+\point{A test detecting every exterior zero}
+For the principal character replace any $h$ by
+$h^\circ=(\partial_x+1/2)^3h$. Its Mellin weight is
+$V^\circ(z)=(1-z)^3 V(z)$, so $R_T(X)=0$ for every $T$.
+With $h=h_*$ from (20u), its transform is nonzero at every nontrivial
+zero. This single filtered test still detects every exterior zero by
+the residue argument on \pg{29}. For a nonprincipal normalized
+character (17.4c) already has $R_T=0$ for the original test.
+In either case a bound $B_\chi(t)\ll_\epsilon
+t^{1/2+\alpha+\epsilon}$ at every $t$ would suffice for (19).
+The signed expression (17.4b) can be smaller than its absolute
+upper bound in (17.4c).
+
+\leaf{514i}{The separated pairs}{12.3 \quad TERMS ALREADY WITHIN THE REQUIRED ERROR}{The part of the quadratic sum that remains}
+Use an arbitrary test for a nonprincipal character and $h^\circ$
+for the principal character. Denote this test by $g$, and form $K_2$
+with its own Mellin weight. Fix any $0<\eta<1/2$. For every
+$\epsilon>0$, (17.4b) gives the scalar comparison
+\[
+ \Delta_{\alpha,\chi,g}(X)=
+ \frac1{\sqrt X}
+ \sum_{\substack{X^{1/2-\eta}<d,e\le e\sqrt X\\|d-e|>X^\alpha}}
+      u_\chi(d)u_\chi(e)K_2(X/(de))
+       +O_{F,\chi,g,\alpha,\eta,\epsilon}(X^{\alpha+\epsilon}).
+ \tag{17.4d}
+\]
+If either index is at most $X^{1/2-\eta}$, the kernel argument is
+at least $X^\eta/e$. Its rapid decay beats the total absolute
+coefficient bound $O_{F,\epsilon}(X^{1+\epsilon})$ by any power.
+Also $K_2$ is uniformly bounded for $X/(de)\ge e^{-2}$.
+There are $O(\sqrt X(1+X^\alpha))$ pairs with $|d-e|\le X^\alpha$.
+Their contribution after division by $\sqrt X$ is
+$O(X^{\alpha+\epsilon})$ by the divisor bound.
+The projected convolution and the finite-cutoff error in (17.4a)
+are already within the same bound. The remaining requirement is
+cancellation of the separated pairs in (17.4d).
+
+\point{Returning to an arbitrary principal test}
+Let $E_h(t)=(G_{\alpha,1}-W_1)(h_t)$. Equation (17.11) gives
+$\Delta_{\alpha,1,h}(e^t)=E_h(t)+O(e^{-t})$.
+As distributions under translation one has
+$E_{h^\circ}=(1/2-\partial_t)^3E_h$. Also $E_h(t)=o(e^{t/2})$
+by (18) and dominated convergence, since each nontrivial zero is
+strictly inside the full strip and $\sum m_\lambda|H(\lambda)|<\infty$.
+If $E_{h^\circ}(t)=O(e^{bt})$ for some $b<1/2$, the solution with
+this boundary condition is
+\[
+         E_h(t)=\frac12\int_0^\infty u^2 e^{-u/2}E_{h^\circ}(t+u)\dd u
+                 =O(e^{bt}).
+\]
+Three integrations, or the resolvent of $1/2-\partial_t$, give the
+equation. The homogeneous solutions are $e^{t/2}$ times polynomials
+of degree at most two, excluded by the boundary condition. This passes
+an all-scale bound in (17.4d) to every original test at the same exponent.
+
+\leaf{514j}{The arithmetic range}{12.3 \quad WHAT THE KNOWN MERTENS DATA GIVE}{A finite-range bound without testing zeta zeros}
+Take $F=\Q$ and the trivial character. For any fixed $h$ use the
+filtered test $g=(\partial_x+1/2)^3h$, and write $C_{1,g}^{(2)}$
+for the variation constant on \pg{514h}. Hurst's sieve computed the
+ordinary Mertens function at every integer through $10^{16}$. Its
+verified bound $|M(u)|\le\sqrt u$ on $1\le u\le10^{16}$ gives
+\[
+ \left|\Delta_{\alpha,1,g}(X)+S_{\alpha,1}(g_\tau)\right|
+      \le e C_{1,g}^{(2)}+O_g(X^{-1/2})
+ \qquad\big(1\le X\le 10^{32}/e^2\big).
+ \tag{17.4e}
+\]
+Indeed $T=e\sqrt X\le10^{16}$, so $B_1(T)^2/\sqrt X\le e$.
+The inequality follows before bounding the projected convolution
+in (17.4b). Its addition gives a bound $C_{1,g}X^\alpha+
+e C_{1,g}^{(2)}+O_g(X^{-1/2})$ for the difference of the two traces.
+All constants here come from the same kernels and traces at all
+scales. The arithmetic input is the complete sieve over this interval.
+\citetitle{https://doi.org/10.1090/mcom/3275}{Hurst, Section 6.1}.
+
+For arbitrary large $X$ let $\Psi(t)=t^{3/5}(\log t)^{-1/5}$ for
+$t\ge3$. The unconditional estimate of Lee and Leong gives
+$M(u)\ll u\log u\,e^{-a\Psi(\log u)}$ for all sufficiently large $u$
+and some $a>0$. The majorant is eventually increasing. Substituting
+it into (17.4c) yields, with $c>0$,
+\[
+      |\Delta_{\alpha,1,g}(X)|\ll_g
+                X^\alpha+\sqrt X\exp(-c\Psi(\log X)).
+\]
+The two logarithmic factors from squaring are absorbed by decreasing
+$c$. The Mertens estimate uses the classical zero-free region.
+\citetitle{https://arxiv.org/abs/2208.06141}{Lee and Leong, Theorem 1.1}.
+The same form, with constants depending on $\alpha,h$, holds for every
+original test $h$. In the backward integral on \pg{514i} the second
+term costs $e^{t/2}\int_0^\infty u^2 e^{-c\Psi(t+u)}\dd u
+\ll e^{t/2-c'\Psi(t)}$ by monotonicity and integrability after
+halving $c$. This rate at unbounded scales still has limiting power
+$1/2$. For arbitrarily small fixed $\alpha$ the bound in (19)
+remains open.
 
 \sourcepages{515}{515}{}
 \sourcepages{516}{518}{For cutoff domains and the trace with a growing set of places see pages 518a--518j.}
