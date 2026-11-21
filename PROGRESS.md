@@ -1,5 +1,23 @@
 # Proof progress
 
+## 2026-11-21 · Revision `2026-11-21.12`
+
+Folios 518g–518j are pages 552–555 of the [1,041-page edition][pdf12]. The finite-place cutoff is $Y=e^2X$ and the real parameter $L$ measures cutoff width in the logarithm of the norm.
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [518i · (17.11)][f518i] | For every fixed unitary Hecke character over a number field, the semilocal trace with the specified two cutoffs differs from the full Weil distribution of the translated test by $O(Y/L)$. Setting $L=X^{1+A}$ yields $O(X^{-A})$ at all translates. The proof uses the local gamma and Euler factors and Chebyshev’s prime bound independently of the global zero sum. | [c50ccd1][joint] |
+| [518j · (17.12)][f518j] | For ordinary zeta the semilocal Fourier transforms of the same nonnegative smooth input have weighted norm at least a constant times $\exp(c_bY^{1/2+b}/\log Y)$ at every $0<b<\alpha<1/2$. Their scalar traces approximate the Weil distribution, but the transforms do not converge on this test in the narrow weighted Hilbert space. Equation (19) still requires a comparison with its arithmetic projection. | [c50ccd1][joint] |
+| [518h · (17.10)][f518h] | The first-order term is the Weil distribution times the negative integral of the first cutoff’s derivative against the reflected second cutoff. Explicit smooth profiles give coefficient one. Two even profiles give zero in this dilation limit. | [c50ccd1][joint] |
+| [518g · extension of (17.8)–(17.9)][f518g] | Tate’s local equations descend additive Fourier transformation to the centered norm line for each unitary Hecke character, using smooth compact lifts on the semilocal quotient. | [c50ccd1][joint] |
+
+[joint]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/c50ccd138c29a89f800a8740d16b49a525fd52d6
+[pdf12]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/c50ccd138c29a89f800a8740d16b49a525fd52d6/output/pdf/the-music-of-the-primes-revised.pdf
+[f518g]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/c50ccd138c29a89f800a8740d16b49a525fd52d6/src/the-music-of-the-primes-revised.tex#L1804
+[f518h]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/c50ccd138c29a89f800a8740d16b49a525fd52d6/src/the-music-of-the-primes-revised.tex#L1851
+[f518i]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/c50ccd138c29a89f800a8740d16b49a525fd52d6/src/the-music-of-the-primes-revised.tex#L1888
+[f518j]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/c50ccd138c29a89f800a8740d16b49a525fd52d6/src/the-music-of-the-primes-revised.tex#L1930
+
 ## 2026-11-21 · Revision `2026-11-21.11`
 
 Folios 518b–518f are pages 547–551 of the [1,037-page edition][pdf11]. The statements concern Step II on original folio 516 and the trace at a finite set of places in Theorem 12.4.1.1.
