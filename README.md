@@ -1,10 +1,10 @@
 # The Music of the Primes
 
-**Last updated 21 November 2026.** Revision `2026-11-21.14` adds **folios 514k–514n, equations (17.4f)–(17.4i)** to §12.3. The revised manuscript has 1,050 pages.
+**Last updated 21 November 2026.** Revision `2026-11-21.15` adds **folios 514o–514t, equations (17.4j)–(17.4o)** to §12.3. The revised manuscript has 1,056 pages.
 
-For the fixed test in §12.3, equation (17.4g) isolates the signed Möbius sum behind the difference between the global projection trace and the finite trace at $Y=e^2X$, $L=X^2$. Equation (17.4f) bounds the total absolute contribution from pairs with norm product at most $eX/(\log(2X))^{4[F:\mathbb Q]+1}$ by $O_A(X^{-A})$ for every $A>0$. The finite truncation already costs $O(X^{-1})$ by (17.11). [Dated results and proofs](PROGRESS.md)
+For $0<\alpha<3/8$, the terms in the original trace sum (17.4g) whose two norms share a rational prime larger than $X^{1/2-4\alpha/3}$ contribute $O(X^{\alpha+\varepsilon})$ in total at every large $X$. Equation (17.4j) obtains this exponent using Hu’s $7/8$ zero-free half-plane. The common-divisor identity (17.4k) has a uniform arithmetic remainder $O(X^\varepsilon)$. [Hu’s Theorem 1.2](https://hexagonmath.org/2610.00216v2) · [Dated results and proofs](PROGRESS.md)
 
-**Open proof.** For fixed half-widths $\alpha$ tending to zero and every $\varepsilon>0$, prove a bounded logarithmic mean of $X^{-\alpha-\varepsilon}[\operatorname{Re}Q_{\alpha,\chi}(X)]_+$ on some sequence of intervals $[Y,Y^2]$ with $Y\to\infty$. An exterior zero would force these means to grow on every sufficiently distant interval for some $\varepsilon>0$. This one arithmetic estimate would give the Hecke zero-location claim. [Open proof obligation and required characters](OPEN_PROBLEMS.md)
+**Open proof.** Equation (17.4o) asks for a bounded logarithmic mean of $X^{-\alpha-\varepsilon}[\operatorname{Re}C_Y(X)]_+$ on some sequence of intervals $[Y,Y^2]$ tending to infinity. In $C_Y$ the two integer norms are coprime, and the kernel omits the same small primes as the coefficients. The number of candidate pairs is $o(X)$. The one-sided bound for fixed widths tending to zero would give Hecke GRH. [Open proof obligation and required characters](OPEN_PROBLEMS.md)
 
 [Original manuscript (940-page PDF)](https://math216.wordpress.com/wp-content/uploads/2026/11/the-music-of-the-primes.pdf) · [Revised manuscript (PDF)](output/pdf/the-music-of-the-primes-revised.pdf) · [Editable revision (TeX)](src/the-music-of-the-primes-revised.tex)
 
@@ -17,6 +17,7 @@ For the fixed test in §12.3, equation (17.4g) isolates the signed Möbius sum b
 | 514c–514e | The unramified local Fourier factor gives the prime weights. The endpoint trace (17.3) recovers the full sum of these weights with finite cutoffs under translation. |
 | 514f–514j | The scalar comparison and its polar residue. For ordinary zeta, Hurst’s sieve through $10^{16}$ gives the filtered trace bound through $X=10^{32}/e^2$. [Hurst’s sieve](https://doi.org/10.1090/mcom/3275) |
 | 514k–514n | A bound for the discarded pairs at every scale. A zero outside the strip forces a lower bound for the positive real part of the remaining signed sum on each interval $[Y,Y^2]$. |
+| 514o–514t | The shared-prime bound for the original sum, Möbius inversion on the rational gcd, and the one-sided mean for the resulting sum over coprime norms. |
 | 518a–518f | The mixed additive cutoff fails. A lift on the rational semilocal quotient gives the finite trace (17.8). Its Fourier factor determines both the real and finite Weil terms in (17.9). |
 | 518g–518j | Fourier descent for every Hecke component, the coefficient selected by the two cutoff profiles, the uniform error $O(Y/L)$ and a fixed-input obstruction to convergence in the narrow weighted space. |
 | 520c–520n, 522–522b | A fixed smooth prime weight gives a criterion for the Riemann hypothesis in (21) and its per-character Hecke analogue in (24). |
@@ -31,7 +32,7 @@ For the fixed test in §12.3, equation (17.4g) isolates the signed Möbius sum b
 | 522ak–522am | The diagonal contribution to a frequency average, an exact formula for the short-interval variance and the zero strip implied by a bound for that variance. |
 | 522an–522ao | A finite-height bound for the sharp interval variance and an unconditional saving over $X/U$ for all $1\le U\le X^{a_\chi}$ with a fixed $a_\chi>0$. |
 
-Folio numbers follow the manuscript. A letter suffix identifies an inserted page. Folios 514k–514n are PDF pages 547–550. The uniform finite-cutoff estimate on folio 518i is PDF page 563. The contents on manuscript folio 2 link to the proofs.
+Folio numbers follow the manuscript. A letter suffix identifies an inserted page. Folios 514o–514t are PDF pages 551–556. The uniform finite-cutoff estimate on folio 518i is PDF page 569. The contents on manuscript folio 2 link to the proofs.
 
 ## Files and build
 

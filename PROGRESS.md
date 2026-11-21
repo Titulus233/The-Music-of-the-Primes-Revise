@@ -1,8 +1,26 @@
 # Proof progress
 
+## 2026-11-21 · Revision `2026-11-21.15`
+
+Folios 514o–514t are pages 551–556 of the [1,056-page edition][pdf15]. Section 12.3 bounds the part of the original trace from a large common rational prime and reduces the one-sided estimate to a sum over coprime integer norms. [Open proof obligation](OPEN_PROBLEMS.md)
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [514o · (17.4j)][f514o] | For any fixed $0<\alpha<3/8$, all pairs in (17.4g) sharing a prime greater than $X^{1/2-4\alpha/3}$ together satisfy $O(X^{\alpha+\varepsilon})$ at every sufficiently large $X$. The exponent uses Hu’s $7/8$ theorem. | [d855aa1][coprime] |
+| [514p–514q · (17.4k)–(17.4l)][f514p] | Möbius inversion on the rational gcd gives the Euler multiplier $\prod_{p>P}(1-(L_p-1)^2)$ and an $O_\varepsilon(X^\varepsilon)$ arithmetic remainder uniform in the common-prime cutoff. | [d855aa1][coprime] |
+| [514r–514s · (17.4m)–(17.4n)][f514r] | Deleting the small Euler factors from the kernel and coefficients gives an arithmetic comparison uniform on $[Y,Y^2]$. Only $O(X(1+\log P)/P)$ candidate pairs remain, where $P\to\infty$ is fixed throughout each interval. | [d855aa1][coprime] |
+| [514t · (17.4o)][f514t] | For each fixed width, a bounded one-sided mean of the coprime sum on an unbounded sequence of intervals is equivalent to zero location in the closed strip. | [d855aa1][coprime] |
+
+[coprime]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/d855aa10dddc64d3603af4b4890a8b4817c81204
+[pdf15]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/d855aa10dddc64d3603af4b4890a8b4817c81204/output/pdf/the-music-of-the-primes-revised.pdf
+[f514o]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/d855aa10dddc64d3603af4b4890a8b4817c81204/src/the-music-of-the-primes-revised.tex#L1935
+[f514p]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/d855aa10dddc64d3603af4b4890a8b4817c81204/src/the-music-of-the-primes-revised.tex#L1975
+[f514r]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/d855aa10dddc64d3603af4b4890a8b4817c81204/src/the-music-of-the-primes-revised.tex#L2055
+[f514t]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/d855aa10dddc64d3603af4b4890a8b4817c81204/src/the-music-of-the-primes-revised.tex#L2135
+
 ## 2026-11-21 · Revision `2026-11-21.14`
 
-Folios 514k–514n are pages 547–550 of the [1,050-page edition][pdf14]. The outstanding estimate in §12.3 concerns the positive real part of the separated Möbius sum, averaged over arbitrarily distant intervals. [Open proof obligation](OPEN_PROBLEMS.md)
+Folios 514k–514n are pages 547–550 of the [1,050-page edition][pdf14]. The outstanding estimate in §12.3 concerns the positive real part of the separated Möbius sum, averaged over arbitrarily distant intervals. [Open proof obligation in this edition](https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/15cfb9950bb688e8c779bf2c44a6db4af1699c50/OPEN_PROBLEMS.md)
 
 | Folios and equations | Result | Commit |
 | --- | --- | --- |
