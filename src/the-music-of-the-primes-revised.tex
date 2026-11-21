@@ -53,7 +53,7 @@
 \afterfolio{495}{a,b}
 \afterfolio{508}{a}
 \afterfolio{514}{a,b,c,d,e}
-\afterfolio{518}{a}
+\afterfolio{518}{a,b,c,d,e,f}
 \afterfolio{520}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v}
 \afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,al,am,an,ao}
 \afterfolio{558}{a}
@@ -142,7 +142,7 @@ the closed strip. The last sum includes every missing boundary copy.
 \pagelink{476a}{476a}, \pagelink{480a}{480a}, \pagelink{484a}{484a--b} & Truncated prime layers coincide. Before truncation their individual quotients give the prime traces.\\[3pt]
 \pagelink{488a}{488a--d}, \pagelink{488e}{488e--f}, \pagelink{489a}{489a--b} & Finite levels exhaust the component even when all primes up to a growing bound are imposed together.\\[3pt]
 \pagelink{495}{495--495b} & A counterexample at $2$ and an obstruction to recovering two prime traces with a fixed lift.\\[3pt]
-\pagelink{508a}{508a}, \pagelink{518a}{518a} & A valid rational fundamental domain and the lower-cutoff term at the real place.\\[3pt]
+\pagelink{508a}{508a}, \pagelink{518a}{518a--d}, \pagelink{518e}{518e--f} & Rational fundamental domains, cutoff lifts and the finite-place trace of the descended Fourier operator.\\[3pt]
 \pagelink{514a}{514a--b}, \pagelink{514c}{514c--e}, \pagelink{520}{520} & Full-strip formula, endpoint traces, \pagelink{520r}{a finite square-root bound} and \pagelink{520s}{prime weights of the narrow projection (520s--v)}.\\[3pt]
 \pagelink{520c}{520c--n}, \pagelink{522i}{522i--m} & The balanced prime sum and a one-sided criterion counting only principal prime ideals over totally imaginary fields.\\[3pt]
 \pagelink{522}{522--522e}, \pagelink{522f}{522f--h} & The prime-sum criterion, the Chapter~13 test space and a CM curve for which the cap loses multiplicity.\\[3pt]
@@ -1547,7 +1547,7 @@ with this selected boundary contribution and the infinite-place and pole
 terms, to the precision in (19), remains the global comparison.
 
 \sourcepages{515}{515}{}
-\sourcepages{516}{518}{The real-place range and the lower endpoint in (12.4.1.23) are calculated on page 518a.}
+\sourcepages{516}{518}{The lower endpoint, cutoff domains and the finite-place Fourier calculation are on pages 518a--518f.}
 \leaf{518a}{The real place}{12.4.1 \quad THE LOWER CUTOFF}{The finite endpoint term}
 Take $F=\Q$, $S=\{\infty\}$. In Step II on page 516, multiplication by
 the one-sided cutoff, equal to one near $x=0$, is asserted to map
@@ -1597,6 +1597,209 @@ $O(\epsilon L\|\widehat\eta_\xi\|_1)$. At $|u|=L'$ the transition in
 $w=xu$ has length $O(\epsilon x)$ and costs
 $O(\epsilon L\|\widehat\eta_\xi\|_\infty)$ after integration in
 $\dd x/x$. Formula (17) uses the classical explicit formula independently.
+
+\leaf{518b}{The mixed additive space}{12.4.1 \quad THE DOMAIN OF THE TWO CUTOFFS}{An invariant multiplier must be constant}
+Take $F=\Q$, $S=\{\infty,p\}$, and $\mathcal A=\R\times\Q_p$.
+Step II on folio 516 uses multiplication on the additive
+Schwartz--Bruhat space by a smooth function of $|x|\,|z|_p$.
+The restriction already occurs for continuous multipliers that are
+invariant under the single $S$-unit $p$.
+\[
+ \left.
+ \begin{gathered}
+ m\in C(\mathcal A),\qquad m(px,pz)=m(x,z),\\
+ m(x,z)e^{-\pi x^2}\mathbf1_{\Z_p}(z)\in\mathcal S(\mathcal A)
+ \end{gathered}\right\}
+ \quad\Longrightarrow\quad m\ \hbox{is constant}.
+ \tag{17.5}
+\]
+Every member of $\mathcal S(\mathcal A)$ has a fixed additive period
+subgroup $p^N\Z_p$ in the second variable, uniformly in the first.
+This follows from the finite tensor decomposition in Proposition 2.1.4.1
+or the structural-pair definition on folio 762. Increase $N$ to at
+least zero. Since the Gaussian is positive everywhere,
+$m(x,z)=m(x,0)$ for all $x\in\R$ and $z\in p^N\Z_p$.
+For any $z\in\Q_p$ take $k\ge0$ with $p^kz\in p^N\Z_p$. Invariance gives
+\[
+       m(x,z)=m(p^kx,p^kz)=m(p^kx,0)=m(x,0).
+\]
+Now $m(x,0)=m(p^{-k}x,0)\to m(0,0)$ by continuity.
+
+Both the one-sided cutoff with value one near zero and the nonzero
+two-sided cutoff of Definition 9.3.3.1 extend continuously to
+$\mathcal A$ by their respective values at norm zero. They are
+nonconstant and contradict the asserted mapping in Step II. Changing
+values on the measure-zero axes cannot produce a Schwartz--Bruhat
+representative, since continuous representatives equal almost everywhere
+agree everywhere. Additive Fourier transformation is an automorphism
+of $\mathcal S(\mathcal A)$, so its conjugate of either multiplier also
+fails to act on this space. These bounded cutoffs still act on additive
+$L^2$. Their action after passing to the idelic quotient has a different
+description on the following folios.
+
+\leaf{518c}{A quotient lift}{12.4.1 \quad THE RATIONAL SEMILOCAL QUOTIENT}{A polar-free lift for a two-sided cutoff}
+Let $S=\{\infty\}\cup P$ for a finite set $P$ of rational primes.
+Every $S$-unit orbit of an $S$-idele has a unique representative
+$(y,\mathbf u)$ with $y>0$ and $\mathbf u\in U=\prod_{p\in P}\Z_p^\times$.
+Indeed multiply by $\operatorname{sgn}(x_\infty)\prod_{p\in P}
+p^{-\operatorname{ord}_p(x_p)}$. The resulting real coordinate is the
+product norm. Thus $J_{\Q,S}=\R_{>0}\times U$ in these coordinates.
+Write $\Theta f=\Phi_{\Q,S}(f)$ for the uncentered sum (2.3.1.2). With
+$d_{\mathbf k}=\prod_{p\in P}p^{k_p}$ it is
+\[
+ \Theta f(y,\mathbf u)=\sum_{\epsilon=\pm1,\,\mathbf k\in\Z^P}
+                  f(\epsilon d_{\mathbf k}y,\epsilon d_{\mathbf k}\mathbf u).
+\]
+For $f\in\mathcal S(\mathcal A_S)$ its finite supports give fixed
+lower bounds on the $k_p$. On a compact interval of $y>0$ all real
+derivatives converge uniformly by rapid real decay and the convergent
+product of geometric series in the $k_p$. A fixed open subgroup of
+$U$ preserves every summand since $f$ has a fixed finite additive
+level and the $k_p$ are bounded below.
+
+For $\rho\in C_c^\infty(\R_{>0})$ define $C_\rho f$ on $\mathcal A_S$
+to equal $\rho(x)\Theta f(x,\mathbf z)$ for $x>0$, $\mathbf z\in U$,
+and zero elsewhere. Then
+\[
+       C_\rho f\in\mathcal S_{00}(\mathcal A_S),\qquad
+       \Theta C_\rho f(y,\mathbf u)=\rho(y)\Theta f(y,\mathbf u).
+ \tag{17.6}
+\]
+Its real support is compact and separated from zero. Its finite support
+is a compact open subset of the ideles, and it is constant on finitely
+many unit cosets in those variables. These are precisely the sufficient
+conditions in (5.3.4.1). Only the chosen representative survives the
+orbit sum. More generally any smooth quotient test of compact norm
+support and fixed unit level lifts by the same extension by zero.
+The centered map $Vf=y^{1/2}\Theta f$ therefore has dense image in
+$L^2(J_{\Q,S},\dd y/y\,\dd\mathbf u)$, where $\dd\mathbf u$ is Haar
+probability on $U$. For a compactly supported smooth target $g$,
+extend $y^{-1/2}g$ by zero from the same representatives to obtain
+$Vf=g$.
+
+\leaf{518d}{The one-sided range}{12.4.1 \quad THE LOWER END OF THE NORM QUOTIENT}{The part no polar-free lift can represent}
+Let $r=|P|\ge1$ and $f(x,\mathbf z)=e^{-\pi x^2}\prod_{p\in P}
+\mathbf1_{\Z_p}(z_p)$. The expression on \pg{518c} gives, for
+$t=\log(1/y)\to+\infty$ and every $\mathbf u\in U$,
+\[
+ \Theta f(y,\mathbf u)=2\sum_{\mathbf k\ge0}
+                  e^{-\pi (y d_{\mathbf k})^2}
+   =\frac{2t^r}{r!\prod_{p\in P}\log p}
+         +O_P((1+t)^{r-1}).
+ \tag{17.7}
+\]
+To count the vectors with $\log d_{\mathbf k}\le t$, put
+$l_p=\log p$ and use the boxes $\prod_p[k_p l_p,(k_p+1)l_p)$.
+Their union contains the positive simplex of radius $t$ in the sum
+of the coordinates, and lies in the simplex of radius $t+\sum_p l_p$.
+Subtracting the volumes gives an error $O_P((1+t)^{r-1})$ after division
+by the box volume. The same volume comparison bounds the number in
+a unit shell at $u\ge0$ by $O_P((1+u)^{r-1})$.
+Replacing the sharp step at $t$ by the Gaussian changes the sum by
+the same error, since
+$|e^{-\pi e^{2v}}-\mathbf1_{v\le0}|\ll e^{-|v|}$ on $\R$.
+
+For $g\in\mathcal S_{00}(\mathcal A_S)$ the finite coordinates are
+supported away from zero and infinity. Only finitely many $\mathbf k$
+occur in $\Theta g$. Each real factor is Schwartz with all derivatives
+zero at the origin by (5.3.4.1). Consequently for every $M>0$,
+\[
+              \sup_{\mathbf u\in U}|\Theta g(y,\mathbf u)|=O_{g,M}(y^M)
+                     \qquad(y\downarrow0).
+\]
+For a one-sided $\rho$ equal to one near zero, the function
+$\rho\,\Theta f$ in (17.7) therefore admits no polar-free lift, even
+if the lift can be chosen freely after passing to the quotient.
+For $P=\{2\}$ the leading term is $2\log(1/y)/\log 2$.
+Multiplying both sides by $y^{1/2}$ gives the same obstruction for $V$.
+For two-sided smooth cutoffs (17.6) supplies the lift exactly.
+
+\leaf{518e}{The descended Fourier operator}{12.4.1 \quad TWO-SIDED CUTOFFS AT FINITELY MANY PLACES}{An exact finite-cutoff trace after descent}
+Put $x=\log y$. On a compact character component use the transform
+\[
+ \widehat g_\kappa(t)=\int g(y,\mathbf u)\kappa(\mathbf u)
+                   y^{-it}\,\frac{\dd y}{y}\dd\mathbf u .
+\]
+Write $\mathcal F_S$ for the self-dual
+additive Fourier transform. On the critical line, unfolding $Vf$ and
+multiplying Tate's local functional equations gives
+\[
+  \widehat{V\mathcal F_S f}_{\bar\kappa}(-t)
+      =v_\kappa(t)\widehat{Vf}_\kappa(t),\qquad |v_\kappa(t)|=1 .
+\]
+Here $v_\kappa$ is the product of the local Fourier factors in this
+convention. The integrals for $Vf$ converge at both ends. Indeed the
+count on \pg{518d} and rapid real decay bound $\Theta f$ by
+$O_f((1+|\log y|)^{|P|})$ near zero and by $O_{f,M}(y^{-M})$ at
+infinity. The lower bounds on $k_p$ only shift the simplex by a fixed
+amount. The local equations on pure tensors give the formula by linearity
+for every Bruhat test. See Tate, Chapter XV, Theorem 2.4.1, and
+\citetitle{https://arxiv.org/abs/math/9902080}{Burnol's local Fourier factors}.
+Plancherel in $(x,\mathbf u)$ defines a unitary $\mathcal U$ on the
+quotient satisfying $\mathcal U Vf=V\mathcal F_S f$. Thus
+$V\mathcal F_S^{-1}C_\rho\mathcal F_S
+=\mathcal U^{-1}M_\rho\mathcal U V$ by (17.6).
+
+Take log cutoffs $r_1,r_2\in C_c^\infty(\R)$ and convolution by
+$h\in C_c^\infty(\R)$ on the $\kappa$ component. With the ordinary
+Fourier transform $\widehat h(t)=\int h(x)e^{-itx}\dd x$,
+\begin{align*}
+ &\Tr_\kappa(M_{r_1}A_h\mathcal U^{-1}M_{r_2}\mathcal U)\\
+ &\quad=\iint_{\R^2}\widehat r_1(t-u)\widehat r_2(t-u)\widehat h(u)
+           \overline{v_\kappa(u)}v_\kappa(t)
+                     \,\frac{\dd t\dd u}{(2\pi)^2}.
+ \tag{17.8}
+\end{align*}
+The first two operators together are trace class by \pg{514a}.
+In frequency their kernel is $\widehat r_1(t-u)\widehat h(u)$ for
+measure $\dd u/(2\pi)$. The reverse kernel of the last three factors
+at $(u,t)$ is $\overline{v_\kappa(u)}\widehat r_2(t-u)v_\kappa(t)$.
+Cut the external frequency $t$ to $[-R,R]$. Both restricted factors
+are Hilbert--Schmidt and their product trace is the integral of the
+kernel product. Let $R\to\infty$ by trace-norm convergence and absolute
+integrability. Formula (17.8) gives the trace of the descended two-sided
+operators for finite cutoffs.
+
+\leaf{518f}{The conductor operator}{12.4.1 \quad THE LOGARITHM OF THE NORM AND ITS FOURIER CONJUGATE}{The Weil terms on the rational semilocal quotient}
+Let $D$ be multiplication by $\log y$ on the quotient, and let
+$K=-D-\mathcal U^{-1}D\mathcal U$. On tests with smooth compact
+frequency support, $\widehat D=i\partial_t$ in the convention of
+\pg{518e}. Differentiating the reflected transform there gives
+\[
+       \widehat{Kg}_\kappa(t)
+           =i\,v_\kappa'(t)v_\kappa(t)^{-1}\widehat g_\kappa(t).
+\]
+Let $\chi$ be a primitive Dirichlet character, including the trivial
+character for $\zeta$. Take $P$ to contain all primes dividing its
+conductor. Its $S$-local character is trivial on $S$-units, since its
+omitted local components are unramified. Use its unit component
+$\kappa$ above. For a log test $h\in C_c^\infty((0,\infty))$ and
+$M_I$ the indicator of a log interval of length one,
+\[
+ \Tr_\kappa(M_I A_h K M_I)=W_{\infty,\chi}(h)+
+   \sum_{\substack{p\in P\\p\nmid {\rm cond}(\chi)}}\sum_{k\ge1}
+       \frac{\chi(p)^k\log p}{p^{k/2}}\,h(k\log p).
+ \tag{17.9}
+\]
+Indeed $i v_\kappa'/v_\kappa$ is the sum of the logarithmic derivatives
+of its factors. At an unramified prime use (17.1). A ramified local
+Euler factor is one and its epsilon factor is a constant times a pure
+exponential in $t$. The logarithmic derivative contributes a multiple
+of $h(0)=0$. At the real place of parity $a$ the factor is a constant
+times $\Gamma_\R(1/2+a+it)/\Gamma_\R(1/2+a-it)$.
+Its contribution by the digamma integral on \pg{522w} is
+$\int h(x)e^{-(1/2+a)x}/(1-e^{-2x})\dd x$ on positive support.
+
+The frequency multiplier $m=\widehat h\,i v_\kappa'/v_\kappa$ lies
+in $L^1\cap L^\infty$ by the digamma bound and rapid decay. Here
+$A_hK$ denotes its bounded extension. Factoring $m$ into two $L^2$
+multipliers of absolute value $|m|^{1/2}$ makes their products with
+$M_I$ Hilbert--Schmidt. Their product has trace
+$|I|\int m(t)\dd t/(2\pi)$, proving (17.9).
+For $h_\tau$ as on \pg{514e}, include all primes through $e^{\tau+2}$.
+The right side then equals $W_\chi(h_\tau)$ exactly at every translate.
+Comparison of this descended operator with the narrow arithmetic
+projection to the accuracy of (19) remains open.
 
 \sourcepages{519}{519}{For the established identity and the hypothesis needed on a narrow strip see page 520.}
 \leaf{520}{Narrow strips}{12.5.1 \quad THE TRACE IDENTITY}{The contribution outside the strip}
