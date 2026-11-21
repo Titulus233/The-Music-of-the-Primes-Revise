@@ -1,32 +1,33 @@
-# Open proof obligation for Hecke GRH
+# Open problems for the $S_3$ prototype
 
-## Bound the interval mean over squarefree products of split primes
+## The first double-step Bessel period
 
-In revision `2026-11-21.16`, equation (17.4s) is the outstanding arithmetic estimate. Fix $F,\chi$, a strip half-width $0<\alpha<1/2$, and $\varepsilon>0$. Prove that there is a sequence $Y_j\to\infty$ on which
+Let $K=\mathbb Q(\sqrt{-23})$, let $M$ be the splitting field of $x^3-x-1$, and let $\psi$ be a nontrivial character of $\mathrm{Cl}(K)=C_3$. The Hilbert class field of $K$ is $M$. Once the zeros of $\zeta_K$ are accounted for, ERH for $M$ reduces to zero location for $L_K(s,\psi)$ by $\zeta_M=\zeta_K L_K(\psi)^2$. [Serre, §5.3](https://www.math.mcgill.ca/goren/SeminarOnCohomology/Serre.pdf)
 
-$$
-\frac{1}{\log Y_j}\int_{Y_j}^{Y_j^2} X^{-\alpha-\varepsilon}
-       [\operatorname{Re} S_{Y_j}(X)]_+\,\frac{dX}{X}
-       \le C_{F,\chi,\alpha,\varepsilon}.
-$$
+For the norm-one torus $T$ of $K/\mathbb Q$ with maximal compact subgroup $U$ at the finite places, the quotient $T(\mathbb Q)\backslash T(\mathbb A_f)/U$ is $C_3$. Write $\delta_c$ for the point mass at $c$. With $r$ a prime-ideal class above $13$, put $S=r+r^{-1}$ on $\mathbb Z[C_3]$ and $P=2-S$. Then $P^2=3P$ and $P\delta_1=2\delta_1-\delta_r-\delta_{r^{-1}}$. The two nontrivial characters give the same eigenvalue $-1$ for $S$.
 
-The positive part $[r]_+=\max(r,0)$ is taken after the signed sum. The intervals may depend on all four parameters. The fixed widths $\alpha=2^{-\ell}$ for integers $\ell\ge2$ suffice. [Interval criterion, (17.4s)][criterion]
-
-**The sum.** For each window $[Y,Y^2]$, put $D=[F:\mathbb Q]$ and let $R=\prod_{p\le P}p$ be the largest primorial satisfying $R^{2D}\le\sqrt{\log(2Y)}$. Put $H_X=\mathrm e^{-1}(\log(2X))^{4D+1}$, $T=\mathrm e\sqrt X$, and fix a smooth $0\le\omega\le1$ equal to one on $[0,1]$ and zero on $[2,\infty)$. With the fields below, at all sufficiently large $Y$ the sum has the single-index form
+**Active problem.** Specify the Hermitian and skew-Hermitian spaces, Weil splittings, Schwartz functions and period character for the first double step. Let $B_1$ be the resulting period row on the three torus classes. Determine the transferred spherical correspondence $S_{13}^{(1)}$ independently from the split-place Weil representation. The desired identities on the period lattice are
 
 $$
-S_Y(X)=\frac1{\sqrt X}
-\sum_{\substack{X/H_X<k<\mathrm e^{7/4}X/P,\ k\ \mathrm{squarefree}\\
- p\mid k\ \Longrightarrow\ p>P\ \mathrm{and}\ p\ \mathrm{splits\ completely\ in}\ F}}
- u_\chi(k)\,W_{\alpha,X}(k)\,K_{2,R}(X/k).
+B_1 S=S_{13}^{(1)}B_1,\qquad B_1(P\delta_1)\ne0.
 $$
 
-Here $W_{\alpha,X}(k)$ sums $\omega(d/T)\omega(k/(dT))$ over divisors $d\mid k$ with $|d-k/d|>X^\alpha$. The kernel uses the fixed test $g=(\partial_x+1/2)^3h_*$ and $-L_R L_R'$, with the Euler factors above $p\le P$ removed. For the trivial character $u_\chi(k)=(-D)^{\#\{p:p\mid k\}}$. In general $u_\chi(k)=\prod_{p\mid k}(-\sum_{N\mathfrak p=p}\chi(\mathfrak p))$. [Product and divisor weights, folio 514u][sum] · [Kernel definition, folio 514r][kernel]
+The weight-one class theta series already has Hecke eigenvalue $-1$ at $13$. What requires proof is that the specified Bessel period retains this component. A zero for one lattice or Schwartz function tests that vector. Vanishing for the representation requires a period or local model obstruction. [Double-step integral](https://github.com/TomasOrtega/RH/blob/a6ac91a412dcbaab31801355ec5707024a71bf65/extracted/lean/src/Development/AbelianVarietyTheory/Proofs/DecoratedLatticeProofs/BesselPeriodDoubleStepIteratedQuotientIntegral.lean#L56) · [Identification with a column period](https://github.com/TomasOrtega/RH/blob/a6ac91a412dcbaab31801355ec5707024a71bf65/extracted/lean/src/Development/AbelianVarietyTheory/Proofs/TwistedOperators/QEqColPer.lean#L21)
 
-**Why it suffices.** Write $b_*=\sup_\rho(\operatorname{Re}\rho-1/2)$. The new linear term costs $O_\varepsilon(X^{b_*/2+\varepsilon})$. If $b_*>\alpha$, a zero exists strictly beyond both $\alpha$ and $b_*/2$. For some $\varepsilon>0$ it forces the displayed means to diverge on every sufficiently distant window. It suffices to prove the bound for the trivial character and for normalized infinite-order characters unramified at every finite place over totally imaginary fields Galois over $\mathbb Q$. [Linear term, folio 514w][linear] · [Zero detection, folio 514x][criterion] · [Character reduction][transfer]
+## From a nonzero row to a zero-free window
 
-[criterion]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/8f1027abb49e5c42b38ee7ce978b4b6de814d7d2/src/the-music-of-the-primes-revised.tex#L2314
-[sum]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/8f1027abb49e5c42b38ee7ce978b4b6de814d7d2/src/the-music-of-the-primes-revised.tex#L2183
-[kernel]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/8f1027abb49e5c42b38ee7ce978b4b6de814d7d2/src/the-music-of-the-primes-revised.tex#L2055
-[linear]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/8f1027abb49e5c42b38ee7ce978b4b6de814d7d2/src/the-music-of-the-primes-revised.tex#L2271
-[transfer]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/8f1027abb49e5c42b38ee7ce978b4b6de814d7d2/src/the-music-of-the-primes-revised.tex#L4535
+1. Extend Hecke compatibility to the good prime ideals and propagate the cubic component through the chain. Establish its integral divisibility and norm bounds. The integral operator $P$ permits this question at $3$, where $P/3$ need not preserve the lattice.
+2. Determine which cohomology enters that divisibility bound. For $A=K\mathbb Q(\zeta_N)$ the extension $AM/A$ is cyclic of degree three and unramified at finite places. The existing weak Vandiver bound concerns cyclotomic auxiliary fields. A reduction to the cubic component of the negative-twist cohomology would need an integral argument, including at $3$. [Weak Vandiver window](https://github.com/TomasOrtega/RH/blob/a6ac91a412dcbaab31801355ec5707024a71bf65/extracted/lean/src/Development/AutomorphicArithmetic/CharacterBoxes/ExistsPageN.lean#L12)
+3. Identify the resulting geometric weights with ideal-class reciprocity and the logarithmic derivative of $L_K(s,\psi)$. Prove a one-sided prime-sum bound on arbitrarily distant power windows and apply the Hecke explicit formula. [Arithmetic input in the Dirichlet construction](https://github.com/TomasOrtega/RH/blob/a6ac91a412dcbaab31801355ec5707024a71bf65/extracted/lean/src/Development/AutomorphicArithmetic/PrimitiveCosets/CoreAtH.lean#L18) · [Window criterion](https://github.com/TomasOrtega/RH/blob/a6ac91a412dcbaab31801355ec5707024a71bf65/extracted/lean/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ZeroFreeOfRpowWindow.lean#L11)
+
+## Archived condition from Masullo’s §12.3
+
+Revision `2026-11-21.16` ends the single-$L$-function calculation at (17.4s). For fixed $F,\chi$, narrow half-width $\alpha$ and each $\varepsilon>0$, it asks for a sequence $Y_j\to\infty$ on which
+
+$$
+\frac{1}{\log Y_j}\int_{Y_j}^{Y_j^2}X^{-\alpha-\varepsilon}
+[\operatorname{Re}S_{Y_j}(X)]_+\,\frac{dX}{X}
+\le C_{F,\chi,\alpha,\varepsilon}.
+$$
+
+This bound remains open and belongs to the archived $\mathrm{GL}_1$ argument. [Squarefree sum, folio 514u](src/the-music-of-the-primes-revised.tex#L2183) · [Interval criterion, folio 514x](src/the-music-of-the-primes-revised.tex#L2314) · [Record of the revision](PROGRESS.md)
