@@ -4,6 +4,8 @@
 
 Folios 514f–514j are pages 542–546 of the [1,046-page edition][pdf13]. Section 12.3 compares the global narrow-strip trace directly with the finite trace of (17.11) at $Y=e^2X$ and $L=X^2$.
 
+The open proof obligation is the signed estimate in (17.4d) on folio 514i for all sufficiently large $X$. By the zero transfer in (36) on folio 522n, the estimate for the trivial character and the normalized infinite-order characters of finite conductor one over totally imaginary Galois fields would give the full Hecke claim. [Open proof obligation](OPEN_PROBLEMS.md) · [780bf0c][obligation]
+
 | Folios and equations | Result | Commit |
 | --- | --- | --- |
 | [514i · (17.4d)][f514i] | For any fixed $0<\alpha<1/2$ and $0<\eta<1/2$, all pairs except $X^{1/2-\eta}<d,e\le e\sqrt X$ with $|d-e|>X^\alpha$ are already within $O(X^{\alpha+\epsilon})$. This holds for each nonprincipal character and for the filtered principal test. An all-scale bound for the separated pairs gives (19) for the original tests. | [5b96f53][scalar] |
@@ -11,6 +13,7 @@ Folios 514f–514j are pages 542–546 of the [1,046-page edition][pdf13]. Secti
 | [514j · (17.4e)][f514j] | For zeta, Hurst’s complete sieve through $10^{16}$ bounds the filtered scalar difference by $C_g X^\alpha+eC_{1,g}^{(2)}+O_g(X^{-1/2})$ for $1\le X\le10^{32}/e^2$. At unbounded scales the cited Mertens estimate gives $O_{\alpha,h}(X^\alpha+\sqrt X\exp[-c(\log X)^{3/5}(\log\log X)^{-1/5}])$ for every original test. | [5b96f53][scalar] |
 | [514f · (17.4a)][f514f] and [514g · (17.4b)][f514g] | Squaring the error of a truncated reciprocal Euler series puts its first possible coefficient beyond the test support. The scalar trace difference becomes a finite quadratic sum of ideal Möbius coefficients, the projected convolution and an explicit principal residue. | [5b96f53][scalar] |
 
+[obligation]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/780bf0c039d64f66fddec6f6f91f2e4d876b199e
 [scalar]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/5b96f531c6139993e1e6505301e56b6480500703
 [pdf13]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/5b96f531c6139993e1e6505301e56b6480500703/output/pdf/the-music-of-the-primes-revised.pdf
 [f514f]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/5b96f531c6139993e1e6505301e56b6480500703/src/the-music-of-the-primes-revised.tex#L1549
