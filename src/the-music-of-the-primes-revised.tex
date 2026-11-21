@@ -1,0 +1,3358 @@
+% Compile from the repository root with pdfLaTeX.
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,mathtools,geometry,fancyhdr,xcolor}
+\geometry{left=72bp,right=72bp,top=72bp,bottom=66bp,headheight=15pt,headsep=15pt,footskip=30pt}
+\pdfminorversion=5
+\pdfinclusioncopyfonts=1
+\pdfdecimaldigits=4
+\nofiles
+\definecolor{ink}{RGB}{31,65,77}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4.5pt plus .6pt minus .4pt}
+\setlength{\abovedisplayskip}{8pt plus 1pt minus 2pt}
+\setlength{\belowdisplayskip}{8pt plus 1pt minus 2pt}
+\setlength{\emergencystretch}{1em}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\scshape The Music of the Primes}
+\fancyhead[R]{\small\scshape\rightmarktext}
+\fancyfoot[L]{\footnotesize\color{ink}Revised mathematical text}
+\fancyfoot[R]{\small\bfseries\printfolio}
+\renewcommand{\headrulewidth}{.3pt}
+\newcommand{\rightmarktext}{}
+\newcommand{\printfolio}{}
+\newcommand{\leaf}[4]{\clearpage\gdef\printfolio{#1}\gdef\rightmarktext{#2}%
+  {\small\sffamily\bfseries\color{ink}#3\par}\vspace{3pt}%
+  {\LARGE\bfseries #4\par}\vspace{5pt}}
+\newcommand{\point}[1]{\par\smallskip\textbf{#1.}\enspace\ignorespaces}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\A}{\mathbb A}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\citetitle}[2]{\leavevmode\pdfstartlink attr{/Border [0 0 0]} user{%
+ /Subtype /Link /A << /S /URI /URI (\pdfescapestring{\detokenize{#1}}) >>}{\color{ink}#2}\pdfendlink}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Span}{span}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+
+% Map the original destinations and the lettered leaves to physical PDF pages.
+\makeatletter
+\newcommand{\afterfolio}[2]{\expandafter\def\csname leaves@#1\endcsname{#2}}
+\afterfolio{426}{a}
+\afterfolio{446}{a,b,c,d}
+\afterfolio{463}{a,b}
+\afterfolio{476}{a}
+\afterfolio{480}{a}
+\afterfolio{484}{a,b}
+\afterfolio{488}{a,b,c,d,e,f}
+\afterfolio{489}{a,b}
+\afterfolio{495}{a,b}
+\afterfolio{508}{a}
+\afterfolio{514}{a,b}
+\afterfolio{518}{a}
+\afterfolio{520}{a,b,c,d,e,f,g,h,i,j,k,l,m,n}
+\afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v}
+\afterfolio{558}{a}
+\newcount\originalfolio
+\newcount\physicalfolio
+\newcommand{\baselinePDF}{output/pdf/the-music-of-the-primes-reproduction.pdf}
+\pdfximage page 1 mediabox {\baselinePDF}
+\edef\baselinecount{\the\pdflastximagepages}
+\def\pdfpagelabels{0 << /S /D >> }
+\originalfolio=0 \physicalfolio=0
+\loop\ifnum\originalfolio<\baselinecount\relax
+  \advance\originalfolio by 1 \advance\physicalfolio by 1
+  \expandafter\xdef\csname physical@\the\originalfolio\endcsname{\the\physicalfolio}%
+  \ifcsname leaves@\the\originalfolio\endcsname
+    \edef\letterlist{\csname leaves@\the\originalfolio\endcsname}%
+    \@for\letterfolio:=\letterlist\do{%
+      \xdef\pdfpagelabels{\pdfpagelabels\the\physicalfolio\space << /P (\the\originalfolio\letterfolio) >> }%
+      \advance\physicalfolio by 1
+      \expandafter\xdef\csname physical@\the\originalfolio\letterfolio\endcsname{\the\physicalfolio}}%
+    \xdef\pdfpagelabels{\pdfpagelabels\the\physicalfolio\space << /S /D /St \the\numexpr\originalfolio+1\relax\space >> }%
+  \fi
+\repeat
+\newcommand{\MusicPDFPageRef}[1]{\pdfpageref\csname physical@#1\endcsname\space\space 0 R}
+\input{ref/the-music-of-the-primes-navigation-reader.tex}
+\newcommand{\pagelink}[2]{\leavevmode\pdfstartlink attr{/Border [0 0 0]} user{%
+  /Subtype /Link /A << /S /GoTo /D [\MusicPDFPageRef{#1} /Fit] >>}%
+  {\color{ink}#2}\pdfendlink}
+\newcommand{\pg}[1]{\pagelink{#1}{p.\,#1}}
+\newcommand{\sourcepages}[3]{\clearpage
+  \begingroup
+  \pdfhorigin=0pt \pdfvorigin=0pt
+  \originalfolio=#1\relax
+  \loop\ifnum\originalfolio<\numexpr#2+1\relax
+    \pdfximage page \originalfolio\space mediabox {\baselinePDF}%
+    \edef\pageimage{\the\pdflastximage}%
+    \edef\pageattributes{\ifcsname MusicPDFAnnotations\the\originalfolio\endcsname
+      \csname MusicPDFAnnotations\the\originalfolio\endcsname\fi}%
+    \expandafter\pdfpageattr\expandafter{\pageattributes}%
+    \shipout\hbox{\rlap{\pdfrefximage\pageimage}%
+      \vbox to 792bp{\kern 15bp\hbox to 612bp{\hfil
+        {\footnotesize\sffamily\color{ink}#3}\hfil}\vss}}%
+    \advance\originalfolio by 1 \stepcounter{page}%
+  \repeat
+  \endgroup\pdfpageattr{}}
+\makeatother
+\begin{document}
+\let\editionpdfinfo\pdfinfo
+\def\pdfinfo#1{}
+\input{ref/the-music-of-the-primes-navigation.tex}
+\let\pdfinfo\editionpdfinfo
+\pdfinfo{/Title (The Music of the Primes - Revised Mathematical Text)
+ /Subject (Spectral traces, Hecke L-functions and the narrow-strip defect)}
+\edef\putpagelabels{\noexpand\pdfcatalog{/PageLabels << /Nums [\pdfpagelabels] >>}}\putpagelabels
+
+\sourcepages{1}{1}{Revised edition \quad$\cdot$\quad Spectral traces and the prime sum \quad$\cdot$\quad Results on page 2}
+\leaf{2}{Results}{THE TRACE FORMULA}{The full strip and the missing zeros}
+For every unitary Hecke character, every strip and every Sobolev degree
+$s\ge0$, the arithmetic quotient counts each interior zero with its full
+multiplicity. In degree four it counts a boundary zero of order $m$ with
+weight $\min(m,2)$. On the full critical strip its trace equals the
+spectral side of the Hecke--Weil explicit formula. Smooth Bruhat tests
+give a trace-norm convergent sum over the compact character components.
+The multiplicity-capped formula of Chapter~13 fails for an allowed norm
+section over $\Q(i)$ at a zero of order at least three.
+
+Write $\lambda=\rho-\tfrac12$ for a nontrivial zero of $\zeta$ in centered
+coordinates, $m_\lambda$ for its multiplicity, and
+$H(z)=\int_{\R}h(x)e^{zx}\dd x$ for a smooth compactly supported test in
+$x=\log t$. The parameter $\alpha$ is the half-width in centered coordinates.
+For $h(0)=0$ the prime and real-place distribution $W$ satisfies
+\[
+ W(h)=H(\tfrac12)+H(-\tfrac12)
+       -\Tr(A_hP_\alpha)
+       -\sum_{\lambda}\big(m_\lambda-n_{\alpha,4}(\lambda)\big)H(\lambda).
+\]
+Here $P_\alpha$ is the orthogonal spectral projection defined by the arithmetic
+$\theta$-space. The multiplicity $n_{\alpha,4}$ in (4) is zero outside
+the closed strip. The last sum includes every missing boundary copy.
+
+\par\smallskip\textbf{Results by manuscript page}\par
+\begin{tabular}{@{}p{.24\linewidth}p{.69\linewidth}@{}}
+\pagelink{29}{29} & A residue detects every omitted zero.\\[3pt]
+\pagelink{426a}{426a} & Limits of projections and the count of boundary jets.\\[3pt]
+\pagelink{446}{446--446c}, \pagelink{446d}{446d} & One adelic generator for all strip widths, including zeros on the boundary.\\[3pt]
+\pagelink{463}{463--463b} & Trace class and summation over characters.\\[3pt]
+\pagelink{476a}{476a}, \pagelink{480a}{480a}, \pagelink{484a}{484a--b} & Truncated prime layers coincide. Before truncation their individual quotients give the prime traces.\\[3pt]
+\pagelink{488a}{488a--d}, \pagelink{488e}{488e--f}, \pagelink{489a}{489a--b} & Finite levels exhaust the component even when all primes up to a growing bound are imposed together.\\[3pt]
+\pagelink{495}{495--495b} & A counterexample at $2$ and an obstruction to recovering two prime traces with a fixed lift.\\[3pt]
+\pagelink{508a}{508a}, \pagelink{518a}{518a} & A valid rational fundamental domain and the lower-cutoff term at the real place.\\[3pt]
+\pagelink{514a}{514a--b}, \pagelink{520}{520--520b} & The full-strip formula, the omitted zeros and the consequence of a fixed zero-free half-plane.\\[3pt]
+\pagelink{520c}{520c--n}, \pagelink{522i}{522i--m} & The balanced prime sum and a one-sided criterion counting only principal prime ideals over totally imaginary fields.\\[3pt]
+\pagelink{522}{522--522e}, \pagelink{522f}{522f--h} & The prime-sum criterion, the Chapter~13 test space and a CM curve for which the cap loses multiplicity.\\[3pt]
+\pagelink{522n}{522n--o}, \pagelink{522p}{522p--v} & A square-root term for principal primes and two-sided oscillations in the cubic splitting count.\\
+\end{tabular}
+
+\point{Scope} The Hecke prime-sum criterion is an equivalence.
+The independent estimate required for the Riemann hypothesis, for its Hecke
+generalization, and the status of the multiplicity claim are specified on
+\pg{522e}. The lettered folios continue the proofs at the indicated manuscript pages.
+
+\sourcepages{3}{5}{}
+\sourcepages{6}{6}{For the status of the mathematical conclusions see pages 2 and 522e.}
+\sourcepages{7}{27}{}
+\sourcepages{28}{28}{The narrow-strip identity is conditional. Its defect is given on page 520.}
+\leaf{29}{Zero detection}{1.4 \quad CONSEQUENCES OF A STRIP TRACE}{A residue for each omitted zero}
+Fix $0\le\alpha<\tfrac12$. Write $d_\lambda=m_\lambda-
+n_{\alpha,4}(\lambda)$ with the strip multiplicity (4), and
+$D_\alpha=\{\lambda:d_\lambda>0\}$. Outside the strip $d_\lambda=m_\lambda$.
+Take $h\in C_c^\infty((1,2))$ and set $h_\tau(x)=h(x-\tau)$ for $\tau\ge0$.
+The multiplicative tests $h_\tau(\log t)$ stay away from $t=1$. The difference
+between the full and the narrow zero sums is
+\[
+ E_\alpha(h_\tau)=\sum_{\lambda\in D_\alpha}
+                 d_\lambda e^{\lambda\tau}H(\lambda).
+ \tag{1}
+\]
+Thus equality of the two geometric sides with their respective zero sums would
+give $E_\alpha(h_\tau)=0$.
+
+\point{Residue argument} Repeated integration by parts gives
+$|H(\sigma+it)|\ll_{h,A}(1+|t|)^{-A}$ uniformly for $|\sigma|\le\tfrac12$.
+The classical zero count, with multiplicities, is $O(T\log(2+T))$ up to
+height $T\ge2$. For $\Re z>\tfrac12$ these bounds justify absolute
+interchange in
+\[
+ \int_0^\infty E_\alpha(h_\tau)e^{-z\tau}\dd\tau
+   =\sum_{\lambda\in D_\alpha}\frac{d_\lambda H(\lambda)}{z-\lambda}.
+ \tag{2}
+\]
+The series on the right converges normally on compact subsets of the plane
+away from its discrete set of possible poles. If (1) vanishes for all $\tau$,
+the identity theorem makes (2) identically zero as a meromorphic function.
+Given an omitted $\lambda_0$, choose $h(x)=e^{-\lambda_0x}b(x)$ with
+$b\in C_c^\infty((1,2))$, $b\ge0$, $\int b=1$. The residue at $\lambda_0$
+is $d_{\lambda_0}H(\lambda_0)=d_{\lambda_0}>0$, a contradiction.
+
+\point{Growth suffices} If, for each such $h$ and every $\epsilon>0$,
+\[
+ E_\alpha(h_\tau)=O_{h,\alpha,\epsilon}
+                         (e^{(\alpha+\epsilon)\tau}),
+ \tag{3}
+\]
+the integral in (2) is holomorphic on $\Re z>\alpha$. The same residue
+excludes every zero there. The functional equation reflects the conclusion
+to the left. Any sequence $\alpha\downarrow0$ suffices for RH.
+Page~\pagelink{520}{520} identifies the geometric quantity that would have
+to satisfy (3).
+
+For the limiting step tests of \S1.4.2 the positive real-place integrand
+at $t\downarrow1$ is comparable in the limit to $(t-1)^{-1}$ for real $z$.
+Fatou's lemma precludes the stated uniform bound. The prime Dirichlet series
+there equals $-\zeta'/\zeta(z+\tfrac12)$ in its half-plane of convergence.
+
+\sourcepages{30}{32}{Zero location in this discussion requires the estimate on page 520.}
+\sourcepages{33}{81}{}
+\sourcepages{82}{82}{The global Fourier transform in (2.2.3.2) uses the additive character on page 558a.}
+\sourcepages{83}{123}{}
+\sourcepages{124}{124}{For the character normalization in (3.2.2.2) see page 558a.}
+\sourcepages{125}{350}{}
+\sourcepages{351}{351}{With extra unit conditions the value at zero vanishes automatically. See page 488c.}
+\sourcepages{352}{354}{}
+\sourcepages{355}{355}{With extra unit conditions the value at zero vanishes automatically. See page 488c.}
+\sourcepages{356}{425}{}
+\sourcepages{426}{426}{Theorem 9.3.2.6 is replaced by the projection limit on page 426a.}
+\leaf{426a}{Zero conditions}{9.3.2 \quad ORTHOGONAL PROJECTIONS}{The direction of the cutoff}
+For continuous zero-jet functionals $L_{\lambda,j}$ on a Hilbert space $X$,
+the subspace in (9.3.2.10) has the form
+\[
+ K_T=\bigcap_{|\Im\lambda|\le T}\ \bigcap_j\ker L_{\lambda,j}.
+\]
+For $T'>T$ one has $K_{T'}\subset K_T$. The orthogonal projections onto
+$K_T$ converge strongly to the projection onto $K_\infty=\bigcap_TK_T$.
+Indeed the orthogonal complements increase and their union spans a dense
+subspace of $K_\infty^\perp$. Approximation by this union gives strong
+convergence there, while every $K_T$ contains $K_\infty$.
+
+\point{An instance of (9.3.2.10)} On the logarithmic line let
+$g(x)=(4\pi)^{-1/2}e^{-x^2/4}$ and take $\varphi=-g'$. Its bilateral
+Laplace transform is $ze^{z^2}$ and its only zero is $0$, simple.
+On every positive-width strip centered at zero the evaluation
+$L_0(f)=\int f(x)\dd x$ is continuous. For every $T>0$, $K_T=\ker L_0$
+and $L_0(g)=1$. Consequently the projections in Theorem 9.3.2.6 do not
+approach the identity. This is the theorem cited in the proof on page 446.
+
+\point{Boundary multiplicity in (10.2.2.5)} For Sobolev degree $s\ge0$,
+the dual norm squared of $x^j e^{\lambda x}$ at $|\Re\lambda|=\alpha$
+has a tail comparable to $\int_1^\infty x^{2j-s}\dd x$ on the boundary
+side. Integrability requires
+\[
+ j<\frac{s-1}{2}.
+\]
+The number of admissible jets at a boundary zero of multiplicity $m$ is
+$\min\{m,\max(0,\lceil(s-1)/2\rceil)\}$. For $s=1$, $\alpha=0$, the
+zeroth jet in the printed formula already has infinite norm. In the
+interior, exponential decay permits all $0\le j<m$.
+
+The construction on \pg{446} proves the required density directly in
+$X$. The growing spaces used on \pg{463} are spans of the Riesz
+representatives of the zero jets.
+
+\sourcepages{427}{427}{}
+\sourcepages{428}{428}{The hard cutoffs have a kernel consisting of functions supported on the discarded set.}
+\sourcepages{429}{445}{}
+\leaf{446}{The arithmetic quotient}{10.2.2 \quad THE STRIP AND ITS BOUNDARY}{The zero conditions at every width}
+Use the log coordinate $x=\log|g|$, center at $1/2$, and take any
+half-width $\alpha\ge0$ and Sobolev degree $s\ge0$. Put
+\[
+ w(x)=e^{2\alpha|x|}(1+x^2)^{s/2},\qquad
+ X=L^2(w\dd x),\qquad Y=L^2(w^{-1}\dd x).
+\]
+For a nontrivial zero $\rho$ let $\lambda=\rho-1/2$ and let $m_\lambda$
+be its order. Define $b_s=\max(0,\lceil(s-1)/2\rceil)$ and
+\[
+ n_{\alpha,s}(\lambda)=
+ \begin{cases}
+ m_\lambda,&|\Re\lambda|<\alpha,\\
+ \min(m_\lambda,b_s),&|\Re\lambda|=\alpha,\\
+ 0,&|\Re\lambda|>\alpha .
+ \end{cases} \tag{4}
+\]
+In the rational trivial character component let $J_\alpha$ be the
+closure in $X$ of the centered arithmetic $\theta$-functions. Then
+\[
+ J_\alpha=\left\{f\in X:\int_\R x^j e^{\lambda x}f(x)\dd x=0
+               \quad(0\le j<n_{\alpha,s}(\lambda))\right\}.
+ \tag{5}
+\]
+All the integrals in (5) are continuous on $X$. At a boundary point
+the dual norm at the unprotected end is finite exactly when $2j-s<-1$,
+as on \pg{426a}. When $\alpha=0$ this calculation applies at both ends.
+
+\point{An arithmetic generator}
+Take $D=t\partial_t$, $f_\infty=D(D+1)e^{-\pi t^2}$, and the finite
+tests $\mathbf1_{\Z_p}$. Both moments vanish. Poisson summation gives
+decay faster than every exponential at both ends for
+$\Theta(x)=e^{x/2}\sum_{n\ne0}f_\infty(ne^x)$. With $u=z+1/2$,
+unfolding and integration by parts give its entire transform
+\[
+ \mathcal M\Theta(z)=u(u-1)\pi^{-u/2}\Gamma(u/2)\zeta(u)=:\Xi(z).
+ \tag{6}
+\]
+The zeros of $\Xi$ are precisely the indicated $\lambda$ with their
+orders. Every arithmetic test has Mellin transform divisible by
+$\zeta(u)$ on $0<\Re u<1$. The unit average at each exceptional
+finite prime is eventually constant towards zero, so removing its
+Euler factor leaves a Laurent polynomial in $p^{-u}$. The real
+integral is holomorphic there. Thus every arithmetic test satisfies
+(5). Pages \pagelink{446a}{446a--b} prove that the translates of the
+single vector $\Theta$ already span the entire right side after closure.
+
+\leaf{446a}{The arithmetic quotient}{10.2.2 \quad FINITE PRODUCTS OF ZERO FACTORS}{The range of a polynomial in differentiation}
+Factor the order-one entire function in (6) as
+\[
+ \Xi(z)=e^{A+Bz}z^{m_0}\prod_{\lambda\ne0}
+       \big[(1-z/\lambda)e^{z/\lambda}\big]^{m_\lambda}.
+\]
+Here $m_0=0$ if the origin is not a zero. Let $p_R(z)$ be $z^{m_0}$
+times the product of the polynomial factors for $0<|\lambda|\le R$,
+and let $T_R(z)$ be the product of the complete genus-one factors for
+$|\lambda|>R$. Thus $\Xi=e^{A+B_Rz}p_R T_R$, where
+$B_R=B+\sum_{0<|\lambda|\le R}m_\lambda/\lambda$.
+
+For each finite $R$ the $X$-closure of
+$p_R(-\partial_x)C_c^\infty(\R)$ is precisely the kernel of the
+conditions in (5) at the zeros of $p_R$. Indeed, with the bilinear
+pairing $\int f u$, its annihilator consists of $u\in Y$ satisfying
+$p_R(\partial_x)u=0$ as distributions. All distributional solutions
+are finite sums of $x^je^{\lambda x}$ with $j<m_\lambda$.
+This follows by splitting the polynomial into coprime primary factors
+and using $\partial_x^m v=0$ exactly for polynomials of degree $<m$.
+For each solution in $Y$ its component at each distinct $\lambda$ also
+lies in $Y$: choose a real shift $a$ for which the finitely many
+$e^{a\lambda}$ are distinct. The primary projections are polynomials in
+the bounded translation $u(x)\mapsto u(x+a)$. The leading coefficient
+of each remaining polynomial times $e^{\lambda x}$ determines
+integrability at infinity. Equation (4) is precisely the resulting
+count. Double annihilation gives the range assertion, including zeros
+on either boundary and $s=1$.
+
+For every $R$, writing $r=2+|z|$, the tail satisfies
+\[
+          |T_R(z)|\le \exp(Cr\log^2 r),\qquad T_R\longrightarrow1
+          \ \hbox{locally uniformly as }R\to\infty .
+ \tag{7}
+\]
+For $|\lambda|\le 2r$ use $\log^+|1-z/\lambda|\le C\log r$
+and $|\Re(z/\lambda)|\le r/|\lambda|$. The zero count
+$N(u)\ll u\log(2+u)$ gives $O(r\log^2 r)$ for this part by partial
+summation. For $|\lambda|>2r$ the logarithm of a factor is
+$O(r^2/|\lambda|^2)$, with sum $O(r\log r)$. Both estimates hold for
+every tail. Absolute convergence on compact sets gives the local limit.
+
+\leaf{446b}{The arithmetic quotient}{10.2.2 \quad GAUSSIAN CONVOLUTION}{Passing from the finite factors to the arithmetic space}
+For $\delta>0$ let $k_{R,\delta}$ be the inverse Fourier transform on
+$z=it$ of $e^{\delta z^2}T_R(z)$ in the convention
+$\mathcal M f(z)=\int f(x)e^{zx}\dd x$. Let $k_\delta(x)
+=(4\pi\delta)^{-1/2}e^{-x^2/(4\delta)}$. For fixed $\delta$,
+\[
+          \int_\R |k_{R,\delta}(x)-k_\delta(x)|\sqrt{w(x)}\dd x
+                   \longrightarrow0 .
+ \tag{8}
+\]
+In the inverse integral move the contour to
+$\Re z=\operatorname{sgn}(x)(\alpha+1)$. The Gaussian dominates (7)
+on the horizontal segments. On the two vertical lines dominated convergence
+makes the $L^1(\dd t)$ norms of $e^{\delta z^2}(T_R-1)$ tend to zero.
+The inverse is consequently $o(1)e^{-(\alpha+1)|x|}$ uniformly in $x$.
+This also shows that convolution by these kernels is bounded on $X$,
+since $\sqrt{w(x+y)}\le 2^{s/4}\sqrt{w(x)w(y)}$.
+
+Write $J(\Theta)$ for the closed span of the translates in $X$. For
+$g\in C_c^\infty(\R)$ the transform of
+$k_{R,\delta}*p_R(-\partial_x)g$ is exactly
+\[
+      \Xi(z)\, e^{\delta z^2-A-B_Rz}\,\mathcal M g(z).
+\]
+The inverse of the middle factor is
+$e^{-A}(4\pi\delta)^{-1/2}\exp(-(x+B_R)^2/(4\delta))$.
+For each fixed $R$ it is integrable against $\sqrt w$, even if $B_R$
+is complex. Thus the vector is $\Theta$ convolved with a kernel in
+$L^1(\sqrt w\dd x)$, and belongs to $J(\Theta)$ by the norm-continuous
+integral of translates. If $f$ satisfies (5), the finite range result
+on \pg{446a} gives $k_{R,\delta}*f\in J(\Theta)$ for every $R$.
+By (8), $k_\delta*f\in J(\Theta)$. Finally $k_\delta*f\to f$ in
+$X$ as $\delta\downarrow0$, by strong continuity of translations and
+the Gaussian bound on their weighted tail. Every translate of $\Theta$
+is an arithmetic test up to a scalar. This proves (5).
+
+\point{The dual of the quotient} Under the bilinear pairing the complete
+annihilator, for every width and degree above, is
+\[
+ (X/J_\alpha)'=\overline{\Span}^{\,Y}
+   \{x^je^{\lambda x}:\ 0\le j<n_{\alpha,s}(\lambda)\}=:E_\alpha .
+ \tag{9}
+\]
+The Riesz map $u\mapsto w^{-1}\overline u$ takes this span onto the
+orthogonal spectral subspace in $X$.
+
+\leaf{446c}{Hecke characters}{10.2.2 \quad A FIXED CHARACTER OF A NUMBER FIELD}{A generator in each character space}
+Let $F$ be a number field and choose a positive archimedean section of the
+idele norm. Normalize a unitary Hecke character $\chi$ to be trivial on the
+section, which fixes the vertical translation due to norm twists. Use the
+global additive character of \pg{558a}. Project the centered
+$\theta$-sum to its character component by integration against $\chi$ on
+$C_F^1$ with Haar probability. Its transform unfolds to Tate's integral
+$Z(f,\chi,s)$, $s=\tfrac12+z$. The Hilbert norm in this component is again
+$X$ on the norm coordinate.
+
+\point{A test producing the completed function} At unramified finite places
+take $\mathbf1_{\mathcal O_v}$ and at ramified places take
+$\overline{\chi_v}\mathbf1_{\mathcal O_v^\times}$. The local integrals give
+the finite Euler factors up to constants. At a real place take
+$t^\kappa e^{-\pi t^2}$ for sign exponent $\kappa\in\{0,1\}$. At a complex
+place with angular exponent $k$ take the homogeneous monomial of degree
+$|k|$ and angular exponent $-k$ times $e^{-2\pi|t|^2}$ (ordinary complex
+modulus). Radial integration gives the respective real and complex gamma
+factors, including the imaginary shifts of $\chi_v$. The product test
+$f_0$ thus has integral $c e^{bz}L^*(\tfrac12+z,\chi)$, where $c\ne0$,
+and $L^*$ includes the conductor and gamma factors.
+
+If $\chi|_{C_F^1}\ne1$, choose a norm-one idele $a$ with $\chi(a)\ne1$
+and put $f(y)=f_0(y)-f_0(ay)$. Then $f(0)=\widehat f(0)=0$ and its
+Mellin integral is multiplied by $1-\chi(a)^{-1}\ne0$. For $\chi=1$
+apply $D(D+1)$ to $f_0$, where $D$ differentiates archimedean dilation
+with modulus $e^x$ at $x=0$. This kills both moments and multiplies the
+integral by $s(s-1)$. The resulting transform $\Xi_\chi$ is entire of
+order at most one with precisely the nontrivial zeros, counted with
+multiplicity. Poisson summation gives a kernel of rapid decay at both ends.
+
+\point{Identification} Every arithmetic Tate integral in this component
+vanishes at those zeros to their full orders. After unfolding, the quotient
+by each local $L$-factor is holomorphic in $0<\Re s<1$, and almost all
+local quotients are $1$. Finite sums of product tests suffice. The
+fixed-character zero count $O_{F,\chi}(T\log(2+T))$ and the Hadamard
+product give (7), including a central zero as a separate polynomial
+factor. Pages 446a--446b therefore prove (5) and (9) with $\Xi_\chi$
+at every width and degree. At $\alpha=1/2$ the Hecke nonvanishing
+theorem on $\Re s=1$ and reflection exclude boundary zeros. The full
+critical strip captures every nontrivial zero with its actual multiplicity.
+
+\leaf{446d}{The critical line}{10.2.2 \quad ZERO WIDTH IN A SINGLE CHARACTER}{The arithmetic quotient on the line itself}
+Fix $\chi$ and center at $1/2$. At half-width zero and even Sobolev
+degree $2k$, $k\ge1$, the space is
+$X_k=L^2(\R,(1+x^2)^k\dd x)$. Let $J$ be the closure of the centered
+arithmetic tests and $S$ its orthogonal-complement projection in $X_k$.
+With $\rho=\tfrac12+i\gamma$ running over distinct critical-line zeros
+of the completed function, one has
+\[
+  \Tr(A_h S)=\Tr(S A_h)
+       =\sum_{\rho=\frac12+i\gamma}\min(m_\rho,k)\,H(i\gamma).
+       \tag{9a}
+\]
+This holds for $h\in C_c^\infty(\R)$ and includes any multiple zero
+at $\gamma=0$.
+
+\point{The annihilator} A functional on $X_k$ is represented in the
+bilinear integral pairing by $u\in L^2((1+x^2)^{-k}\dd x)$.
+Its Fourier transform, in the convention $e^{-itx}$, lies in the
+distributional Sobolev space $H^{-k}(\R_t)$ by Plancherel. If $u$
+annihilates all translates of the generator on \pg{446c}, then
+$\Xi_\chi(it)\widehat u(t)=0$. This is the Fourier transform of the
+vanishing convolution with the reflected generator. Away from the
+isolated real-frequency zeros this smooth multiplier is locally
+invertible. Near a zero $\gamma$ of order $m$ it is $(t-\gamma)^m$
+times a smooth invertible factor. A distribution killed by that power
+is a linear combination of $\delta_\gamma^{(j)}$ with $j<m$, by Taylor
+expansion of a test at $\gamma$. Membership in $H^{-k}$ also requires
+$j<k-\tfrac12$, hence $j\le k-1$, as follows by Fourier inversion.
+
+Multiplying $\widehat u$ by smooth cutoffs $\eta(t/R)$, equal to one
+near zero with compact support, gives finite combinations of these
+jets converging to $\widehat u$ in $H^{-k}$. Indeed the multipliers
+are bounded uniformly on $H^k$ by the product rule, hence on $H^{-k}$
+by duality, and converge strongly there by density of Schwartz functions.
+Conversely all the displayed jets annihilate every arithmetic test by
+its Hecke zero multiplicity. Thus the dual of $X_k/J$ is exactly the
+closed span of $x^j e^{i\gamma x}$ for $0\le j<\min(m_\rho,k)$.
+
+For these chains the proof on pages 463--463a applies with
+$q=(1+x^2)^{-k}$. Both $q'/q$ and $q''/q$ are bounded and the boundary
+atom is zero. The zero count bounds (10), so both products in (9a) are
+trace class. Increasing $k$ gives the full multiplicities on the line
+by dominated convergence against $\sum_\rho m_\rho |H(i\gamma)|$.
+
+\sourcepages{447}{462}{For the arithmetic zero space and the trace see pages 446--446d and 463--463b.}
+\leaf{463}{The spectral trace}{10.4.2 \quad CONVOLUTION AFTER PROJECTION}{A resolvent estimate without zero spacing}
+Let $q=w^{-1}=e^{-2\alpha|x|}(1+x^2)^{-s/2}$ and $E=E_\alpha\subset Y$
+as on \pg{446b}. In a fixed character component let $E_N$ contain all the
+chains of the zeros with $|\Im\lambda|\le N$ in (9). The derivative
+$D_N=\partial_x|_{E_N}$ preserves this space. For $u\in E_N$ integration
+by parts on the two half-lines gives
+\[
+ \Re\langle D_Nu,u\rangle_Y=-\tfrac12\int |u|^2q'\dd x
+          \le C\|u\|_Y^2,\qquad C=\alpha+s/4.
+\]
+The two terms at $0$ cancel by continuity of $q$. Choose $c>C$, put
+$R_N=(c-D_N)^{-1}$, and substitute $u=R_Ne$ for each vector of an
+orthonormal basis. Addition and the finite-dimensional trace give
+\[
+ (c-C)\|R_N\|_{\rm HS}^2\le\Re\Tr R_N
+   =\sum_{\lambda\in E_N^{\rm sp}}n_{\alpha,s}(\lambda)
+                  \frac{c-\Re\lambda}{|c-\lambda|^2}.
+ \tag{10}
+\]
+Here $E_N^{\rm sp}$ denotes the finite set of distinct eigenvalues.
+Exponential polynomials for distinct eigenvalues are independent, and each
+chain gives one triangular block. The multiplicity is (4), and the fractions
+are $O_c((1+|\Im\lambda|)^{-2})$, uniformly in $N$. Zero counting bounds
+the sum. The resolvents agree on nested spaces and have norm at most
+$(c-C)^{-1}$. Taking an orthonormal basis adapted to these spaces in (10)
+gives a Hilbert--Schmidt operator $R$ on $E$. In particular $R^2$ is
+trace class.
+
+\point{The weight at zero} Write $A_h f(x)=\int h(x-t)f(t)\dd t$ for
+$h\in C_c^\infty(\R)$. The isometry $u\mapsto qu$ sends
+$\overline E=\{\overline u:u\in E\}$ onto $P_\alpha X$.
+Use the conjugate resolvent on $\overline E$, also denoted $R$ ($c$ is
+real). Write $v=R^2u$ on a finite span. Since $u=(c-\partial_t)^2v$,
+two integrations by parts give
+\[
+ A_h(qu)= A_{(c-\partial)^2h}(qv)
+       +2A_{(c-\partial)h}(q'v)+A_h(q''_{\rm reg}v)
+       -4\alpha\,h\,v(0).
+ \tag{11}
+\]
+The distributional second derivative has atom
+$[q'(0+)-q'(0-)]\delta_0=-4\alpha\delta_0$. Here $q''_{\rm reg}$ is its
+ordinary derivative of order two on the open half-lines.
+
+\leaf{463a}{The spectral trace}{10.4.2 \quad THE TWO ORDERS OF COMPOSITION}{Trace class and cutoff limits}
+Both $q'/q$ and $q''_{\rm reg}/q$ are bounded. Convolution with a compactly
+supported smooth kernel is bounded on $X$ by the translation estimate
+on page 446b. Thus each integral term of (11) is a bounded map $Y\to X$
+applied to $R^2u$. For the last term,
+$v'=cv-Ru$ and $q$ is bounded away from zero on $[-1,1]$. The ordinary
+$H^1([-1,1])$ point-evaluation bound yields
+\[
+ |(R^2u)(0)|\ll\|R^2u\|_Y+\|Ru\|_Y\ll\|u\|_Y .
+\]
+It therefore gives a bounded rank-one map (zero if $\alpha=0$).
+By density, (11) proves that $A_hP_\alpha$ is trace class on $X$.
+The $\theta$-space $J_\alpha$ is invariant under convolution, so
+$P_\alpha A_h=P_\alpha A_hP_\alpha$ is trace class as well.
+
+\point{The trace} Let $P_N$ project orthogonally in $X$ onto
+$q\overline{E_N}$. Under the bilinear pairing of page 446b the transpose
+of convolution acts by $B_hu(t)=\int h(y)u(t+y)\dd y$. On each chain its
+matrix is triangular with diagonal $H(\lambda)$, where
+$H(z)=\int h(y)e^{zy}\dd y$. The restriction of $B_h$ to $E_N$ is the
+transpose of the compression $P_N A_h P_N$, since the pairing between
+$P_N X$ and $E_N$ is nondegenerate and annihilates $(1-P_N)X$.
+As $P_N\to P_\alpha$ strongly, the compressions converge in trace norm to
+$P_\alpha A_hP_\alpha$: multiply the trace-class operator $A_hP_\alpha$
+on both sides by the bounded projections and use finite-rank approximation.
+The off-diagonal block of $A_hP_\alpha$ has zero trace. Hence
+\[
+ \Tr(A_hP_\alpha)=\Tr(P_\alpha A_h)
+       =\sum_\lambda n_{\alpha,s}(\lambda) H(\lambda)=:S_\alpha(h).
+ \tag{12}
+\]
+The zero sum converges absolutely by integration by parts and zero counting.
+For the manuscript cutoffs $0\le r_L\le1$ tending pointwise to $1$,
+$M_{r_L}\to1$ strongly on $X$. Finite-rank approximation gives
+\[
+ \lim_{L\to\infty}\Tr(M_{r_L} A_hP_\alpha)
+ =\lim_{L\to\infty}\Tr(M_{r_L} P_\alpha A_h)=S_\alpha(h).
+ \tag{13}
+\]
+These are the two orders of composition in (10.4.2.9) and (10.4.2.20).
+The argument applies to each fixed character and each width of (5).
+
+\leaf{463b}{The spectral trace}{10.4.2 \quad THE COMPACT CHARACTER COMPONENTS}{Summing the character traces}
+Fix $F$, write $K=C_F^1$, and take any common $\alpha\ge0$ and $s\ge0$.
+Equation (9) holds for all the components at this same width, including
+their boundary zeros. In each component extend the character trivially
+on the same positive norm section.
+
+\point{Uniform resolvent bound} Choose $c>\max(\alpha+s/4,1)$ and put
+$s_*=\tfrac12+c$. Let $\xi_\chi(s)$ be the standard conductor-completed
+Hecke function, multiplied by $s(s-1)$ for the trivial character.
+Its reflection symmetry and its Hadamard product give
+\[
+ \sum_{\lambda}m_\lambda\Re\frac1{c-\lambda}
+       =\Re\frac{\xi_\chi'}{\xi_\chi}(s_*)
+       \ll_{F,c}1+\log N\mathfrak f_\chi+
+             \sum_{v\mid\infty}\log(2+|t_v|+|k_v|).
+ \tag{13a}
+\]
+Here $t_v,k_v$ are the imaginary norm and sign or angular parameters.
+For the equality, the real logarithmic derivative in centered coordinates
+and the real zero sum differ by a constant in the genus-one product.
+On the imaginary axis away from the zeros the former vanishes by the
+functional equation. The latter vanishes by pairing $\lambda$ with
+$-\bar\lambda$ and is absolutely convergent. This fixes the constant,
+including when a central zero is present. For the bound use the Euler
+product at the fixed $s_*>1$, which gives
+$|L_f'/L_f(s_*,\chi)|\le-\zeta_F'/\zeta_F(s_*)$, and the logarithmic
+derivative of the conductor and gamma factors. Stirling's formula there
+gives the displayed logarithms. Each zero term on the left is positive.
+
+\point{Absolute trace norm} A Bruhat test $\phi$ factors on $K$ through
+a compact abelian Lie quotient at a fixed finite level. Its component
+kernels $h_\chi$ have one compact log support. Their first two derivatives
+in the log coordinate are $O_{A,\phi}((1+|\nu|)^{-A})$ for every $A$,
+by integration by parts in the torus variables. Here $\nu$ ranges over
+a lattice with finitely many components. The finite conductors are bounded
+at this level, and the archimedean parameters are $O(1+|\nu|)$ since
+restriction to the archimedean Lie algebra is linear in the torus weight.
+By (10) and (13a), $\|R_\chi^2\|_1\ll_{F,c,\phi}1+\log(2+|\nu|)$.
+The bounded factors in (11) cost at most a support-dependent constant
+times $\max_{j\le2}\|h_\chi^{(j)}\|_\infty$. The point evaluation after
+$R_\chi^2$ is uniformly bounded by the operator-norm estimate on page 463.
+Thus the norms $\|A_{h_\chi}P_{\alpha,\chi}\|_1$ are summable.
+The direct sum has trace (12) summed over $\chi$, with the same cutoff
+limit. Absolute convergence of the double zero sum follows from two
+integrations by parts in $H_\chi$ and (13a).
+
+\sourcepages{464}{474}{For the trace-class projection and its cutoff limit see pages 463--463b.}
+\sourcepages{475}{475}{}
+\sourcepages{476}{476}{The convergence assertion in Proposition 11.1.1.2 requires control of orbit tails. See page 476a.}
+\leaf{476a}{Convergence of orbital sums}{11.1.1 \quad ORBITAL SUMMATION}{Mass can leave every finite part of an orbit}
+The aggregate bound (11.1.1.2) permits a sequence of orbital sums that
+are identically one although their summands converge pointwise to zero.
+Take $F=\Q$, $Z=\{1\}$ in the ideles and $\eta=\delta_1$. Let
+$b\in C_c^\infty((3/4,5/4))$ be nonnegative with $b(1)=1$. Set
+$f=b\otimes\mathbf1_{\widehat{\Z}}$. For distinct increasing rational
+primes $q_j$ set $f_j(y)=f(q_j^{-1}y)$, where $q_j$ is diagonal.
+These are adelic Schwartz--Bruhat functions. For each fixed idele $y$,
+its $q_j$-component is a unit for all sufficiently large $j$. Then
+$q_j^{-1}y_{q_j}\notin\Z_{q_j}$, so $f_j(y)\to0$.
+
+On the rational orbit one has exactly
+\[
+       f_j(\xi)=\mathbf1_{\{\xi=q_j\}},\qquad
+       \sum_{\xi\in\Q^\times} |f_j(\xi)|=1 .
+\]
+Indeed $\xi/q_j$ must be an integer in the support of $b$. The hypotheses
+of Proposition 11.1.1.2 hold with $I_Z=\Z$ and
+$\alpha(\xi)=\mathbf1_{\{\xi=1\}}$. Its orbital majorant is one in
+$L^r(Z,\eta)$ for every finite $r\ge1$. The orbital sum of the limit is
+zero, so (11.1.1.4) fails even on this one-point measure space.
+
+\point{A sufficient hypothesis} For almost every $g\in Z$ suppose that
+$f_j(\xi g)\to f(\xi g)$ for every $\xi$, and that
+$|f_j(\xi g)|\le b_g(\xi)$ with $\sum_\xi b_g(\xi)$ dominated by an
+$L^r(Z,\eta)$ function. Dominated convergence on the counting measure
+gives convergence of the orbital sums at $g$. Applying it on $Z$ to
+the $r$th power of their difference gives (11.1.1.4).
+
+For the rational unit restrictions in \S11.1.2, with the standard
+unramified finite test and $t=|g|\ge d>0$, every surviving summand is
+bounded by $C_M(1+|n|t)^{-M}$, $n\in\Z\setminus\{0\}$.
+The sum is $O_{d,M}((1+t)^{-M})$ for $M>1$. It is square integrable
+against $(1+\log^2t)^{s/2}\dd t/t$ on this half-line. This supplies
+the required domination in the arithmetic application over $\Q$.
+
+\sourcepages{477}{479}{For the orbital convergence hypothesis see page 476a.}
+\sourcepages{480}{480}{The truncated spaces in (11.1.2.6) are equal for every cutoff. See page 480a.}
+\leaf{480a}{Prime layers}{11.1.2 \quad THE SPACES AFTER SPATIAL TRUNCATION}{Every finite layer has the same closure}
+On the uncentered zero line put $x=\log |g|$ and
+$H_s=L^2(\R,(1+x^2)^{s/2}\dd x)$, $s\ge0$. In a fixed character
+component the operation at an unramified place is $B=1-aU$,
+$Uu(x)=u(x+l)$, $l=\log N\mathfrak p>0$, $|a|=1$.
+This follows from (5.3.1.1), or from the multiplier $1-ae^{-lz}$.
+Let $J$ be any one of the preceding translation-invariant arithmetic
+layers. For every bounded cutoff $\rho$ supported on $x\ge-L$,
+\[
+            \overline{M_\rho B J}=\overline{M_\rho J}.
+            \tag{13b}
+\]
+Indeed for $u\in J$ the sum $\sum_{j=0}^{n-1}a^jU^ju$ lies in $J$.
+Applying $M_\rho B$ gives $M_\rho u-a^nM_\rho U^nu$.
+The last term tends to zero because its squared norm is bounded by
+\[
+ C_{\rho,L,s}\int_{nl-L}^{\infty}|u(y)|^2(1+y^2)^{s/2}\dd y.
+\]
+Here $1+x^2\ll_L1+(x+nl)^2$ on $x\ge-L$. The reverse inclusion follows
+from $BJ\subset J$. Iteration gives (13b) for every finite collection
+of new places. It applies to both $\rho_{\Lambda,+}$ and $\rho_\Lambda$
+of (9.3.3.4)--(9.3.3.5), for every $\Lambda$.
+
+\point{Exact realization over $\Q$} For a finite set $T$ of primes let
+$P_T=\prod_{p\in T}p$. In the trivial component its orbit sum for an
+even real-place test is $\Theta_T f(t)=2\sum_{(n,P_T)=1,\ n\ge1} f(nt)$.
+Take any $\psi\in C_c^\infty((d,\infty))$, where $d>0$, and choose
+$b>\sup\supp\psi$. On the positive axis put
+\[
+       f(u)=\tfrac12\sum_{\substack{m\le b/d\\(m,P_T)=1}}
+                                     \mu(m)\psi(mu).
+\]
+Extend evenly and adjust its integral to zero by an even bump supported
+in $0<|u|<d$. Then $f(0)=\widehat f(0)=0$. For $t\ge d$ a nonzero term
+with index $k=mn$ satisfies $k\le b/d$. Its coefficient is
+$\sum_{m\mid k}\mu(m)=\mathbf1_{\{k=1\}}$ for $(k,P_T)=1$.
+Thus $\Theta_T f(t)=\psi(t)$ throughout the observed half-line.
+In particular the common closure there is the entire supported $L^2$
+space. The strictness conclusion for (11.1.2.6) fails for every $\Lambda$.
+
+\sourcepages{481}{483}{The distinction between a full layer and its cutoff image is proved on page 480a.}
+\sourcepages{484}{484}{The reciprocal Euler operator has nonclosed Hilbert range. Its quotient trace is on pages 484a--b.}
+\leaf{484a}{The local Hilbert quotient}{11.2 \quad RECIPROCAL EULER FACTORS ON THE ZERO LINE}{The closure in the local quotient}
+On the uncentered line the arithmetic closure in a fixed unitary Hecke
+component is $H_s$ of \pg{480a}. In fact the uncentered generator
+obtained from \pg{446c} has Fourier transform $\Xi_\chi(-\tfrac12+it)$,
+up to the sign convention for $t$. It has no real-frequency zero by
+the Hecke nonvanishing theorem at $\Re s=1$ and the functional
+equation, with the poles of a norm character removed as on \pg{446c}.
+The generator is Schwartz on the log line. A continuous functional on
+$H_s$ gives a tempered distribution. If it annihilates all these
+translates, its Fourier transform times the reflected Fourier transform
+of the generator vanishes. Division on each compact frequency interval
+shows that the distribution vanishes. This proves density
+(Ramakrishnan and Valenza, \emph{Fourier Analysis on Number Fields},
+Theorem 7-28, for the nonvanishing input).
+
+For one prime put $U_l f(x)=f(x+l)$ and $B=1-aU_l$, $|a|=1$.
+The only solution of $Bf=0$ in $H_s$ is zero, since $|f|$ would be
+$l$-periodic. Choose $\gamma$ with $ae^{i\gamma l}=1$ and a nonzero
+$b\in C_c^\infty((1,2))$. For $R\to\infty$ set
+\[
+          f_R(x)=R^{-(s+1)/2}e^{i\gamma x}b(x/R).
+\]
+Changing variables gives $\|f_R\|_{H_s}\asymp1$. The mean value theorem
+gives $\|Bf_R\|_{H_s}=O_{b,l,s}(R^{-1})$. An injective bounded map
+with closed range is bounded below. Thus (11.2.0.3) fails already for
+one unramified prime and $s=4$.
+
+\point{The Hausdorff quotient} For a rational prime $p$ and a character
+unramified at the places $v\mid p$, write $l=\log p$,
+$l_v=f_v l=\log Nv$ and $a_v=\chi_v(\varpi_v)$. Put
+\[
+ Q(U_l)=\prod_{v\mid p}(1-a_vU_l^{f_v}),\qquad
+ \mathcal E_p=H_s/\overline{Q(U_l)H_s}.
+ \tag{13c}
+\]
+The former quotient in (11.2.2.1) acquires this Hilbert realization
+by dividing by the closure of zero in its quotient topology.
+Under the bilinear integral pairing the dual of $\mathcal E_p$ is the
+kernel of $Q(U_{-l})$ in $H_{-s}=L^2((1+x^2)^{-s/2}\dd x)$.
+The translation recurrence on that kernel gives its trace explicitly.
+
+\leaf{484b}{The local Hilbert quotient}{11.2.2 \quad THE PLACES OVER ONE RATIONAL PRIME}{The trace on the untruncated quotient}
+Let $D=\sum_{v\mid p}f_v\le[F:\Q]$ and take $s\ge2[F:\Q]$.
+For each distinct solution $\beta$ of $\beta^{f_v}=a_v$ let
+$r_\beta$ be the number of factors for which it is a solution.
+For almost every $t\in[0,l)$, the sequence $u(t+kl)$, $k\in\Z$, of a
+dual vector in (13c) solves a constant-coefficient recurrence of order
+$D$. Its solutions are exactly
+\[
+   u(t+kl)=\sum_\beta\sum_{j=0}^{r_\beta-1}
+                              c_{\beta j}(t)k^j\beta^k .
+\]
+The coefficients are in $L^2([0,l])$. Indeed the first $D$ samples
+determine them by an invertible confluent Vandermonde matrix. Conversely
+$\sum_k(1+|k|)^{2(D-1)-s}<\infty$, so these coefficient norms give
+an equivalent norm on the kernel. Replacing $k^j$ by $(t+kl)^j$ makes
+a bounded invertible triangular change of coefficients. We may therefore
+write $u(x)=\sum_{\beta,j}x^j u_{\beta j}(x)$ with
+$u_{\beta j}(x+l)=\beta u_{\beta j}(x)$.
+
+On this finite sum of circle spaces the transpose of convolution by
+$h\in C_c^\infty(\R)$ is $u(x)\mapsto\int h(y)u(x+y)\dd y$.
+Expanding $(x+y)^j$ gives a triangular operator in each chain, with
+diagonal convolution $C_{\beta,h}$ on the $\beta$-twisted circle.
+Every block is a twisted-circle convolution with a smooth compactly
+supported kernel $y^k h(y)$ times a binomial coefficient. Its Fourier
+multipliers decay rapidly, so the full operator and its transpose are
+trace class. Summing the Fourier modes of each diagonal block gives
+\[
+ \begin{aligned}
+ \Tr_{\mathcal E_p} A_h
+  &= l\sum_{m\in\Z}h(ml)\sum_\beta r_\beta\beta^m\\
+  &= \sum_{v\mid p} l_v\sum_{n\in\Z}a_v^n h(nl_v).
+ \end{aligned}
+ \tag{13d}
+\]
+For the second equality, the sum of $\beta^m$ over $\beta^{f_v}=a_v$
+is zero unless $f_v\mid m$, when it is $f_v a_v^{m/f_v}$.
+This proves the uncentered local trace in (11.2.2.4), including
+coincident local zeros and their full multiplicities. For instance,
+over $\Q$ a test supported near $\log 2$ with $h(\log 2)=1$ gives
+$\log 2$ at $p=2$. The quotient of the cutoff closures in (13b) is zero
+for that same prime. Also, $M_\rho P^{\rm geom}$ in (10.4.1.6)
+retains the projection taken before truncation.
+
+\sourcepages{485}{486}{For the Hilbert closure and a proof of the local trace see pages 484a--b.}
+\sourcepages{487}{488}{For finite-level estimates and the projection limit see pages 488a--f and 489a--b.}
+\leaf{488a}{Paley--Wiener levels}{11.2.1 \quad THE RATIONAL FINITE LEVEL}{Fourier bandwidth and the lower endpoint}
+Take $F=\Q$, $S=\{\infty\}$, trivial character, and the centered
+degree-four space $X$ on \pg{446}, also allowing $\alpha=0$. For
+an even Schwartz function $f$ with $f(0)=\widehat f(0)=0$ write
+$F_f(x)=e^{x/2}\sum_{n\ne0} f(ne^x)$. Let $\mathcal T_Y$ be the
+$X$-closure of these functions with $\supp\widehat f\subset[-Y,Y]$.
+This is the common absolute and invariant level in the one-place
+case of (7.3.2.3) and (7.3.2.14), with the indicated Hilbert weight.
+Poisson summation gives
+\[
+ F_f(x)=e^{-x/2}\sum_{n\ne0}\widehat f(ne^{-x}),\qquad
+ F_f(x)=0\quad(x<-\log Y).
+\]
+Every member of the closed level has the same lower support bound.
+For $B_p=1-p^{-1/2}T_{-\log p}$, $T_yF(x)=F(x-y)$, the identity
+$B_pF_f=F_{f-f(p\,\cdot)}$ gives
+\[
+                         B_p\mathcal T_Y\subset\mathcal T_{pY}.
+\]
+The factor $p$ is sharp. Choose $Y/2<c<Y$ with $pc>Y$, and a smooth,
+even $\widehat f$ supported in $(-Y,Y)$ away from zero with integral
+zero and $\widehat f(c)\ne0$. At $e^x=1/(pc)$ one has $F_f(x)=0$,
+while in $F_f(x+\log p)$ precisely the two samples at $\pm c$ contribute.
+The resulting function is nonzero in a neighborhood there. Taking $c$
+arbitrarily close to $Y$ excludes any common level smaller than $pY$.
+
+\point{Exhaustion of the global arithmetic space} In this rational
+component any finite-place test averaged over the finite units is a finite
+linear combination of indicators of fractional-ideal balls
+$d\widehat{\Z}$, $d\in\Q_{>0}$. Each gives the sum with real-place test
+$f(d\,\cdot)$. After summing and taking the even part, the value and the
+integral of the resulting test are zero by the two adelic moment
+conditions. Conversely every such $F_f$ occurs. To approximate it,
+cut $\widehat f$ by smooth expanding cutoffs equal to one near zero.
+Restore integral zero by subtracting a multiple of a fixed even bump
+of integral one supported away from zero. That multiple tends to zero,
+and the approximants converge in Schwartz space. The two Poisson
+expressions give convergence in $X$ by rapid decay at both ends.
+Thus $\overline{\bigcup_Y\mathcal T_Y}=J_\alpha$ and the orthogonal
+level projections converge strongly to $P^{\rm geom}$.
+
+\leaf{488b}{Paley--Wiener levels}{11.2.1 \quad THE COST OF AN ORBITAL EVALUATION}{A sharp norm at finite bandwidth}
+For $0\le\alpha<1/2$ the local Euler zero at uncentered $s=0$ acts on
+$\mathcal T_Y$ by $\ell_0(F)=\int F(x)e^{-x/2}\dd x$. Its operator
+norm for the $X$-metric satisfies
+\[
+ \|\ell_0|_{\mathcal T_Y}\|\asymp_\alpha
+        \frac{Y^{1/2-\alpha}}{(1+\log Y)^2}\qquad(Y\ge2).
+ \tag{13e}
+\]
+For $L=\log Y$ the square of its norm is at most
+$\int_{-L}^\infty e^{-x} w(x)^{-1}\dd x$ by \pg{488a}. The part below
+zero is $\int_0^L e^{(1-2\alpha)y}(1+y^2)^{-2}\dd y$.
+Splitting at $L/2$ bounds the whole integral by
+$O_\alpha(e^{(1-2\alpha)L}(1+L)^{-4})$.
+
+Choose a nonzero even real Schwartz function $\psi$ with Fourier support
+in $[-1/4,1/4]$. Put $g(t)=t^2\psi(t)^2$ and $f(t)=g(t)-2g(2t)$.
+The two moments of $f$ vanish and $F_f\in\mathcal T_1$. Unfolding for
+$\Re s>1$ and continuing to $s=0$ gives
+\[
+ \ell_0(F_f)=2\zeta(0)\int_0^\infty f(t)\frac{\dd t}{t}
+             =\int_0^\infty g(t)\frac{\dd t}{t}>0 .
+\]
+The continuation here is regular because $f(t)=O(t^2)$ at zero.
+The test $Y^{1/2}f(Y\,\cdot)$ gives $T_{-L}F_f\in\mathcal T_Y$.
+Its evaluation is $Y^{1/2}\ell_0(F_f)$ and its norm is at most
+$2Y^\alpha(1+L^2)\|F_f\|_X$ by the weight inequality on \pg{520a}.
+This proves the lower bound. On $\mathcal T_{pY}$ this same functional
+annihilates $B_p\mathcal T_Y$, since
+$p^{-1/2}\ell_0(T_{-\log p}F)=\ell_0(F)$. It detects a proper closed
+subspace there. Formula (13e) gives the loss when $Y\to\infty$.
+
+The same two-sided bound holds for
+$\ell_\gamma(F)=\int F(x)e^{(-1/2+i\gamma)x}\dd x$ at a nonzero local
+frequency $\gamma=2\pi j/\log p$. The upper bound is unchanged.
+For the lower bound choose smooth even $\widehat f$ supported in
+$1/4<|u|<3/4$ with integral zero but
+$\int_0^\infty\widehat f(u)u^{-i\gamma}\dd u\ne0$, since the latter
+weight is nonconstant. Poisson summation and Mellin continuation give
+$\ell_\gamma(F_f)=2\zeta(1-i\gamma)\int_0^\infty
+\widehat f(u)u^{-i\gamma}\dd u\ne0$. Translation now multiplies the
+evaluation by $Y^{1/2-i\gamma}$. These nonzero frequencies also annihilate
+the entire single-prime carved level over $\Q$ described on \pg{488c}.
+
+\point{Multiplication by a norm power} Even at fixed $Y$ on the
+uncentered polynomial metric $H_4$, a positive norm power is unbounded
+on the corresponding level in the inherited norm. Indeed let $u$ be
+any nonzero uncentered theta test of that level. Each $T_Ru$ for $R>0$
+is in the same level, since real dilation shrinks the Fourier support.
+For $b>0$, $\|T_Ru\|_{H_4}/R^2\to\|u\|_2$ by dominated convergence,
+and the same holds for $e^{bx}u$. Hence
+$\|e^{bx}T_Ru\|_{H_4}/\|T_Ru\|_{H_4}
+\sim e^{bR}\|e^{bx}u\|_2/\|u\|_2$. The bandwidth restriction on
+page 494 supplies no bounded multiplication operator of this kind.
+
+\leaf{488c}{Paley--Wiener levels}{11.2.1 \quad EXHAUSTION FOR A FIXED HECKE CHARACTER}{Which finite levels exhaust the component}
+Fix the generator on \pg{446c} and choose $S$ containing the archimedean
+places, the ramified places and every exceptional finite component of
+its test. It may be enlarged so that $\operatorname{Pic}(\mathcal O_{F,S})=1$.
+First use the levels of (7.3.2.1) or (7.3.2.12) with $S_0$ empty.
+At every width $\alpha\ge0$ in the degree-four metric, these levels
+exhaust the full arithmetic closure $J$ in this component.
+
+Indeed each norm translate of the generator is given by a test standard
+outside $S$. Cut its additive Fourier transform at the archimedean
+places by smooth expanding cutoffs which equal one near zero. The finite
+Fourier components are already compactly supported. The Fourier value at
+zero is preserved. Restore its integral zero by subtracting a multiple
+of a fixed compactly supported Schwartz--Bruhat test on $\A_{F,S}$ of
+integral one vanishing near zero, in Fourier coordinates. The multiple
+tends to zero, and the inverse transforms converge in Schwartz--Bruhat
+space. Every approximant belongs to a finite absolute level and to a
+finite invariant level.
+
+To check the Hilbert convergence choose the section dilating each ordinary
+archimedean coordinate by $t^{1/d}$, $d=[F:\Q]$. Representatives for
+the compact norm-one class group can be taken in a compact set of
+ideles. The finite support conditions restrict the nonzero summation
+indices to a fixed fractional-ideal lattice there. For $t\ge1$ an
+archimedean Schwartz seminorm of order $M>d$ thus bounds the uncentered
+sum by a constant times $t^{-M/d}\sum_{\xi\ne0}\|\xi\|^{-M}$ over that
+lattice. For $t\le1$ Poisson summation gives the corresponding estimate
+for the transformed test at $1/t$ times $t^{-1}$, since both moments
+vanish. These continuous bounds give convergence in the Hilbert weight.
+The norm translates span $J$ by \pg{446c} or the annihilator on \pg{446d}.
+
+\point{Fixed extra unit conditions} Let $S_0$ be a fixed finite set of
+unramified places disjoint from this $S$. Replacing $\mathbf1_{\mathcal O_v}$
+by $\mathbf1_{\mathcal O_v^\times}$ at $v\in S_0$ applies the product
+$B_{S_0}=\prod_{v\in S_0}B_v$ from \pg{514b} to the uncarved tests.
+For $0\le\alpha<1/2$ every factor is boundedly invertible on $J$ by
+the translation series there. The carved levels contain the image of
+the two-moment tests and therefore still exhaust $J$ when the uncarved
+ones do. For $\alpha\ge1/2$ and $S_0\ne\varnothing$ the carved union
+has proper closure in the degree-four metric. Choose a local Euler zero
+on $\Re z=-1/2$ away from the possible poles of the uncarved Tate
+integral. Its evaluation is continuous and kills the whole carved
+union by the local multiplier. It is nonzero on the generator by Hecke
+nonvanishing at the reflected line.
+
+With $S_0\ne\varnothing$ the adelic value at zero already vanishes on
+the unit factors, so only the integral condition is independent in
+(7.3.2.4) and (7.3.2.15). Over $\Q$ at a single $p$, take even
+$\widehat f$ supported away from zero with integral one. Then $f(0)=1$.
+At $s=0$ the carved Mellin transform
+$2(1-p^{-s})\zeta(s)\int_0^\infty f(t)t^{s-1}\dd t$ equals
+$-\log p$, by the simple pole of the last integral. At every nonzero
+local frequency it vanishes. This explains the choice on \pg{488b}.
+
+\leaf{488d}{Paley--Wiener levels}{11.2.1 \quad APPROXIMATING BY A PRIME LAYER}{The rate at a fixed prime}
+In the rational trivial component let $\mathcal U_{p,Y}$ be the closed
+centered level with real Fourier bandwidth $Y$ and the unit test at
+$p$. Take $0\le\alpha<1/2$, put $\delta=1/2-\alpha$, and choose one of
+the vectors $F\in\mathcal T_1$ of \pg{488b} with
+$\ell_\gamma(F)\ne0$ at $\gamma=2\pi/\log p$. Then
+\[
+  \operatorname{dist}_X(F,\mathcal U_{p,Y})
+       \asymp_{\alpha,p,F}(1+\log Y)^2Y^{-\delta}\qquad(Y\ge2).
+ \tag{13f}
+\]
+For the lower bound every vector of $\mathcal U_{p,Y}$ lies in
+$\mathcal T_{pY}$. Indeed the real test $g-g(p\,\cdot)$ has both
+moments zero when $\widehat g(0)=0$, even if $g(0)\ne0$.
+Moreover $\ell_\gamma$ vanishes on the whole carved level by \pg{488c}.
+For $u\in\mathcal U_{p,Y}$,
+$\|F-u\|_X\ge|\ell_\gamma(F)|/\|\ell_\gamma|_{\mathcal T_{pY}}\|$.
+Equation (13e) at frequency $\gamma$ gives the claimed order.
+
+For the upper bound put $N=1+\lfloor\log Y/\log p\rfloor$ and
+\[
+       v_N=\sum_{m=0}^{N-1}p^{-m/2}T_{-m\log p}F\in\mathcal T_Y .
+\]
+Then $B_pv_N\in\mathcal U_{p,Y}$ and
+$F-B_pv_N=p^{-N/2}T_{-N\log p}F$. Its norm is at most
+$2(1+N^2\log^2 p)p^{-\delta N}\|F\|_X$. Since $Y<p^N\le pY$,
+this proves (13f). The approximation uses only translates at the
+prescribed finite level.
+
+\point{Several fixed primes} If $T$ is a fixed nonempty set of $r$
+primes, truncate $\prod_{p\in T}B_p^{-1}F$ to the sum of
+$n^{-1/2}T_{-\log n}F$ over $n\le Y$ with all prime factors in $T$.
+It lies in $\mathcal T_Y$. Applying $\prod_{p\in T}B_p$ gives a vector
+in the joint carved level. In a log interval $[u,u+1)$ there are at most
+$O_T((1+u)^{r-1})$ such integers before the truncation: fix $r-1$
+exponents and the last has only $O_T(1)$ choices. The omitted series
+in $X$ is thus $O_{\alpha,T,F}((1+\log Y)^{r+1}Y^{-\delta})$,
+by the translation bound and summation of the exponential tail.
+The product of the $B_p$ is bounded for this fixed $T$. This estimate
+controls exhaustion at a fixed set of places. The tests in (19) involve
+a set of contributing primes that grows with their translation.
+
+\leaf{488e}{Growing sets of primes}{11.2.1 \quad SIMULTANEOUS UNIT CONDITIONS}{A bandwidth for all primes up to a given norm}
+Fix a number field $F$, $0\le\alpha<1/2$, and $\delta=1/2-\alpha$.
+Let $T$ be any subset of the prime ideals of norm $q\le P$, with
+arbitrary phases $|a_{\mathfrak p}|=1$. Extend the phases
+multiplicatively to ideals supported on $T$. Write $N$ for ideal norm
+and, on the centered degree-four space $X$, put
+\[
+ \begin{split}
+ B_T&=\prod_{\mathfrak p\in T}
+      (I-a_{\mathfrak p}q^{-1/2}T_{-\log q}),\\
+ C_{T,Y}&=\sum_{\substack{\mathfrak n\ {\rm supported\ on}\ T\\N\mathfrak n\le Y}}
+      \frac{a(\mathfrak n)}{\sqrt{N\mathfrak n}}T_{-\log N\mathfrak n},
+ \qquad D_P=\frac{P^{1-\delta}}{1-\delta},\qquad m_P=\frac{D_P}{\log P}.
+ \end{split}
+\]
+For some $c>0$ and all sufficiently large $P$ one has
+\[
+      \sup_{T,a}\|I-B_T C_{T,Y}\|_{X\to X}\le e^{-c m_P}
+           \qquad(\log Y\ge4D_P).
+ \tag{13f.1}
+\]
+The untruncated series $C_{T,\infty}$ equals $B_T^{-1}$ by absolute
+operator convergence for each finite $T$. Expand
+$B_T(C_{T,\infty}-C_{T,Y})$ over squarefree $\mathfrak d$ on $T$ and
+$T$-supported $\mathfrak n$ with $N\mathfrak n>Y$. For
+$x=\log(N\mathfrak d\,N\mathfrak n)$ the norm of each summand is at
+most $2e^{-\delta x}(1+x^2)$. Set $t=\log P$ and $\eta=1/100$.
+Use $1+x^2\ll_\eta t^2 e^{\eta x/t}$ and majorize the tail indicator
+by $(N\mathfrak n/Y)^{1/t}$. Summing the positive series bounds the norm by
+\[
+  O_\eta(t^2)Y^{-1/t}
+  \prod_{N\mathfrak p=q\le P}
+     (1+q^{-\delta+\eta/t})(1-q^{-\delta+(1+\eta)/t})^{-1}.
+\]
+For fixed $u$, the \citetitle{https://www.jstage.jst.go.jp/article/jmath1948/20/1-2/20_1-2_233/_article/-char/en}{prime ideal theorem}
+and partial summation give
+$\sum_{q\le P}q^{-\delta+u/t}\sim e^u m_P$, counting prime ideals.
+Indeed the terms $q<P^{1-\epsilon}$ are $o(m_P)$ for each fixed
+$\epsilon>0$, and on the rest $\log q/t$ tends to $1$ as
+$\epsilon\downarrow0$. The quadratic and higher terms in the logarithm
+are $o(m_P)$ by the same split, since $\delta>0$. Thus the logarithm
+of the product is $(e^\eta(1+e)+o(1))m_P$. Its leading coefficient
+is strictly less than $4$, proving (13f.1).
+
+\leaf{488f}{Growing sets of primes}{11.2.1 \quad THE MOVING LEVEL PROJECTIONS}{Convergence and the cost of truncating the inverse}
+Use a fixed character component and a base $S$ as on \pg{488c}.
+Let $Q_{T,Z}$ project onto its closed level with source cutoff $Z$,
+imposing the unit condition at $T$ outside $S$, and let $J$ be the full
+arithmetic closure. For $0\le\alpha<1/2$ set $Z(P)=\exp(5D_P)$.
+For every choice of the sets $T=T(P)$
+of \pg{488e} and every fixed trace-class operator $K$,
+\[
+       Q_{T,Z(P)}\longrightarrow P_J\ \text{strongly},\qquad
+       \|K(Q_{T,Z(P)}-P_J)\|_1\longrightarrow0 .
+ \tag{13f.2}
+\]
+Indeed, take an uncarved two-moment test of fixed level $y\ge1$
+and write $f$ for its centered theta vector. A translate
+$T_{-\log N\mathfrak n}f$ dilates the archimedean input by
+$(N\mathfrak n)^{1/[F:\Q]}$ in ordinary coordinates. Its finite
+supports are fixed; the product of normalized archimedean Fourier
+bounds grows by $N\mathfrak n$, and each individual bound grows by
+at most that factor. Thus $C_{T,Y}f$ comes from a test of level $yY$
+for either cutoff on \pg{488c}. Applying $B_T$ imposes precisely the
+unit conditions on this source. Take $Y=Z(P)/y$ in (13f.1). The resulting
+distance to the carved level is at most $e^{-c m_P}\|f\|$. These
+vectors $f$ are dense in $J$, and all carved levels lie in $J$.
+This proves strong convergence on $J$ and on $J^\perp$. Finite-rank
+approximation and self-adjointness give the trace norm assertion.
+At the common source level $Z(P)$ the sum of successive projection
+differences along any chain from $\varnothing$ to $T$ telescopes.
+Its trace against $K$ therefore tends to zero. The circle trace on
+\pg{514b} can already be nonzero for a fixed test supported near $\log 2$.
+
+\point{A necessary scale for this truncated inverse}
+Over $\Q$ take all $p\le P$ and $a_p=1$. The nonzero continuous
+functional $f\mapsto\int f(x)e^{-\alpha x}\dd x$ on $X$ evaluates
+$B_T C_{T,Y}$ as multiplication by $\Pr(S_P\le\log Y)$, where
+$S_P=\sum_{p\le P}K_p\log p$ and the independent variables satisfy
+$\Pr(K_p=k)=(1-p^{-\delta})p^{-k\delta}$. Partial summation gives
+\[
+ \mathbb E S_P=\sum_{p\le P}\frac{\log p}{p^\delta-1}\sim D_P,\qquad
+ {\rm Var}(S_P)=\sum_{p\le P}\frac{p^\delta(\log p)^2}{(p^\delta-1)^2}
+       \sim D_P\log P .
+\]
+For $\log Y\le(1-\epsilon)D_P$, Chebyshev's inequality makes this
+multiplier tend to zero. In particular no power of $P$ suffices for
+operator-norm convergence of this truncation. This lower bound concerns
+$C_{T,Y}$; (13f.2) uses the sufficient level above.
+
+\sourcepages{489}{489}{The corrected condensation limit and its missing operator are on page 489a.}
+\leaf{489a}{The geometric projection}{11.2.1 \quad CONDENSATION ON THE SOURCE}{The operator in the level limit}
+Let $P=P^{\rm geom}$ and $Q_Y$ be the level projections of \pg{488a}.
+For any trace-class $K$, $KQ_Y\to KP$ in trace norm. This follows first
+for a rank-one operator by $Q_Y^*=Q_Y\to P$ strongly and then by
+finite-rank approximation. Thus for $K=M_\rho P A_h$ the candidate
+limit in (11.2.1.4) omits the operator
+\[
+                         M_\rho P A_h(1-P).
+ \tag{13g}
+\]
+It can be nonzero even over $\Q$ in the trivial character. Take
+$a=1/2$, $\alpha=0$, $s=4$. The subspace $J=\operatorname{ran}P$ is
+nonzero by (6). It is proper since evaluation at any critical-line
+zero of $\zeta$ is a continuous nonzero functional on $H_4$ annihilating
+$J$. Existence of such a zero is Hardy's theorem. All translations
+$T_t$ preserve $J$.
+
+Suppose $PA_h(1-P)=0$ for all $h\in C_c^\infty((0,\infty))$.
+Approximating the mass at $t>0$ gives $PT_t(1-P)=0$ by strong
+continuity. Thus $P$ commutes with every $T_t$ for $t>0$ and with its
+inverse. Self-adjointness of $P$ gives commutation with
+$T_t^*T_t$, the multiplier by $w(x+t)/w(x)$,
+$w(x)=(1+x^2)^2$. For $t=\pm1$ the positive square roots of these
+multipliers are $r_\pm(x)=(1+(x\pm1)^2)/(1+x^2)$. The functions
+\[
+       r_+-r_-=\frac{4x}{1+x^2},\qquad
+       r_++r_--2=\frac{2}{1+x^2}
+\]
+generate the Borel sets since their ratio is $2x$. Their spectral
+projections therefore give all indicator multipliers. A projection
+commuting with all of these is itself multiplication by an indicator.
+Translation invariance makes that indicator constant almost everywhere,
+contradicting $0\ne P\ne1$.
+
+Choose $h$ with $PA_h(1-P)\ne0$. Since the manuscript cutoffs converge
+strongly to one, (13g) is nonzero for some finite cutoff. But every
+$KQ_Y$ vanishes on $J^\perp$. Even strong convergence to $K$ in
+(11.2.1.4) and (11.2.1.9) fails for this choice. For the convolution
+order in (10.4.1.12), $K'=M_\rho A_hP$ instead satisfies $K'P=K'$.
+Here $M_\rho A_h$ is trace class: a smooth cutoff equal to one on
+$\supp\rho$ gives a smooth compactly supported kernel in both variables,
+whose Fourier series on an enclosing square is absolutely summable.
+Consequently $K'Q_Y\to K'$ in trace norm. This is a condensation
+formula for the geometric restriction of (10.4.1.12).
+
+\leaf{489b}{The geometric projection}{11.2.1 \quad REMOVING THE SPATIAL CUTOFF}{The scalar trace after both limits}
+Write $P=P^{\rm geom}$, $S=1-P$, and
+$C_h=PA_hS$. In every component at every $\alpha\ge0$ both $A_hS$ and
+$SA_h$ are trace class by \pg{463a}.
+Since $SA_hP=0$ by invariance of the arithmetic space,
+\[
+         PA_h-A_hP=A_hS-SA_h=C_h,\qquad \Tr C_h=0 .
+ \tag{13h}
+\]
+The last equality follows from the off-diagonal form relative to
+$PX\oplus SX$. For bounded cutoffs $0\le r_L\le1$ tending to one
+pointwise, $\|(M_{r_L}-1)C_h\|_1\to0$ by finite-rank approximation.
+In particular the difference between the traces of the two orders of
+geometric truncation tends to zero, even though (13g) can remain nonzero
+as an operator at finite cutoff.
+
+For the levels that exhaust $J$ on pages 488a and 488c,
+$Q_Y\to P$ strongly and
+$P A_h Q_Y=A_h Q_Y$ exactly. For the cutoffs $r_L$ of compact support,
+$M_{r_L}A_h$ is trace class. To see this with the weight $w$, use a
+smooth compact cutoff equal to one on the support, expand the resulting
+smooth unweighted kernel in Fourier series on a bounded square and
+conjugate by $\sqrt w$. Both weight multipliers are bounded on that
+square. Together with (13h) this proves
+\[
+ \lim_{L\to\infty}\left[
+  \Tr(M_{r_L} P A_h)-
+  \lim_{Y\to\infty}\Tr(M_{r_L}P A_h Q_Y)\right]=0 .
+ \tag{13i}
+\]
+The inner limit is the trace of $M_{r_L}A_hP$. For tests supported away
+from $x=0$, the trace of $M_{r_L}A_h$ is zero. By (13), both double-limit
+calculations of the geometric convolution trace therefore give
+$-\Tr(SA_h)$. At zero width its value is explicitly (9a) with a minus sign.
+
+\point{Growth of the order correction} For $h_\tau(x)=h(x-\tau)$ the
+same block is $C_{h_\tau}=P T_\tau A_h S$. In the degree-four metric,
+uniformly in $L$ and for $\tau\ge0$,
+\[
+  |\Tr(M_{r_L}C_{h_\tau})|
+        \le 2(1+\tau^2)e^{\alpha\tau}\,\|A_h S\|_1 .
+ \tag{13j}
+\]
+This part of the geometric comparison already satisfies the target
+exponent in (19), also at $\alpha=0$ with polynomial growth. The
+remaining identity equates the limiting geometric trace plus its pole
+terms with the real-place and centered prime distributions, as on
+pages 514a--514b.
+
+\sourcepages{490}{491}{The trace in Theorem 11.2.2.1 holds on the quotient by the closed subspace in (13c).}
+\sourcepages{492}{492}{}
+\sourcepages{493}{494}{For the bandwidth bound and the sign of the prime shell see pages 488a--b and 495--495a.}
+\leaf{495}{The prime at two}{11.3.2 \quad THE LOCAL ORBITAL IDENTITY}{A counterexample at the first finite place}
+Take $F=\Q$, $\chi=1$, $S=\{\infty\}$ and $\tau(t)=(t,1_f)$, $t>0$.
+Put $U=\prod_p\Z_p^\times$ with Haar probability. Every idele has a unique
+expression
+\[
+                  x=\tau(t)\,r\,u,\qquad
+       t=|x|_{\A},\quad r\in\Q^\times,\quad u\in U.
+\]
+Indeed the finite valuations determine $|r|$, the real component determines
+its sign, and the residual finite components are units. Thus $U$ represents
+the norm-one idele classes.
+
+In (11.3.2.2) the first indicator demands $r' u'x\in\tau(\R_{>0})$ for
+$r'\in\Q^\times$, $u'\in U$. In the above coordinates this forces
+$r'=r^{-1}$ and $u'=u^{-1}$. Haar probability on the infinite compact
+group $U$ assigns mass zero to a singleton because arbitrarily many
+distinct translates have the same mass. For every $x,y$ the indicated integral
+is therefore zero. Multiplication by this lift annihilates the kernel,
+including its first prime shell.
+
+Choose $\eta\in C_c^\infty((3/2,5/2))$ with $\eta(2)=1$ and put
+$\phi(x)=\eta(|x|_\A)$. It is a legitimate test supported at norms $>1$.
+For $\varpi_2=2$ embedded at the finite place, $|\varpi_2^k|_\A=2^{-k}$.
+Only $k=-1$ contributes. With $\mu_2(\Z_2^\times)=1$, (11.3.2.1)
+therefore reads
+\[
+             0=\log2\sum_{k\in\Z}\eta(2^{-k})=\log2 .
+ \tag{14}
+\]
+Thus Theorem 11.3.2.1 fails even for the ordinary zeta function. Its local
+right side uses the unweighted sum printed in (11.3.2.1). The normalized
+prime term on \pg{514a} carries the factor $2^{-1/2}$ at this power.
+
+\point{Orientation of the stratum} The functions $\alpha_k$ on page 493
+impose unit conditions at the first $k$ primes. Therefore
+$\alpha_{k+1}\le\alpha_k$. The indicator of the shell removed at the
+next prime is $\alpha_k-\alpha_{k+1}$, with positive sign. Either choice
+of sign on the left of (14) still gives zero.
+
+\leaf{495a}{Prime-shell weights}{11.3.2 \quad THE TOTAL TRACE}{Two normalized lifts}
+In the coordinates on \pg{495}, Haar integration along a norm fibre is
+counting measure on $\Q^\times$ times Haar probability on $U$. Let
+$\omega$ be any nonnegative finitely supported probability on $\Q^\times$.
+The one-variable lift $\ell_\omega(\tau(t)ru)=\omega(r)$ integrates to
+$1$ on each such fibre. It is continuous and has compact support over a
+compact norm interval.
+
+For a kernel on the norm quotient use its pullback times the simultaneous
+fibre average of $\ell_\omega(ax)\ell_\omega(ay)$ in $a$. At
+$(\tau(t),\xi u\tau(t))$ that factor is
+\[
+ C_\omega(\xi)=\sum_{r\in\Q^\times}\omega(r)\omega(r\xi),
+ \qquad \sum_{\xi\in\Q^\times} C_\omega(\xi)=1.
+ \tag{15}
+\]
+For any integrable diagonal density $k(t,t)$ this yields the exact
+unfolding
+\[
+ \int_0^\infty k(t,t)\frac{\dd t}{t}
+ =\sum_{\xi\in\Q^\times}\int_0^\infty\!\int_U
+       C_\omega(\xi) k(t,t)\dd u\,\frac{\dd t}{t}.
+ \tag{16}
+\]
+This also applies to an integrable regularized diagonal. Formula (16)
+preserves its total value with only finitely many nonzero weights.
+
+\point{The first prime shell} For $S=\{\infty\}$ the first positive shell
+at the second argument is $v_2(\xi)\ne0$. With $\omega=\delta_1$ its
+total weight is $0$. With $\omega=(\delta_1+\delta_2)/2$ the only nonzero
+weights are
+\[
+ C_\omega(1)=\tfrac12,\qquad
+ C_\omega(2)=C_\omega(1/2)=\tfrac14 .
+\]
+The same shell has weight $\tfrac12$. For the signed difference in
+(11.3.1.4) it has weight $-\tfrac12$. For example take
+$k(t,t')=b(\log t)\overline{b(\log t')}$ with
+$b\in C_c^\infty(\R)$ and $\int|b|^2=1$: the total trace is exactly one
+for both lifts. Thus fibre normalization alone does not determine the
+arithmetic distribution of trace among the primes.
+
+\leaf{495b}{Prime-shell weights}{11.3.2 \quad INDEPENDENCE OF THE PRIME DISTRIBUTIONS}{Two primes obstruct a fixed invariant lift}
+There is a stronger obstruction for any single normalized lift that is
+invariant under the positive norm section. In the coordinates of page 495
+such a lift has the form $\ell(\tau(t)ru)=a(r,u)$, with $a\ge0$ and
+$\sum_r\int_U a(r,u)\dd u=1$. The lift may depend arbitrarily on the
+finite unit. Write $b(r)=\int_U a(r,u)\dd u$.
+
+In the rational trivial character component an operator kernel on the norm
+line pulls back to $k_h(t,t')$, independent of the compact coordinates.
+This applies after a norm cutoff as well. On the unfolded diagonal its
+weight at $\xi$ after integration over the second unit is
+\[
+ \sum_r\int_U\!\int_U a(r,u)a(r\xi,ug)\dd g\dd u
+             =\sum_r b(r)b(r\xi).
+\]
+Haar invariance and Tonelli give the equality. In particular the weight is
+independent of $t$ and of the test. For any fixed prime shell $B_p$ in
+the rational coordinate, let $c_p$ be the sum of these weights over
+$\xi\in B_p$. Its trace contribution is exactly $c_p T(h)$, where $T(h)$
+is the total diagonal integral. The factorization persists in a cutoff
+limit whenever the total limit exists.
+
+\point{Independence at $2$ and $3$} Choose one norm test equal to one at
+$2$ and supported in a small neighborhood of $2$, and a second one
+likewise at $3$. Choose the neighborhoods to exclude every other power
+of $2$ or $3$. For $S=\{\infty\}$ the two right sides of (11.3.2.1),
+evaluated on these two tests, give the matrix
+\[
+             \begin{pmatrix}\log 2&0\\0&\log 3\end{pmatrix}.
+\]
+Its rank is two. The proposed unfolded traces, for any two fixed shells
+and any fixed lift as above, give an outer product
+$(c_2,c_3)^{\mathsf T}(T(h_2),T(h_3))$ of rank at most one. Reversing
+the sign of the shell indicators leaves the obstruction intact.
+
+Thus no normalized, norm-translation-invariant choice in this class can
+realize (11.3.2.1) simultaneously at these two places. The obstruction
+uses the scalar quotient kernel and fixed lift. An arithmetic construction
+with additional place-dependent operators or a norm-dependent lift would
+require its own identity relating those data to the prime distributions.
+
+\sourcepages{496}{496}{The local formula used here has the counterexample on page 495.}
+\sourcepages{497}{506}{}
+\sourcepages{507}{508}{For the fundamental domain and the regularity assertion in Proposition 12.2.2.2 see page 508a.}
+\leaf{508a}{Diagonal regularity}{12.2.2 \quad LIFTING THE DIAGONAL}{A fundamental domain and vanishing lifts}
+For $F=\Q$ the quotient of $\A_\Q^\times$ by $\Q^\times$ is
+$\R_{>0}\times U$ in the coordinates on page 495. It is disconnected
+since $U$ maps continuously onto $(\Z/3\Z)^\times$. Equation (12.2.1.12)
+requires the image of its fundamental domain to be the entire quotient.
+The image of a connected set is connected, so the domain with nonempty
+interior and connectedness stipulated on page 507 cannot exist in this
+application. The product slice $r=1$ on page 495 is instead clopen and
+maps homeomorphically onto the quotient. The Haar decomposition and
+the total integration formula (16) follow directly on this slice.
+
+\point{Pointwise regularity in Proposition 12.2.2.2(4)}
+Even for a connected fundamental domain in the stated hypotheses, a
+lift can erase a singularity. Take $G=\R\times\Z$, $H=\{0\}\times\Z$,
+$D=\R\times\{0\}$, and the normalized indentation $\ell(x,n)=\mathbf1_{n=0}$.
+The factor (12.2.2.1) at $((x,n),(y,m))$ is $\mathbf1_{n=m}$.
+Use the open symmetric neighborhoods
+$(-2^{-j},2^{-j})\times\{0\}$, a $D'$-sequence as on page 498.
+
+Choose $a\in C_c^\infty(\R)$ equal to one near zero. In quotient
+coordinates put
+\[
+   k(x,y)=a(x)a(y)\cos(\omega\log|x|),\qquad
+   \omega=\pi/\log 2 ,
+\]
+with arbitrary value at $x=0$. This bounded, compactly supported kernel
+has rank at most one as an integral operator. At $(0,0)$ its small-square
+averages are
+\[
+ \frac1{2r}\int_{-r}^r\cos(\omega\log|x|)\dd x
+     =\Re\frac{r^{i\omega}}{1+i\omega}
+     =\frac{(-1)^j}{1+\omega^2}\qquad(r=2^{-j}).
+\]
+Thus $(0,0)$ is not a regular point under the definition on page 498.
+At the lift $((0,0),(0,1))$ the kernel is identically zero on a
+neighborhood, so the lifted point is regular. For the rational lifts
+of (15) the factor is locally constant. Where it is nonzero, division
+by that constant recovers regularity. Where it is zero the lifted
+averages are zero. This is enough for the forward unfolding of an
+integrable regular diagonal in (16).
+
+\sourcepages{509}{512}{The pointwise regularity statement for lifts is qualified on page 508a.}
+\sourcepages{513}{513}{}
+\sourcepages{514}{514}{Section 12.3 continues on page 514a. Section 12.4 concerns a fixed finite set of places.}
+\leaf{514a}{The full critical strip}{12.3 \quad THE GLOBAL TRACE OVER THE RATIONALS}{Weil's distribution in log coordinates}
+Let $h\in C_c^\infty(\R)$ with $h(0)=0$ and
+$B(h)=H(\tfrac12)+H(-\tfrac12)$. Normalize the Haar measure on each
+finite unit group to give it volume one. The rational Weil distribution is
+\begin{align*}
+ W(h)&=\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}
+             \big[h(\log n)+h(-\log n)\big]\\
+     &\quad+\int_{\R}h(x)\,
+             \frac{e^{-|x|/2}}{1-e^{-2|x|}}\dd x .
+\end{align*}
+Here $\Lambda(p^k)=\log p$ for $k\ge1$ and $\Lambda(n)=0$ otherwise.
+The real-place factor is the sum of the positive and negative real unit
+contributions. For $x>0$ it equals
+$\tfrac12e^{x/2}((e^x-1)^{-1}+(e^x+1)^{-1})$, and inversion gives the
+same factor at $-x$. The vanishing of $h(0)$ makes the integral locally
+absolutely convergent and kills the terms supported at $0$.
+
+\point{Full-strip identity} Weil's classical explicit formula gives
+\[
+ W(h)=B(h)-\sum_\lambda m_\lambda H(\lambda)
+     =B(h)-\Tr(A_hP_{1/2}).
+ \tag{17}
+\]
+The second equality is (5) and (12). One can check the signs on positive
+logarithmic support by Mellin inversion of $-\zeta'/\zeta(z+\tfrac12)$:
+the pole of $\zeta$ contributes $H(\tfrac12)$, and its nontrivial and
+trivial zeros contribute $-m_\lambda H(\lambda)$ and
+$-H(-2k-\tfrac12)$, $k\ge1$. Adding the real-place integral adds back
+$\sum_{k\ge0}H(-2k-\tfrac12)$. The general test above is covered by the
+classical distributional formula.
+
+\point{The complementary projection} For each compactly supported cutoff
+$r$ in (13), the localized convolution has trace
+\[
+     \Tr(M_r A_h)=h(0)\int_{\R} r(x)\dd x.
+\]
+Localize both variables to a bounded interval containing the kernel support
+and insert smooth cutoffs equal to one there. On a larger interval the
+smooth convolution kernel has an absolutely summable double Fourier series.
+Multiplication by bounded $r$ gives the diagonal integral term by term, and
+conjugation by $\sqrt w$ on this interval cancels on the diagonal.
+Equations (13) and (17) now identify the full-strip limit of
+$B(h)+\Tr(M_r A_h(1-P_{1/2}))$ with $W(h)$.
+
+\leaf{514b}{The individual prime terms}{12.3 \quad AN ARITHMETIC LOCAL OPERATOR}{A trace at each prime ideal}
+Let $\mathfrak p$ be unramified for a unitary Hecke character, let
+$l=\log N\mathfrak p$ and let $a=\chi_{\mathfrak p}(\varpi_{\mathfrak p})$.
+On the twisted circle $u(t+l)=a\,u(t)$ use $L^2([0,l],\dd t)$ and right
+translations. For $h\in C_c^\infty(\R)$, $h(0)=0$, set
+$g(x)=e^{-|x|/2}h(x)$. The operator
+$C_{\mathfrak p,h}u(t)=\int g(x)u(t+x)\dd x$ is trace class and
+\[
+ \Tr C_{\mathfrak p,h}
+  = l\sum_{m\ge1} e^{-ml/2}
+      \big[a^m h(ml)+\overline a^{\,m}h(-ml)\big].
+\]
+Indeed, writing $a=e^{i\theta}$, the orthogonal Fourier modes are
+$e^{i(\theta+2\pi j)t/l}$, $j\in\Z$. The diagonal multipliers are the
+Fourier integrals of $g$ at these frequencies. They are summable by two
+integrations by parts, since $g$ has an integrable weak second derivative.
+Fourier series of the periodization at zero give
+$l\sum_{m\in\Z}a^m g(ml)$, proving the formula. Dropping the exponential
+factor gives the unweighted prime distribution printed in (11.3.2.1)
+at the trivial character. This arithmetic local operator uses the prime
+period and the Euler character explicitly.
+
+\point{Effect of the Euler factor in the narrow Hilbert space}
+In centered coordinates the local reciprocal Euler factor acts on $X$
+by $B_{\mathfrak p}=1-a e^{-l/2}T_{-l}$, where $T_yf(x)=f(x-y)$.
+For $0<\alpha<\tfrac12$ its inverse converges in operator norm:
+\[
+ B_{\mathfrak p}^{-1}
+       =\sum_{m\ge0}a^m e^{-ml/2}T_{-ml},\qquad
+ \sum_{m\ge0}e^{-ml/2}\|T_{-ml}\|
+       \le 2\sum_{m\ge0}(1+m^2l^2)e^{-(1/2-\alpha)ml}<\infty .
+\]
+The arithmetic closure $J_\alpha$ is invariant under all translations,
+so $B_{\mathfrak p}J_\alpha=J_\alpha$. The untruncated quotient by
+this range is zero, even though the local circle trace can be nonzero.
+For the rational finite levels, (13e) gives the divergence rate of an
+evaluation annihilating the Euler image. On the uncentered zero line
+(13d) realizes the arithmetic circle traces on the Hilbert quotient.
+
+For $\zeta$, finite products of the inverses do not even stay bounded on
+$X$. Evaluation at $z=0$ multiplies by
+$\prod_{p\le P}(1-p^{-1/2})^{-1}\to\infty$, since $\sum_p1/p=\infty$.
+Point evaluation is continuous and nonzero there. The local trace formula
+thus supplies each prime distribution independently. Its identification
+with a shell of the global projection is the additional global assertion.
+
+\sourcepages{515}{515}{}
+\sourcepages{516}{518}{The real-place range and the lower endpoint in (12.4.1.23) are calculated on page 518a.}
+\leaf{518a}{The real place}{12.4.1 \quad THE LOWER CUTOFF}{The finite endpoint term}
+Take $F=\Q$, $S=\{\infty\}$. In Step II on page 516, multiplication by
+the one-sided cutoff, equal to one near $x=0$, is asserted to map
+$\mathcal S(\R)$ into the polar-free space $\mathcal S_{00}(\R)$. Applied
+to $e^{-\pi x^2}$ the result still has nonzero value at zero. Its local
+Mellin integral has a pole at $s=0$, contrary to the polar-free
+property on pages 259--260. Cutting away a neighborhood of zero removes this
+pole, and changes the subsequent volume calculation.
+
+With the sharp outer and Fourier cutoffs of (12.4.1.22), also impose
+$|x|\ge1/L''$. On the positive fundamental half-line for $\{\pm1\}$,
+$w=xu$ gives the exact logarithmic length
+\[
+ \int_{\max\{|w|/L',\,1/L''\}}^{L}\frac{\dd x}{x}
+    =\big[\log L-\log\max\{|w|/L',1/L''\}\big]_+
+\]
+where the left integral is taken over the empty set if the lower bound
+exceeds $L$. Assume $LL''>1$ and put $a=L'/L''$. The one-sided length
+in (12.4.1.24) exceeds this length by $\mathbf1_{|w|<a}\log(a/|w|)$.
+For the test $\eta_\xi$ of (12.4.1.20) the lost term is therefore,
+in real Lebesgue normalization,
+\[
+       \int_{|w|<a}\widehat\eta_\xi(w)\log(a/|w|)\dd w .
+ \tag{17a}
+\]
+Its absolute value is at most $2a\|\widehat\eta_\xi\|_\infty$. Thus
+$L'/L''\to0$ removes it for each fixed real-place test.
+
+\point{Balanced cutoffs} If $L=L'=L''\to\infty$, then $a=1$. Choose a
+nonzero nonnegative smooth real lift $\widetilde\phi$ supported in
+$(1,11/10)$, extended by zero on the negative half-line. It descends by
+summation over $\{\pm1\}$ to a permitted positive-norm test.
+For $\xi=1$, the function $\eta_1$ is nonnegative and supported where
+$1/(1+z)\in(1,11/10)$, hence $|z|<1/4$. The real part of
+$\widehat\eta_1(w)$ is strictly positive for $|w|\le1$ by the cosine
+formula. In fact the Fourier transform of
+$\mathbf1_{|w|<1}\log(1/|w|)$ equals
+$\operatorname{Si}(2\pi z)/(\pi z)$, with value $2$ at zero.
+It is strictly positive because the alternating half-period integrals of
+$\sin t/t$ decrease in magnitude. Consequently the other nonnegative
+test $\eta_{-1}$ also gives a positive term in (17a). The finite endpoint
+correction survives summation over the two units. This calculation
+also survives smoothing the balanced cutoffs across strips of width
+$\epsilon$ with $\epsilon L=o(1)$. In the $x$ variable the transition
+has logarithmic length $O(\epsilon L)$ and costs
+$O(\epsilon L\|\widehat\eta_\xi\|_1)$. At $|u|=L'$ the transition in
+$w=xu$ has length $O(\epsilon x)$ and costs
+$O(\epsilon L\|\widehat\eta_\xi\|_\infty)$ after integration in
+$\dd x/x$. Formula (17) uses the classical explicit formula independently.
+
+\sourcepages{519}{519}{For the established identity and the hypothesis needed on a narrow strip see page 520.}
+\leaf{520}{Narrow strips}{12.5.1 \quad THE TRACE IDENTITY}{The contribution outside the strip}
+For $\zeta$ take $0\le\alpha\le\tfrac12$ and degree four. With the notation
+of pages 29 and 514a, the corrected form of (12.5.1.1)--(12.5.1.4) is
+\[
+ \boxed{\quad W(h)=B(h)-\Tr(A_hP_\alpha)-E_\alpha(h),\qquad
+ E_\alpha(h)=\sum_\lambda(m_\lambda-n_{\alpha,4}(\lambda))H(\lambda).\quad}
+ \tag{18}
+\]
+Equation (17) includes all nontrivial zeros. Equation (12) counts
+each interior order in full and at most two copies at each boundary
+zero. Both sums converge absolutely. Put
+\[
+ G_\alpha(h)=B(h)+\lim_{L\to\infty}
+             \Tr\big(M_{r_L}A_h(1-P_\alpha)\big).
+\]
+Then $G_\alpha(h)=B(h)-S_\alpha(h)$ and
+$G_\alpha(h)-G_{1/2}(h)=G_\alpha(h)-W(h)=E_\alpha(h)$.
+
+\point{The independent geometric estimate} To obtain the zero-location
+claim at width $\alpha$ it suffices to establish, by arithmetic or
+geometric means, for $h_\tau(x)=h(x-\tau)$, $h\in C_c^\infty((1,2))$,
+\[
+ G_\alpha(h_\tau)-W(h_\tau)
+         =O_{h,\alpha,\epsilon}(e^{(\alpha+\epsilon)\tau})
+       \quad(\tau\ge0,\ \epsilon>0).
+ \tag{19}
+\]
+The residue argument on \pg{29} detects every zero strictly to the right
+of the boundary; reflection covers the left. If all zeros are in the
+closed strip, the residual boundary terms are $O_h(e^{\alpha\tau})$ by
+absolute summability. Thus (19) detects location even at a width with
+a boundary zero. One test suffices as on \pg{522}.
+
+For a fixed test supported away from norm one, only finitely many primes
+occur in $W$. On translating to $h_\tau$ the available prime powers
+grow with $\tau$. The vanishing of sufficiently high prime shells for
+each individual test supplies neither their total nor a bound uniform
+under translation. Equation (16) alone permits both first-shell weights
+on page 495a. A calculation at a fixed finite set of places in \S12.4
+therefore leaves (19) open.
+
+\point{Other characters} For a fixed unitary Hecke character take the
+full width $\beta=\tfrac12$ on \pg{446c}. The Hecke--Weil formula and
+(12) give the same subtraction with multiplicities (4) in each
+component. Reflection is $\rho\mapsto1-\overline{\rho}$ for
+the zero set of that component. No uniformity across characters is
+required for the conditional implication.
+
+\leaf{520a}{Translated tests}{12.5.1 \quad BOUNDS UNDER TRANSLATION}{What the available bounds control}
+Let $T_\tau f(x)=f(x-\tau)$. Directly from the Hilbert weight,
+\[
+ \|T_\tau\|_{X\to X}\le 2 e^{\alpha|\tau|}(1+\tau^2).
+\]
+Since $A_{h_\tau}=T_\tau A_h$, this controls the translated
+trace-class operator for each fixed projection. The narrow spectral sum
+even satisfies $|S_\alpha(h_\tau)|\le
+e^{\alpha\tau}\sum_\lambda m_\lambda |H(\lambda)|$ for $\tau\ge0$.
+Applying the operator bound to the full projection uses its own weight
+with exponent $\tfrac12$. Subtracting the two estimates still leaves the
+full-strip exponent. Cancellation in (19) is the remaining arithmetic issue.
+
+\point{The term requiring cancellation} For the positive-support test of
+page 29 put $v_h(u)=u^{-1/2}h(\log u)$ and $X=e^\tau$. The finite-place
+part of $W(h_\tau)$ is
+$X^{-1/2}\sum_{n\ge2}\Lambda(n)v_h(n/X)$. The real-place part is
+$X^{-1/2}H(-\tfrac12)+O_h(X^{-5/2})$ by its kernel on page 514a.
+Consequently (18) gives the more explicit identity
+\[
+ E_\alpha(h_\tau)=
+  X^{-1/2}\!\left(X\int_0^\infty v_h(u)\dd u
+                -\sum_{n\ge2}\Lambda(n)v_h(n/X)\right)
+       -S_\alpha(h_\tau)+O_h(X^{-5/2}).
+ \tag{20}
+\]
+Thus at each fixed width the bound in (19) is equivalent, for these tests,
+to a smoothed prime error $O_{h,\alpha,\epsilon}(X^{1/2+\alpha+\epsilon})$.
+
+\point{An unconditional comparison} The classical zero-free region yields
+for each fixed smooth weight of this support some $c>0$ with
+\[
+ \sum_{n\ge2}\Lambda(n)v_h(n/X)
+   = X\int_0^\infty v_h(u)\dd u
+      + O_h\big(Xe^{-c\sqrt{\log X}}\big).
+\]
+Indeed apply (17) and split the zero sum at $T=\exp(\sqrt{\log X})$.
+For $|\Im\rho|\le T$ use
+$\Re\rho\le1-c_0/\log(2+T)$ and the absolute summability of the transformed
+weight. For the tail, its rapid decay and zero counting give
+$O_h(X T^{-2})$. The real-place remainder in (20) is smaller.
+This classical estimate still allows a contribution of scale $X^\beta$
+with $\tfrac12<\beta<1$. A fixed zero-free half-plane gives the stronger
+comparison on \pg{520b}.
+
+\leaf{520b}{A fixed zero-free half-plane}{12.5.1 \quad AN EXTERNAL ARITHMETIC BOUND}{How far the full trace persists}
+Fix a number field $F$ and a unitary Hecke character $\chi$. Suppose an
+independent zero-free theorem places all its nontrivial zeros in
+$\Re\rho\le\sigma_*$, where $\tfrac12\le\sigma_*<1$. Put
+$b=\sigma_*-\tfrac12$. For every $\alpha>b$ the arithmetic projection
+of \pg{446c} has the full zero trace. Indeed the functional equation
+gives $|\Re(\rho-\tfrac12)|\le b$. Each zero is then interior, so (18)
+has zero defect. For any smaller width and any translated
+smooth test as on \pg{29} the defect satisfies
+\[
+   |E_{\alpha,\chi}(h_\tau)|
+    \le e^{b\tau}\sum_\rho m_\rho |H(\rho-\tfrac12)|
+       \qquad(\tau\ge0).
+ \tag{20a}
+\]
+The constant is finite by rapid vertical decay and fixed-character zero
+counting. At $\alpha=b$ the defect consists exactly of the boundary
+multiplicities $m_\lambda-n_{b,s}(\lambda)$ in (4).
+
+For the smooth weight $v$ of (22), in the notation of \pg{522a} the same
+arithmetic input gives
+\[
+                 A_\chi(X)=M_\chi(X)+O_{F,\chi,v}(X^{\sigma_*}).
+ \tag{20b}
+\]
+Shift the Mellin integral for $-V(s)L_f'(s,\chi)/L_f(s,\chi)$ to
+$\Re s=(1-\sigma_*)/2$. This lies strictly between zero and every
+nontrivial real part. The vertical and horizontal estimates are as on
+\pg{522a}; the new integral is $O(X^{(1-\sigma_*)/2})$.
+The nontrivial residues have total absolute value at most
+$X^{\sigma_*}\sum_\rho m_\rho|V(\rho)|$. Any norm-character pole
+gives exactly $M_\chi(X)$.
+
+\point{Independent bounds for all unitary characters}
+B.~Hu's \citetitle{https://hexagonmath.org/2610.00216v2}{Theorem 1.2}
+states $\sigma_*=7/8$ over every number field and has an accompanying
+\citetitle{https://github.com/Rogerhu12/hecke-seven-eighths}{Lean statement and proof}.
+With this input the full trace persists for $\alpha>3/8$ and the
+Gaussian prime sum on \pg{522c} is $O_v(X^{7/8})$.
+B.~Liu's \citetitle{https://hexagonmath.org/2611.00741v1}{Theorem 7.33}
+states the smaller all-character threshold $\theta_G<0.87333264$.
+With this preprint as input, (20b) gives $O_{F,\chi,v}(X^{0.87333264})$
+and the full trace persists for $\alpha>0.37333264$. These implications
+use the stated external half-planes. Equation (24) requires the
+exponent $1/2$.
+
+\leaf{520c}{Hecke prime sums}{12.5.1 \quad A TEST FOR THE CONTRIBUTING PRIMES}{Removing the pole while retaining every zero}
+Let $F$ have degree $d$, and fix a unitary Hecke character $\chi$.
+Write $L(s)=L_f(s,\chi)$ for the primitive finite Euler product and
+extend $\chi(\mathfrak a)$ by zero on ideals not coprime to its conductor.
+Let $\beta_\chi$ be the supremum of the real parts of its nontrivial
+zeros. The functional equation and zero count give
+$1/2\le\beta_\chi\le1$. Pages \pagelink{520e}{520e--g} isolate a sum
+over ordinary integers and rational primes, with both factors within
+powers of $\log X$ of $\sqrt X$. If $\beta_\chi>1/2$, this sum has
+growth exponent exactly $\beta_\chi$.
+
+Take the fixed weight $v$ and its Mellin transform $V$ from (22).
+Set $s_*=1-it_0$ when $\chi=|\cdot|_\A^{it_0}$ and $s_*=1$
+otherwise. Let $\nu$ be the distribution of a sum of independent uniform
+variables on $[0,h_j]$, $h_j=3/(4\pi^2 j^2)$, $j\ge1$. Define
+\[
+ v_*(u)=\int v(ue^{-y})\dd\nu(y),\qquad
+ w_\chi(u)=(u\partial_u+s_*)^2 v_*(u),\qquad
+ b=\exp(15/8).
+\]
+Since $\sum h_j=1/8$, the support is contained in $[e^{5/4},b]$.
+Under the Mellin convention on \pg{522}, integration by parts gives
+\[
+ W_\chi(s)=(s-s_*)^2 V(s)
+          \prod_{j\ge1}\frac{e^{h_js}-1}{h_js}.
+ \tag{20c}
+\]
+The product converges normally by $\sum h_j<\infty$ and is nonzero
+in $\Re s>0$. Thus $W_\chi$ has a double zero at a possible pole of
+$L$ and is nonzero at each nontrivial zero. The double zero cancels
+the poles of both $L$ and $L'$.
+
+For $k\ge0$, $s=-k+it$, the transform satisfies
+\[
+ |W_\chi(-k+it)|\ll_\chi (1+k+|t|)^2 e^{-5k/4-c\sqrt{|t|}}.
+ \tag{20d}
+\]
+Indeed $|V(-k+it)|\le e^{-5k/4}$ by (22). Each new factor is the
+average of $e^{h_jsu}$ on $0\le u\le1$, so its modulus is
+at most $\min(1,2/(h_j|s|))$. For $j\le c_0\sqrt{|t|}$ this bound
+is at most $1/2$ with a fixed sufficiently small $c_0>0$.
+On every fixed vertical strip the transform also decays faster than
+any inverse power, since $w_\chi$ is smooth and compactly supported.
+
+\leaf{520d}{All-ideal sums}{12.5.1 \quad THE UNRESTRICTED IDEAL FACTOR}{Decay after summing the unrestricted ideal}
+For $j=0,1$ put
+\[
+ S_j(Y)=\sum_{\mathfrak a}\chi(\mathfrak a)(\log N\mathfrak a)^j
+                     w_\chi(N\mathfrak a/Y),\qquad K_\chi(Y)=S_0(Y).
+\]
+The sums extend over nonzero integral ideals. There exist $C,c>0$
+depending on $F,\chi$ such that
+\[
+        |S_0(Y)|+|S_1(Y)|\le C\exp(-cY^{1/(2d)})\qquad(Y\ge1).
+ \tag{20e}
+\]
+Also $K_\chi(Y)=0$ for $Y<1/b$ since ideal norms are at least one.
+
+On $\Re s=2$, Mellin inversion expresses $S_j$ by integrating
+$W_\chi(s)(-1)^jL^{(j)}(s)Y^s$. Shift to $\Re s=-k$ for a positive
+integer $k$. The integrand is entire by (20c) and the functional
+equation. For each fixed $k$, rapid decay and polynomial bounds on
+fixed vertical strips justify the shift. In order to vary $k$ one
+needs the following dependence on the line. For all sufficiently large
+$k$, Tate's functional equation gives
+\[
+      |L(-k+it)|+|L'(-k+it)|
+        \le C_1^{k+1}(1+k+|t|)^{dk+C_2}.
+ \tag{20f}
+\]
+In detail, write the archimedean factors as $d$ copies of
+$\Gamma_{\R}(s+\mu_v)=\pi^{-(s+\mu_v)/2}\Gamma((s+\mu_v)/2)$
+with fixed shifts, splitting each complex factor by duplication.
+In the reflected numerator the shifts are $\overline{\mu_v}$.
+The Euler product at $1+k-it$ is bounded. Reflect the reciprocal
+gamma in each denominator using $\Gamma(z)^{-1}
+=\Gamma(1-z)\sin(\pi z)/\pi$. The two resulting gamma factors
+have positive real parts and equal imaginary magnitudes.
+For $a\ge1$, Stirling's formula gives
+$|\Gamma(a+iy)|\ll(1+a+|y|)^{a-1/2}e^{-\pi|y|/2}$,
+using $|y|\arctan(a/|y|)\le a$. Their exponentials cancel the
+growth of the sine. Powers of the conductor and $\pi$ cost $O(C_1^k)$.
+The bound holds also within distance $1/4$ of the line on increasing
+$C_2$; Cauchy's estimate then gives the derivative.
+
+Combining (20d) and (20f), the integral is bounded by
+$C_3 k^{C_4}(C_3 k^{2d}/Y)^k$. Indeed split
+$(1+k+|t|)^{dk+O(1)}$ into the contributions of $1+k$ and $|t|$,
+at cost $O(C_5^k)$, and use
+$\int_0^\infty t^j e^{-c\sqrt t}\dd t=2c^{-2j-2}\Gamma(2j+2)$.
+Taking $k=\lfloor c_1Y^{1/(2d)}\rfloor$ with small fixed $c_1>0$
+proves (20e); bounded $Y$ is absorbed in $C$.
+
+\leaf{520e}{Balanced ideal sums}{12.5.1 \quad AN IDENTITY ON INTEGRAL IDEALS}{Only two near-square-root factors remain}
+Let $\mu_F$ and $\Lambda_F$ denote the ideal M\"obius and von Mangoldt
+functions. Fix a smooth $0\le\eta\le1$ equal to one for $0<t\le1$
+and zero for $t\ge2$, and put $\omega=1-\eta$. For large $X$ set
+\[
+ L_X=\log(2X),\qquad r=d+1,\qquad U=\sqrt X/L_X^r,\qquad
+ A^\sharp_\chi(X)=\sum_{\mathfrak a}\Lambda_F(\mathfrak a)
+                 \chi(\mathfrak a) w_\chi(N\mathfrak a/X).
+\]
+For every $A>0$ the following identity with error holds:
+\begin{align*}
+ A^\sharp_\chi(X)
+   ={}&\sum_{\mathfrak m,\mathfrak l}
+       \mu_F(\mathfrak m)\chi(\mathfrak m)
+       \Lambda_F(\mathfrak l)\chi(\mathfrak l)
+       \omega(N\mathfrak m/U)\omega(N\mathfrak l/U)\\[-2pt]
+     &\hspace{42mm}\cdot K_\chi\big(X/(N\mathfrak m\,N\mathfrak l)\big)
+             +O_{A,F,\chi}(X^{-A}).
+ \tag{20g}
+ \end{align*}
+Every nonzero summand satisfies
+$U<N\mathfrak m,N\mathfrak l\le bX/U$. If $K_\chi$ is expanded,
+the third ideal $\mathfrak k$ has $N\mathfrak k\le bL_X^{2r}$.
+
+To prove this, let a subscript $<$ on an ideal function denote
+multiplication by $\eta(N\mathfrak a/U)$, and a subscript $>$ denote
+multiplication by $\omega(N\mathfrak a/U)$. Dirichlet convolution on
+ideals gives $\log N=\mathbf1*\Lambda_F$ and
+$\mu_F*\mathbf1=\mathbf1_{\mathfrak a=(1)}$, where $\mathbf1$ is the
+constant function one. Dropping the index $F$, expand the exact identity
+\[
+  \Lambda=\Lambda_<+\mu_<*\log N
+          -\mu_<*\mathbf1*\Lambda_<+\mu_>*\mathbf1*\Lambda_>.
+\]
+Indeed the second and third terms combine to $\mu_<*\mathbf1*\Lambda_>$.
+Apply the weight $\chi(\mathfrak a)w_\chi(N\mathfrak a/X)$. The first
+term has disjoint support for large $X$. The second contains
+$S_1(X/N\mathfrak m)$ with $N\mathfrak m\le2U$.
+The third contains $S_0(X/(N\mathfrak m\,N\mathfrak l))$
+with both norms at most $2U$. All these arguments are at least
+$L_X^{2d+2}/4$ for large $X$. Formula (20e) therefore saves
+$\exp(-c' L_X^{1+1/d})$. The total absolute size of the outer
+coefficients is at most a fixed power of $X$, by absolute convergence
+of $\zeta_F(2)$. This proves the error in (20g). The support bounds
+follow from the lower cutoff $\omega$ and the upper support endpoint
+$b$ of $w_\chi$.
+
+\leaf{520f}{Degree-one prime ideals}{12.5.1 \quad THE REMAINDER IN THE BALANCED SUM}{Prime powers and common rational prime divisors}
+Group the M\"obius coefficients by integer norm, and the degree-one
+prime ideals by their underlying rational prime:
+\[
+ u_\chi(n)=\sum_{N\mathfrak m=n}\mu_F(\mathfrak m)\chi(\mathfrak m),
+ \qquad b_\chi(p)=\sum_{N\mathfrak p=p}\chi(\mathfrak p).
+\]
+Retain the following part of (20g), over rational primes $p$:
+\[
+ \mathcal B_\chi(X)=\sum_{\substack{n,p\\p\nmid n}}
+     u_\chi(n)b_\chi(p)\log p\,\omega(n/U)\omega(p/U)
+                  K_\chi\big(X/(np)\big).
+ \tag{20h}
+\]
+For each $\epsilon>0$ one has
+\[
+        A^\sharp_\chi(X)-\mathcal B_\chi(X)
+           \ll_{F,\chi,\epsilon}X^{1/4+\beta_\chi/2+\epsilon}.
+ \tag{20i}
+\]
+In particular $3/4+\epsilon$ is an unconditional exponent without any
+fixed zero-free half-plane.
+
+For a removed prime power $\mathfrak l=\mathfrak p^j$, with
+$N\mathfrak p=p^f$ and $fj\ge2$, expand $K_\chi$ in (20g).
+At fixed $\mathfrak l,\mathfrak k$ the M\"obius sum has scale
+$Y=X/(N\mathfrak k\,N\mathfrak l)\le X/U$ and test
+$\phi(t)=w_\chi(t)\omega(tY/U)$. This family has fixed compact
+support and bounded smooth seminorms: if the transition meets the
+support, $Y/U$ lies in a fixed compact interval. Nonzero terms have
+$Y>U/b$. For every $\sigma>\beta_\chi$,
+\[
+       \sum_{\mathfrak m}\mu_F(\mathfrak m)\chi(\mathfrak m)
+          \phi(N\mathfrak m/Y)\ll_{F,\chi,\sigma}Y^\sigma .
+ \tag{20j}
+\]
+Shift the Mellin integral of $1/L$ to $\sigma$. At large heights,
+choose disks centered at $c+it$ with fixed $c>\max(2,\sigma+1)$.
+Choose their two radii strictly between $c-\sigma$ and
+$c-\beta_\chi$. A branch of $\log L$ exists there; its real part
+is $O(\log(2+|t|))$ from above by fixed-strip growth, and its central
+value is bounded using the Euler product. Borel--Carath\'eodory thus
+bounds $1/L$ polynomially throughout $\sigma\le\Re s\le c$.
+At bounded heights $1/L$ is regular even at a pole of $L$.
+
+The removed prime powers of norm at most $R=bX/U$ have total
+$\Lambda_F$-weight $O_F(\sqrt R)$: $\sum_{\mathfrak p\mid p}f\le d$
+and $\sum_{m\ge2}\sum_{p\le R^{1/m}}\log p\ll\sqrt R$ by Chebyshev's
+bound. There are only $(\log X)^{O_F(1)}$ possible $\mathfrak k$.
+Applying (20j) with $\sigma$ arbitrarily close to $\beta_\chi$ gives
+(20i) for these terms. For the discarded pairs $p\mid N\mathfrak m$,
+sum first over $p$ using $\sum_{p\mid N\mathfrak m}|b_\chi(p)|\log p
+\le d\log N\mathfrak m$. Here $N\mathfrak k\,N\mathfrak m\le R$.
+Absolute convergence of $\zeta_F(1+\epsilon)^2$ gives
+$O_{F,\epsilon}(X^{1/2+\epsilon})$ for these pairs after absorbing
+the logarithms. This proves (20i).
+
+\leaf{520g}{Growth of the prime sum}{12.5.1 \quad THE RIGHTMOST ZERO}{The growth exponent of the degree-one sum}
+For the sum over coprime pairs in (20h) one has the exact identity
+\[
+ \boxed{\displaystyle
+  \beta_\chi=
+   \max\left\{\frac12,\ \limsup_{X\to\infty}
+                \frac{\log(1+|\mathcal B_\chi(X)|)}{\log X}\right\}.}
+ \tag{20k}
+\]
+In particular an independent $O_{F,\chi,\epsilon}(X^{1/2+\epsilon})$
+bound in (20h) for every $\epsilon>0$ would give the
+$O_{F,\chi,v}(\sqrt X)$ remainder in (24) with the original weight
+$v$. Both $n$ and $p$ in (20h) range only from $\sqrt X/L_X^{d+1}$
+to $b\sqrt X L_X^{d+1}$.
+
+Indeed the Mellin transform in $X$ of $A^\sharp_\chi$, integrated
+against $X^{-s-1}\dd X$, is $-W_\chi(s)L'(s)/L(s)$ for $\Re s>1$.
+The contribution from $0<X<1$ is entire since $A^\sharp_\chi$ vanishes
+near zero in $X$. For each $\sigma>\beta_\chi$, move the inverse contour
+to $\sigma$. The possible norm pole is removed by (20c). At large
+heights the disk argument on \pg{520f} and Cauchy's estimate on a
+slightly smaller disk bound $L'/L$ polynomially; rapid decay gives
+$A^\sharp_\chi(X)=O_{F,\chi,\sigma}(X^\sigma)$. Conversely a growth
+exponent strictly below $\beta_\chi$ would make its Mellin integral
+holomorphic at a nontrivial zero $\rho$ to the right of that exponent.
+The residue there is $-m_\rho W_\chi(\rho)\ne0$. This argument uses
+the supremum of the real parts and does not require a rightmost zero.
+
+If $\beta_\chi>1/2$, the exponent $1/4+\beta_\chi/2$ in (20i) is
+strictly less than $\beta_\chi$. Hence $A^\sharp_\chi$ and
+$\mathcal B_\chi$ have the same growth exponent. If $\beta_\chi=1/2$,
+(20i) gives $\limsup\le1/2$ for $\mathcal B_\chi$. These two cases
+prove (20k). The angular character of \pg{522c} gives, for odd $p$,
+\[
+ b_\chi(p)=
+  \begin{cases}2\cos(4\arg\pi_p),&p=\pi_p\bar\pi_p\equiv1\pmod4,\\
+                0,&p\equiv3\pmod4.
+  \end{cases}
+\]
+Its coefficients $u_\chi(n)$ come from the Euler polynomials in
+$z=p^{-s}$ of $1/L(s)$: $1-2\cos(4\arg\pi_p)z+z^2$ at split primes,
+$1-z^2$ at inert primes, and $1+z$ at $2$.
+The two factors in (20h) thus carry explicit arithmetic weights even
+in this fixed degree-two example. Formula (20i) controls the discarded
+terms. The square-root exponent for (20h) remains open in this argument.
+
+\leaf{520h}{A one-sided prime estimate}{12.5.1 \quad A LOWER BOUND FOR A SIGNED MEAN}{The mean deficit suffices}
+For each character component choose the unitary representative $\chi$
+trivial on the positive uniform norm section. A norm twist translates
+the zeros vertically, so these representatives suffice for all fields
+and characters. In (20c) one now has $s_*=1$ throughout. The weight
+$w$ is real and $W(x)>0$ for $1/2<x<1$. Write
+\[
+       D_\chi(X)=\int_X^{2X}\Re\mathcal B_\chi(Y)\frac{\dd Y}{Y},
+       \qquad [r]_+=\max(r,0).
+\]
+With the same $\beta_\chi$ as in (20k), one has
+\[
+ \beta_\chi=\max\left\{\frac12,\ \limsup_{X\to\infty}
+       \frac{\log(1+[-D_\chi(X)]_+)}{\log X}\right\}.
+ \tag{20l}
+\]
+Thus the single lower bound $D_\chi(X)\ge-C_{F,\chi,\epsilon}
+X^{1/2+\epsilon}$ for each $\epsilon>0$ already implies (24),
+including its original $O(\sqrt X)$ error. The two sums in (20h)
+and the average in $Y$ may all cancel before this lower bound is taken.
+
+Let $f(X)=\int_X^{2X}\Re A^\sharp_\chi(Y)\dd Y/Y$. On $\Re s>1$ its
+Mellin integral against $X^{-s-1}\dd X$ on $(0,\infty)$ equals
+\[
+ -\frac{2^s-1}{2s}\,W(s)
+ \left(\frac{L'_\chi}{L_\chi}(s)+\frac{L'_{\bar\chi}}{L_{\bar\chi}}(s)\right).
+\]
+The integral below $1$ is entire. At any nontrivial zero the orders of
+the two functions add, and the factor $(2^s-1)W(s)/s$ is nonzero.
+At a real zero in $(1/2,1)$ the residue is strictly negative. The
+possible pole of a norm character at $1$ is removed.
+
+The upper bound for the limsup in (20l) follows from (20k). If
+$\beta_\chi>1/2$ and the limsup were smaller, choose $\theta<\beta_\chi$
+strictly above both that limsup and $1/4+\beta_\chi/2$. By (20i),
+$g(X)=f(X)+CX^\theta\ge0$ for $X\ge X_0$ and some $C,X_0$.
+Its Mellin integral there has real abscissa of convergence $\beta_\chi$:
+the bounds on \pg{520g} give the upper inequality, and the nonzero poles
+with real parts arbitrarily close to $\beta_\chi$ give the lower one.
+The Mellin transform of a nonnegative function is singular at its real
+abscissa. Indeed a Taylor disk across that point, centered just to its
+right, would give convergence of the integral to its left by expansion
+of $X^t$ in nonnegative terms. Here the continuation is meromorphic.
+At the real abscissa it is either regular or has a simple pole with
+negative residue, which is impossible for an integral positive to its
+right. This proves (20l), also when no zero attains $\beta_\chi$.
+
+\leaf{520i}{The absolute prime contribution}{12.5.1 \quad TWO DEGREE-ONE PRIME FACTORS}{How much cancellation the estimate requires}
+There is a fixed interval $I=[a,b']\subset(0,\infty)$ of positive
+length such that, for every normalized $\chi$ on \pg{520h}, the sum of
+absolute values in (20h) from just $n=q$, $p\ne q$ rational primes in
+$I\sqrt X$, is $\gg_{F,\chi} X/\log X$. The following unconditional
+prime correlation proves this even for characters of infinite order:
+\[
+   \sum_{p\le x}|b_\chi(p)|^2\log p=(r_\chi+o(1))x,\qquad r_\chi\ge1 .
+ \tag{20m}
+\]
+Write $F\otimes_\Q F=\prod_j K_j$. The two embeddings $F\to K_j$
+give norm maps $N_{1j},N_{2j}$ to $F$. Let
+$\eta_j=(\chi\circ N_{1j})(\bar\chi\circ N_{2j})$.
+Then $r_\chi$ is the number of trivial $\eta_j$, including the
+factor $K_j=F$ from multiplication. Outside finitely many primes,
+degree-one primes in this product correspond to ordered pairs of
+degree-one primes of $F$ above $p$. Indeed maps from the tensor
+product of the two reduced residue algebras to $\mathbb F_p$ are
+pairs of maps of its factors. Each norm of the resulting prime ideal
+is the corresponding prime of $F$. Hence
+$|b_\chi(p)|^2=\sum_j b_{\eta_j,K_j}(p)$. Both norm maps preserve the
+uniform section, so a nontrivial $\eta_j$ cannot be a pure norm twist.
+
+The fixed-character prime ideal theorem now gives (20m). Explicitly,
+apply Wiener--Ikehara to the nonnegative coefficients
+$(1+\Re\eta_j)\Lambda_{K_j}$ and $(1+\Im\eta_j)\Lambda_{K_j}$
+for nontrivial $\eta_j$. Their Dirichlet series have the same simple
+pole at one as $-\zeta'_{K_j}/\zeta_{K_j}$ by Hecke nonvanishing on
+$\Re s=1$. Subtraction of the untwisted prime ideal theorem gives
+$o(x)$ for the twisted sum. For the trivial character the main term is
+$x$. Prime norms of residue degree above one and higher prime powers
+cost $O_{K_j}(\sqrt x)$ as on \pg{520f}.
+
+Choose $I$ so that its product interval $[a^2,(b')^2]$ lies where
+$|w|\ge c>0$ in $(e^{5/4},e^{15/8})$. Such an interval exists by
+(20c). The ratio of these support endpoints is $e^{5/8}<2$.
+Consequently $K_\chi(X/(pq))=w(pq/X)$ on this square: only the unit
+ideal contributes. Both lower cutoffs are one for large $X$ and
+$u_\chi(q)=-b_\chi(q)$. By (20m) and $|b_\chi(p)|\le[F:\Q]$,
+$\sum_{p\in I\sqrt X}|b_\chi(p)|\log p\gg_{F,\chi}\sqrt X$.
+The corresponding unweighted sum is $\gg_{F,\chi}\sqrt X/\log X$.
+Their product gives the asserted lower bound after subtraction of the
+diagonal, which costs $O_F(\sqrt X)$. It holds throughout every large
+dyadic interval of $X$.
+
+\leaf{520j}{Cancellation between primes}{12.5.1 \quad THE SIGNED PRIME-PAIR SUM}{The contribution with two prime factors}
+Write $\mathcal P_\chi(X)$ for the part of (20h) with $n=q$ a rational
+prime. For any nontrivial normalized $\chi$ one has
+\[
+    |\mathcal P_\chi(X)|\ll_{F,\chi}
+       \sqrt X+X^{\beta_\chi}\frac{\log\log(3X)}{\log(2X)} .
+ \tag{20n}
+\]
+In particular if $\beta_\chi>1/2$ this entire signed contribution is
+$o(X^{\beta_\chi})$. The estimate on \pg{520i} applies to its absolute
+mass on a single square.
+
+For a smooth test $\phi$ supported in $[1/2,2]$, at scale $Z\ge4$,
+\[
+   \left|\sum_p b_\chi(p)\log p\,\phi(p/Z)\right|
+                \ll_{F,\chi} Z^{\beta_\chi}\|\phi\|_{C^m}
+ \tag{20o}
+\]
+for a fixed integer $m$. Apply Mellin inversion to
+$-\widehat\phi(s)L'_\chi(s)/L_\chi(s)$, moving to $\Re s=-1/4$.
+The nontrivial zero residues are bounded by $Z^{\beta_\chi}$
+times the absolutely summable Mellin values. The finitely many trivial
+zeros crossed lie on $\Re s=0$. The gamma factors of a unitary Hecke
+character have trivial-zero real parts in the nonpositive half-integers,
+so the new line stays away from their poles. There the functional
+equation and the Euler product on $\Re s=5/4$ bound the logarithmic
+derivative by $O_{F,\chi}(\log(2+|t|))$. The horizontal sides may be
+chosen as on \pg{522a}; taking $m$ large covers their polynomial bounds.
+There is no norm pole. Removal of prime powers and higher residue
+degrees costs $O_F(\sqrt Z)\|\phi\|_\infty$. This proves (20o).
+
+Insert smooth dyadic partitions $p\asymp P,\ q\asymp Q$ in (20h),
+temporarily including $p=q$. Put $H=X/(PQ)$. On the fixed rescaled
+square, all derivatives of the kernel $K_\chi(H/(uv))$ are
+$O_{j,A}((1+H)^{-A})$ for each $A$. This follows by multiplying its
+Mellin integrand $W(s)L_\chi(s)$ by powers of $s$ and moving to a
+fixed far left line as in (20e). The two cutoffs $\omega$ have uniform
+rescaled derivatives. Division by $\log(Qv)$ costs $O_m(1/\log Q)$
+in every required seminorm. Applying (20o) successively in both
+variables bounds each box by
+$O((PQ)^{\beta_\chi}(1+H)^{-2}/\log Q)$: differentiate the inner
+smooth sum in the outer variable before its second application.
+Nonempty boxes have $H\gg1$, $\log Q\asymp\log X$. For each $P$,
+summing the dyadically spaced $H$ costs a constant after extracting
+$X^{\beta_\chi}$. There are $O(\log\log(3X))$ choices of $P$.
+The subtracted diagonal costs $O_{F,\chi}(\sqrt X)$ since $p^2\le bX$ and
+$K_\chi$ is bounded. This proves (20n).
+
+\leaf{520k}{The untwisted prime pairs}{12.5.1 \quad THE PRINCIPAL CHARACTER}{Two terms of order \(X/\log X\) cancel}
+For $\chi=1$ put $L=\log(X/U)$ and $c_F=V_*(1)
+\operatorname*{Res}_{s=1}\zeta_F(s)>0$, where $V_*$ is the Mellin
+transform of $v_*$ on \pg{520c}. Then
+\[
+ \mathcal P_1(X)=-c_F X/L+O_F(X/L^2),\qquad
+ \mathcal B_1(X)-\mathcal P_1(X)=c_F X/L+O_F(X/L^2).
+ \tag{20p}
+\]
+Here $L=\tfrac12\log X+(d+1)\log\log(2X)$. These two contributions
+are larger than the square-root precision in (24).
+
+By the fixed-field prime ideal theorem with its
+\citetitle{https://aareyanmanzoor.github.io/assets/articles/lagarias-odlyzko.pdf}{classical remainder},
+the measure $\sum_p b_1(p)\log p\,\delta_p$ on either dyadic interval of
+\pg{520j} can be replaced by Lebesgue measure with smooth error
+$O_{F,A}(Z(\log Z)^{-A}\|\phi\|_{C^1})$ for every $A$.
+Any fixed exceptional real zero contributes a smaller error at this
+precision. Partial summation and the $O_F(\sqrt Z)$ bound for
+higher degrees give the displayed estimate. Replace both prime
+measures on each box. Their masses are $O(P),O(Q)$, the rescaled
+kernel derivatives are bounded, and there are $O((\log\log X)^2)$
+boxes with $PQ\ll X$. The errors, including the diagonal, are
+$O_{F,A}(X(\log X)^{-A})$ for every fixed $A$.
+
+Set $G(z)=K_1(1/z)$, extended by zero for $z>b$. Changing variables
+$z=pq/X$ in the resulting double integral gives
+\[
+    -X\int_0^b G(z)J_X(z)\dd z,\qquad
+    J_X(z)=\int_U^\infty
+      \omega(t/U)\,\omega(Xz/(tU))\,\frac{\dd t}{t\log t}.
+\]
+The Mellin transform of $G$ is $W(s)\zeta_F(s)$ by (20e) and
+continuation. Its zero at $1$ is simple, so
+$\int G(z)\dd z=0$ and $\int G(z)\log z\dd z=c_F$.
+For $r=d+1$ and $L_X^{-r}\le z\le b$, the upper transition occurs wholly above
+$2U$. Substitution $h=Xz/(tU)$ then gives
+\[
+     \partial_{\log z}J_X(z)
+       =\int_1^2\frac{\omega'(h)}{L+\log z-\log h}\dd h
+       =L^{-1}+O((1+|\log z|)/L^2).
+\]
+Integrate from $1$ to $z$. The constant $J_X(1)$ drops out; the part
+$z<L_X^{-r}$ is negligible to any inverse log power since
+$G(z)=O_A(z^A)$ there and $J_X$ is bounded. The two Mellin moments
+now give the first assertion. The same prime ideal theorem yields
+$A^\sharp_1(X)=O_{F,A}(X(\log X)^{-A})$ since $W(1)=0$.
+Using (20i) with $\beta_1\le1$ gives the second assertion.
+
+\leaf{520l}{A fixed number of prime factors}{12.5.1 \quad THE M\"OBIUS COEFFICIENTS}{The terms of each fixed order}
+Write $\Omega(n)$ for the number of rational prime factors counted
+with multiplicity. Let $\chi$ be nontrivial and normalized as on
+\pg{520h}. Suppose $\beta=\beta_\chi>1/2$. For a fixed $j\ge1$ and
+$\phi\in C_c^\infty([1/2,2])$, one has, for some integer $m_j$,
+\[
+ \left|\sum_{\Omega(n)=j} u_\chi(n)\phi(n/Z)\right|
+ \ll_{F,\chi,j} Z^\beta
+        \frac{(1+\log\log Z)^j}{\log Z}\|\phi\|_{C^{m_j}}
+        \qquad(Z\ge4).
+ \tag{20q}
+\]
+The extra logarithmic saving comes from the singularity of $\log L$
+in the series with a marked number of prime factors.
+
+Put $L=L_f(\,\cdot\,,\chi)$. For $\Re s>1$ and $|v|$ small write
+\[
+ \begin{split}
+  \sum_{j\ge0}v^j U_j(s)
+   &=\prod_p\left(1+\sum_{k=1}^d u_\chi(p^k)v^k p^{-ks}\right)
+     =e^{-v\log L(s)}G(s,v),\\
+  U_j(s)&=\sum_{\Omega(n)=j} u_\chi(n)n^{-s}.
+ \end{split}
+\]
+The local factor of $G$ is obtained by multiplying the displayed
+polynomial by $L_p(s)^v$ with its Euler logarithm. The linear terms in
+$p^{-s}$ cancel since $u_\chi(p)=-b_\chi(p)$, and the higher coefficients
+of the degree-$d$ Euler polynomial are bounded in terms of $d$.
+Consequently the resulting product and its first $s$-derivative converge
+uniformly on $\Re s\ge\beta$, $|v|\le c_d$, by
+$\sum_p(1+\log p)p^{-2\beta}<\infty$. Thus $U_j$ extends to
+$\Re s>\beta$ as a polynomial of degree at most $j$ in the Euler branch
+of $\log L(s)$, with bounded analytic coefficients and derivatives.
+
+Set $\sigma=\beta+1/\log Z$. For $t\in[h,h+1]$, $h\in\Z$, one has
+\[
+ \sup_t|\log L(\sigma+it)|
+  +\int_h^{h+1}|L'/L(\sigma+it)|\dd t
+       \ll_{F,\chi}(2+|h|)^C(1+\log\log Z).
+ \tag{20r}
+\]
+Indeed, subtract the Hadamard logarithmic derivative at $2+it$ from
+its value at $u+it$, $\sigma\le u\le2$. Zeros with
+$|\Im\rho-t|>1$ give a polynomially bounded difference by zero
+counting and summation of the inverse-square tail. The gamma terms
+and the Euler logarithmic derivative at $2+it$ have polynomial bounds
+as well. A remaining simple fraction integrates in $u$ to a logarithm
+of size $O(1+\log\log Z)$, since $\sigma-\Re\rho\ge1/\log Z$.
+Its absolute integral in $t$ over a unit interval has the same bound.
+Count the nearby zeros with multiplicity to get (20r).
+
+\leaf{520m}{A fixed number of prime factors}{12.5.1 \quad THE REMAINING COMPOSITE INDICES}{Which terms can carry a rightmost pole}
+From (20r) and the polynomial representation of $U_j$ one obtains
+\[
+  \int_h^{h+1}(|U_j|+|U_j'|)(\sigma+it)\dd t
+       \ll_{F,\chi,j}(2+|h|)^{C_j}(1+\log\log Z)^j .
+\]
+The derivative of a power of $\log L$ loses one such factor and gains
+one integrated $L'/L$. Shift the Mellin integral for the left side of
+(20q) to $\sigma$ and integrate $e^{it\log Z}$ by parts once. Both the
+Mellin transform of $\phi$ and its first derivative decay faster than
+$(2+|t|)^{-C_j-2}$ at cost of a fixed $C^{m_j}$ seminorm. The unit
+interval estimate gives (20q) since $Z^\sigma=eZ^\beta$.
+
+Let $\mathcal B_\chi^{\le J}$ be (20h) restricted by $\Omega(n)\le J$,
+for a fixed positive integer $J$. Then for $\beta_\chi>1/2$,
+\[
+   \big|\mathcal B_\chi^{\le J}(X)\big|\ll_{F,\chi,J}
+      X^{\beta_\chi}\frac{(1+\log\log(3X))^{J+1}}{\log X}
+          =o(X^{\beta_\chi}).
+ \tag{20s}
+\]
+Use the dyadic squares of \pg{520j}. Apply (20o) to the prime variable
+and (20q) to the integer variable. The derivative bounds for the
+kernel there hold to every fixed order, including the mixed
+derivatives. The sum in $H=X/(PQ)$ is bounded and the number of outer
+scales contributes one factor $1+\log\log(3X)$. The absolute cost of
+the pairs $p\mid n$ is $O_{F,\epsilon}(X^{1/2+\epsilon})$ by
+\pg{520f}, which is absorbed for $\epsilon<\beta_\chi-1/2$.
+
+If a zero $\rho=\beta_\chi+i\gamma$ attains this supremum, then for
+every fixed $J$ the indices $\Omega(n)>J$ must still contribute a
+negative dyadic mean of order $X^{\beta_\chi}$ along some unbounded
+sequence. To see this let $f$ be the signed mean on \pg{520h}.
+By (20i) and (20s) it differs from the mean of the remaining terms by
+$o(X^{\beta_\chi})$. If $[-f(X)]_+=o(X^{\beta_\chi})$, then
+$t\int_1^\infty[-f(X)]_+X^{-1-\beta_\chi-t}\dd X\to0$ as $t\downarrow0$.
+At the real point $\beta_\chi$ the corresponding limit for $f$ is
+either zero or a negative residue. Since $[f]_+=f+[-f]_+$, positivity
+excludes the negative value and forces the limit for $|f|$ to be zero.
+This bounds the absolute value of the same Abel limit with factor
+$X^{-i\gamma}$ by zero, contradicting the nonzero residue at $\rho$
+on \pg{520h}. If the supremum is not attained, (20s) retains its stated
+upper bound and (20l) applies to the entire mean.
+
+\leaf{520n}{Integers with many prime factors}{12.5.1 \quad A RESTRICTION IN THE NONTRIVIAL COMPONENTS}{Discarding the most highly factored indices}
+For every nontrivial normalized $\chi$, let $\widetilde{\mathcal B}_\chi$
+be (20h) with the additional condition
+\[
+             \Omega(n)\le \frac{\log n}{2\log\log n}.
+\]
+Only large $n$ occur as $X\to\infty$. Then
+\[
+     \mathcal B_\chi(X)-\widetilde{\mathcal B}_\chi(X)
+             \ll_{F,\chi,\epsilon} X^{1/4+\beta_\chi/2+\epsilon}.
+ \tag{20t}
+\]
+In particular (20l) holds with $\widetilde{\mathcal B}_\chi$ throughout.
+This restriction is independent of the unknown zero locations.
+
+To prove (20t), for $0<c<1$ first bound the sum of $|u_\chi(n)|$ over
+$Q/2\le n\le2Q$ with $\Omega(n)>c\log n/\log\log n$ by
+$O_{F,c,\epsilon}(Q^{1-c+\epsilon})$. The reciprocal Euler polynomial
+at $p$ has degree at most $d=[F:\Q]$ with all roots of modulus one:
+factor each $1-a_{\mathfrak p}z^{f_{\mathfrak p}}$ into linear factors.
+Thus $|u_\chi(p^j)|\le\binom dj$. For $\eta>0$ fixed and
+$z=(\log Q)^{1-\eta}$, positivity and the Euler product give
+\[
+   \sum_{Q/2\le n\le2Q}|u_\chi(n)|z^{\Omega(n)}
+     \le (2Q)^{1+\eta}\prod_p(1+zp^{-1-\eta})^d
+     \ll_{F,\eta}Q^{1+\eta}\exp(C_{F,\eta}z).
+\]
+On the specified indices $z^{\Omega(n)}\ge
+Q^{c(1-\eta)+o(1)}$. Choose $\eta$ sufficiently small; $z=o(\log Q)$
+then gives the assertion.
+
+Use $c=1/2$ on a box $n\asymp Q$, $p\asymp P$. At fixed $n$, (20o)
+applied to the smooth prime sum costs $O_{F,\chi}(P^{\beta_\chi})$.
+Indeed the rescaled derivatives of $K_\chi$ and the cutoffs are bounded
+as on \pg{520j}. The absolute sum of the remaining $n$-coefficients
+costs $O_{F,\epsilon}(Q^{1/2+\epsilon})$. Both scales are within fixed
+logarithmic factors of $\sqrt X$, and there are only logarithmically
+many boxes. Removing $p\mid n$ costs $O_{F,\epsilon}(X^{1/2+\epsilon})$
+as on \pg{520f}. This proves (20t). If $\beta_\chi>1/2$ its exponent
+before $\epsilon$ is strictly smaller than $\beta_\chi$, so the proof
+of (20l) applies unchanged. At $\beta_\chi=1/2$ it gives the required
+upper bound for the negative part. Page \pagelink{522i}{522i} explains
+why these nontrivial components and ordinary $\zeta$ suffice.
+
+\sourcepages{521}{521}{The one-sided estimate is on page 520h and the reduced range of indices on page 520n.}
+\leaf{522}{One prime sum}{13.3 \quad THE RIEMANN ZETA FUNCTION}{One smooth weight detects every zero}
+There is a fixed nonnegative $v\in C_c^\infty((0,\infty))$, chosen
+independently of the zeros, for which
+\[
+ \mathrm{RH}\quad\Longleftrightarrow\quad
+ \sum_{n\ge2}\Lambda(n)v(n/X)
+       =X V(1)+O_v(\sqrt X)\quad(X\ge1),\qquad
+ V(s)=\int_0^\infty v(u)u^{s-1}\dd u .
+ \tag{21}
+\]
+In particular $V(1)=\int v(u)\dd u$.
+
+\point{Construction} Set $\ell_j=2^{-j-1}$, $j\ge1$, and let $b$ be
+the density of $5/4+\sum_{j\ge1} U_j$ for independent random variables
+$U_j$ uniform on $[0,\ell_j]$. The sum converges and is supported on
+$[5/4,7/4]$. Its transform is
+\[
+    V(s)=e^{5s/4}\prod_{j\ge1}\frac{e^{\ell_js}-1}{\ell_js},
+       \qquad v(u)=b(\log u).
+ \tag{22}
+\]
+On the imaginary axis the first $k$ factors give
+$O_k((1+|t|)^{-k})$ and every remaining factor has modulus at most one.
+Fourier inversion therefore gives a smooth compactly supported density.
+The factors are $1+O_K(\ell_j)$ uniformly on compact $K\subset\C$ and
+none vanishes for $\Re s>0$. The product has no zeros there. For
+$h(x)=e^{x/2}b(x)$ the transform in (2) is $V(z+\tfrac12)$.
+
+\point{Forward implication} Apply (17) with this $h_\tau$, $X=e^\tau\ge1$.
+Expansion of the real-place kernel on positive support gives
+\[
+ \sum_n\Lambda(n)v(n/X)=XV(1)
+   -\sum_\rho m_\rho X^\rho V(\rho)
+   -\sum_{k\ge1}X^{-2k}V(-2k).
+ \tag{23}
+\]
+Here $\rho$ runs over distinct nontrivial zeros in uncentered coordinates.
+The last series is $O_v(X^{-2})$ since the support is above $1$.
+Under RH the absolute value of the zero sum is bounded by
+$\sqrt X\sum_\rho m_\rho |V(\rho)|=O_v(\sqrt X)$.
+
+\point{Converse} Denote the prime sum by $A(X)$. For $\Re s>1$ its
+Mellin integral against $X^{-s-1}\dd X$ over $(0,\infty)$ is
+$-V(s)\zeta'(s)/\zeta(s)$ by absolute convergence. The part on $(0,1)$
+is entire since $A$ vanishes near zero. The estimate in (21) thus makes
+$-V(s)\zeta'(s)/\zeta(s)-V(1)/(s-1)$ holomorphic for $\Re s>\tfrac12$.
+A zero there would have residue $-m_\rho V(\rho)\ne0$. Reflection
+excludes zeros on the other side as well.
+
+\leaf{522a}{Hecke prime sums}{13.3 \quad ALL NUMBER FIELDS AND UNITARY HECKE CHARACTERS}{The corresponding Hecke criterion}
+Use the same $v,V$ as in (22). For a number field $F$ and a unitary
+idele class character $\chi$, take its primitive finite Euler product
+$L_f(s,\chi)$. For unramified prime ideals $\mathfrak p$ put
+$a_{\mathfrak p}=\chi_{\mathfrak p}(\varpi_{\mathfrak p})$, so the local
+factor is $(1-a_{\mathfrak p}(N\mathfrak p)^{-s})^{-1}$. Set
+\[
+ A_\chi(X)=\sum_{\mathfrak p\nmid\mathfrak f_\chi}\sum_{k\ge1}
+    (\log N\mathfrak p)\,a_{\mathfrak p}^{\,k}\,
+           v\big((N\mathfrak p)^k/X\big).
+\]
+Let $M_\chi(X)=0$ unless $\chi=|\cdot|_\A^{it_0}$. For such a norm twist
+put $s_0=1-it_0$ and $M_\chi(X)=V(s_0)X^{s_0}$.
+Then GRH for this Hecke function is equivalent to
+\[
+             A_\chi(X)=M_\chi(X)+O_{F,\chi,v}(\sqrt X),\qquad X\ge1.
+ \tag{24}
+\]
+Taking (24) for all $F,\chi$ gives exactly the Hecke GRH of the manuscript.
+The constant may depend on the individual character and field.
+
+\point{Proof} In $\Re s>1$ the Mellin integral of $A_\chi$ is
+$-V(s)L_f'(s,\chi)/L_f(s,\chi)$ by its Euler product. Subtract the
+Mellin integral of $M_\chi$ on $[1,\infty)$, namely $V(s_0)/(s-s_0)$
+in the norm-twist case, and zero otherwise. As on page 522, (24) makes
+the difference holomorphic on $\Re s>\tfrac12$. Since $V$ is nonzero
+there, $L_f$ has no zero in this half-plane. The completed functional
+equation pairs $\rho$ with $1-\overline\rho$ for fixed unitary $\chi$
+(conjugation changes $\chi$ to $\bar\chi$). This proves the converse.
+
+If GRH holds, shift the inverse Mellin integral from $\Re s=2$ to
+$\Re s=\tfrac14$. The residues crossed are the main term and
+$-\sum_\rho m_\rho X^\rho V(\rho)$. The archimedean gamma poles have
+real part at most zero for unitary Hecke characters, so none intervenes.
+On the new line the logarithmic derivative is polynomially bounded.
+The line is a fixed distance from the nontrivial zeros,
+its near terms are bounded using $O_{F,\chi}(T\log(2+T))$, and the
+regularized far terms are summable. The logarithmic gamma derivatives
+have at most logarithmic growth there. In $[T,T+1]$ the excluded intervals
+of radius $T^{-3}$ about the nearby zero ordinates have total length
+$O(T^{-2}\log T)$, and likewise at negative heights. On the resulting
+horizontal sides the Hadamard logarithmic derivative grows polynomially.
+Rapid decay of $V$ justifies the shift and leaves a vertical
+integral $O_{F,\chi,v}(X^{1/4})$. The zero residues are absolutely
+$O_{F,\chi,v}(\sqrt X)$. This proves (24).
+
+\leaf{522b}{Abelian subfamilies}{13.3 \quad TRANSFER FROM DIRICHLET CHARACTERS}{The reach of a rational zero theorem}
+Suppose the zero-location statement for primitive Dirichlet $L$-functions
+over $\Q$ is supplied independently. Then (24) follows for each unitary
+Hecke character of $\Q$, including all norm twists. Indeed
+$C_\Q\simeq\R_{>0}\times\widehat{\Z}^{\,\times}$, and a continuous
+character of the profinite factor has finite image and factors through
+$(\Z/q\Z)^\times$ for some $q$. A norm twist translates the zeros
+vertically. In this family (18) has $E_\alpha=0$ for every positive
+width, as a consequence of the external zero theorem.
+
+\point{Transfer to an abelian field} Let $F/\Q$ be abelian, with group
+$G$, and let $\psi$ be a primitive Dirichlet character interpreted as
+a Hecke character of $\Q$. For $\chi=\psi\circ N_{F/\Q}$, Artin
+formalism gives the primitive Euler products
+\[
+ L_{F,f}(s,\chi)=
+       \prod_{\eta\in\widehat G} L_{\Q,f}(s,\psi\eta).
+\]
+On the right each factor uses its primitive inducing character.
+Indeed $\operatorname{Ind}_{G_F}^{G_\Q}(\psi|_{G_F})$ is $\psi$ tensored
+with the regular representation of $G$. The latter splits as the sum of
+the characters $\eta$. Taking the local Artin factors on inertia
+invariants gives the displayed identity also at ramified primes.
+Every zero in the open critical strip is thus a zero of a Dirichlet
+factor. This transfers (24) to these norm pullbacks and their norm twists.
+
+More generally, a finite-order character of a field $K$ cuts out an
+abelian extension $E/K$ by class field theory. The factorization
+$\zeta_E(s)=\prod_{\eta\in\widehat{\operatorname{Gal}(E/K)}} L_{K,f}(s,\eta)$
+shows that RH for $\zeta_E$ suffices for that character. Every factor is
+holomorphic in the open critical strip, so there is no cancellation of
+a zero by a pole there. This transfers a Dirichlet zero theorem whenever
+$E/\Q$ is abelian.
+
+\point{External statement} The November 2026 announcement of L.~Alp\"oge
+and A.~Sutherland's verification record specify RH and zero location for
+Dirichlet $L$-functions. They provide an external input of the form used
+above. The transfer identifies the subfamily to which that input applies
+in the present notation. The proof of the spectral trace and its strip
+defect is independent of this input.
+\citetitle{https://alpo.ge/remark.pdf}{Announcement.}\quad
+\citetitle{https://math.mit.edu/~drew/grh/}{Verification record and theorem statements.}
+
+\leaf{522c}{Gaussian primes}{13.3 \quad A CHARACTER OF INFINITE ORDER}{An explicit remaining prime estimate}
+In $K=\Q(i)$ every ideal is principal. The rule
+\[
+ \chi((\gamma))=(\gamma/|\gamma|)^4
+\]
+is independent of the generator since the units are fourth roots of
+unity. It is an unramified finite-place Hecke character with nontrivial
+infinite type: on principal ideles the archimedean character cancels
+this angular factor. At the two primes over $5$ its values are
+$(-7+24i)/25$ and $(-7-24i)/25$, obtained from $2+i$ and $2-i$.
+The ideals have equal norm, while the character values differ. The first
+value is not a root of unity in $\Q(i)$, so $\chi$ has infinite order.
+A pullback of a rational ideal character would have equal values at
+both primes.
+
+For each rational prime $p\equiv1\bmod4$, choose a Gaussian prime
+$\pi_p$ above it and put $\theta_p=\arg\pi_p$. Multiplication by a unit
+and complex conjugation both preserve $\cos(4\theta_p)$. For the single
+weight (22), the zero-location assertion for $\chi$ is equivalent to
+\[
+ \boxed{\displaystyle
+ \sum_{p\equiv1\;(\mathrm{mod}\,4)}(\log p)\cos(4\theta_p)\,v(p/X)
+                   =O_v(\sqrt X).}
+ \tag{25}
+\]
+Indeed the two prime ideals over a split prime contribute
+$2(\log p)\cos(4\theta_p)v(p/X)$ to the first-power part of $A_\chi(X)$.
+An inert prime has norm $p^2$, and the unique prime over $2$ contributes
+only a bounded first-power term. If $\supp v\subset[1,B]$, the inert
+primes and all second powers contribute $O_v(\sqrt X)$ absolutely by the
+elementary Chebyshev bound $\sum_{p\le y}\log p\ll y$. Powers of exponent
+at least three contribute
+$O_v(X^{1/3}\log(2+X))=O_v(\sqrt X)$, since the number of exponents
+is $O(\log(2+X))$ and there are at most two prime ideals over each $p$.
+Thus $A_\chi(X)$ is twice the sum in (25) up to $O_v(\sqrt X)$.
+Its main term in (24) is zero. This proves the equivalence.
+
+In (25) the two conjugate prime ideals contribute twice the real part
+of a Hecke value before division by two. A count
+of the rational primes in the progression $1\bmod4$ alone supplies
+their total number, while (25) asks for cancellation of these angular
+weights. This one character is already required by the manuscript's
+general zero-location statement.
+
+\leaf{522d}{Gaussian primes}{13.3 \quad POISSON SUMMATION OVER GAUSSIAN IDEALS}{The long divisors that remain}
+For the Gaussian character on page 522c define the sum over all nonzero
+integral ideals
+\[
+ B(Y)=\sum_{\mathfrak a}\chi(\mathfrak a)\log N\mathfrak a\,
+                    v(N\mathfrak a/Y).
+\]
+For every $A>0$ it satisfies $B(Y)=O_{A,v}(Y^{-A})$ for $Y\ge1$.
+To see this, set $f(z)=(z/|z|)^4v(|z|^2)$ and
+$g(z)=f(z)\log|z|^2$, extended by zero near the origin. Both are smooth
+and compactly supported on $\R^2$, and both integrals vanish by angular
+integration. There are exactly four generators per ideal. Poisson
+summation on $\Z[i]\simeq\Z^2$ gives, with the usual $2\pi$ convention,
+\[
+ B(Y)=\frac{Y}{4}\sum_{m\in\Z^2\setminus\{0\}}
+       \big((\log Y)\widehat f(\sqrt Y\,m)+\widehat g(\sqrt Y\,m)\big).
+\]
+Rapid decay of both transforms proves the bound with any prescribed $A$.
+
+\point{Isolating prime powers} Let $\mu_K$ be the ideal M\"obius function.
+Dirichlet convolution of $\mu_K\chi$ with $\chi\log N$ gives the prime
+power coefficients of $-L'_f/L_f$. Compact support makes the resulting
+identity finite for each $X$:
+\[
+ A_\chi(X)=\sum_{N\mathfrak d\le B_0 X}
+          \mu_K(\mathfrak d)\chi(\mathfrak d)
+                       B(X/N\mathfrak d),\qquad B_0=e^{7/4}.
+\]
+There are $O(t)$ Gaussian ideals of norm at most $t$, by counting lattice
+points in a disk. Fix $0<\delta<1$. For $N\mathfrak d\le X^{1-\delta}$
+one has $X/N\mathfrak d\ge X^\delta$. The total absolute contribution
+of this range is $O_{A,v}(X^{1-\delta-A\delta})$, hence smaller than
+any prescribed inverse power for fixed $\delta$.
+
+In particular (25) is equivalent, at any one such fixed $\delta$, to
+\[
+ \left|\sum_{X^{1-\delta}<N\mathfrak d\le B_0X}
+       \mu_K(\mathfrak d)\chi(\mathfrak d)\,B(X/N\mathfrak d)\right|
+       =O_{\delta,v}(\sqrt X).
+ \tag{26}
+\]
+The Poisson estimate removes the shorter divisors unconditionally.
+When $N\mathfrak d$ is comparable with $X$, the inner sum samples a
+bounded range of ideal norms. Cancellation among the M\"obius-weighted
+long divisors is still required.
+
+\leaf{522e}{Conclusions}{13.3 \quad SCOPE OF THE ZERO-LOCATION CLAIM}{The remaining arithmetic statement}
+The arithmetic quotient, the trace of its convolution, and the full-spectrum
+explicit formula are compatible with zeros anywhere in the critical strip.
+At a narrower width (18) gives the sign and multiplicity of every
+missing zero. To locate all zeros it suffices to establish (21) for
+ordinary $\zeta$ and (32) for the conductor-one characters of \pg{522k}.
+Both factors in (32) are within logarithmic factors of $\sqrt X$.
+Only a lower bound for their signed dyadic mean is required. In
+nontrivial components (20n) bounds the prime pairs and (20t) removes
+the most highly factored integer indices. In the trivial component
+(20p) computes the opposite terms of order $X/\log X$ from prime
+pairs and composite indices. Equation (35) uses only principal prime
+generators. Equations (40)--(42) give a square-root term after Gaussian
+averaging and oscillations for the cubic splitting count. The estimate (38) for arbitrarily small
+averaging coefficients and every remaining character is open.
+
+The fixed-place calculation on page 495 fails over $\Q$. The two-prime
+obstruction on page 495b rules out a fixed norm-translation-invariant
+lift. The local quotient trace (13d) recovers the prime distributions.
+Its spatially truncated layers coincide by (13b). At a common source
+cutoff the full chain of prime projections converges as in (13f.2).
+The order correction
+(13g) can be nonzero, but (13i) removes it from the iterated scalar
+trace and (13j) bounds its translated contribution. The real-place
+lower-cutoff term (17a) persists in the balanced
+regime. The external half-planes on page 520b give (20b). Reaching (19)
+for widths tending to zero still requires additional cancellation.
+Consequently the narrow-strip main theorem and the deduction of GRH remain
+conditional. Equations (12), (18), and (23) use actual zero orders.
+For $F=\Q$, (13.3.1.1) would require simplicity at every noncentral
+zero. For $F=\Q(i)$ its cap of two gives a false trace identity for
+a permitted section and tests satisfying all of (13.3.1.2), as proved
+on \pagelink{522g}{pages 522g--h}. The uncapped location criterion (24)
+is independent of that choice.
+
+\point{Sources for the classical inputs}
+\begin{itemize}\setlength{\itemsep}{3pt}
+\item A.\,M. Masullo, \citetitle{https://math216.wordpress.com/wp-content/uploads/2026/11/the-music-of-the-primes.pdf}{\emph{The Music of the Primes}},
+  \S\S9.2--13.3 and Appendix B. Original folios and equation numbers
+  are used throughout.
+\item E.\,C. Titchmarsh, \emph{The Theory of the Riemann Zeta-function},
+  2nd ed., revised by D.\,R. Heath-Brown, Oxford, 1986, Chapters II, III
+  and IX. Functional equation, Hadamard product, zero-free region and
+  zero count.
+\item J. Tate, \emph{Fourier analysis in number fields and Hecke's
+  zeta-functions}, in Cassels and Fr\"ohlich, \emph{Algebraic Number Theory},
+  1967, pp.~305--347. Local zeta integrals, Poisson summation and the Hecke
+  functional equation.
+\item R. Meyer, \citetitle{https://arxiv.org/abs/math/0311468}{\emph{On a representation of the idele class group related to primes and zeros of $L$-functions}} and
+  \citetitle{https://arxiv.org/abs/math/0412277}{\emph{A spectral interpretation for the zeros of the Riemann zeta function}}.
+  The full Weil distribution and its rational specialization.
+\item M.\,J. Mossinghoff, T.\,S. Trudgian and A. Yang,
+  \citetitle{https://doi.org/10.1007/s40993-023-00498-y}{\emph{Explicit zero-free regions for the Riemann zeta-function}},
+  Theorem 1.3. The classical region suffices for the prime error on page 520a.
+\end{itemize}
+
+\leaf{522f}{The admissible tests}{13.3.1 \quad THE MOMENTS IN (13.3.1.2)}{What the Chapter 13 identity would imply}
+Put $d=[F:\Q]$, $K=C_F^1$ and $x=\log |g|_F$. A continuous
+homomorphic norm section $\tau$ gives coordinates $g=k\tau(e^x)$.
+Write $\widetilde\phi(k,x)=\phi(k\tau(e^x))$. For a unitary character
+$\chi$, write $\kappa=\chi|_K$ and $\chi(\tau(e^x))=e^{i x_0x}$.
+At the point $s=-ix_0$ in (13.3.1.2) the radial character cancels.
+Fourier uniqueness on $K$ therefore identifies all the conditions with
+\[
+    M_j(k)=\int_\R x^j\widetilde\phi(k,x)\dd x=0
+            \quad(k\in K,\ 0\le j<d).
+ \tag{27}
+\]
+The map $\phi\mapsto(M_0,\ldots,M_{d-1})$ is onto
+$\mathcal D(K)^d$. Indeed the functions $b,b',\ldots,b^{(d-1)}$
+for $b\in C_c^\infty((1,2))$ of integral one have a triangular moment
+matrix with diagonal $(-1)^j j!$. Multiply its dual basis by prescribed
+functions of $k$. The kernel is $\partial_x^d\mathcal D(C_F)$:
+for (27) take the primitive
+$\int_{-\infty}^x(x-y)^{d-1}\widetilde\phi(k,y)\dd y/(d-1)!$,
+which vanishes beyond the support by (27). Thus the codimension is $d$
+in a single character component and is infinite on the full test space.
+Indeed $K$ contains the injective image of the infinite compact unit
+group at one finite place, hence has infinitely many characters.
+
+In the $\kappa$ component use $\widetilde\phi(k,x)=\bar\kappa(k)h(x)$
+and put $H(z)=\int h(x)e^{zx}\dd x$. The centered parameter of a zero
+of $L_f(s,\chi)$ in these coordinates is $z_\rho=\rho-1/2+i x_0$.
+With Weil's local terms, subtract the capped sum in (13.3.1.3) from
+the full zero sum. The coefficient of $H(z_\rho)$ in this difference is
+\[
+       m_\rho-\mathbf1_{\Re\rho=1/2}\min(m_\rho,d).
+ \tag{28}
+\]
+For any $z_{\rho_0}\ne0$ choose
+$h=\partial_x^d(e^{-z_{\rho_0}x}b(x))$. It satisfies (27) and
+$H(z_{\rho_0})=(-z_{\rho_0})^d\ne0$. Its right translates still
+satisfy (27) and avoid the norm-one subgroup. The Laplace argument
+on \pg{29} detects (28) at each such point. Conversely, if these
+coefficients vanish, the only remaining point has $H(0)=0$.
+Thus in a fixed component the capped identity on (27) is equivalent
+to location on the line \emph{and} $m_\rho\le d$ away from
+$\rho=1/2-ix_0$. For the uncapped sum it is equivalent to location
+alone. The distinguished point always lies on the line.
+
+\leaf{522g}{A multiple Hecke zero}{13.3.1 \quad AN ARITHMETIC EXAMPLE OVER THE GAUSSIAN FIELD}{A zero of order at least three}
+Let $n=1254=2\cdot3\cdot11\cdot19$ and
+$E/\Q:\ y^2=x(x-n)(x+n)$. Its complex multiplication by $\Z[i]$
+gives a unitary Hecke character $\chi$ over $F=\Q(i)$ for which
+\[
+ L_f(s,\chi)=L(E/\Q,s+1/2),\qquad
+ \chi_\infty(z)=(z/|z|)^{e},\quad e\in\{-1,1\}.
+ \tag{29}
+\]
+This is the CM correspondence for congruent-number curves. The algebraic
+character has infinity type $(1,0)$ or its conjugate, and division of
+its ideal coefficients by the square root of the norm gives (29).
+See \citetitle{https://intlpress.com/site/pub/files/_fulltext/journals/iccm/2017/0005/0001/ICCM-2017-0005-0001-a003.pdf}{the Hecke character description of the congruent-number curve}.
+
+The following two points certify $\operatorname{rank}E(\Q)\ge2$:
+\[
+        (-912,25992),\qquad (-528,26136).
+\]
+Both satisfy the displayed cubic. The square class of $x(P)$ defines
+a homomorphism $E(\Q)\to\Q^\times/\Q^{\times2}$, with value $1$ at
+the identity and $-n^2$ modulo squares at $(0,0)$. Indeed the product
+of the three intersection abscissas with a line of intercept $b$ is
+$b^2$; addition by $(0,0)$ sends $x$ to $-n^2/x$. The three nonidentity
+rational two-torsion points have classes $-1,n,-n$, all nonsquares.
+None is twice a rational point, so there is no rational point of order
+four. Odd-order torsion maps trivially. The full torsion image is
+therefore generated by $-1,n$. The two displayed points have classes
+$-57$ and $-33$. Neither class nor their product (the class of $11\cdot19$)
+belongs to $\langle-1,n\rangle$. Their images are independent modulo
+torsion and doubles, proving the rank bound.
+
+The \citetitle{https://doi.org/10.1073/pnas.1216991109}{root-number formula}
+for squarefree congruent-number twists gives sign $-1$ since
+$n\equiv6\pmod 8$. Thus the analytic order at $s=1$ is odd.
+If it were one, the
+\citetitle{https://abel.math.harvard.edu/~gross/preprints/lectures-pcmi.pdf}{Gross--Zagier--Kolyvagin theorem, Theorem 3.3},
+would give rational rank one, contradicting the two points. Consequently
+\[
+             m=\operatorname{ord}_{s=1/2} L_f(s,\chi)\ge3 .
+ \tag{30}
+\]
+This lower bound uses the proved rank-one theorem. It requires neither
+the full Birch--Swinnerton-Dyer conjecture nor a numerical estimate of
+any central derivative.
+
+\leaf{522h}{The choice of norm section}{13.3.1 \quad A COUNTEREXAMPLE TO THE CAPPED IDENTITY}{A permitted section detects the lost multiplicity}
+Keep the single Hecke character of (29). At its complex place set
+\[
+       \tau(t)=(t^{1/2}e^{i\log t},1_f),\qquad t>0 .
+\]
+The normalized complex absolute value is $|z|^2$, so $\tau$ is a
+continuous homomorphic section to the idelic norm as required in
+(13.3.1.2). Equation (29) gives $\chi(\tau(t))=t^{ie}$.
+The zero at $\rho=1/2$ has $z_\rho=ie$ in the notation of \pg{522f}.
+The moment conditions now impose vanishing at $0$, a different point.
+
+Take $b\in C_c^\infty((1,2))$ of integral one. With $a\ge0$ use
+\[
+      h(x)=\partial_x^2(e^{-iex}b(x)),\qquad
+      \phi_a(k\tau(e^x))=\bar\kappa(k)\,h(x-a).
+\]
+Every $\phi_a$ is smooth Bruhat, vanishes near $C_F^1$, and satisfies
+all of (13.3.1.2): the first two moments of $h$ and of each translate
+vanish, and the other compact characters integrate to zero. Its
+centered transform in the selected component is $e^{az}H(z)$, where
+$H(ie)=(ie)^2=-1$.
+
+Use the full Hecke--Weil formula and form the difference of its zero
+sum and the one prescribed by (13.3.1.1)--(13.3.1.3) on these tests.
+Its Laplace transform in $a$, initially on $\Re w>1/2$, is
+\[
+ \sum_\rho
+ \frac{\big(m_\rho-\mathbf1_{\Re\rho=1/2}\min(m_\rho,2)\big)
+              H(z_\rho)}{w-z_\rho}.
+ \tag{31}
+\]
+The series continues normally off its poles by rapid vertical decay
+and the Hecke zero count. At $w=ie$ the residue is $-(m-2)\ne0$ by
+(30). Hence for at least one $a\ge0$ the capped spectral side differs
+from Weil's zero sum on an admissible test. This disproves the proposed
+identity with Weil's local terms for the allowed choice of section.
+The same residue obstructs the printed archimedean coefficient in
+(13.3.1.4). Take finite unit volumes one and $\mu_1(K)=1$, so the
+finite terms agree with (B.4.4.16). On the sole complex place the
+translated test is supported at $|g|_v\asymp e^a$, where
+$|g|_v^{1/2}/|1-g|_v=O(e^{-a/2})$ for large $a$. This annulus has
+bounded multiplicative Haar mass. Changing its coefficient therefore
+adds a Laplace transform holomorphic at $ie$.
+
+For the radial section $\tau_0(t)=(t^{1/2},1_f)$ the same zero is
+at the moment point and contributes zero on (27). On unrestricted
+tests it gives an actual discontinuity at width zero in degree four.
+Indeed as positive widths shrink, the trace tends to the
+full-multiplicity sum on the line by absolute convergence. Subtract
+(9a). Taking $h=b_0*\overline{b_0(-\,\cdot)}$ for a smooth compactly
+supported $b_0$ of integral one gives $H(iu)\ge0$ and $H(0)=1$.
+The difference of the limiting trace and the endpoint trace is at
+least $m-2\ge1$. Increasing the Sobolev degree as on \pg{446d}
+recovers all these line multiplicities. Zero location then asks only
+for the independent comparison in (19) or (24).
+
+\leaf{522i}{The principal components}{13.3 \quad REDUCTION BY CYCLIC SUBGROUPS}{One principal character suffices}
+The full Hecke zero-location assertion is equivalent to the following
+two prime estimates together:
+\begin{itemize}\setlength{\itemsep}{2pt}
+\item the rational estimate (21) for ordinary $\zeta$;
+\item for every nontrivial normalized character over every number field,
+and every $\epsilon>0$, the lower bound
+\[
+   \int_X^{2X}\Re\widetilde{\mathcal B}_\chi(Y)\frac{\dd Y}{Y}
+                        \ge -C_{F,\chi,\epsilon}X^{1/2+\epsilon}
+                        \qquad(X\ \hbox{sufficiently large}).
+ \tag{32}
+\]
+\end{itemize}
+In particular an additional principal-character estimate for each
+number field can be eliminated. The criterion also applies to
+infinite-order characters, which occur directly in (32).
+
+Indeed (20l) and (20t) locate all zeros of the nontrivial normalized
+characters. To recover the principal one over $F$, choose a finite
+Galois closure $M/\Q$ with group $G$ and put $H=\operatorname{Gal}(M/F)$.
+There are integers $D>0$ and $c_{C,\eta}$ such that
+\[
+    D\big(\operatorname{Ind}_H^G1-1_G\big)
+       =\sum_{\substack{C\le G\ {\rm cyclic}\\\eta\in\widehat C,\ \eta\ne1}}
+                     c_{C,\eta}\operatorname{Ind}_C^G\eta .
+\]
+In fact any class function orthogonal to all the induced characters on
+the right restricts to a constant on each cyclic $C$ by Frobenius
+reciprocity and Fourier inversion. Each constant is its value at the
+identity. Their span is therefore exactly the orthogonal complement
+of $1_G$. The left character before multiplication by $D$ lies in
+that complement. All its coordinates and those of the spanning
+characters are integers in the irreducible character basis. Rational
+linear elimination and clearing denominators give the identity.
+
+Artin induction of Euler factors and abelian reciprocity over $M^C$ give
+\[
+     \left(\frac{\zeta_F(s)}{\zeta_\Q(s)}\right)^D
+         =\prod_{C,\eta\ne1}L_{M^C,f}(s,\eta)^{c_{C,\eta}} .
+ \tag{33}
+\]
+This follows first on $\Re s>1$, including ramified factors via inertia
+invariants, and then by meromorphic continuation of the Hecke functions.
+Each $\eta$ here gives a nontrivial finite-order Hecke character and
+is trivial on the positive norm section. Off the critical line in
+$0<\Re s<1$, (32) makes every factor regular and nonzero even when
+its exponent is negative. Thus the zero order of $\zeta_F$ there is
+exactly the zero order of $\zeta_\Q$, which vanishes by (21).
+Norm twists just translate this conclusion. Conversely Hecke GRH gives
+(21) and (32) by (20l), (20t). The lower bound (32) is the remaining
+independent arithmetic input alongside (21).
+
+\leaf{522j}{Removing finite ramification}{13.3 \quad TRANSFER OF ZEROS UNDER BASE CHANGE}{A conductor-one character with the same zero}
+For an abelian extension $E/F$ and a unitary Hecke character $\chi$,
+abelian reciprocity and the regular representation give
+\[
+ L_{E,f}(s,\chi\circ N_{E/F})
+      =\prod_{\eta\in\widehat{\operatorname{Gal}(E/F)}}L_{F,f}(s,\chi\eta).
+ \tag{34}
+\]
+The equality of unramified factors follows by factoring
+$1-(\chi(\mathfrak p)(N\mathfrak p)^{-s})^f$ over the residue-degree
+roots of unity. Inertia invariants give the primitive factors at the
+remaining places. Even omitting those places preserves all orders in
+$0<\Re s<1$. Each factor is holomorphic there. Every zero of $L_F(s,\chi)$
+therefore persists, with at least its original order, up any tower of
+abelian extensions after norm pullback.
+
+Suppose first that $\chi$ is normalized and of infinite order. At each
+of its finitely many ramified finite places $v$, let $D_v/F_v$ be the
+cyclic extension with norm group
+$\langle\varpi_v\rangle\ker(\chi_v|_{\mathcal O_v^\times})$.
+It exists by local class field theory since the unit character has
+finite cyclic image. Choose a common multiple $m$ of these local
+degrees and take $F_1=F(\mu_{4m})$. This is abelian over $F$ and has
+only complex archimedean places. For each $w\mid v$ the compositum
+$D_vF_{1,w}/F_{1,w}$ is cyclic of degree dividing $m$. Since $\mu_m$
+is present, it has the form $F_{1,w}(\sqrt[m]{a_w})$ by
+\citetitle{https://math.mit.edu/classes/18.785/2019fa/LectureNotes20.pdf}{Kummer theory}.
+The coset $a_w(F_{1,w}^\times)^m$ is open by Hensel's lemma, even at
+places dividing $m$. Weak approximation gives a single $a\in F_1^\times$
+in all these cosets. For $F_2=F_1(\sqrt[m]{a})$, every completion at
+such a $w$ contains the prescribed $D_v$. The extension $F_2/F_1$
+is cyclic of degree dividing $m$.
+
+The norm to $F_v$ of a local unit in $F_2$ is a unit and is a norm
+from $D_v$, by transitivity. The pullback $\chi_2=\chi\circ N_{F_2/F}$
+is thus trivial on local units over every formerly ramified place.
+Over all other finite places this already follows from unramifiedness
+of $\chi_v$. If there were no ramified finite places initially, take
+$F_2=F(i)$ instead. Norms carry the uniform positive section to the
+corresponding section of $F$, preserving normalization. On diagonal
+ideles from $F$, $\chi_2$ restricts to $\chi^{[F_2:F]}$, so it still
+has infinite order. This constructs a conductor-one infinite-order
+character over a totally imaginary field to which every original zero
+transfers by (34).
+
+\leaf{522k}{The remaining character family}{13.3 \quad THE FINITE-ORDER CASE}{Prime-order ideal class characters suffice}
+For finite-order characters, it suffices to establish (32) for
+\emph{prime-order characters of the ordinary ideal class group} over
+totally imaginary fields. To prove this, first let $\chi$ have prime
+order $\ell$ over an arbitrary $F$, and let $D/F$ be its cyclic
+extension of degree $\ell$. Put $F_1=F(\mu_\ell)$. Its degree divides
+$\ell-1$, so $DF_1/F_1$ still has degree $\ell$.
+Use the local construction of \pg{522j} with $m=\ell$ at every finite
+ramified place. In choosing $a$ by weak approximation, also impose
+$v_{w_0}(a)=1$ at one auxiliary prime of $F_1$ unramified in $DF_1$
+and away from the prescribed primes. If $\ell=2$, require $a<0$ at
+every real embedding of $F_1$. All these are independent open local
+conditions.
+
+Now $F_2=F_1(\sqrt[\ell]{a})$ is cyclic of degree $\ell$ and totally
+ramified at $w_0$ by Eisenstein's criterion. It differs from $DF_1$,
+hence the two prime-degree Galois extensions are linearly disjoint
+over $F_1$. The pullback of $\chi$ to $F_2$ therefore still has order
+$\ell$ by reciprocity. The local norm argument on \pg{522j} makes it
+unramified at every finite place, including $w_0$, since the original
+character was already unramified there. The field $F_2$ is totally
+imaginary: for odd $\ell$ this follows from $\mu_\ell$, and for
+$\ell=2$ from the signs of $a$. A finite-order continuous character
+is trivial on each connected complex multiplicative group. Triviality
+also on the finite unit groups now makes this an ordinary ideal class
+character. Formula (34) gives the transfer for $\chi$.
+
+For a nontrivial character of arbitrary finite order let $E/F$ be the
+cyclic extension it cuts out. Take a tower from $F$ to $E$ with cyclic
+prime-degree steps. The ratio $\zeta_E/\zeta_F$ is the product of the
+successive ratios; each is the product of the nontrivial prime-order
+Hecke functions at that step. Consequently this ratio is nonzero off
+the critical line in the open strip if the prime-order family above
+satisfies (32). By abelian factorization it is also the product of
+all the nontrivial character functions of $E/F$, each holomorphic
+in that strip. Every one of those factors is then nonzero there.
+
+Combining this with (33) and \pg{522j}, the full zero-location claim
+is equivalent to (21) over $\Q$ and (32) for just the following
+normalized characters over totally imaginary fields: prime-order
+ideal class characters and infinite-order characters unramified at
+every finite place. Their Euler products contain every finite-place
+factor. The constant in (32) may depend on the character and field;
+the transfer uses no conductor-uniform estimate.
+
+\leaf{522l}{Principal prime ideals}{13.3 \quad A CRITERION IN TERMS OF GENERATORS}{A lower bound counting only principal primes}
+For a totally imaginary number field $F$ let $h_F$ be its ordinary class
+number. Let $\vartheta:F_\infty^\times\to S^1$ be a continuous character
+trivial on the global units and the uniform positive norm section.
+For a principal prime ideal $\mathfrak p=(a)$ the weight
+$\vartheta(a)$ is independent of the generator. From (22) form the
+single nonnegative smooth weight
+\[
+ v_2(u)=\int_1^2 v(u/t)\frac{\dd t}{t},\qquad
+ V_2(s)=\int_0^\infty v_2(u)u^{s-1}\dd u
+       =\frac{2^s-1}{s}V(s).
+\]
+Its Mellin transform has no zeros for $\Re s>0$, is positive on the
+positive real axis, and satisfies $V_2(1)=V(1)$. Set
+\[
+ C_{F,\vartheta}(X)=
+ h_F\!\sum_{\substack{\mathfrak p=(a)\ {\rm prime}\\
+                       N\mathfrak p=p\ {\rm rational\ prime}}}
+ (\log p)\,\Re\vartheta(a)\,v_2(p/X)
+ -\mathbf1_{\vartheta=1}\,X V(1).
+\]
+Each prime ideal in this sum is counted once. The full Hecke GRH is
+equivalent to the following assertion for every such $F,\vartheta$:
+\[
+ \boxed{\quad C_{F,\vartheta}(X)\ge
+ -C_{F,\vartheta,\epsilon}X^{1/2+\epsilon}
+ \quad (\epsilon>0,\ X\ \hbox{sufficiently large}).\quad}
+ \tag{35}
+\]
+For $\vartheta=1$ this is an ordinary weighted count of principal
+prime ideals with the same explicit main term for every field after
+multiplication by $h_F$. This case alone is equivalent, over all
+totally imaginary fields, to zero location for all finite-order
+Hecke characters over all number fields. For $F=\Q(i)$ and
+$\vartheta(a)=(a/|a|)^4$, the split primes give the weights
+$2\cos(4\arg\pi_p)$ of (25) and the main term vanishes.
+
+\point{Extension from principal ideals}
+On principal fractional ideals prescribe $\psi((a))=\vartheta(a)$.
+Choose ideal representatives for a cyclic decomposition of the class
+group. If a representative has order $e$ modulo principal ideals,
+assign it an $e$th root of the prescribed value of its $e$th power.
+This extends the prescription to a unitary character of the fractional
+ideals. With archimedean component $\vartheta^{-1}$ it defines a
+normalized Hecke character unramified at every finite place. All the
+extensions form a family $\mathcal X(\vartheta)$ of size $h_F$,
+obtained by multiplying any one by the ideal class characters. It
+contains the trivial character exactly when $\vartheta=1$.
+
+\leaf{522m}{Principal prime ideals}{13.3 \quad FROM THE PRIME COUNT TO THE ZEROS}{What the lower bound detects}
+On a fractional ideal $\mathfrak a$, orthogonality gives
+\[
+  \sum_{\psi\in\mathcal X(\vartheta)}\psi(\mathfrak a)
+  =\begin{cases}h_F\vartheta(a),&\mathfrak a=(a),\\
+                  0,&\mathfrak a\ \text{nonprincipal}.
+    \end{cases}
+\]
+Apply this to every prime ideal power in (24), averaging over $[X,2X]$
+with measure $\dd Y/Y$. The average replaces $v$ by $v_2$. The powers
+and higher residue degrees with norm $p^k$, $k\ge2$, together cost
+$O_{F,v}(\sqrt X)$ by the Chebyshev bound as on \pg{522c};
+this includes principal powers of nonprincipal primes. Hence the sum
+of the real parts of the averaged errors in (24) over
+$\psi\in\mathcal X(\vartheta)$ equals $C_{F,\vartheta}(X)+O_{F,v}(\sqrt X)$.
+Zero location for the family gives $C_{F,\vartheta}(X)=O_{F,\vartheta,v}(\sqrt X)$.
+Unconditionally the fixed-character prime ideal theorem on \pg{520i}
+gives $C_{F,\vartheta}(X)=o_{F,\vartheta}(X)$ by partial summation.
+With the external half-plane of \pg{520b} the error is $O_{F,\vartheta}(X^{\sigma_*})$.
+
+Conversely, in $\Re s>1$ the Mellin transform of $C_{F,\vartheta}$
+on $[1,\infty)$, integrated against $X^{-s-1}\dd X$, is
+\[
+ -\frac{V_2(s)}2\sum_{\psi\in\mathcal X(\vartheta)}
+ \left(\frac{L'_\psi}{L_\psi}(s)+
+       \frac{L'_{\bar\psi}}{L_{\bar\psi}}(s)\right)
+ -\frac{\mathbf1_{\vartheta=1}V(1)}{s-1}+J(s).
+\]
+Here $L_\psi=L_{F,f}(\,\cdot\,,\psi)$ and $J$ is holomorphic on
+$\Re s>1/2$ by the discarded-power estimate and compact support at
+small $X$. The pole at one cancels. At every zero with $\Re\rho>1/2$
+in the open strip the multiplicities add, and $V_2(\rho)\ne0$. At a
+real zero the residue is strictly negative.
+
+If (35) holds and such a zero exists, fix $1/2<\theta<\Re\rho$.
+For large $X$, $C_{F,\vartheta}(X)+cX^\theta$ is nonnegative for
+some $c$. Its Mellin integral over that tail has real abscissa between
+$\Re\rho$ and $1$, by the pole at $\rho$ and absolute convergence to
+the right of one. At that abscissa the displayed continuation is
+regular or has a simple pole with negative residue. Both contradict
+the real singularity and positivity of the Mellin integral proved on
+\pg{520h}. Functional equation symmetry locates every zero of the
+family on the critical line.
+
+Any finite-order character becomes trivial after norm pullback to its
+abelian class field $D$, and remains trivial on $D(i)$. Its zeros
+persist in $\zeta_{D(i)}$ by (34); this function belongs to the
+$\vartheta=1$ family there. For an infinite-order normalized character
+use \pg{522j} to transfer its zeros to a character in one of the
+families above. Norm twists preserve real parts. This proves both
+directions of the equivalence on \pg{522l}.
+
+\leaf{522n}{Normal extensions}{13.3 \quad TRANSFER AND ZERO ORDERS}{Passing to a Galois field preserves each zero}
+If $M/F$ is finite Galois and $\xi$ a unitary Hecke character of $F$,
+then at every $\rho$ in the open critical strip
+\[
+    \operatorname{ord}_\rho L_{M,f}(s,\xi\circ N_{M/F})
+           \ \ge\ \operatorname{ord}_\rho L_{F,f}(s,\xi).
+ \tag{36}
+\]
+Thus the fields needed for an independent prime estimate may all be
+taken Galois over $\Q$. The group of the normal closure need satisfy
+no solvability condition.
+
+Write $G=\operatorname{Gal}(M/F)$. For each irreducible character
+$\pi$ of $G$, let $a_\pi$ be the order at $\rho$ of the Artin function
+twisted by $\xi$. This order is an integer. Indeed, Brauer induction
+writes $\pi$ as an integral sum of characters induced from linear
+characters of subgroups. After twisting, each induced Euler product
+is a Hecke function on the corresponding intermediate field, twisted
+there by the norm pullback of $\xi$. The finitely many omitted factors
+preserve the order because they are nonzero and finite in
+the open strip. This gives meromorphic continuation and defines the
+same order for any induction expression.
+
+Form the virtual character $\Theta=\sum_\pi a_\pi\pi$. For a cyclic
+subgroup $C\le G$ the multiplicity of any $\eta\in\widehat C$ in
+$\Theta|_C$ equals the order of the Hecke function over $M^C$ with
+character $\eta(\xi\circ N_{M^C/F})$, by reciprocity of induction and
+restriction. This order is nonnegative. Consequently $\Theta|_C$ is
+a character, and $|\Theta(g)|\le\Theta(1)$ on each cyclic subgroup.
+The regular representation gives
+$\Theta(1)=\operatorname{ord}_\rho L_{M,f}(s,\xi\circ N_{M/F})$.
+Averaging $\Theta$ over $G$ gives $a_{\mathbf1}$, proving (36).
+The corresponding untwisted Heilbronn character is treated by
+\citetitle{https://www-math.nsysu.edu.tw/~pjwong/stuff/LowOrderZero.pdf}{Wong on zeros of small order}.
+
+For a finite-order character first pass to its class field and then
+to a totally imaginary Galois closure over $\Q$ as on \pg{522m}.
+Its zeros persist in the Dedekind zeta function there. For an
+infinite-order character pass first to the conductor-one character on
+\pg{522j}, then to the normal closure. The norm still sends finite
+units to units and pulls back a normalized infinite-order character
+to one of infinite order. In either case all but finitely many
+rational primes with a degree-one prime above them now split completely.
+
+If $\xi=1$, $F=\Q$, and $\Theta(1)=1$, its cyclic restrictions have
+degree one, so $|\Theta(g)|=1$ everywhere. Then
+$\sum_\pi a_\pi^2=1$, and the positive degree forces $\Theta$ to be
+a single linear character. Thus every simple zero of a normal Dedekind
+zeta function in the strip belongs to a Dirichlet function. With the
+external Dirichlet input of \pg{522b}, any off-line zero here would
+have multiplicity at least two.
+
+\leaf{522o}{Completely split primes}{13.3 \quad THE FINITE-ORDER CONTRIBUTION}{The part controlled by rational congruences}
+Let $M/\Q$ be finite Galois, $G=\operatorname{Gal}(M/\Q)$, and
+$K=M^{[G,G]}$ its maximal abelian subfield. Choose $q\ge3$ with
+$K\subseteq\Q(\zeta_q)=:K_q$ by Kronecker--Weber. Replacing $M$ by
+$E=MK_q$ preserves every zero of $\zeta_M$ by (34). The maximal
+abelian subfield of $E$ is exactly $K_q$. Indeed $M\cap K_q=K$, and
+commutators in the fiber product
+$\operatorname{Gal}(E/\Q)\subseteq G\times\operatorname{Gal}(K_q/\Q)$
+are $([g_1,g_2],1)$. Every pair $g_1,g_2$ has lifts, so these generate
+$[G,G]\times1$.
+
+Write $r=[E:K_q]$. For $p$ unramified in $E$ put
+\[
+   b_E(p)=\mathbf1_{p\equiv1\bmod q}
+                    \left(r\mathbf1_{p\ {\rm splits\ in}\ E}-1\right).
+\]
+The first-degree sum for $\zeta_E$, minus its expected main term,
+is the sum of
+\[
+   \varphi(q)\sum_p b_E(p)\log p\,v_2(p/X)
+   \quad\hbox{and}\quad
+   \varphi(q)\sum_{p\equiv1\bmod q}\log p\,v_2(p/X)-X V(1).
+ \tag{37}
+\]
+This holds for large $X$ as the weight avoids the ramified primes.
+Each split prime contributes $[E:\Q]=r\varphi(q)$ degree-one ideals.
+All other unramified primes have higher residue degree. The second
+expression in (37) is $O_q(\sqrt X)$ under the rational Dirichlet input,
+by character orthogonality and (24). With that input, the finite-order
+part of Hecke GRH is equivalent to the lower bound of (35) for just
+the first expression over these $E,q$. Finite-order zeros transfer by
+(36), and the Mellin argument of \pg{522m} for a single zeta function
+recovers all its zeros from the lower bound for the two terms together.
+
+The remaining coefficient has mean zero in every fixed rational
+progression. For any $m$, in the compositum $E\Q(\zeta_m)$ a specified
+unit residue mod $m$ fixes a coset over $E\cap\Q(\zeta_m)\subseteq K_q$.
+Within it, above each compatible element of $\operatorname{Gal}(K_q/\Q)$
+there are $r$ elements of $\operatorname{Gal}(E/\Q)$, equally weighted
+in the group average. The sum of $b_E$ in each fiber is zero.
+Chebotarev and partial summation therefore give
+$\sum_{p\le x,\,p\equiv a\bmod m} b_E(p)\log p=o_{E,m}(x)$ for
+$(a,m)=1$. The mean of $|b_E|^2$ over the full group is
+$(r-1)/\varphi(q)$, since the identity fiber has one value $r-1$ and
+$r-1$ values $-1$. For $r>1$ the residual thus has positive mean
+square even after its entire congruence contribution has been removed.
+
+\leaf{522p}{Logarithmic averages}{13.3 \quad A FINITE-HEIGHT PRIME ESTIMATE}{Which zeros survive a Gaussian average}
+For a fixed normalized unitary $\xi$ over $F$, write $b_\xi(p)$ for
+the sum of its values on degree-one prime ideals of norm $p$, with
+ramified Euler factors treated as on \pg{520c}. Define
+\[
+ P_\xi(X)=\sum_p\Re b_\xi(p)\log p\,v_2(p/X)
+                      -\mathbf1_{\xi=1}X V(1).
+\]
+For $X>1$ and $0<\kappa<1$ set $h=\kappa\log X$ and
+\[
+  {\cal H}_\kappa P_\xi(X)=\frac1{\sqrt{4\pi h}}\int_\R
+       e^{-y^2/(4h)-y/2}P_\xi(Xe^y)\dd y .
+\]
+The standard deviation in $\log X$ is $\sqrt{2\kappa\log X}$ before
+the factor $e^{-y/2}$, which preserves the scale $\sqrt X$. At each
+fixed $\kappa$ the two prime estimates and the zero condition below are equivalent.
+\begin{align*}
+ &{\cal H}_\kappa P_\xi(X)=O_{F,\xi,\kappa}(\sqrt X),\\
+ &{\cal H}_\kappa P_\xi(X)\ge -C_{F,\xi,\kappa,\epsilon}
+                          X^{1/2+\epsilon}\quad(\epsilon>0),\\
+ &u+\kappa(u^2-\gamma^2)\le0\quad\text{for every zero }
+        \rho=\tfrac12+u+i\gamma\text{ of }L_{F,f}
+        (\,\cdot\,,\xi)\text{ in the open strip}. \tag{38}
+\end{align*}
+Indeed the averaging sends $X^\rho$ exactly to $X^{\Phi_\kappa(\rho)}$,
+where $\Phi_\kappa(s)=s+\kappa(s-\tfrac12)^2$. Only zeros with
+\[
+              |\gamma|<\sqrt{1/(2\kappa)+1/4}
+\]
+can violate (38), since $|u|<1/2$. Thus a finite-height zero theorem
+can give a prime estimate valid for all $X$. At $\kappa\downarrow0$,
+every individual zero with $u>0$ eventually violates the inequality.
+The second assertion for any sequence $\kappa\downarrow0$ therefore
+implies zero location at all heights. The sequence may depend on the
+field and character. By (36) one need only treat the trivial character
+and normalized infinite-order conductor-one characters over totally
+imaginary Galois fields.
+
+\point{The prime powers in the explicit formula}
+Restore all ideal prime powers in $P_\xi$ and call the resulting
+centered real sum $A(X)$. As on \pg{522m},
+$A(X)-P_\xi(X)=O_{F,v}(\sqrt X)$ for every $X>0$.
+Shifting the full inverse Mellin integral to $\Re s=-1/4$ as on
+\pg{520j} gives, for $X\ge1$,
+\[
+    A(X)=-\Re\sum_\rho m_\rho V_2(\rho)X^\rho+O_{F,\xi,v}(1).
+\]
+The norm pole is subtracted, the finitely many trivial zeros crossed
+have real part zero, and the new integral is $O(X^{-1/4})$.
+The same bounded error holds for $0<X<1$ by compact support, since
+$|X^\rho|\le1$ and the transformed zero weights are summable.
+
+\leaf{522q}{Logarithmic averages}{13.3 \quad MELLIN CONTINUATION AFTER AVERAGING}{Recovering every pole above the parabola}
+The preceding bounded error contributes $O(X^{\kappa/4})$ after
+averaging, by the Gaussian integral. A term $O(\sqrt X)$ contributes
+$O(\sqrt X)$. Termwise averaging of the zero series is justified for
+fixed $X$ by $\sum_\rho m_\rho|V_2(\rho)|<\infty$ and a Gaussian
+majorant using $0\le\Re\rho\le1$. Consequently
+\[
+ {\cal H}_\kappa P_\xi(X)=
+ -\Re\sum_\rho m_\rho V_2(\rho)X^{\Phi_\kappa(\rho)}
+                         +O_{F,\xi,\kappa}(\sqrt X).
+\]
+If all the real parts $\Re\Phi_\kappa(\rho)$ are at most $1/2$, the
+absolute zero sum satisfies the same bound. This gives the first two
+assertions of (38).
+
+For the converse take the Mellin integral from $1$ to $\infty$
+against $X^{-z-1}\dd X$. To the right of all exponents it equals
+\[
+ -\frac12\sum_\rho m_\rho\!
+   \left(\frac{V_2(\rho)}{z-\Phi_\kappa(\rho)}
+   +\frac{\overline{V_2(\rho)}}{z-\Phi_\kappa(\bar\rho)}\right)+J(z),
+       \qquad J\text{ holomorphic on }\Re z>1/2.
+\]
+The series continues normally on compact sets off its possible
+poles, since $\Re\Phi_\kappa(\rho)\to-\infty$ with $|\Im\rho|$.
+Two distinct points with the same image
+would have sum $1-1/\kappa<0$, impossible inside the strip. Complex
+conjugate terms landing at the same point have the same coefficient
+there since $v_2$ is real. A real image comes from a real zero, as
+$\Im\Phi_\kappa(\rho)=(1+2\kappa u)\gamma$.
+The residue there is strictly negative because $V_2(\rho)>0$.
+
+Suppose the lower bound in (38) holds and some image has real part
+greater than $1/2$. Choose $\theta$ strictly between those numbers.
+Adding $cX^\theta$ makes the averaged sum nonnegative on a tail.
+Its Mellin integral has finite abscissa at least the real part of
+the offending image, by its nonzero residue. At the abscissa the
+continuation is regular or has a simple pole of negative residue.
+The positivity argument on \pg{520h} excludes both. This proves (38).
+
+For a field or character with all zeros in the finite test region
+strictly inside the parabola, the averaged \emph{full prime-power sum}
+is $O(X^{1/2-\delta})$ for some $\delta>0$ if no image lies on
+$\Re z=1/2$. Indeed images outside every sufficiently large
+rectangle have real parts tending to $-\infty$. The remaining
+prime-square contribution to $P_\xi$ can then occur at order
+$\sqrt X$. It is computed for two characters on \pg{522t}.
+
+\leaf{522r}{Two dihedral characters}{13.3 \quad THE ARITHMETIC COMPONENTS OF THE ESTIMATE}{An angular character and a cubic class character}
+Consider $P_\xi$ for the following characters.
+\begin{itemize}\setlength{\itemsep}{1pt}
+\item $F=\Q(i)$ and $\xi((a))=(a/|a|)^4$, the infinite-order
+character in (25).
+\item $F=\Q(\sqrt{-23})$ and $\xi$ either of the two order-three
+characters of its ideal class group.
+\end{itemize}
+In both cases $\xi$ is unramified at finite places,
+$\xi(\bar{\mathfrak a})=\overline{\xi(\mathfrak a)}$, and
+$\xi((n))=1$ for positive rational integers. For the second field the
+reduced forms of discriminant $-23$ are $(1,1,6)$ and $(2,\pm1,3)$.
+The splitting field $M$ of $T^3-T-1$ is its Hilbert class field.
+Indeed the cubic is irreducible with square-free discriminant $-23$,
+so the normal closure has group $S_3$ and quadratic field $F$.
+Only $23$ can ramify. Its inertia group is generated by a
+transposition since the cubic discriminant has valuation one and
+the ramification is tame. Thus $M/F$ is unramified of degree three,
+the class number. At an unramified prime split in $F$, $b_\xi(p)$ is
+$2$ if the cubic splits and $-1$ if the cubic is irreducible modulo
+$p$. At inert primes it is zero. The nonabelian part of
+$6\mathbf1_{p\ {\rm splits\ in}\ M}$ after subtracting
+$2\mathbf1_{p\ {\rm splits\ in}\ F}$ is exactly $2b_\xi(p)$.
+
+Hecke's theta series associates to the two characters the normalized
+newforms of level and weight $(N,k)=(4,5),(23,1)$, respectively.
+In the Gaussian case the algebraic character is $(a)\mapsto a^4$,
+so its coefficients are multiplied by $n^{-2}$ in unitary normalization.
+In the cubic case the newform is the theta series of the ideal class
+character, already of weight one. The respective newspaces with
+quadratic character have dimension one. Their normalized forms are
+\[
+ f_4(z)=\eta(z)^4\eta(2z)^2\eta(4z)^4,\qquad
+ f_{23}(z)=\eta(z)\eta(23z).
+\]
+The newspace data and the product identities are recorded for
+\citetitle{https://www.lmfdb.org/ModularForm/GL2/Q/holomorphic/4/5/b/a/}{form 4.5.b.a}
+and \citetitle{https://www.lmfdb.org/ModularForm/GL2/Q/holomorphic/23/1/b/a/}{form 23.1.b.a}.
+
+Let $W_N(x)=e^{kx/2} f_N(i e^x/\sqrt N)$ and
+$F_N(z)=\int_\R e^{zx}W_N(x)\dd x$. Changing variables in the
+classical Mellin integral identifies $F_N(z)$ with the completed
+unitary $L$-function at $s=1/2+z$ up to a nonzero constant.
+All factors are positive on this integration line. Writing their
+exponents as $r_d$, we have $r_d=r_{N/d}$, $\sum r_d=2k$ and
+$\sum d r_d=24$. The identity $\eta(i/y)=\sqrt y\,\eta(iy)$ then
+gives $W_N(-x)=W_N(x)$. The kernel and all its real exponential tilts
+decay faster than any exponential at both ends.
+
+\leaf{522s}{A horizontal zero-free band}{13.3 \quad CURVATURE OF THE MELLIN KERNEL}{An independent bound at low height}
+For both characters on \pg{522r} the completed function is nonzero
+throughout the horizontal band
+\[
+       |\Im s|\le\sqrt{4\pi/\sqrt N}.
+ \tag{39}
+\]
+Write $a=2\pi/\sqrt N$. The first power of $q$ in the eta product
+gives $-a e^x$ in $\log W_N(x)$. Each logarithmic product factor is
+$r_d\log(1-e^{-v})$ with $v=adn e^x$, $n\ge1$. Its second
+$x$-derivative before multiplication by $r_d$ is
+\[
+    \frac{v((1-v)e^v-1)}{(e^v-1)^2}<0 .
+\]
+The series may be differentiated on compact intervals by exponential
+convergence. Evenness now gives $-(\log W_N)''(x)\ge a e^{|x|}\ge a$.
+
+For $u\in\R$ give a real random variable $Z$ density proportional to
+$e^{ux}W_N(x)$, and write it as $e^{-U(x)}$ after normalization.
+Then $U''\ge a$. Integration by parts gives
+$\mathbb E[U'(Z)]=0$ and $\mathbb E[(Z-\mathbb EZ)U'(Z)]=1$.
+For an independent copy $Z'$,
+\[
+  2=\mathbb E[(Z-Z')(U'(Z)-U'(Z'))]\ge2a\,\operatorname{Var}(Z).
+\]
+Since $\cos t\ge1-t^2/2$,
+\[
+   \Re\left(e^{-it\mathbb EZ}\frac{F_N(u+it)}{F_N(u)}\right)
+        \ge 1-\frac{t^2}{2a}.
+\]
+At $|t|=\sqrt{2a}$ the cosine inequality is strict after integration
+because the distribution has a density. This proves (39) for every
+$u$. In particular, for $1/4\le\kappa<1$ every nontrivial zero
+satisfies $\Re\Phi_\kappa(\rho)<1/2$ with a fixed margin because
+$(4\pi/\sqrt{23}-1/4)/4>1/2$. This range follows directly
+from the two eta products.
+
+A larger interval of zero heights is covered by the published
+computations of \citetitle{https://jvoight.github.io/articles/cmfs-mf-101222-scrubbed.pdf}{Best et al., \S\S9.2 and 10}.
+They check completeness by the explicit formula. The
+\citetitle{https://www.lmfdb.org/L/2/2e2/4.3/c4/0/0}{level-four list}
+starts at $7.53515\ldots$ and extends past $25$. The
+\citetitle{https://www.lmfdb.org/L/2/23/23.22/c0/0/0}{level-23 list}
+starts at $5.11568\ldots$ and extends past $18$.
+In both cases every zero with $|\Im\rho|\le18$ lies on the line and
+has $|\Im\rho|>5$. For $1/600\le\kappa<1$ its image has real part at
+most $1/2-25/600$. At $|\Im\rho|>18$ the upper bound is
+$1-(18^2-1/4)/600$. Both are below $0.461$. The averaged centered
+full prime-power sum on \pg{522p} is therefore $O(X^{0.461})$.
+
+\leaf{522t}{The remaining prime squares}{13.3 \quad A SQUARE-ROOT TERM FROM INERT PRIMES}{The signed prime average at every large scale}
+For either character on \pg{522r} and every fixed
+$1/600\le\kappa<1$ one has
+\[
+ \boxed{\displaystyle
+     {\cal H}_\kappa P_\xi(X)
+           =-\tfrac12 V_2(\tfrac12)\sqrt X+o_\xi(\sqrt X).}
+ \tag{40}
+\]
+The coefficient is strictly negative. The proof for $\kappa\ge1/4$
+uses (39) alone for the required zero exclusion. The smaller
+coefficients down to $1/600$ use the finite-height computations on
+\pg{522s}. The estimate holds as $X\to\infty$ in each case.
+
+In the real full prime-power sum $A(Y)$ of \pg{522p} the pole term
+vanishes for both characters. Terms of norm $p^k$, $k\ge3$, cost
+$O_v(Y^{1/3}\log(2+Y))$ for $Y\ge1$ by the Chebyshev bound. At norm
+$p^2$ a split $p$ has two degree-one prime squares with total weight
+$b_{\xi^2}(p)\log p$. An inert $p$ has one prime ideal $(p)$ of
+norm $p^2$ with value $1$ and weight $2\log p$. The ramified
+primes have no second-degree term once $Y$ is large. It follows that
+\[
+ A(Y)-P_\xi(Y)=\sum_p b_{\xi^2}(p)\log p\,v_2(p^2/Y)
+          +2\sum_{p\ {\rm inert}}\log p\,v_2(p^2/Y)
+          +O_v(Y^{1/3}\log(2+Y)).
+\]
+The character $\xi^2$ is nontrivial in each example. Its first sum is
+$o(\sqrt Y)$ by the fixed-character prime ideal theorem applied with
+test $v_2(t^2)$ at scale $\sqrt Y$. Inert primes have density $1/2$
+with logarithmic weights by the quadratic prime number theorem.
+Their term is asymptotic to $\sqrt Y\int_0^\infty v_2(t^2)\dd t
+=\tfrac12 V_2(1/2)\sqrt Y$. This computes the secondary term
+independently of zero location near the critical line.
+
+The remainder divided by $\sqrt Y$ is bounded on $Y>0$ and tends
+to zero at infinity. Its average against the centered Gaussian in
+$y$ is $o(1)$ since $\log X+y\to+\infty$ in probability when
+$y$ has variance $2\kappa\log X$. Averaging preserves $\sqrt Y$
+exactly, while \pg{522s} bounds $\mathcal H_\kappa A(X)$. This proves
+(40). With the external $7/8$ half-plane of \pg{520b}, (20b) with the
+smooth test $v_2(t^2)$ gives $O(Y^{7/16})$ after subtracting the
+inert main term and including the split sum. After averaging, its
+exponent becomes $7/16+\kappa/256<0.442$. With the finite-height
+input the remainder in (40) is then $O(X^{0.461})$.
+
+\leaf{522u}{Completely split primes}{13.3 \quad THE TERM FROM FROBENIUS SQUARES}{The principal prime count for discriminant \(-23\)}
+For a Galois extension $M/\Q$ of degree $d$ with group $G$, put
+\[
+ P_M(X)=d\sum_{p\ {\rm splits\ completely}}\log p\,v_2(p/X)
+                                      -X V(1),\qquad
+ j(G)=\#\{g\in G:g^2=1\}.
+\]
+Suppose every nontrivial zero of $\zeta_M$ with $|\Im\rho|\le T$ lies
+on the line, for $T>\sqrt{1/(2\kappa)+1/4}$. If $m_0$ is its order
+at $1/2$, then
+\[
+ \mathcal H_\kappa P_M(X)
+    =-\big(m_0+\tfrac12 j(G)\big)V_2(1/2)\sqrt X+o_M(\sqrt X).
+ \tag{41}
+\]
+Indeed $\Re\Phi_\kappa(\rho)=1/2$ is possible only at the central
+point. All other images are separated from this line on its left. The full centered
+prime-power sum contributes just its central term at this precision.
+For unramified $p$ with Frobenius $g$, the coefficient of $\log p$
+at norm $p^2$ is $d$ if $g^2=1$ and zero otherwise. The residue degree
+is the order of $g$, so in either contributing case the number of
+primes times their residue degree is $d$. Chebotarev gives mean
+$j(G)$ for this coefficient. The substitution at scale $\sqrt X$ on
+\pg{522t} yields the second term of (41). The higher powers and the finitely many
+ramified primes contribute $o(\sqrt X)$ before and after averaging.
+
+In the splitting field $M$ of $T^3-T-1$ the group $S_3$ has
+$j(G)=4$. Writing $\delta$ for the quadratic Dirichlet character
+of conductor $23$ and $\xi$ for the cubic class character,
+\[
+        \zeta_M=\zeta_\Q L_\Q(\,\cdot\,,\delta)
+                         L_F(\,\cdot\,,\xi)^2 .
+\]
+This follows from abelian factorization over $F=\Q(\sqrt{-23})$ and
+the equality of the two conjugate Hecke functions by conjugation of
+ideals. For $\kappa\ge1/600$, height $18$ suffices. It is covered by
+the computations on \pg{522s}, by
+\citetitle{https://arxiv.org/abs/1305.3087}{Platt for Dirichlet characters}
+and by \citetitle{https://arxiv.org/abs/2004.09765}{Platt and Trudgian for $\zeta_\Q$}.
+The central order is zero. Equation (39) covers the cubic factors, and
+the alternating zeta series gives $\zeta_\Q(1/2)\ne0$. The partial
+sums of $\delta(n)$ over each period are nonnegative (its positive
+residues are $1,2,3,4,6,8,9,12,13,16,18$). Partial summation gives
+$L_\Q(1/2,\delta)>0$.
+
+For all sufficiently large $X$, $P_M(X)=C_{F,1}(X)$ in (35) because
+a degree-one prime ideal of $F$ is principal precisely when it splits
+in the Hilbert class field of $F$, and $h_F=3$. Equality outside a bounded
+range suffices for (41), since the normalized difference is bounded
+there and the Gaussian mass of that range tends to zero. Thus the
+averaged error for this principal prime count is
+$-2 V_2(1/2)\sqrt X+o(\sqrt X)$ throughout $1/600\le\kappa<1$.
+
+\leaf{522v}{Oscillations before averaging}{13.3 \quad THE CUBIC SPLITTING COUNT}{Both signs occur on the square-root scale}
+For the cubic class character on \pg{522r}, retain the original weight
+$v_2$ in $P_\xi$ and put $G(t)=e^{-t/2}P_\xi(e^t)$. Then
+\[
+    \limsup_{t\to\infty}G(t)>0.001\,V(1/2),\qquad
+    \liminf_{t\to\infty}G(t)<-0.830\,V(1/2).
+ \tag{42}
+\]
+Thus (42) concerns the signed difference between completely split
+and irreducible cubics at primes split in $\Q(\sqrt{-23})$, without
+the additional Gaussian average.
+
+Let $\gamma\in(5.115,5.116)$ be the first positive zero ordinate in
+\pg{522s}, of multiplicity $m\ge1$, and set $c=V_2(1/2)/2$.
+Take a Gaussian $Y$ of mean zero and variance $T/2$ as in the
+average with $\kappa=1/4$ at $X=e^T$. Equation (40) gives
+$\mathbb E G(T+Y)\to-c$. At the selected frequency,
+\[
+  \mathbb E[G(T+Y)e^{-i\gamma(T+Y)}]\ \longrightarrow\
+                    -m V_2(1/2+i\gamma).
+\]
+Indeed the two conjugate ideal class functions coincide, so the zero
+sum of the one function is real before modulation. A zero
+$\rho=1/2+u+i\gamma'$ now contributes an exponent with real part
+$u+(u^2-(\gamma'-\gamma)^2)/4$. For $|\gamma'|\le18$ we have $u=0$.
+For $|\gamma'|>18$ the real part is strictly negative. Only
+$\gamma'=\gamma$ survives by absolute summability. The constant
+prime-square term has mean zero in this limit because
+$|\mathbb E e^{-i\gamma(T+Y)}|=e^{-T\gamma^2/4}$. Its $o(1)$ error
+is bounded and tends to zero in mean as on \pg{522t}.
+
+Use the two nonnegative weights $1\pm\cos(\gamma(T+Y)+\phi)$, choosing
+the phase to align the last limit. Their masses tend to one, and they
+assign vanishing mass to every fixed left half-line, where $G$ is
+bounded. Hence $\limsup G\ge-c+m|V_2(1/2+i\gamma)|$ and
+$\liminf G\le-c-m|V_2(1/2+i\gamma)|$.
+
+For explicit constants, tilt the independent uniforms in (22) by
+$e^{x/2}$. A tilted interval of length $\ell$ has variance at most
+$\ell^2\cosh(\ell/4)/12$, by taking its second moment about the
+midpoint and pairing opposite displacements. Since $\sum\ell_j^2=1/12$
+and $\ell_j\le1/4$, centering the sum and using
+$\cos x\ge1-x^2/2$ gives
+$|V(1/2+i\gamma)|/V(1/2)\ge1-\gamma^2\cosh(1/16)/288>0.908$.
+Here $|2^{1/2+i\gamma}-1|>2.36$ since
+$|\gamma\log2-\pi|<0.407$, and $|1/2+i\gamma|<5.141$.
+Thus $|V_2(1/2+i\gamma)|>0.416\,V(1/2)$, whereas
+$c=(\sqrt2-1)V(1/2)$. These inequalities give (42).
+
+\sourcepages{523}{535}{The multiplicity assertion and its dependence on the norm section are treated on pages 522f--h.}
+\sourcepages{536}{555}{}
+\sourcepages{556}{556}{For the covolume of the product of the local self-dual measures see page 558a.}
+\sourcepages{557}{558}{The finite and infinite additive characters for the global Fourier transform are paired on page 558a.}
+\leaf{558a}{Fourier normalization}{A.3.1 \quad THE CHARACTER IN ADELIC POISSON SUMMATION}{The character trivial on the diagonal}
+Fix $\psi_\infty(x)=e^{2\pi i x}$ on $\R$. For $x_p\in\Q_p$ write
+$\{x_p\}_p\in\Q/\Z$ for its class under
+$\Q_p/\Z_p\simeq(\Q/\Z)[p^\infty]$. The compatible finite and global
+characters are
+\[
+ \psi_p(x_p)=e^{-2\pi i\{x_p\}_p},\qquad
+ \psi_\Q(x)=\psi_\infty(x_\infty)\prod_p\psi_p(x_p),\qquad
+ \psi_F=\psi_\Q\circ\operatorname{Tr}_{\A_F/\A_\Q}.
+\]
+For $r\in\Q$, $r-\sum_p\{r\}_p=0$ in $\Q/\Z$ by its primary
+decomposition, so $\psi_\Q(r)=1$. At $r=1/3$ the two positive-sign
+choices printed on pages 557--558 instead give $e^{4\pi i/3}$.
+Triviality on $F$ is needed in (2.2.3.2) and in the functional equation
+(3.2.2.2). With the convention
+$\widehat f(y)=\int f(x)\overline{\psi_p(xy)}\dd x$ and
+$\mathrm{vol}(\Z_p)=1$, a translation and a dilation give
+\[
+ \widehat{\mathbf1_{a+p^N\Z_p}}(y)
+   =p^{-N}\overline{\psi_p(ay)}\,\mathbf1_{p^{-N}\Z_p}(y).
+\]
+In particular $\widehat{\mathbf1_{\Z_p^\times}}
+=\mathbf1_{\Z_p}-p^{-1}\mathbf1_{p^{-1}\Z_p}$.
+
+\point{A finite set of places} Let $S$ contain all archimedean places.
+For the product of the local self-dual measures the additive covolume is
+\[
+ \operatorname{vol}(\A_{F,S}/\mathcal O_{F,S})
+ = |D_F|^{1/2}\prod_{v\in S,\ v\nmid\infty}
+                          (N\mathfrak d_v)^{-1/2},
+\]
+where $\mathfrak d_v$ is the local different. Indeed the fundamental
+parallelepiped of an integral basis has archimedean volume
+$|D_F|^{1/2}$ for $\prod_\R \dd x\prod_\C 2\dd x\dd y$.
+At a finite place $\mathcal O_v$ has self-dual volume
+$(N\mathfrak d_v)^{-1/2}$ by its annihilator
+$\mathfrak d_v^{-1}$. Additive approximation permits reduction into
+all $\mathcal O_v$ in $S$ and leaves precisely $\mathcal O_F$ to act
+at infinity. For $F=\Q(i)$ and $S$ its complex place the unit square
+has volume two. The product has covolume one if $S$ contains every
+ramified finite place. For arbitrary $S$ the measure of covolume one
+is obtained by dividing the product measure by the displayed covolume.
+The sign and volume issues are also recorded in the
+\citetitle{https://github.com/mccorvie/riemann-masullo/blob/main/ERRATA.md}{errata to the November manuscript}, F10 and F13.
+
+\sourcepages{559}{696}{}
+\sourcepages{697}{697}{In C.3.4.1(2), the absolute diagonal sum for $\operatorname{diag}(1,-1)$ is 2 in its eigenbasis and 0 in the rotated basis.}
+\sourcepages{698}{698}{In (C.3.4.3) each trace norm is bounded by $\|A\|\,\|T\|_1$. For $A=E_{11}$ and $T=E_{21}$ one has $AT=0$, $TA=T$.}
+\sourcepages{699}{940}{}
+\end{document}

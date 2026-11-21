@@ -1,0 +1,43 @@
+% Facsimile of Alessandro Maria Masullo's published PDF. Compile from the
+% repository root with the publisher's PDF under ref/. Each page is
+% imported at its original size.
+\documentclass[letterpaper]{article}
+
+\pdfminorversion=5
+\pdfdecimaldigits=4
+\pdfinclusioncopyfonts=1
+\pdfpagewidth=612bp
+\pdfpageheight=792bp
+\pdfhorigin=0pt
+\pdfvorigin=0pt
+\nofiles
+
+\newcommand*{\MusicPDFOriginal}{ref/the-music-of-the-primes.pdf}
+\newcount\MusicPDFPageIndex
+\input{ref/the-music-of-the-primes-navigation-reader.tex}
+
+\begin{document}
+\input{ref/the-music-of-the-primes-navigation.tex}
+
+% Register the pages together so that the imported PDF shares font objects.
+\MusicPDFPageIndex=0
+\loop\ifnum\MusicPDFPageIndex<\MusicPDFPageCount\relax
+  \advance\MusicPDFPageIndex by 1
+  \pdfximage page \MusicPDFPageIndex\space mediabox {\MusicPDFOriginal}%
+  \expandafter\xdef
+    \csname MusicPDFImage\the\MusicPDFPageIndex\endcsname{\the\pdflastximage}%
+\repeat
+
+\MusicPDFPageIndex=0
+\loop\ifnum\MusicPDFPageIndex<\MusicPDFPageCount\relax
+  \advance\MusicPDFPageIndex by 1
+  \edef\MusicPDFPageAttributes{%
+    \ifcsname MusicPDFAnnotations\the\MusicPDFPageIndex\endcsname
+      \csname MusicPDFAnnotations\the\MusicPDFPageIndex\endcsname
+    \fi
+  }%
+  \expandafter\pdfpageattr\expandafter{\MusicPDFPageAttributes}%
+  \setcounter{page}{\MusicPDFPageIndex}%
+  \shipout\hbox{\pdfrefximage\csname MusicPDFImage\the\MusicPDFPageIndex\endcsname}%
+\repeat
+\end{document}

@@ -1,0 +1,20 @@
+% Register the object references used by the manuscript's PDF navigation.
+\newcount\MusicPDFObjectIndex
+\newcommand*{\MusicPDFReserveObjects}[1]{%
+  \MusicPDFObjectIndex=0
+  \loop\ifnum\MusicPDFObjectIndex<#1\relax
+    \advance\MusicPDFObjectIndex by 1
+    \pdfobj reserveobjnum
+    \expandafter\xdef
+      \csname MusicPDFObject\the\MusicPDFObjectIndex\endcsname{\the\pdflastobj}%
+  \repeat
+}
+\newcommand*{\MusicPDFRef}[1]{\csname MusicPDFObject#1\endcsname\space 0 R}
+\providecommand*{\MusicPDFPageRef}[1]{\pdfpageref#1 \space 0 R}
+\newcommand*{\MusicPDFWriteObject}[2]{%
+  \immediate\pdfobj useobjnum \csname MusicPDFObject#1\endcsname {#2}%
+}
+\newcommand*{\MusicPDFSetAnnotations}[2]{%
+  \expandafter\gdef\csname MusicPDFAnnotations#1\endcsname{/Annots #2}%
+}
+\endinput
