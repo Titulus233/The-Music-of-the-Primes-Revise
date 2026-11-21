@@ -1,5 +1,24 @@
 # Proof progress
 
+## 2026-11-21 · Revision `2026-11-21.11`
+
+Folios 518b–518f are pages 547–551 of the [1,037-page edition][pdf11]. The statements concern Step II on original folio 516 and the trace at a finite set of places in Theorem 12.4.1.1.
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [518f · (17.9)][f518f] | On the rational semilocal quotient, the logarithm of the norm and its additive Fourier conjugate give the real and finite Weil terms as one localized trace. This holds for every translate once the set contains the conductor primes and the primes seen by the test. | [d7b1531][semilocal] |
+| [518e · (17.8)][f518e] | Tate’s local functional equations give a unitary Fourier operator after theta descent. The trace with two smooth compact norm cutoffs is an absolutely convergent integral of the ratio of its Fourier factors at two frequencies. | [d7b1531][semilocal] |
+| [518c · (17.6)][f518c] and [518d · (17.7)][f518d] | Every two-sided smooth cutoff of a rational semilocal theta function has an explicit polar-free lift. For a Gaussian and $r$ finite primes, the one-sided cutoff preserves a leading term proportional to $\log^r(1/y)$ at small norm $y$. No polar-free lift can have this asymptotic. | [d7b1531][semilocal] |
+| [518b · (17.5)][f518b] | A continuous multiplier invariant under the diagonal action of $p$ on $\mathbb R\times\mathbb Q_p$ is constant if it carries the Gaussian times the unit ball indicator into the additive Schwartz–Bruhat space. The cutoff and its Fourier conjugate therefore fail the mapping asserted on folio 516. | [d7b1531][semilocal] |
+
+[semilocal]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/d7b15313b1de29afa474b83b804efe50f125cc58
+[pdf11]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/d7b15313b1de29afa474b83b804efe50f125cc58/output/pdf/the-music-of-the-primes-revised.pdf
+[f518b]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/d7b15313b1de29afa474b83b804efe50f125cc58/src/the-music-of-the-primes-revised.tex#L1601
+[f518c]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/d7b15313b1de29afa474b83b804efe50f125cc58/src/the-music-of-the-primes-revised.tex#L1640
+[f518d]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/d7b15313b1de29afa474b83b804efe50f125cc58/src/the-music-of-the-primes-revised.tex#L1680
+[f518e]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/d7b15313b1de29afa474b83b804efe50f125cc58/src/the-music-of-the-primes-revised.tex#L1717
+[f518f]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/d7b15313b1de29afa474b83b804efe50f125cc58/src/the-music-of-the-primes-revised.tex#L1763
+
 ## 2026-11-21 · Revision `2026-11-21.10`
 
 Folios 520s–520v are pages 567–570 of the [1,032-page edition][pdf10]. They compare the arithmetic projection of Chapter 10 directly with the prime weights in (17.4).
