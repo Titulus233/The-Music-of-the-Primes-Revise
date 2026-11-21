@@ -1,5 +1,16 @@
 # Proof progress
 
+## 2026-11-21 · Revision `2026-11-21.8`
+
+Folios 520o–520r are pages 560–563 of the [1,025-page edition][pdf8]. All four statements use the same fixed test. The logarithmic translation is $\tau=\log X$.
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [520r · (20x)][f520r] | For ordinary zeta and the explicit weight $v_*$, the weighted prime-sum error is at most $10^5\sqrt X$ throughout $1\le X\le e^{300000}$. With this numerical constant its extension to every $X\ge1$ is equivalent to RH. | [aae3b39][detector] |
+| [520q · (20w)][f520q] | In degree four, the absolute trace defect for ordinary zeta is less than $e^{-140000}$ for $0\le\tau\le300000$ at every strip half-width, including zero. The published simplicity and location of the zeros up to $3\cdot10^{12}$ remove their contributions exactly. An inverse-square sum bounds all higher ordinates. | [aae3b39][detector] |
+| [520p · (20v)][f520p] | For every fixed normalized unitary Hecke character, removing margins of width $b_\chi/((\log\tau)^{2/3}(\log\log\tau)^{1/3})$ from the full strip leaves absolute trace defect $O_\chi(\exp(-a\tau^2/4))$. These widths approach the full strip. The geometric estimate at arbitrarily small fixed widths remains open. | [aae3b39][detector] |
+| [520o · (20u)][f520o] | A nonnegative smooth log-space test has integral one, a nonvanishing transform throughout the critical strip and absolute transform bounded by $8\exp(-a\sqrt{\lvert u\rvert})$ at height $u$, with $a=(\log 2)/4$. Every omitted zero retains a nonzero Laplace residue. | [aae3b39][detector] |
+
 ## 2026-11-21 · Revision `2026-11-21.7`
 
 Folios 522an–522ao are pages 601–602 of the [1,021-page edition][pdf7]. Both estimates apply to the sharp intervals and the fixed character in (58).
@@ -82,6 +93,12 @@ The [1,002-page edition][pdf1] records the following results. Folio numbers are 
 | [446–446d · (4)–(9), original Theorem 10.2.2.1][f446] | Translates of an arithmetic theta generator span the closed space defined by the zero conditions. Formula (4) gives the exact boundary multiplicity at every strip width and Sobolev degree, including width zero. | [4a9ad57][edition] |
 | [29 · (1)–(3)][f29] | Translating a compactly supported test and taking a Laplace transform produces a pole at each omitted zero. Equality of the full and narrow traces on all these tests forces the omitted set to be empty. | [4a9ad57][edition] |
 
+[detector]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/aae3b391e90cc5b32d9349990f5a2abe0d2ccde1
+[pdf8]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/aae3b391e90cc5b32d9349990f5a2abe0d2ccde1/output/pdf/the-music-of-the-primes-revised.pdf
+[f520r]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/aae3b391e90cc5b32d9349990f5a2abe0d2ccde1/src/the-music-of-the-primes-revised.tex#L2311
+[f520q]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/aae3b391e90cc5b32d9349990f5a2abe0d2ccde1/src/the-music-of-the-primes-revised.tex#L2270
+[f520p]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/aae3b391e90cc5b32d9349990f5a2abe0d2ccde1/src/the-music-of-the-primes-revised.tex#L2226
+[f520o]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/aae3b391e90cc5b32d9349990f5a2abe0d2ccde1/src/the-music-of-the-primes-revised.tex#L2187
 [density]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/fafb857ea87e094942ba72e8c6f7623aa67ceda6
 [pdf7]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/fafb857ea87e094942ba72e8c6f7623aa67ceda6/output/pdf/the-music-of-the-primes-revised.pdf
 [f522ao]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/fafb857ea87e094942ba72e8c6f7623aa67ceda6/src/the-music-of-the-primes-revised.tex#L4094
