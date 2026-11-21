@@ -52,7 +52,7 @@
 \afterfolio{489}{a,b}
 \afterfolio{495}{a,b}
 \afterfolio{508}{a}
-\afterfolio{514}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t}
+\afterfolio{514}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x}
 \afterfolio{518}{a,b,c,d,e,f,g,h,i,j}
 \afterfolio{520}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v}
 \afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,al,am,an,ao}
@@ -143,7 +143,7 @@ the closed strip. The last sum includes every missing boundary copy.
 \pagelink{488a}{488a--d}, \pagelink{488e}{488e--f}, \pagelink{489a}{489a--b} & Finite levels exhaust the component even when all primes up to a growing bound are imposed together.\\[3pt]
 \pagelink{495}{495--495b} & A counterexample at $2$ and an obstruction to recovering two prime traces with a fixed lift.\\[3pt]
 \pagelink{508a}{508a}, \pagelink{518a}{518a--f}, \pagelink{518g}{518g--j} & Cutoff lifts, \pagelink{518i}{a uniform Hecke trace at moving prime norms} and \pagelink{518j}{growth in the narrow Hilbert space}.\\[3pt]
-\pagelink{514a}{514a--e}, \pagelink{514f}{514f--j}, \pagelink{514k}{514k--n}, \pagelink{514o}{514o--t} & \pagelink{514h}{The scalar trace difference}, \pagelink{514o}{the shared-prime bound} and \pagelink{514t}{the remaining mean over coprime norms}.\\[3pt]
+\pagelink{514a}{514a--e}, \pagelink{514f}{514f--j}, \pagelink{514k}{514k--n}, \pagelink{514o}{514o--t}, \pagelink{514u}{514u--x} & \pagelink{514h}{The scalar trace difference}, \pagelink{514o}{the shared-prime bound} and \pagelink{514x}{the mean over squarefree products of split primes}.\\[3pt]
 \pagelink{520c}{520c--n}, \pagelink{522i}{522i--m} & The balanced prime sum and a one-sided criterion counting only principal prime ideals over totally imaginary fields.\\[3pt]
 \pagelink{522}{522--522e}, \pagelink{522f}{522f--h} & The prime-sum criterion, the Chapter~13 test space and a CM curve for which the cap loses multiplicity.\\[3pt]
 \pagelink{522n}{522n--o}, \pagelink{522p}{522p--v} & Square-root fluctuations in the cubic splitting count.\\[3pt]
@@ -2179,6 +2179,178 @@ $O(Y^{-\epsilon/2})$. This proves both directions.
 The missing input for Hecke GRH is an arithmetic upper bound in
 (17.4o) along arbitrarily distant intervals for widths tending to
 zero and the characters specified on \pg{522n}.
+
+\leaf{514u}{Squarefree products of norms}{12.3 \quad THE TWO OUTER M\"OBIUS COEFFICIENTS}{Restricting the product to distinct split primes}
+Use $T=e\sqrt X$, $R,P,H_X$ and $K_{2,R}$ from \pg{514r}. Fix a real
+smooth function $0\le\omega\le1$ on $[0,\infty)$ equal to one on
+$[0,1]$ and zero on $[2,\infty)$. On $Y\le X\le Y^2$ set
+\[
+ S_Y(X)=\frac1{\sqrt X}
+ \sum_{\substack{d,n\le 2T,\ dn\ {\rm squarefree},\ (dn,R)=1\\
+ X/H_X<dn<e^{7/4}X/P,\ |d-n|>X^\alpha}}
+ u_\chi(d)u_\chi(n)\omega(d/T)\omega(n/T)
+                  K_{2,R}\!\left(\frac{X}{dn}\right).
+ \tag{17.4p}
+\]
+For the Galois fields of \pg{522n}, both outer indices now use only
+completely split rational primes, at every sufficiently large $Y$.
+Indeed $u_\chi(p)=-\sum_{N\mathfrak p=p}\chi(\mathfrak p)$.
+Outside the finitely many ramified primes, a Galois field has a
+degree-one prime above $p$ exactly when $p$ splits completely.
+Eventually $P$ exceeds all ramified primes. On a squarefree integer
+$a$ one has $u_\chi(a)=\prod_{p\mid a}u_\chi(p)$, and $d$ and $n$
+share no prime. For the trivial character a split prime has $D$
+degree-one ideals, so the entire outer coefficient is
+$(-D)^{\#\{p:\,p\mid dn\}}$ on these products.
+
+\point{Grouping by the product}
+For each retained squarefree $k=dn$, multiplicativity gives
+$u_\chi(d)u_\chi(n)=u_\chi(k)$. All admissible factorizations of $k$
+therefore carry the same character coefficient. Their total cutoff weight is
+\[
+ W_{\alpha,X}(k)=\sum_{\substack{d\mid k\\|d-k/d|>X^\alpha}}
+               \omega(d/T)\omega\big(k/(dT)\big)\ge0 .
+\]
+Thus (17.4p) is a single sum of $u_\chi(k)W_{\alpha,X}(k)
+K_{2,R}(X/k)/\sqrt X$ over the indicated products. The multiplicity
+of the allowed divisors is included in $W_{\alpha,X}$.
+
+\point{Size of the error}
+Let $\beta=\sup_\rho\Re\rho$ over the nontrivial zeros of this fixed
+character, and $b_*=\beta-1/2$. The squarefree restriction and smooth
+cutoffs give a prime-sum comparison on \pg{514v}. Its linear term is
+$O_\epsilon(X^{b_*/2+\epsilon})$ uniformly on the interval.
+With the $7/8$ theorem on \pg{520b} this is $O_\epsilon(X^{3/16+\epsilon})$
+for every character. In particular it is within the error of (19)
+for $3/16\le\alpha<1/2$. For smaller widths the factor $1/2$ on
+$b_*$ allows the squarefree sum to detect an exterior zero whenever
+one exists. The argument on \pg{514x} includes a supremum that is
+approached only at unbounded height.
+
+\leaf{514v}{The squarefree Euler factors}{12.3 \quad THE PRIME SUM FOR THE SMOOTH CUTOFF}{The arithmetic comparison for squarefree products}
+With $P_p(x)$ and $A$ as on \pg{514p}, let
+\[
+ B_P^\flat(s)=\sum_m b_P^\flat(m)m^{-s}
+       =\prod_{p>P}\frac{1+2u_\chi(p)p^{-s}}{P_p(p^{-s})^2}.
+\]
+Then, uniformly on $[Y,Y^2]$ for large $Y$,
+\[
+ S_Y(X)=-\frac1{\sqrt X}\sum_{m\le e^{7/4}X} b_P^\flat(m) A(X/m)
+                 +O_{\alpha,\epsilon}(X^{\max(\alpha,b_*/2)+\epsilon}).
+ \tag{17.4q}
+\]
+Here and below constants may also depend on $F,\chi,\omega$. The
+linear coefficients of $P_p(x)$ and $1+u_\chi(p)x$ agree.
+Consequently $B_P^\flat$ satisfies the absolute coefficient bound
+(17.4l) on every fixed line $\sigma>1/2$: the local absolute
+coefficient sum after subtracting one is $O_{D,\sigma}(p^{-2\sigma})$.
+
+Write $w(j)=\mu(j)^2u_\chi(j)\mathbf1_{(j,R)=1}$, where $\mu$ is
+the rational M\"obius function. At squarefree $r$ coprime to $R$ the
+shifted series has the following factorization for $\Re s>1$:
+\begin{align*}
+ U_r^\flat(s)&=\sum_{j\ge1}w(rj)j^{-s}
+                  =J_P(s)V_r(s)/L_R(s),\\
+ J_P(s)&=\prod_{p>P}\frac{1+u_\chi(p)p^{-s}}{P_p(p^{-s})},\qquad
+ V_r(s)=\prod_{p\mid r}\frac{u_\chi(p)}{1+u_\chi(p)p^{-s}} .
+\end{align*}
+This is multiplication of the squarefree local factors. $J_P$ also
+satisfies (17.4l) with constant term one. For $P>(2D)^2$ and
+$\Re s\ge1/2$, $|V_r(s)|\ll_{D,\nu}r^\nu$ for each $\nu>0$.
+
+Apply ordinary gcd inversion to $w(d)w(n)$ before imposing the product
+and separation cutoffs. For $M_r(s)=\sum_j w(rj)j^{-s}\omega(rj/T)$,
+the square of $U_r^\flat-M_r$ has no coefficient through $(T/r)^2$.
+As on \pg{514q}, the linear term is $-2L_R'J_P V_rM_r$. The prime
+term is $(L_R'/L_R)J_P^2 V_r^2$. Summing the latter with weights
+$\mu(r)r^{-2s}$ gives multiplier $B_P^\flat$, since
+$(1+u x)^2-(u x)^2=1+2u x$. The small-prime deletion and the product
+cutoffs cost the errors on \pg{514r}--\pg{514s}; the near-diagonal
+count with $2T$ has the same order. The linear term is bounded next.
+
+\leaf{514w}{The smoothed linear term}{12.3 \quad A BOUND AT HALF THE POSSIBLE EXCESS}{Estimating the truncated reciprocal}
+Fix $0<\delta<1/8$ and write $\sigma_1=1/2+\delta$. On
+$s=\sigma_1+it$, for $r\le2T$ as on \pg{514v},
+\[
+ |M_r(s)|\ll_{\chi,\delta,\nu} r^\nu(\log(2X))^{C}
+     (1+|t|)^C (T/r)^{b_*+\delta}.
+ \tag{17.4r}
+\]
+Here $C$ may depend on the field and $\delta$. For $\Re z>0$ the
+Mellin transform $\widehat\omega(z)$ decreases faster than every
+inverse power on fixed vertical lines, by integration by parts.
+Mellin-invert $\omega(rj/T)$ and move the $z$-line to
+$\Re z=b_*+\delta$. There $\Re(s+z)=\beta+2\delta$, and on the
+whole shift $U_r^\flat(s+z)$ is holomorphic.
+
+For completeness $1/L$ is polynomially bounded on fixed strips to
+the right of $\beta+\delta$. At large $|t'|$ take the branch of
+$\log L$ centered at $2+it'$ from the Euler product. The disk of
+radius $2-\beta-\delta/2$ there contains no zero or pole. The
+polynomial bound for $L$ gives $\Re\log L\ll_\delta\log(2+|t'|)$.
+Borel--Carath\'eodory on the smaller radius $2-\beta-\delta$ bounds
+$|\log L|$ by the same order. To the right of two the Euler product
+gives the bound directly; bounded heights use regularity of $1/L$.
+For $1/L_R$ the additional factor $1/E_R$ on these lines costs at
+most $(1-2^{-1/2})^{-D\pi(P)}\ll R^{C_D}$, a power of $\log(2X)$.
+The bounds for $V_r,J_P$ on \pg{514v} and the decay of
+$\widehat\omega$ now prove (17.4r).
+
+Move the inverse Mellin integral of the linear term on \pg{514v}
+to $\Re s=\sigma_1$. The fixed $V_g(s)$ cancels the pole at one
+and absorbs all the polynomial height factors. The finite factors
+in $L_R'$ cost at most a power of $\log(2X)$ as on \pg{514s}.
+The absolute contribution from one $r$, including normalization,
+is thus at most a constant times
+\[
+ (\log(2X))^{C'}X^{b_*/2+3\delta/2}
+                  r^{-1-b_*-3\delta+2\nu}.
+\]
+This uses the Mellin scale $X/r^2$ and $T=e\sqrt X$. Take
+$\nu=\delta/2$, sum over $r\le2T$, and choose $\delta$ sufficiently
+small for the prescribed $\epsilon$. This proves the claimed
+$O_\epsilon(X^{b_*/2+\epsilon})$.
+
+\leaf{514x}{The split-prime mean}{12.3 \quad THE REMAINING ONE-SIDED BOUND}{The interval mean for squarefree products}
+At a fixed $0<\alpha<1/2$ the zeros of the component lie in the
+closed strip if and only if, for every $\epsilon>0$,
+\[
+ \liminf_{Y\to\infty}\frac1{\log Y}\int_Y^{Y^2}
+           X^{-\alpha-\epsilon}[\Re S_Y(X)]_+\frac{\dd X}{X}<\infty .
+ \tag{17.4s}
+\]
+To prove this, apply the argument on \pg{514s} with the multiplier
+$B_P^\flat$ at $1/2+\eta$, where $\eta=\alpha/2$. Its absolute
+coefficient bound (17.4l) is uniform and
+$\sup_{\Re z\ge1/2+\eta}|B_P^\flat(z)-1|=o(1)$.
+On $[Y,Y^2]$ formula (17.4q) becomes the same sum over zeros with
+$\Re\lambda>\eta$ as on \pg{514s}, with multiplier
+$B_P^\flat(1/2+\lambda)$. Its remainder is
+$O_\tau(X^{q+\tau})$ for every $\tau>0$, where
+$q=\max(\alpha,b_*/2)$.
+
+If $b_*\le\alpha$, the entire spectral sum is $O(X^\alpha)$ and
+$q=\alpha$. Taking $\tau=\epsilon/2$ gives a mean
+$O(Y^{-\epsilon/2})$. Conversely, if $b_*>\alpha$ then $q<b_*$.
+Choose a zero with centered real part strictly greater than $q$.
+At its ordinate take the largest centered real part $b$ in the
+symmetrized sum, so $b>q$. Only finitely many exponents occur at
+this ordinate. The uniform closeness of $B_P^\flat$ to one gives
+positive coefficients at real exponents and a nonzero limiting
+coefficient at $b+i\gamma$, exactly as on \pg{514t}.
+The positive averaging measure on \pg{514m} therefore gives
+the lower bound (17.4h) for the spectral sum. Transferring it to
+$S_Y$ costs an exponentially small term in the log variable after
+weighting by $X^{-b}$, by taking $\tau=(b-q)/2$.
+The mean in (17.4s) is then at least
+$cY^{b-\alpha-\epsilon}/\sqrt{\log Y}$ for $0<\epsilon<b-\alpha$.
+Reflection covers the other side of the strip.
+
+For the two character families on \pg{522n}, (17.4s) at widths
+tending to zero is the remaining arithmetic estimate. The two outer
+indices in its sum carry the character weights of distinct,
+completely split rational primes. The upper bound along an unbounded
+sequence of intervals remains open.
 
 \sourcepages{515}{515}{}
 \sourcepages{516}{518}{For cutoff domains and the trace with a growing set of places see pages 518a--518j.}
