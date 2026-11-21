@@ -1,10 +1,10 @@
 # The Music of the Primes
 
-**Last updated 21 November 2026.** Revision `2026-11-21.3` reaches manuscript folio **522ac, equation (49)**. The revised manuscript has 1,009 pages.
+**Last updated 21 November 2026.** Revision `2026-11-21.4` reaches manuscript folio **522ag, equation (53)**. The revised manuscript has 1,013 pages.
 
-For every normalized unitary Hecke character and every sufficiently large $X$, equation (48) bounds the correlation between a test and its translate when the prime powers it samples lie in an interval of length comparable to $\sqrt X\log X$. The test narrows as $X$ grows. For ordinary zeta, equation (49) also proves the correlation bound at a single fixed width for $1\le X\le 10^{19}e^{-1/128}$. [Dated results and proof locations](PROGRESS.md)
+For ordinary zeta and two Hecke characters over imaginary quadratic fields, the correlation in equation (45) vanishes at arbitrarily large separations with the original test held fixed. For every normalized unitary Hecke character, a real part of a fixed norm twist gives a corresponding cancellation law. Along an unbounded sequence of prime scales, the signed contribution from distinct pairs cancels the diagonal term of order $\log X$ up to bounded error. The principal component includes its explicit pole subtraction. [Dated results and proof locations](PROGRESS.md)
 
-**Open proof.** For each fixed character, it would suffice to prove the correlation bound at every sufficiently large $X$ for one sequence of relative interval widths $r=X^{-o(1)}$. Equation (46) reconstructs the original test exactly with a factor $1/r$. At the widths covered by (48), that factor has exponent $1/2$. The estimate at the wider intervals required by (47) remains open, as does the independent geometric trace estimate (19) on folio 520. The manuscript therefore leaves the Hecke Riemann hypothesis open.
+**Open proof.** Equation (52) gives the lower limit $-1$ for the signed distinct-pair contribution divided by the diagonal term. A finite upper bound for that same ratio at every sufficiently large scale would give the Riemann hypothesis for the fixed character. Establishing this upper bound for each character remains open, as does the independent geometric trace estimate (19) on folio 520.
 
 [Original manuscript (940-page PDF)](https://math216.wordpress.com/wp-content/uploads/2026/11/the-music-of-the-primes.pdf) · [Revised manuscript (PDF)](output/pdf/the-music-of-the-primes-revised.pdf) · [Editable revision (TeX)](src/the-music-of-the-primes-revised.tex)
 
@@ -19,8 +19,9 @@ For every normalized unitary Hecke character and every sufficiently large $X$, e
 | 522l–522v | Principal prime ideals, finite-height Gaussian averages, and the two-sided oscillation in (42). |
 | 522w–522y | A lower bound for the Weil form on a log interval, its dependence on the conductor, and the correlation that must stay bounded for widely separated translates. |
 | 522z–522ac | Reconstruction from narrower tests, the resulting zero strip, a short-interval sieve bound valid at every large separation, and a fixed-width estimate for ordinary zeta. |
+| 522ad–522ag | The diagonal prime weight, the lower limit of the signed distinct-pair contribution, and an upper bound for the part from nearby pairs. |
 
-Folio numbers follow the manuscript. A letter suffix identifies an inserted page. Folios 522z–522ac are PDF pages 587–590. The contents on manuscript folio 2 link to the proofs.
+Folio numbers follow the manuscript. A letter suffix identifies an inserted page. Folios 522ad–522ag are PDF pages 591–594. The contents on manuscript folio 2 link to the proofs.
 
 ## Files and build
 

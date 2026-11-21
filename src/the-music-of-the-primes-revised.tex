@@ -55,7 +55,7 @@
 \afterfolio{514}{a,b}
 \afterfolio{518}{a}
 \afterfolio{520}{a,b,c,d,e,f,g,h,i,j,k,l,m,n}
-\afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac}
+\afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad,ae,af,ag}
 \afterfolio{558}{a}
 \newcount\originalfolio
 \newcount\physicalfolio
@@ -147,7 +147,7 @@ the closed strip. The last sum includes every missing boundary copy.
 \pagelink{520c}{520c--n}, \pagelink{522i}{522i--m} & The balanced prime sum and a one-sided criterion counting only principal prime ideals over totally imaginary fields.\\[3pt]
 \pagelink{522}{522--522e}, \pagelink{522f}{522f--h} & The prime-sum criterion, the Chapter~13 test space and a CM curve for which the cap loses multiplicity.\\[3pt]
 \pagelink{522n}{522n--o}, \pagelink{522p}{522p--v} & Square-root fluctuations in the cubic splitting count.\\[3pt]
-\pagelink{522w}{522w--y}, \pagelink{522z}{522z--ac} & Two translates, short prime intervals at every large scale, and a fixed test for ordinary $\zeta$.\\
+\pagelink{522w}{522w--y}, \pagelink{522z}{522z--ac}, \mbox{\pagelink{522ad}{522ad--ag}} & Two translates, short prime intervals, and cancellation between distinct primes at unbounded scales.\\
 \end{tabular}
 
 \point{Scope} The Hecke prime-sum criterion is an equivalence.
@@ -2431,6 +2431,8 @@ averaging and oscillations for the cubic splitting count. Equations
 prime interval has length of order $\sqrt X\log X$. Reconstructing the
 fixed test in (46) costs the reciprocal log width. An independent
 bound at widths $X^{-o(1)}$ in (47) would give zero location.
+For the fixed test, the normalized distinct-prime term in (52) reaches
+its lower limit along unbounded scales. Its upper limit remains open.
 
 The fixed-place calculation on page 495 fails over $\Q$. The two-prime
 obstruction on page 495b rules out a fixed norm-translation-invariant
@@ -3621,6 +3623,184 @@ weakly to the smooth autocorrelation after normalization, giving
 the same monotonicity. Thus $\|h'_r\|_1=2M_r$ and
 $\|h_r\|_1\le2LM_r$. For $X\ge12$ the remaining pole together with
 $A(\tau)$ costs less than $0.02M_r$, proving (49).
+
+\leaf{522ad}{Distinct prime pairs}{13.3 \quad A FIXED TEST AT UNBOUNDED SCALES}{The signed sum over distinct primes}
+Fix a normalized unitary Hecke character $\chi$ over $F$. Use the
+real even autocorrelation $h=h_1$ from (45), with transform $H=H_1$
+and support $[-\ell,\ell]$. Twist by a fixed real frequency $\omega$,
+so the finite Hecke function is $L_{F,f}(s-i\omega,\chi)$.
+Let $b_\chi(p)$ be the sum of the character values over prime ideals
+of norm $p$ as on \pg{522p}. On the positive norm axis set
+\[
+ \dd\mu_\omega(x)=
+ \sum_p\Re\!\big(b_\chi(p)p^{i\omega}\big)\frac{\log p}{\sqrt p}
+             \,\delta_p(\dd x)
+ -\delta_\chi\,x^{-1/2}\Re(x^{i\omega})\dd x ,
+ \qquad \delta_\chi=\mathbf1_{\chi=1}.
+\]
+Write $w_t(x)=h(\log x-t)$ and define the real quantities
+\begin{align*}
+ P_\omega(t)&=\int w_t(x)\dd\mu_\omega(x),\\
+ D_\omega(t)&=\sum_p\big(\Re(b_\chi(p)p^{i\omega})\big)^2
+                      \frac{(\log p)^2}{p}\,w_t(p)^2,\\
+ C_\omega(t)&=\iint_{x\ne y}w_t(x)w_t(y)\dd\mu_\omega(x)\dd\mu_\omega(y)
+                   =P_\omega(t)^2-D_\omega(t).
+ \tag{50}
+\end{align*}
+Only the prime atoms contribute on $x=y$. When $\chi$ is principal
+the continuous term subtracts its pole, including the phase of the
+norm twist. For a nonprincipal $\chi$, $C_\omega$ is a sum over
+ordered pairs of distinct rational primes.
+
+For $\lambda=\rho-1/2$ put
+\[
+ R_\omega(t)=\Re\sum_\lambda m_\lambda
+           H(\lambda+i\omega)e^{(\lambda+i\omega)t}.
+\]
+The full explicit formula gives $P_\omega(t)=-R_\omega(t)+O_{F,h,\omega}(1)$
+for $t\ge1$. In fact the positive pole contributes
+$\delta_\chi e^{t/2}\Re(e^{i\omega t}H(1/2+i\omega))$, precisely
+the integral of $w_t$ against the density subtracted in (50).
+The opposite pole and all gamma terms are $O_{F,h,\omega}(e^{-t/2})$
+by the kernel on \pg{522y}. With $X=e^t$, the rational prime powers
+$p^k$ of exponent $k\ge2$ in $[Xe^{-\ell},Xe^\ell]$ have total weight
+$O_F(1)$ by the estimate on \pg{522ab}. These statements allow all
+the original ramified Euler factors.
+
+\leaf{522ae}{The diagonal term}{13.3 \quad DEGREE-ONE PRIMES ABOVE THE SAME NORM}{The amount of cancellation at a fixed scale}
+Put $J(v)=\int h(y)^2e^{ivy}\dd y$. Let $r_\chi$ be the integer
+in (20m), and write $F\otimes_\Q F=\prod_i K_i$, with the two norms
+$N_{1i},N_{2i}:K_i\to F$ induced on ideles. Let $s_\chi$ count the
+factors where $(\chi\circ N_{1i})(\chi\circ N_{2i})=1$. Then
+\[
+ \frac{D_\omega(t)}{t}=
+ \tfrac12 r_\chi J(0)+
+ \tfrac12 s_\chi\Re\!\big(e^{2i\omega t}J(2\omega)\big)+o(1)
+                    \qquad (t\to\infty).
+ \tag{51}
+\]
+In particular $D_\omega(t)\asymp_{\chi,h,\omega}t$ for every fixed
+real $\omega$.
+
+Equation (20m) gives $\sum_{p\le x}|b_\chi(p)|^2\log p=r_\chi x+o(x)$.
+The same tensor product counts the ordered pairs in $b_\chi(p)^2$
+with the two character values multiplied. Each product character on
+$K_i$ is trivial on the uniform positive norm section and is therefore
+a pure norm character only when it is trivial. The prime ideal theorem
+used on \pg{520i} gives
+$\sum_{p\le x} b_\chi(p)^2\log p=s_\chi x+o(x)$.
+The prime-by-prime triangle inequality gives $0\le s_\chi\le r_\chi$,
+and the diagonal factor in (20m) gives $r_\chi\ge1$.
+
+Apply $(\Re z)^2=(|z|^2+\Re z^2)/2$ in (50). For either cumulative
+sum, partial summation against
+$x^{-1+iv}\log x\,h(\log x-t)^2$, with $v=0$ or $2\omega$,
+costs $o(t)$ in the error. Indeed the support has $x\asymp e^t$
+and the integral of $x$ times the absolute derivative is $O_{h,v}(t)$.
+The main integral is $e^{ivt}\big(tJ(v)+O_{h,v}(1)\big)$ by the
+change of variables $y=\log x-t$. This proves (51).
+
+At $\omega=0$ the coefficient is $(r_\chi+s_\chi)J(0)/2>0$.
+For $\omega\ne0$ we have $|J(2\omega)|<J(0)$, since $h^2$ is
+positive on an interval and the phase varies there. Thus the
+diagonal stays of order $\log X$ even at phases where
+$\Re(X^{i\omega})$ vanishes.
+
+\leaf{522af}{The two limits}{13.3 \quad ONE CHARACTER AND ONE FIXED FREQUENCY}{The lower limit of the signed prime correlation}
+For every fixed $\chi$ and all but finitely many $\omega\in[1,2]$,
+\[
+ \liminf_{t\to\infty}\frac{C_\omega(t)}{D_\omega(t)}=-1.
+ \tag{52}
+\]
+The same conclusion holds at $\omega=0$ if $L_{F,f}(s,\chi)$ has no
+real zero in $[1/2,1)$. For every real $\omega$, boundedness above of
+$C_\omega(t)/D_\omega(t)$ for all sufficiently large $t$ is equivalent
+to the Riemann hypothesis for this $\chi$. Under that hypothesis the
+ratio tends to $-1$.
+
+To prove the lower limit, choose $\omega$ so that the shifted zeros
+have no real point in the closed right half of the centered strip.
+The excluded values $\omega=-\Im\rho$ with $\Re\rho\ge1/2$
+form a finite set in $[1,2]$ by the zero count.
+For $\Re z>1/2$ the Laplace transform of $R_\omega$ is
+\[
+ \tfrac12\sum_\lambda m_\lambda
+     \left(\frac{H(w)}{z-w}+\frac{H(\overline w)}{z-\overline w}\right),
+                     \qquad w=\lambda+i\omega .
+\]
+The series extends meromorphically by rapid vertical decay. At a
+coincident pole both multiplicities multiply the same nonzero value
+of $H$, since $h$ is real and (45) gives $H\ne0$ on the strip.
+There is at least one pole with $\Re z\ge0$ by the zero count and
+reflection. None lies on the nonnegative real axis for this $\omega$.
+
+If $R_\omega$ had constant weak sign on a tail, its Laplace integral
+there, with the sign chosen positive, would have a real singularity
+at its abscissa of convergence. That abscissa lies in $[0,1/2]$
+by the preceding pole and the bound $R_\omega(t)=O(e^{t/2})$.
+The assertion for a positive integral follows by Taylor expansion
+at a real point to the right and monotone convergence of the
+exponential series, as on \pg{520h}. Removing a finite initial
+interval changes the transform by an entire function.
+This contradiction proves that the continuous $R_\omega$ takes
+both signs on every tail. At its arbitrarily large zeros,
+$P_\omega(t)=O(1)$, so (50)--(51) give (52). The global lower
+bound $C_\omega\ge-D_\omega$ is immediate from (50).
+
+On the critical line the sum defining $R_\omega$ is bounded by
+$\sum_\lambda m_\lambda |H(\lambda+i\omega)|$, so
+$C_\omega=-D_\omega+O(1)$ at all scales. Conversely, any finite
+upper bound for the ratio gives $P_\omega(t)=O(\sqrt t)$ by (51).
+The transform is then holomorphic on $\Re z>0$. Its residues exclude
+every right-hand zero whether or not one of them is real, proving
+the stated equivalence for every $\omega$.
+
+\leaf{522ag}{Distances between primes}{13.3 \quad UPPER SIEVE FOR NEARBY PAIRS}{Which prime separations supply the cancellation}
+For $X=e^t$ let $C_\omega^{\le Y}(t)$ denote the integral in (50)
+restricted to $0<|x-y|\le Y$. Uniformly for $1\le Y\le X$ and $t$
+sufficiently large, even its absolute contribution satisfies
+\[
+ \iint_{0<|x-y|\le Y}|w_t(x)w_t(y)|\,
+       \mathrm d|\mu_\omega|(x)\,\mathrm d|\mu_\omega|(y)
+                 \ll_{d,h}Y .
+ \tag{53}
+\]
+For a prime pair with difference $k>0$, both primes are in
+$[X/2,2X]$ and each product of weights costs $O_{d,h}((\log X)^2/X)$.
+Odd differences are absent there. For even $k$, the number of such
+pairs is
+\[
+ \ll\frac{X}{(\log X)^2}\prod_{p\mid k,\,p>2}
+                       \left(1+\frac1{p-2}\right).
+\]
+Indeed the two primes avoid $0,-k$ modulo every prime up to
+$X^{1/100}$. The sieve upper bound and Mertens' theorem give the
+display, since these residues coincide exactly at divisors of $k$.
+See \citetitle{https://doi.org/10.1112/jlms.12663}{Tao and Ter\"av\"ainen, Lemma 3.2}.
+On expanding the product in squarefree divisors, its sum over
+$k\le Y$ is at most $Y\prod_{p>2}(1+1/(p(p-2)))\ll Y$.
+The reverse ordering has the same bound.
+
+The continuous pole density has absolute value at most $x^{-1/2}$.
+Its mass within $Y$ of a point, restricted to the support, is
+$O(Y/\sqrt X)$. The total atomic mass on the support is $O_d(\sqrt X)$
+by Chebyshev, and the continuous mass there is $O(\sqrt X)$ as well.
+This proves (53) including the mixed and continuous pairs.
+
+Along the sequence in (52) one has $C_\omega=-D_\omega+O(1)$.
+By (51)--(53) there is a fixed $c_{\chi,h,\omega}>0$ such that the
+signed contribution from $|x-y|>c_{\chi,h,\omega}\log X$ is at most
+$-D_\omega/2$ on an unbounded sequence of $X$. For a nonprincipal
+component this is cancellation among actual pairs of distinct primes.
+
+For ordinary $\zeta$, the alternating eta series gives nonvanishing
+on $[1/2,1)$. For the two characters of \pg{522r}, the Mellin kernels
+of the eta products on \pg{522s} are strictly positive on real
+arguments and their gamma factors are regular in this segment.
+All three functions have real Dirichlet coefficients. Thus at
+$\omega=0$ the real function $R_0$ above is the original
+$B_{\chi,1}$ itself. In all three examples the fixed-width correlation
+in (45) vanishes at arbitrarily large separations.
 
 \sourcepages{523}{535}{The multiplicity assertion and its dependence on the norm section are treated on pages 522f--h.}
 \sourcepages{536}{555}{}
