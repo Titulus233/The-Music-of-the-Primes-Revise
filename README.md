@@ -6,7 +6,7 @@ The quantity under study is the difference between the global narrow-strip trace
 
 For ordinary zeta, Hurst’s complete Möbius sieve through $10^{16}$ gives the target order $O_g(X^\alpha)$ for the filtered test throughout $1\le X\le 10^{32}/e^2$. This finite-range calculation uses arithmetic data through $e\sqrt X$. [Hurst’s sieve](https://doi.org/10.1090/mcom/3275)
 
-**Open proof.** At every fixed $0<\alpha<1/2$, pairs with $|d-e|\le X^\alpha$ already contribute $O(X^{\alpha+\epsilon})$ to the normalized trace. Equation (17.4d) isolates the signed contribution of the remaining pairs near $\sqrt X$. A bound of this order for those pairs at all large $X$ would give (19). For the principal character, folio 514i recovers the original test from the filtered one. The general Hecke zero-location claim remains open.
+**Open proof.** Equation (17.4d) isolates the signed contribution of the pairs near $\sqrt X$ with $|d-e|>X^\alpha$. Bounding it by $O(X^{\alpha+\epsilon})$ at all sufficiently large $X$ gives (19). A single test and a sequence of fixed strip widths tending to zero suffice for the Hecke zero-location claim. [Open proof obligation and required characters](OPEN_PROBLEMS.md)
 
 [Original manuscript (940-page PDF)](https://math216.wordpress.com/wp-content/uploads/2026/11/the-music-of-the-primes.pdf) · [Revised manuscript (PDF)](output/pdf/the-music-of-the-primes-revised.pdf) · [Editable revision (TeX)](src/the-music-of-the-primes-revised.tex)
 
