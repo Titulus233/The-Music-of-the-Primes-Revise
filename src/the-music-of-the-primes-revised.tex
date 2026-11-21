@@ -55,7 +55,7 @@
 \afterfolio{514}{a,b}
 \afterfolio{518}{a}
 \afterfolio{520}{a,b,c,d,e,f,g,h,i,j,k,l,m,n}
-\afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,al,am}
+\afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,al,am,an,ao}
 \afterfolio{558}{a}
 \newcount\originalfolio
 \newcount\physicalfolio
@@ -147,7 +147,7 @@ the closed strip. The last sum includes every missing boundary copy.
 \pagelink{520c}{520c--n}, \pagelink{522i}{522i--m} & The balanced prime sum and a one-sided criterion counting only principal prime ideals over totally imaginary fields.\\[3pt]
 \pagelink{522}{522--522e}, \pagelink{522f}{522f--h} & The prime-sum criterion, the Chapter~13 test space and a CM curve for which the cap loses multiplicity.\\[3pt]
 \pagelink{522n}{522n--o}, \pagelink{522p}{522p--v} & Square-root fluctuations in the cubic splitting count.\\[3pt]
-\pagelink{522w}{522w--y}, \pagelink{522z}{522z--ac}, \mbox{\pagelink{522ad}{522ad--ag}}, \mbox{\pagelink{522ah}{522ah--aj}} & Prime correlations, norm twists and \pagelink{522ak}{the variance of local prime counts (522ak--am)}.\\
+\pagelink{522w}{522w--y}, \pagelink{522z}{522z--ac}, \mbox{\pagelink{522ad}{522ad--ag}}, \mbox{\pagelink{522ah}{522ah--aj}} & Prime correlations, norm twists, \pagelink{522ak}{local variance (522ak--am)} and \pagelink{522an}{its unconditional bound (522an--ao)}.\\
 \end{tabular}
 
 \point{Scope} The Hecke prime-sum criterion is an equivalence.
@@ -2432,8 +2432,9 @@ prime interval has length of order $\sqrt X\log X$. Reconstructing the
 fixed test in (46) costs the reciprocal log width. An independent
 bound at widths $X^{-o(1)}$ in (47) would give zero location.
 The ratio in (52) attains its lower limit. The mean square in (57)
-is $O(\log X)$ for $U\ge X/\log X$. The variance estimate in (59)
-for $U=\exp(\sqrt{\log X})$ remains open.
+is $O(\log X)$ for $U\ge X/\log X$. At $U=\exp(\sqrt{\log X})$,
+(61) saves a factor $\exp(c_\chi(\log X)^{3/5}/(\log\log X)^{1/5})$
+over $X/U$. The subpower variance bound in (59) remains open.
 
 The fixed-place calculation on page 495 fails over $\Q$. The two-prime
 obstruction on page 495b rules out a fixed norm-translation-invariant
@@ -4050,6 +4051,90 @@ $|\Re\rho-1/2|\le(\theta+\kappa)/2$ for every nontrivial zero.
 At $U=X/\log X$ the unconditional variance bound gives
 $\theta=1$ and $\kappa=0$. An independent bound in (59) for each
 character would give the Hecke generalization of the Riemann hypothesis.
+
+\leaf{522an}{The variance at finite height}{13.3 \quad THE SHARP SHORT-INTERVAL COUNT}{An upper bound from zeros up to a chosen height}
+Fix the normalized unitary Hecke character $\chi$ and the test $h$
+of (54). Let $t=\log X\ge1$ and $R\ge\max(2,U)$, where $U\ge1$.
+Write $\rho=\beta+i\gamma$ for a nontrivial zero of $L_{F,f}(s,\chi)$
+and count multiplicities throughout. For the variance in (58),
+\[
+ \mathcal V_\chi(t,U)\ll_{\chi,h}
+  1+\frac{tU}{R}+\frac{XU}{R^2}
+  +\frac{X\log(3R)}{U}\sum_{|\gamma|\le2R}X^{-2(1-\beta)} .
+ \tag{60}
+\]
+The cutoff applies equally when the intervals defining $E_t(s,U)$
+have sharp endpoints and when the character has a pole.
+
+On $|v|\ge R$ the frequency weight in (58) is $O(U/v^2)$.
+By (57), the integral of $|F_t|^2$ on any interval of length $V\ge1$
+is $O_{F,h}(Vt+X)$. Applying this on the two frequency intervals
+$V\le|v|\le2V$ and summing over $V=2^jR$ gives
+$O_{F,h}(tU/R+XU/R^2)$.
+
+On $|v|\le R$, use $F_t(v)=-e^{-ivt}Z_v(t)+O_{F,h}(1)$ from (54).
+The weight in (58) has integral one. For $|\gamma|>2R$ one has
+$|\gamma+v|\ge|\gamma|/2$. Rapid vertical decay of $H$ on the strip
+and the bound $O_\chi(\log(3+|k|))$ for the number of zeros in each
+unit height interval $[k,k+1]$ give a uniform tail $O_{\chi,h}(\sqrt X R^{-2})$.
+The square of this error is absorbed by $XU/R^2$.
+
+Put $w(a)=(1+|a|)^{-2}$. The remaining sum has modulus at most
+$C_h\sum_{|\gamma|\le2R}X^{\beta-1/2}w(\gamma+v)$.
+By Cauchy--Schwarz its square is at most
+\[
+ C_h^2\left(\sum_{|\gamma|\le2R}w(\gamma+v)\right)
+       \left(\sum_{|\gamma|\le2R}X^{2\beta-1}w(\gamma+v)\right).
+\]
+The first factor in parentheses is $O_\chi(\log(3R))$ by the same
+unit-interval count. In the second, the integral of each translate
+of $w$ against the frequency weight is $O(1/U)$, since the weight is
+pointwise at most $1/(2\pi U)$. This proves (60).
+
+\leaf{522ao}{The unconditional variance bound}{13.3 \quad SAVING AT THE SCALE OF THE VARIANCE CRITERION}{A saving for every fixed Hecke character}
+For $t=\log X$ sufficiently large set
+\[
+ S(t)=t^{3/5}(\log t)^{-1/5},\qquad L=S(t)+\log(3U).
+\]
+There are $a_\chi,c_\chi>0$ such that, for $1\le U\le X^{a_\chi}$,
+\[
+ \mathcal V_\chi(t,U)\ll_{\chi,h}\frac XU
+       \exp\!\left(-\frac{c_\chi t}{L^{2/3}(\log L)^{1/3}}\right).
+ \tag{61}
+\]
+At $U=e^{\sqrt t}$ the right side is $O_{\chi,h}((X/U)e^{-c'_\chi S(t)})$.
+For fixed $0<\theta\le a_\chi$ and $U=X^\theta$, the saving over
+$X/U$ is at least $\exp(c_{\chi,\theta}(t/\log t)^{1/3})$.
+
+Let $N_\chi(\sigma,T)$ count zeros with $\beta\ge\sigma$ and
+$|\gamma|\le T$. For fixed $\chi$ and large $T$, the
+\citetitle{https://lemkeoliver.github.io/papers/15-AutoLFZDE.pdf}{density
+theorem of Lemke Oliver and Thorner, Corollary 1.2}, applied in degree
+one over $F$, gives $N_\chi(\sigma,T)\ll_\chi T^{A_\chi(1-\sigma)}$
+for $1/2\le\sigma\le1$ and a fixed $A_\chi>0$.
+\citetitle{https://doi.org/10.1112/S0025579300013000}{Coleman's
+zero-free region, Theorem 2}, gives $\beta\le1-\eta$ up to $2R$ with
+$\eta=b_\chi L^{-2/3}(\log L)^{-1/3}$ and $R=e^L$.
+At bounded height all zeros have $\beta<1$. Their finite gaps from
+one, including that of a possible exceptional real zero for this fixed
+character, are absorbed by taking $t$ sufficiently large.
+
+Choose $a_\chi<1/4$ small enough that $A_\chi\log(2R)\le t$
+throughout the stated range for large $t$. Reflection pairs $\beta$
+and $1-\beta$ at the same height. The sum in (60) is therefore at most
+twice the sum for $\beta\ge1/2$. The latter is bounded by
+\[
+ e^{-t}N_\chi(1/2,2R)+
+ 2t\int_{1/2}^{1-\eta} e^{-2t(1-\sigma)}N_\chi(\sigma,2R)\dd\sigma
+ \ll_\chi e^{-t/2}+e^{-\eta t}.
+\]
+Here the density bound costs at most $\exp(t(1-\sigma))$ inside the
+integral. The factor $\log(3R)$ in (60) is absorbed by reducing the
+constant in the exponent, since $\eta t\gg_\chi(t/\log t)^{1/3}$.
+Finally $R=3Ue^{S(t)}$ and $t/(L^{2/3}(\log L)^{1/3})\ll S(t)$.
+The other terms in (60) obey (61). At $U=e^{\sqrt t}$ the exponent
+$\log((X/U)e^{-c'_\chi S(t)})/t$ tends to one. Equation (59) requires
+an upper exponent of zero.
 
 \sourcepages{523}{535}{The multiplicity assertion and its dependence on the norm section are treated on pages 522f--h.}
 \sourcepages{536}{555}{}
