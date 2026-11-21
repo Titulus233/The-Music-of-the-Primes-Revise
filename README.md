@@ -1,10 +1,10 @@
 # The Music of the Primes
 
-**Last updated 21 November 2026.** Revision `2026-11-21.2` reaches manuscript folio **522y, equation (45)**. The revised manuscript has 1,005 pages.
+**Last updated 21 November 2026.** Revision `2026-11-21.3` reaches manuscript folio **522ac, equation (49)**. The revised manuscript has 1,009 pages.
 
-For every unitary Hecke character, the Weil quadratic form is positive on every nonzero test function supported in an interval of length at most $1/16$ in logarithmic coordinates. Equation (43) gives an explicit lower bound from the archimedean factors, conductor and prime powers. The revision also identifies the full-strip trace, the zeros lost on narrowing the strip, and two-sided square-root fluctuations for the splitting of $x^3-x-1$ modulo primes. [Dated results and proof locations](PROGRESS.md)
+For every normalized unitary Hecke character and every sufficiently large $X$, equation (48) bounds the correlation between a test and its translate when the prime powers it samples lie in an interval of length comparable to $\sqrt X\log X$. The test narrows as $X$ grows. For ordinary zeta, equation (49) also proves the correlation bound at a single fixed width for $1\le X\le 10^{19}e^{-1/128}$. [Dated results and proof locations](PROGRESS.md)
 
-**Open proof.** Fix the smooth test $g$ on folio 522y. For each character $\chi$, equation (45) shows that zero location is equivalent to bounding the correlation between $g$ and its translate by $Q_\chi(g)$ at every separation. The inequality is proved for separations up to $1/64$ for all characters. The estimate at arbitrarily large separations for the same character remains open. Chapter 12 expresses the gap as the geometric trace estimate (19) on folio 520. The general Hecke Riemann hypothesis remains open in this manuscript.
+**Open proof.** For each fixed character, it would suffice to prove the correlation bound at every sufficiently large $X$ for one sequence of relative interval widths $r=X^{-o(1)}$. Equation (46) reconstructs the original test exactly with a factor $1/r$. At the widths covered by (48), that factor has exponent $1/2$. The estimate at the wider intervals required by (47) remains open, as does the independent geometric trace estimate (19) on folio 520. The manuscript therefore leaves the Hecke Riemann hypothesis open.
 
 [Original manuscript (940-page PDF)](https://math216.wordpress.com/wp-content/uploads/2026/11/the-music-of-the-primes.pdf) · [Revised manuscript (PDF)](output/pdf/the-music-of-the-primes-revised.pdf) · [Editable revision (TeX)](src/the-music-of-the-primes-revised.tex)
 
@@ -18,8 +18,9 @@ For every unitary Hecke character, the Weil quadratic form is positive on every 
 | 522f–522h | A Hecke zero of order at least three gives a counterexample to the multiplicity cap used in Chapter 13. |
 | 522l–522v | Principal prime ideals, finite-height Gaussian averages, and the two-sided oscillation in (42). |
 | 522w–522y | A lower bound for the Weil form on a log interval, its dependence on the conductor, and the correlation that must stay bounded for widely separated translates. |
+| 522z–522ac | Reconstruction from narrower tests, the resulting zero strip, a short-interval sieve bound valid at every large separation, and a fixed-width estimate for ordinary zeta. |
 
-Folio numbers follow the manuscript. An appended letter identifies an inserted page. For example, folios 522w–522y are PDF pages 584–586. The contents on manuscript folio 2 link to the proofs.
+Folio numbers follow the manuscript. A letter suffix identifies an inserted page. Folios 522z–522ac are PDF pages 587–590. The contents on manuscript folio 2 link to the proofs.
 
 ## Files and build
 

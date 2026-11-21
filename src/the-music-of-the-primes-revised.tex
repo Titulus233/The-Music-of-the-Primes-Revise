@@ -55,7 +55,7 @@
 \afterfolio{514}{a,b}
 \afterfolio{518}{a}
 \afterfolio{520}{a,b,c,d,e,f,g,h,i,j,k,l,m,n}
-\afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y}
+\afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac}
 \afterfolio{558}{a}
 \newcount\originalfolio
 \newcount\physicalfolio
@@ -146,7 +146,8 @@ the closed strip. The last sum includes every missing boundary copy.
 \pagelink{514a}{514a--b}, \pagelink{520}{520--520b} & The full-strip formula, the omitted zeros and the consequence of a fixed zero-free half-plane.\\[3pt]
 \pagelink{520c}{520c--n}, \pagelink{522i}{522i--m} & The balanced prime sum and a one-sided criterion counting only principal prime ideals over totally imaginary fields.\\[3pt]
 \pagelink{522}{522--522e}, \pagelink{522f}{522f--h} & The prime-sum criterion, the Chapter~13 test space and a CM curve for which the cap loses multiplicity.\\[3pt]
-\pagelink{522n}{522n--o}, \pagelink{522p}{522p--v}, \mbox{\pagelink{522w}{522w--y}} & Cubic splitting oscillations, Weil positivity on short intervals, and a criterion using two translates.\\
+\pagelink{522n}{522n--o}, \pagelink{522p}{522p--v} & Square-root fluctuations in the cubic splitting count.\\[3pt]
+\pagelink{522w}{522w--y}, \pagelink{522z}{522z--ac} & Two translates, short prime intervals at every large scale, and a fixed test for ordinary $\zeta$.\\
 \end{tabular}
 
 \point{Scope} The Hecke prime-sum criterion is an equivalence.
@@ -2426,9 +2427,10 @@ the most highly factored integer indices. In the trivial component
 pairs and composite indices. Equation (35) uses only principal prime
 generators. Equations (40)--(42) give a square-root term after Gaussian
 averaging and oscillations for the cubic splitting count. Equations
-(43)--(45) give positivity on short log intervals and isolate the
-correlation between two translates. The bound (38) as $\kappa\downarrow0$
-for every remaining character is open.
+(43)--(49) control two translates at every large separation when the
+prime interval has length of order $\sqrt X\log X$. Reconstructing the
+fixed test in (46) costs the reciprocal log width. An independent
+bound at widths $X^{-o(1)}$ in (47) would give zero location.
 
 The fixed-place calculation on page 495 fails over $\Q$. The two-prime
 obstruction on page 495b rules out a fixed norm-translation-invariant
@@ -3447,6 +3449,178 @@ contributes, with $e^{-au}\le e^{-u/4}$. The second polar term is
 also $O_g(e^{-\tau/2})$. The remaining bound is thus a cancellation
 estimate for prime powers near $e^\tau$ at arbitrarily large separations
 for the same character.
+
+\leaf{522z}{Dilations of the test}{13.3 \quad AN IDENTITY FOR THE FIXED TEST}{Reconstruction from narrower log intervals}
+For $0<r\le1$ set $g_r(x)=r^{-1/2}e^x b(8x/r)$,
+$h_r=g_r*g_r^\sharp$, $M_r=h_r(0)$, and $q_{\chi,r}=Q_\chi(g_r)$.
+Here $g_1$ is the test of (45), and the support length of $g_r$ is
+$\ell r$, where $\ell=1/16$. Write $H_r$ for the transform of $h_r$ and
+$B_{\chi,r}(t)=\sum_\lambda m_\lambda H_r(\lambda)e^{t\lambda}$.
+For every $r=2^{-m}$, $m=0,1,\ldots$, there is an even positive measure
+$\nu_m$ supported in $[-\ell,\ell]$ with mass at most $e^{7/16}$ such that
+\[
+ B_{\chi,1}(t)=\frac1r\int B_{\chi,r}(t+y)\dd\nu_m(y).
+ \tag{46}
+\]
+
+To construct it, let $Y=(5/4+\sum_{k\ge1}U_k)/8$ with the uniforms
+from (22). Splitting the sum after $m$ terms gives $Y$ the law of
+$Z_m+rY'$, where $Y'$ is an independent copy of $Y$ and
+\[
+ Z_m=\big((1-r)5/4+\textstyle\sum_{k=1}^{m}U_k\big)/8 .
+\]
+Its range is $[(1-r)5/32,(1-r)7/32]$. Multiply the law of $Z_m$
+by $e^y$ to obtain $\mu_m$. The densities of $Y$ and $rY'$ are
+$8b(8x)$ and $8b(8x/r)/r$. Multiplying their convolution identity
+by $e^x$ gives $g_1=r^{-1/2}\mu_m*g_r$.
+Take $\nu_m=\mu_m*\mu_m^\sharp$, with $\mu_m^\sharp$ its reflection.
+Then $h_1=r^{-1}\nu_m*h_r$, which gives (46) by absolute convergence
+of the zero sum for each $r$. The total mass of $\mu_m$ lies between
+$1$ and $e^{7/32}$, so the positive measure in (46), including $1/r$,
+has mass between $1/r$ and $e^{7/16}/r$.
+
+\point{The diagonal term} Uniformly for $0<r\le1$, $M_r$ is bounded
+above and away from zero, since $M_r=\int b(u)^2e^{ru/4}\dd u/8$.
+For a fixed $\chi$,
+\[
+ q_{\chi,r}=M_r\big(d\log(1/r)+O_{\chi,g_1}(1)\big).
+\]
+Indeed, $\|g'_r\|_2\ll\|g_r\|_2/r$, so
+$|h_r(x)-M_r|\ll M_r |x|/r$. The part $0<u<2\ell r$ of the
+digamma integral on \pg{522w} is $O_{\chi,g_1}(M_r)$. Its tail is
+$-M_r\log(1-e^{-2\ell r})=M_r(\log(1/r)+O(1))$.
+No finite prime shift occurs on the diagonal. The polar and conductor
+terms in (44) are $O_{\chi,g_1}(M_r)$.
+
+\leaf{522aa}{Widths and zeros}{13.3 \quad THE COST OF RECONSTRUCTION}{What a shrinking test can detect}
+Fix one normalized unitary Hecke character $\chi$. For each sufficiently
+large integer $j$, choose a dyadic width $r_j\le1$, and put
+\[
+ I_j=[j-\ell,j+1+\ell],\qquad
+ \theta=\limsup_{j\to\infty}\frac{\log(1/r_j)}{j}.
+\]
+For finite $\theta$, a bound on these intervals confines the zeros to a strip.
+\begin{align*}
+ &|B_{\chi,r_j}(t)|\le q_{\chi,r_j}
+                \quad(t\in I_j,\ j\ \text{sufficiently large})\\
+ &\hspace{36pt}\Longrightarrow\quad
+       |\Re\rho-1/2|\le\theta
+       \quad\text{for every nontrivial zero of }L_{F,f}(s,\chi).
+ \tag{47}
+\end{align*}
+For $\tau\in[j,j+1]$, all the translates in (46) lie in $I_j$.
+The diagonal estimate therefore gives
+\[
+ |B_{\chi,1}(\tau)|\ll_{\chi,g_1}r_j^{-1}\big(1+\log(1/r_j)\big).
+\]
+For each $\epsilon>0$ this is $O_{\chi,g_1,\epsilon,(r_j)}
+(e^{(\theta+\epsilon)\tau})$. The Laplace transform in (45)
+is then holomorphic on $\Re z>\theta$. Each centered zero there
+would have nonzero residue $m_\lambda H_1(\lambda)$, since (22)
+gives $H_1(\lambda)\ne0$ throughout the strip. Reflection proves (47).
+
+In particular the bound on $I_j$ for one sequence with
+$r_j\to0$ and $\log(1/r_j)=o(j)$ suffices for this character's
+Riemann hypothesis. Conversely, on the critical line the spectral
+sum for each $B_{\chi,r}$ is a sum of phases with nonnegative weights
+$m_\lambda|G_r(\lambda)|^2$. Their sum is $q_{\chi,r}$, so the
+inequality holds for every $r$ and every separation. Here
+$G_r(z)=\sqrt r\,V(r(1+z)/8)/8$ as follows by substitution.
+
+With $X=e^t$, the prime powers in the translated test lie between
+$Xe^{-\ell r}$ and $Xe^{\ell r}$. At $t\in I_j$ a width of the
+form $r_j=e^{-\theta j+o(j)}$ thus samples an interval of length
+$X^{1-\theta+o(1)}$. The next page proves the inequality on every
+sufficiently large $I_j$ with length of order $\sqrt X\log X$.
+At these widths the exponent in (47) is $1/2$. To obtain the
+critical line by (47), the corresponding interval length must be
+$X^{1-o(1)}$ for one sequence satisfying the bound.
+
+\leaf{522ab}{Prime intervals}{13.3 \quad AN UNCONDITIONAL ESTIMATE FOR ALL LARGE SEPARATIONS}{Positivity on intervals of length \(\sqrt X\log X\)}
+Let $r=r_j$ be the largest dyadic number at most
+$j e^{-j/2}/4$, so $j e^{-j/2}/8<r\le j e^{-j/2}/4$ for large $j$.
+For every normalized unitary Hecke character, uniformly in the number
+field and character,
+\[
+ |B_{\chi,r}(t)|<q_{\chi,r}\qquad(t\in I_j,\ j\ \text{sufficiently large}).
+ \tag{48}
+\]
+For $X=e^t$ and $L=\ell r$ the interval $[Xe^{-L},Xe^L]$ has length
+$Y=2X\sinh L\asymp\sqrt X\log X$, and $\log Y\sim(\log X)/2$
+uniformly on $I_j$. By the short-interval Brun--Titchmarsh inequality,
+the number of primes in it is at most $2Y/\log Y+1$.
+Consequently the sum of $\log p/\sqrt p$ over them is bounded by
+$(4+o(1))Y/\sqrt X=(8\ell+o(1))r\sqrt X$.
+See \citetitle{https://doi.org/10.1112/S0025579300004708}{Montgomery and Vaughan, Theorem 2, (1.12)}.
+
+All higher rational prime powers in this interval together contribute
+$O(1)$ with weights $\log p/\sqrt{p^k}$. Indeed Chebyshev's bound gives
+$\sum_{p^k\le 2X,\, k\ge2}\log p\ll\sqrt X+X^{1/3}\log X$, and every
+denominator in the interval is at least $\sqrt{Xe^{-L}}$.
+The coefficient bound at each $p^k$ in (44) contributes at most
+a factor $d$. Also $|h_r|\le M_r$.
+
+In the mixed term of (44) there is no conductor contribution
+since $t>L$. Each archimedean integral is $O(LM_r/\sqrt X)$
+by its kernel on \pg{522y}, uniformly in the archimedean shifts.
+From the support of $h_r$ we have
+$|H_r(\pm1/2)|\le 2LM_r e^{L/2}$. Including the principal pole gives
+\[
+ \frac{|B_{\chi,r}(t)|}{dM_r}
+       \le (10\ell+o(1))r\sqrt X+O(1).
+\]
+Here $r\sqrt X\le j e^{(1+\ell)/2}/4$ on $I_j$ and
+$10\ell e^{(1+\ell)/2}/4<1/3$. On the diagonal, (43) gives
+$q_{\chi,r}/(dM_r)\ge j/2-\log j-O(1)$, since $D_\chi\ge1$.
+The constants and the threshold in this comparison are absolute
+for the fixed test of (45). This proves (48).
+
+\leaf{522ac}{The rational component}{13.3 \quad A FIXED WIDTH AND AN EXPLICIT PRIME ESTIMATE}{A fixed test through prime norm \(10^{19}\)}
+For ordinary $\zeta$ fix $r=1/8$ and $L=\ell r=1/128$. At this
+single width the translated test satisfies
+\[
+       |B_{1,r}(\tau)|\le q_{1,r}
+       \qquad(0\le\tau\le19\log 10-L).
+ \tag{49}
+\]
+By (43), $q_{1,r}>2.4M_r$. For $0\le\tau\le1/32$ the combined
+support has length at most $L+1/32<1/16$, so (43) gives (49)
+by the two-by-two form in (45).
+
+For $\tau\ge1/32$ put $X=e^\tau$. The archimedean term of the
+mixed form has absolute value at most
+\[
+ A(\tau)=\frac{2L M_r e^{-(\tau-L)/2}}{1-e^{-2(\tau-L)}}.
+\]
+This follows directly from the real-place kernel in (17) since
+$T_\tau h_r$ is supported on the positive half-line. When $X\le12$
+the prime interval has length at most $24\sinh L<1$. Its single
+possible integer contributes at most $(2/e)M_r$ since
+$\Lambda(n)/\sqrt n\le\log n/\sqrt n\le2/e$.
+Here $A(\tau)<0.35M_r$, and both poles together have absolute value
+at most $2Le^{L/2}(\sqrt{12}+1)M_r<0.08M_r$.
+
+For $12\le X\le10^{19}e^{-L}$ the whole interval lies in
+$(11,10^{19}]$. There $|\psi(x)-x|\le0.94\sqrt x$ by
+\citetitle{https://arxiv.org/abs/1511.02032}{B\"uthe, Theorem 2, (1.5)}.
+Integration of $f(x)=x^{-1/2}h_r(\log x-\tau)$ against $\dd x$
+equals the positive pole $\sqrt X H_r(1/2)$. Stieltjes integration
+by parts bounds the difference from its prime-power sum by
+\[
+ 0.94\int_{\R}|h'_r(u)-h_r(u)/2|\dd u
+          \le0.94(2+L)M_r.
+\]
+Indeed $h_r$ is even and nonincreasing on $[0,\infty)$. To see this,
+exponentially tilt the independent uniforms defining $g_r$ after
+rescaling. Each tilted interval density $e^x\mathbf1_{[0,a]}(x)$,
+up to a constant, has autocorrelation proportional to
+$e^{2a-x}-e^x$ for $0\le x\le a$ and zero for $x>a$. Convolution
+preserves even decrease by writing the factors as mixtures of
+centered interval indicators. The finite convolutions converge
+weakly to the smooth autocorrelation after normalization, giving
+the same monotonicity. Thus $\|h'_r\|_1=2M_r$ and
+$\|h_r\|_1\le2LM_r$. For $X\ge12$ the remaining pole together with
+$A(\tau)$ costs less than $0.02M_r$, proving (49).
 
 \sourcepages{523}{535}{The multiplicity assertion and its dependence on the norm section are treated on pages 522f--h.}
 \sourcepages{536}{555}{}
