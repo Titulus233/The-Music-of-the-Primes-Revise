@@ -1,5 +1,14 @@
 # Proof progress
 
+## 2026-11-21 · Revision `2026-11-21.7`
+
+Folios 522an–522ao are pages 601–602 of the [1,021-page edition][pdf7]. Both estimates apply to the sharp intervals and the fixed character in (58).
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [522ao · (61)][f522ao] | At $U=\exp(\sqrt{\log X})$, the bound $X/U$ for the normalized variance gains the factor $\exp(-c_\chi (\log X)^{3/5}/(\log\log X)^{1/5})$. The general estimate also covers $U\le X^{a_\chi}$ for some fixed $a_\chi>0$. The logarithm of the bound divided by $\log X$ still tends to one at the stated subpower scale. | [fafb857][density] |
+| [522an · (60)][f522an] | For each cutoff $R\ge\max(2,U)$, the arithmetic frequency tail costs $O_{F,h}(U\log X/R+XU/R^2)$. The other term reduces to an explicit positive sum over zeros up to height $2R$, to which the fixed-character zero-free region and density theorem apply. | [fafb857][density] |
+
 ## 2026-11-21 · Revision `2026-11-21.6`
 
 Folios 522ak–522am are pages 598–600 of the [1,019-page edition][pdf6]. Near prime norm $X$, an interval of log length $1/U$ has ordinary length of order $X/U$.
@@ -73,6 +82,10 @@ The [1,002-page edition][pdf1] records the following results. Folio numbers are 
 | [446–446d · (4)–(9), original Theorem 10.2.2.1][f446] | Translates of an arithmetic theta generator span the closed space defined by the zero conditions. Formula (4) gives the exact boundary multiplicity at every strip width and Sobolev degree, including width zero. | [4a9ad57][edition] |
 | [29 · (1)–(3)][f29] | Translating a compactly supported test and taking a Laplace transform produces a pole at each omitted zero. Equality of the full and narrow traces on all these tests forces the omitted set to be empty. | [4a9ad57][edition] |
 
+[density]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/fafb857ea87e094942ba72e8c6f7623aa67ceda6
+[pdf7]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/fafb857ea87e094942ba72e8c6f7623aa67ceda6/output/pdf/the-music-of-the-primes-revised.pdf
+[f522ao]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/fafb857ea87e094942ba72e8c6f7623aa67ceda6/src/the-music-of-the-primes-revised.tex#L4094
+[f522an]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/fafb857ea87e094942ba72e8c6f7623aa67ceda6/src/the-music-of-the-primes-revised.tex#L4055
 [variance]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/9abdc42fd396b4c6f3d7b8dca3a9aebf594b0881
 [pdf6]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/9abdc42fd396b4c6f3d7b8dca3a9aebf594b0881/output/pdf/the-music-of-the-primes-revised.pdf
 [f522am]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/9abdc42fd396b4c6f3d7b8dca3a9aebf594b0881/src/the-music-of-the-primes-revised.tex#L4013
