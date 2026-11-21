@@ -1,5 +1,56 @@
 # Proof progress
 
+## 2026-11-21 · Revision `2026-11-21.8`
+
+Folios 520o–520r are pages 560–563 of the [1,025-page edition][pdf8]. All four statements use the same fixed test. The logarithmic translation is $\tau=\log X$.
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [520r · (20x)][f520r] | For ordinary zeta and the explicit weight $v_*$, the weighted prime-sum error is at most $10^5\sqrt X$ throughout $1\le X\le e^{300000}$. With this numerical constant its extension to every $X\ge1$ is equivalent to RH. | [aae3b39][detector] |
+| [520q · (20w)][f520q] | In degree four, the absolute trace defect for ordinary zeta is less than $e^{-140000}$ for $0\le\tau\le300000$ at every strip half-width, including zero. The published simplicity and location of the zeros up to $3\cdot10^{12}$ remove their contributions exactly. An inverse-square sum bounds all higher ordinates. | [aae3b39][detector] |
+| [520p · (20v)][f520p] | For every fixed normalized unitary Hecke character, removing margins of width $b_\chi/((\log\tau)^{2/3}(\log\log\tau)^{1/3})$ from the full strip leaves absolute trace defect $O_\chi(\exp(-a\tau^2/4))$. These widths approach the full strip. The geometric estimate at arbitrarily small fixed widths remains open. | [aae3b39][detector] |
+| [520o · (20u)][f520o] | A nonnegative smooth log-space test has integral one, a nonvanishing transform throughout the critical strip and absolute transform bounded by $8\exp(-a\sqrt{\lvert u\rvert})$ at height $u$, with $a=(\log 2)/4$. Every omitted zero retains a nonzero Laplace residue. | [aae3b39][detector] |
+
+## 2026-11-21 · Revision `2026-11-21.7`
+
+Folios 522an–522ao are pages 601–602 of the [1,021-page edition][pdf7]. Both estimates apply to the sharp intervals and the fixed character in (58).
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [522ao · (61)][f522ao] | At $U=\exp(\sqrt{\log X})$, the bound $X/U$ for the normalized variance gains the factor $\exp(-c_\chi (\log X)^{3/5}/(\log\log X)^{1/5})$. The general estimate also covers $U\le X^{a_\chi}$ for some fixed $a_\chi>0$. The logarithm of the bound divided by $\log X$ still tends to one at the stated subpower scale. | [fafb857][density] |
+| [522an · (60)][f522an] | For each cutoff $R\ge\max(2,U)$, the arithmetic frequency tail costs $O_{F,h}(U\log X/R+XU/R^2)$. The other term reduces to an explicit positive sum over zeros up to height $2R$, to which the fixed-character zero-free region and density theorem apply. | [fafb857][density] |
+
+## 2026-11-21 · Revision `2026-11-21.6`
+
+Folios 522ak–522am are pages 598–600 of the [1,019-page edition][pdf6]. Near prime norm $X$, an interval of log length $1/U$ has ordinary length of order $X/U$.
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [522am · (59)][f522am] | For any prescribed $U=X^{o(1)}\ge1$, a normalized short-interval variance of $O_{\chi,h,U,\epsilon}(X^\epsilon)$ for every $\epsilon>0$ is equivalent to RH for the fixed character. For $U=X^\theta$, the same upper bound confines every nontrivial zero to within $\theta/2$ of the critical line. The estimate for $U=\exp(\sqrt{\log X})$ remains open. | [9abdc42][variance] |
+| [522al · (58)][f522al] | Integrating squared local prime counts gives a triangular kernel on pairs and a squared sinc weight in frequency. Distinct pairs enter only at log distance at most $1/U$. Their total contribution, including the continuous pole subtraction when present, has absolute value $O_{F,h}(X/U)$. | [9abdc42][variance] |
+| [522ak · (57)][f522ak] | On every frequency interval of length $U\ge X/\log X$ the unweighted mean square is $O_{F,h}(\log X)$. If $U\log X/X\to\infty$, its leading term is $r_\chi J(0)\log X$, uniformly in the position of the interval. The two-prime sieve controls the error for a smooth frequency weight. | [9abdc42][variance] |
+
+## 2026-11-21 · Revision `2026-11-21.5`
+
+Folios 522ah–522aj are pages 595–597 of the [1,016-page edition][pdf5]. The field and Hecke character stay fixed. The mean is over the real frequency $v$ of the norm twist in $[U,2U]$.
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [522aj · (56)][f522aj] | For all but a set of frequencies of measure $O_{\chi,h}(U/\log U)$, the same twist has correlation at most half its diagonal value in absolute value at every scale $e\le X\le\sqrt{U\log U}$. Each fixed zero contributes $O_{\rho,h,A}(U^{-A})$ throughout this range for every $A>0$. | [7913485][frequency] |
+| [522ai · (55)][f522ai] | For any prescribed $1\le U=o(\log X)$, a mean-square bound of $O_{\chi,h,U,\epsilon}(X^\epsilon)$ at every sufficiently large $X$ for every $\epsilon>0$ is equivalent to RH for the fixed character. Polynomial interpolation recovers the frequency-zero value. An independent estimate in this range remains open. | [7913485][frequency] |
+| [522ah · (54)][f522ah] | When $U\ge X$, the centered prime sum has mean square $O_{F,h}(1+\log X)$. This also bounds the mean of the positive part of the distinct-pair contribution from (50). The proof uses a Dirichlet polynomial mean-value estimate and includes the pole subtraction for the principal character. | [7913485][frequency] |
+
+## 2026-11-21 · Revision `2026-11-21.4`
+
+Folios 522ad–522ag are pages 591–594 of the [1,013-page edition][pdf4]. The test has fixed log support throughout.
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [522ag · (53)][f522ag] | Pairs at distance at most $Y$ make an absolute contribution $O_{d,h}(Y)$. Along an unbounded sequence, pairs farther apart than a fixed positive multiple of $\log X$ supply at least half the diagonal term in negative signed contribution, with pole subtraction for the principal component. For ordinary zeta and both dihedral examples, the original correlation (45) vanishes at arbitrarily large separations. | [dbb1904][pairs] |
+| [522af · (52)][f522af] | For each fixed Hecke character and all but finitely many frequencies in $[1,2]$, the ratio of the centered distinct-pair term to the diagonal has lower limit $-1$. A finite upper bound at all sufficiently large scales is equivalent to zero location for that character. | [dbb1904][pairs] |
+| [522ae · (51)][f522ae] | The diagonal is of order $\log X$. Its leading coefficient, including the oscillation from the frequency shift, follows from the two character products on $F\otimes_{\mathbb Q} F$. | [dbb1904][pairs] |
+| [522ad · (50)][f522ad] | The square of the centered real prime sum splits exactly into the diagonal and the signed contribution from distinct pairs. The prime sum recovers the real part of the translated trace up to bounded error. | [dbb1904][pairs] |
+
 ## 2026-11-21 · Revision `2026-11-21.3`
 
 Folios 522z–522ac are pages 587–590 of the [1,009-page edition][pdf3]. Here $X$ is the central prime norm and $t=\log X$ is the separation of the two test functions.
@@ -42,6 +93,32 @@ The [1,002-page edition][pdf1] records the following results. Folio numbers are 
 | [446–446d · (4)–(9), original Theorem 10.2.2.1][f446] | Translates of an arithmetic theta generator span the closed space defined by the zero conditions. Formula (4) gives the exact boundary multiplicity at every strip width and Sobolev degree, including width zero. | [4a9ad57][edition] |
 | [29 · (1)–(3)][f29] | Translating a compactly supported test and taking a Laplace transform produces a pole at each omitted zero. Equality of the full and narrow traces on all these tests forces the omitted set to be empty. | [4a9ad57][edition] |
 
+[detector]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/aae3b391e90cc5b32d9349990f5a2abe0d2ccde1
+[pdf8]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/aae3b391e90cc5b32d9349990f5a2abe0d2ccde1/output/pdf/the-music-of-the-primes-revised.pdf
+[f520r]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/aae3b391e90cc5b32d9349990f5a2abe0d2ccde1/src/the-music-of-the-primes-revised.tex#L2311
+[f520q]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/aae3b391e90cc5b32d9349990f5a2abe0d2ccde1/src/the-music-of-the-primes-revised.tex#L2270
+[f520p]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/aae3b391e90cc5b32d9349990f5a2abe0d2ccde1/src/the-music-of-the-primes-revised.tex#L2226
+[f520o]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/aae3b391e90cc5b32d9349990f5a2abe0d2ccde1/src/the-music-of-the-primes-revised.tex#L2187
+[density]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/fafb857ea87e094942ba72e8c6f7623aa67ceda6
+[pdf7]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/fafb857ea87e094942ba72e8c6f7623aa67ceda6/output/pdf/the-music-of-the-primes-revised.pdf
+[f522ao]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/fafb857ea87e094942ba72e8c6f7623aa67ceda6/src/the-music-of-the-primes-revised.tex#L4094
+[f522an]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/fafb857ea87e094942ba72e8c6f7623aa67ceda6/src/the-music-of-the-primes-revised.tex#L4055
+[variance]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/9abdc42fd396b4c6f3d7b8dca3a9aebf594b0881
+[pdf6]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/9abdc42fd396b4c6f3d7b8dca3a9aebf594b0881/output/pdf/the-music-of-the-primes-revised.pdf
+[f522am]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/9abdc42fd396b4c6f3d7b8dca3a9aebf594b0881/src/the-music-of-the-primes-revised.tex#L4013
+[f522al]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/9abdc42fd396b4c6f3d7b8dca3a9aebf594b0881/src/the-music-of-the-primes-revised.tex#L3974
+[f522ak]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/9abdc42fd396b4c6f3d7b8dca3a9aebf594b0881/src/the-music-of-the-primes-revised.tex#L3933
+[frequency]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/7913485a8dd1d3461711d5822d1ecc5453be52bc
+[pdf5]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/7913485a8dd1d3461711d5822d1ecc5453be52bc/output/pdf/the-music-of-the-primes-revised.pdf
+[f522aj]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/7913485a8dd1d3461711d5822d1ecc5453be52bc/src/the-music-of-the-primes-revised.tex#L3890
+[f522ai]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/7913485a8dd1d3461711d5822d1ecc5453be52bc/src/the-music-of-the-primes-revised.tex#L3848
+[f522ah]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/7913485a8dd1d3461711d5822d1ecc5453be52bc/src/the-music-of-the-primes-revised.tex#L3806
+[pairs]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/dbb190435bdd4a21e7ba4c37a3818b763af9495e
+[pdf4]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/dbb190435bdd4a21e7ba4c37a3818b763af9495e/output/pdf/the-music-of-the-primes-revised.pdf
+[f522ag]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/dbb190435bdd4a21e7ba4c37a3818b763af9495e/src/the-music-of-the-primes-revised.tex#L3758
+[f522af]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/dbb190435bdd4a21e7ba4c37a3818b763af9495e/src/the-music-of-the-primes-revised.tex#L3709
+[f522ae]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/dbb190435bdd4a21e7ba4c37a3818b763af9495e/src/the-music-of-the-primes-revised.tex#L3670
+[f522ad]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/dbb190435bdd4a21e7ba4c37a3818b763af9495e/src/the-music-of-the-primes-revised.tex#L3627
 [intervals]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/41d0a7dda379e7a0443c68e1dc35fd6c7d852266
 [pdf3]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/41d0a7dda379e7a0443c68e1dc35fd6c7d852266/output/pdf/the-music-of-the-primes-revised.pdf
 [f522ac]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/41d0a7dda379e7a0443c68e1dc35fd6c7d852266/src/the-music-of-the-primes-revised.tex#L3578

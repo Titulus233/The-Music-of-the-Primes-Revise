@@ -54,8 +54,8 @@
 \afterfolio{508}{a}
 \afterfolio{514}{a,b}
 \afterfolio{518}{a}
-\afterfolio{520}{a,b,c,d,e,f,g,h,i,j,k,l,m,n}
-\afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac}
+\afterfolio{520}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r}
+\afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,al,am,an,ao}
 \afterfolio{558}{a}
 \newcount\originalfolio
 \newcount\physicalfolio
@@ -143,11 +143,11 @@ the closed strip. The last sum includes every missing boundary copy.
 \pagelink{488a}{488a--d}, \pagelink{488e}{488e--f}, \pagelink{489a}{489a--b} & Finite levels exhaust the component even when all primes up to a growing bound are imposed together.\\[3pt]
 \pagelink{495}{495--495b} & A counterexample at $2$ and an obstruction to recovering two prime traces with a fixed lift.\\[3pt]
 \pagelink{508a}{508a}, \pagelink{518a}{518a} & A valid rational fundamental domain and the lower-cutoff term at the real place.\\[3pt]
-\pagelink{514a}{514a--b}, \pagelink{520}{520--520b} & The full-strip formula, the omitted zeros and the consequence of a fixed zero-free half-plane.\\[3pt]
+\pagelink{514a}{514a--b}, \pagelink{520}{520--520b} & The full-strip formula, \pagelink{520o}{finite-height bounds for its defect} and \pagelink{520r}{a square-root prime estimate (520o--r)}.\\[3pt]
 \pagelink{520c}{520c--n}, \pagelink{522i}{522i--m} & The balanced prime sum and a one-sided criterion counting only principal prime ideals over totally imaginary fields.\\[3pt]
 \pagelink{522}{522--522e}, \pagelink{522f}{522f--h} & The prime-sum criterion, the Chapter~13 test space and a CM curve for which the cap loses multiplicity.\\[3pt]
 \pagelink{522n}{522n--o}, \pagelink{522p}{522p--v} & Square-root fluctuations in the cubic splitting count.\\[3pt]
-\pagelink{522w}{522w--y}, \pagelink{522z}{522z--ac} & Two translates, short prime intervals at every large scale, and a fixed test for ordinary $\zeta$.\\
+\pagelink{522w}{522w--y}, \pagelink{522z}{522z--ac}, \mbox{\pagelink{522ad}{522ad--ag}}, \mbox{\pagelink{522ah}{522ah--aj}} & Prime correlations, norm twists, \pagelink{522ak}{local variance (522ak--am)} and \pagelink{522an}{its unconditional bound (522an--ao)}.\\
 \end{tabular}
 
 \point{Scope} The Hecke prime-sum criterion is an equivalence.
@@ -1505,7 +1505,7 @@ The residue argument on \pg{29} detects every zero strictly to the right
 of the boundary; reflection covers the left. If all zeros are in the
 closed strip, the residual boundary terms are $O_h(e^{\alpha\tau})$ by
 absolute summability. Thus (19) detects location even at a width with
-a boundary zero. One test suffices as on \pg{522}.
+a boundary zero. The fixed test on \pg{520o} detects every such zero.
 
 For a fixed test supported away from norm one, only finitely many primes
 occur in $W$. On translating to $h_\tau$ the available prime powers
@@ -2184,6 +2184,172 @@ of (20l) applies unchanged. At $\beta_\chi=1/2$ it gives the required
 upper bound for the negative part. Page \pagelink{522i}{522i} explains
 why these nontrivial components and ordinary $\zeta$ suffice.
 
+\leaf{520o}{A fixed test for the defect}{12.5.1 \quad A TEST SUPPORTED BETWEEN LOG NORMS ONE AND TWO}{A zero detector with explicit decay in height}
+There is a fixed nonnegative $h_*\in C_c^\infty((1,2))$ of integral
+one whose transform $H_*(z)=\int h_*(x)e^{zx}\dd x$ is nonzero for
+$|\Re z|\le1/2$. With $a=(\log 2)/4$, it satisfies
+\[
+ |H_*(\sigma+iu)|\le 8e^{-a\sqrt{|u|}}
+       \qquad (-1/2\le\sigma\le1/2,\ u\in\R).
+ \tag{20u}
+\]
+The same test is used for every number field, character and strip width.
+
+Put $a_j=1/(2j(j+1))$ for $j\ge1$. Take independent $Y_j$ uniform on
+$[0,a_j]$ and let $Y=5/4+\sum_{j\ge1}Y_j$. Its support is contained
+in $[5/4,7/4]$. Tilt its law by $e^Y/M$, where $M=\mathbb E e^Y$.
+The transform of this probability measure is
+\[
+ H_*(z)=M^{-1}e^{5(1+z)/4}
+           \prod_{j\ge1}\frac{e^{a_j(1+z)}-1}{a_j(1+z)} .
+\]
+Each factor is $1+O_K(a_j)$ on a compact set $K$. The locally uniform
+product is nonzero for $\Re z>-1$, since no numerator vanishes there
+and $\sum_j a_j<\infty$.
+
+At $z=\sigma+iu$ in the stated strip the absolute value of a factor is
+at most $e^{a_j(1+\sigma)}\min(1,2/(a_j|u|))$ for $u\ne0$. The
+exponentials outside the minima have product, including the prefactor,
+at most $e^{(3/2)(7/4)-5/4}=e^{11/8}$ since $M\ge e^{5/4}$.
+For $1\le j\le\lfloor\sqrt{|u|}/4\rfloor$ one has
+$2/(a_j|u|)=4j(j+1)/|u|\le1/2$. Multiplying gives (20u) because
+$2e^{11/8}<8$. At $u=0$ the same inequality follows from the
+exponential bound alone.
+
+Fourier inversion on $\sigma=0$ gives the tilted law a smooth
+density, since every polynomial times its transform is integrable.
+This density is the required $h_*$. In the Laplace transform of its
+translated defect in (18), the residue at an omitted $\lambda$ is
+$(m_\lambda-n_{\alpha,s}(\lambda))H_*(\lambda)$. Every uncounted
+copy therefore contributes to a nonzero residue at its own zero.
+
+\leaf{520p}{Bounds for the trace defect}{12.5.1 \quad THE WIDTH REACHED BY A ZERO-FREE REGION}{Removing two margins from the full strip}
+Use $h_{*,\tau}(x)=h_*(x-\tau)$ for a fixed normalized Hecke
+character $\chi$ and any Sobolev degree $s\ge0$. For large $\tau$ put
+$D(\tau)=(\log\tau)^{2/3}(\log\log\tau)^{1/3}$.
+There is a constant $b_\chi>0$ such that the actual defect in (18)
+satisfies both estimates
+\begin{align*}
+ |E_{\alpha,\chi}(h_{*,\tau})|
+   &\ll_\chi \exp\big((1/2-b_\chi/D(\tau))\tau\big)
+                              &&(0\le\alpha\le1/2),\\
+ |E_{\alpha,\chi}(h_{*,\tau})|
+   &\ll_\chi e^{-a\tau^2/4}
+            &&(1/2-b_\chi/D(\tau)\le\alpha\le1/2).
+ \tag{20v}
+\end{align*}
+The constants are independent of $s$ and $\alpha$. Thus at the
+second width the full trace and the strip trace agree up to the
+displayed absolute error.
+
+Take $T=\tau^4$. By
+\citetitle{https://doi.org/10.1112/S0025579300013000}{Coleman's
+zero-free region} and reflection, every nontrivial zero up to
+height $T$ satisfies
+\[
+ |\Re(\rho-1/2)|\le 1/2-2b_\chi/D(\tau).
+\]
+Indeed $\log T=4\log\tau$, and at bounded height the finitely many
+nontrivial zeros lie strictly between real parts zero and one.
+The fixed-character threshold includes any exceptional real zero.
+The zero count gives $\sum_\rho m_\rho e^{-a\sqrt{|\Im\rho|}/2}<\infty$,
+where the sum here ranges over distinct zeros. Consequently the part
+of (18) above $T$ has absolute value at most
+\[
+ 8 e^{\tau/2-a\sqrt T/2}\sum_\rho m_\rho e^{-a\sqrt{|\Im\rho|}/2}
+       \ll_\chi e^{-a\tau^2/4}.
+\]
+Below $T$, each exponential $e^{\tau\Re(\rho-1/2)}$ is bounded
+by the low-height strip and the coefficients are absolutely summable
+by (20u). This proves the first estimate. In the second range every
+low zero is strictly interior and is counted with its entire order
+by (4), so only the tail remains. These widths approach $1/2$ as
+$\tau\to\infty$. The growth bound in (19) at arbitrarily small
+fixed widths still requires an independent argument.
+
+\leaf{520q}{The defect for ordinary zeta}{12.5.1 \quad A UNIFORM ESTIMATE AT EVERY STRIP WIDTH}{An explicit finite range for the narrow-strip trace}
+For ordinary $\zeta$, Sobolev degree four and the same $h_*$, put
+$T_0=3\cdot10^{12}$. At every $0\le\alpha\le1/2$ one has
+\begin{align*}
+ |G_\alpha(h_{*,\tau})-W(h_{*,\tau})|
+   &\le 24 T_0^2 e^{\tau/2-a\sqrt{T_0}} &&(\tau\ge0),\\
+ |G_\alpha(h_{*,\tau})-W(h_{*,\tau})|
+   &< e^{-140000} &&(0\le\tau\le300000).
+ \tag{20w}
+\end{align*}
+Here
+\citetitle{https://doi.org/10.1112/blms.12460}{Platt and Trudgian}
+proved that all zeros with $0<\Im\rho\le T_0$ are simple and lie on
+the critical line. Conjugation includes the negative heights and the
+alternating eta series excludes a real zero in $(0,1)$. All verified
+zeros are counted by (4), including at $\alpha=0$, where the boundary
+allowance is two. Formula (18) therefore has only $|\Im\rho|>T_0$
+in its defect.
+
+An explicit bound on the sum of inverse squares of these ordinates
+follows from the completed Riemann function
+$\xi(s)=s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s)/2$. Taking the
+difference of its Hadamard logarithmic derivatives at $2$ and $-1$
+and using $\xi(s)=\xi(1-s)$ gives
+\[
+ \sum_\rho\Re\frac{1}{2-\rho}
+ =\frac{\xi'(2)}{\xi(2)}
+ =\frac32-\frac{\log\pi+\gamma_{\rm E}}2
+          +\frac{\zeta'(2)}{\zeta(2)}<\frac32 .
+\]
+Here and below zeros are counted with multiplicity. The difference
+series converges absolutely. Reflection $\rho\mapsto1-\bar\rho$
+identifies the two sums of real parts. For $|u|=|\Im\rho|\ge2$,
+$\Re(1/(2-\rho))\ge1/(4+u^2)\ge1/(2u^2)$, so the sum of $u^{-2}$
+over these zeros is less than three.
+
+The function $u^2 e^{-a\sqrt u}$ is decreasing for $\sqrt u>4/a$.
+Using (20u) in (18) above $T_0$ and summing against $u^{-2}$ gives
+the first line of (20w). Since $a>0.17$, $\sqrt{T_0}>1.73\cdot10^6$
+and $\log(24T_0^2)<61$, the second line follows at its upper endpoint.
+
+\leaf{520r}{A finite square-root estimate}{12.5.1 \quad THE PRIME SUM AT THE VERIFIED SCALES}{A square-root bound for the weighted prime count}
+Put $v_*(u)=u^{-1/2}h_*(\log u)$ for $u>0$. For ordinary $\zeta$,
+\[
+ \left|\sum_{n\ge2}\Lambda(n)v_*(n/X)-XH_*(1/2)\right|
+       \le 10^5\sqrt X \qquad(1\le X\le e^{300000}).
+ \tag{20x}
+\]
+The main coefficient is between $e^{5/8}$ and $e^{7/8}$ by the
+support and normalization of $h_*$. With this same numerical constant,
+the inequality for all $X\ge1$ is equivalent to the Riemann hypothesis.
+
+The Mellin transform of $v_*$ is $H_*(s-1/2)$. The ordinary explicit
+formula (23) gives the error in (20x) as
+\[
+ -\sqrt X\sum_\rho m_\rho H_*(\rho-1/2)e^{(\rho-1/2)\log X}
+       -\sum_{k\ge1} X^{-2k}H_*(-2k-1/2),
+\]
+where the first sum runs over distinct nontrivial zeros. The second
+sum is at most $1/(e^{5/2}-1)<1$ since $h_*$ is a probability
+density supported above $5/4$ and $X\ge1$.
+
+At width zero and degree four, the first term after division by
+$-\sqrt X$ splits as $S_0(h_{*,\tau})+E_0(h_{*,\tau})$ with
+$\tau=\log X$, as in (18). Only zeros on the critical line occur
+in $S_0$. The positive sum on \pg{520q} bounds
+$\sum_\rho m_\rho/(4+(\Im\rho)^2)$ by $3/2$. Hence, by (20u),
+\[
+ |S_0(h_{*,\tau})|
+ \le \sum_\rho m_\rho |H_*(i\Im\rho)|
+ \le 12\big(4+(4/a)^4e^{-4}\big)<80000 .
+\]
+Indeed $\sup_{u\ge0}u^2e^{-a\sqrt u}=(4/a)^4e^{-4}$. Adding (20w)
+and the trivial-zero sum proves (20x).
+
+Under RH this absolute sum bounds the full nontrivial-zero sum
+after normalization for every $X$, including all multiplicities.
+Conversely, the Mellin transform argument of (21), with this $v_*$,
+excludes every zero in $\Re s>1/2$ if (20x) holds for all $X$,
+since the residue is $-m_\rho H_*(\rho-1/2)\ne0$. Unconditionally, for
+$\tau=\log X$ sufficiently large, the first line of (20v) at width
+zero gives the prime error $O(Xe^{-b_\zeta\tau/D(\tau)})$.
+
 \sourcepages{521}{521}{The one-sided estimate is on page 520h and the reduced range of indices on page 520n.}
 \leaf{522}{One prime sum}{13.3 \quad THE RIEMANN ZETA FUNCTION}{One smooth weight detects every zero}
 There is a fixed nonnegative $v\in C_c^\infty((0,\infty))$, chosen
@@ -2431,6 +2597,10 @@ averaging and oscillations for the cubic splitting count. Equations
 prime interval has length of order $\sqrt X\log X$. Reconstructing the
 fixed test in (46) costs the reciprocal log width. An independent
 bound at widths $X^{-o(1)}$ in (47) would give zero location.
+The ratio in (52) attains its lower limit. The mean square in (57)
+is $O(\log X)$ for $U\ge X/\log X$. At $U=\exp(\sqrt{\log X})$,
+(61) saves a factor $\exp(c_\chi(\log X)^{3/5}/(\log\log X)^{1/5})$
+over $X/U$. The subpower variance bound in (59) remains open.
 
 The fixed-place calculation on page 495 fails over $\Q$. The two-prime
 obstruction on page 495b rules out a fixed norm-translation-invariant
@@ -2441,8 +2611,9 @@ The order correction
 (13g) can be nonzero, but (13i) removes it from the iterated scalar
 trace and (13j) bounds its translated contribution. The real-place
 lower-cutoff term (17a) persists in the balanced
-regime. The external half-planes on page 520b give (20b). Reaching (19)
-for widths tending to zero still requires additional cancellation.
+regime. Equation (20v) removes margins of width $b_\chi/D(\tau)$ with
+exponentially small defect. Reaching (19) at every positive fixed
+width still requires additional cancellation.
 Consequently the narrow-strip main theorem and the deduction of GRH remain
 conditional. Equations (12), (18), and (23) use actual zero orders.
 For $F=\Q$, (13.3.1.1) would require simplicity at every noncentral
@@ -3621,6 +3792,516 @@ weakly to the smooth autocorrelation after normalization, giving
 the same monotonicity. Thus $\|h'_r\|_1=2M_r$ and
 $\|h_r\|_1\le2LM_r$. For $X\ge12$ the remaining pole together with
 $A(\tau)$ costs less than $0.02M_r$, proving (49).
+
+\leaf{522ad}{Distinct prime pairs}{13.3 \quad A FIXED TEST AT UNBOUNDED SCALES}{The signed sum over distinct primes}
+Fix a normalized unitary Hecke character $\chi$ over $F$. Use the
+real even autocorrelation $h=h_1$ from (45), with transform $H=H_1$
+and support $[-\ell,\ell]$. Twist by a fixed real frequency $\omega$,
+so the finite Hecke function is $L_{F,f}(s-i\omega,\chi)$.
+Let $b_\chi(p)$ be the sum of the character values over prime ideals
+of norm $p$ as on \pg{522p}. On the positive norm axis set
+\[
+ \dd\mu_\omega(x)=
+ \sum_p\Re\!\big(b_\chi(p)p^{i\omega}\big)\frac{\log p}{\sqrt p}
+             \,\delta_p(\dd x)
+ -\delta_\chi\,x^{-1/2}\Re(x^{i\omega})\dd x ,
+ \qquad \delta_\chi=\mathbf1_{\chi=1}.
+\]
+Write $w_t(x)=h(\log x-t)$ and define the real quantities
+\begin{align*}
+ P_\omega(t)&=\int w_t(x)\dd\mu_\omega(x),\\
+ D_\omega(t)&=\sum_p\big(\Re(b_\chi(p)p^{i\omega})\big)^2
+                      \frac{(\log p)^2}{p}\,w_t(p)^2,\\
+ C_\omega(t)&=\iint_{x\ne y}w_t(x)w_t(y)\dd\mu_\omega(x)\dd\mu_\omega(y)
+                   =P_\omega(t)^2-D_\omega(t).
+ \tag{50}
+\end{align*}
+Only the prime atoms contribute on $x=y$. When $\chi$ is principal
+the continuous term subtracts its pole, including the phase of the
+norm twist. For a nonprincipal $\chi$, $C_\omega$ is a sum over
+ordered pairs of distinct rational primes.
+
+For $\lambda=\rho-1/2$ put
+\[
+ R_\omega(t)=\Re\sum_\lambda m_\lambda
+           H(\lambda+i\omega)e^{(\lambda+i\omega)t}.
+\]
+The full explicit formula gives $P_\omega(t)=-R_\omega(t)+O_{F,h,\omega}(1)$
+for $t\ge1$. In fact the positive pole contributes
+$\delta_\chi e^{t/2}\Re(e^{i\omega t}H(1/2+i\omega))$, precisely
+the integral of $w_t$ against the density subtracted in (50).
+The opposite pole and all gamma terms are $O_{F,h,\omega}(e^{-t/2})$
+by the kernel on \pg{522y}. With $X=e^t$, the rational prime powers
+$p^k$ of exponent $k\ge2$ in $[Xe^{-\ell},Xe^\ell]$ have total weight
+$O_F(1)$ by the estimate on \pg{522ab}. These statements allow all
+the original ramified Euler factors.
+
+\leaf{522ae}{The diagonal term}{13.3 \quad DEGREE-ONE PRIMES ABOVE THE SAME NORM}{The amount of cancellation at a fixed scale}
+Put $J(v)=\int h(y)^2e^{ivy}\dd y$. Let $r_\chi$ be the integer
+in (20m), and write $F\otimes_\Q F=\prod_i K_i$, with the two norms
+$N_{1i},N_{2i}:K_i\to F$ induced on ideles. Let $s_\chi$ count the
+factors where $(\chi\circ N_{1i})(\chi\circ N_{2i})=1$. Then
+\[
+ \frac{D_\omega(t)}{t}=
+ \tfrac12 r_\chi J(0)+
+ \tfrac12 s_\chi\Re\!\big(e^{2i\omega t}J(2\omega)\big)+o(1)
+                    \qquad (t\to\infty).
+ \tag{51}
+\]
+In particular $D_\omega(t)\asymp_{\chi,h,\omega}t$ for every fixed
+real $\omega$.
+
+Equation (20m) gives $\sum_{p\le x}|b_\chi(p)|^2\log p=r_\chi x+o(x)$.
+The same tensor product counts the ordered pairs in $b_\chi(p)^2$
+with the two character values multiplied. Each product character on
+$K_i$ is trivial on the uniform positive norm section and is therefore
+a pure norm character only when it is trivial. The prime ideal theorem
+used on \pg{520i} gives
+$\sum_{p\le x} b_\chi(p)^2\log p=s_\chi x+o(x)$.
+The prime-by-prime triangle inequality gives $0\le s_\chi\le r_\chi$,
+and the diagonal factor in (20m) gives $r_\chi\ge1$.
+
+Apply $(\Re z)^2=(|z|^2+\Re z^2)/2$ in (50). For either cumulative
+sum, partial summation against
+$x^{-1+iv}\log x\,h(\log x-t)^2$, with $v=0$ or $2\omega$,
+costs $o(t)$ in the error. Indeed the support has $x\asymp e^t$
+and the integral of $x$ times the absolute derivative is $O_{h,v}(t)$.
+The main integral is $e^{ivt}\big(tJ(v)+O_{h,v}(1)\big)$ by the
+change of variables $y=\log x-t$. This proves (51).
+
+At $\omega=0$ the coefficient is $(r_\chi+s_\chi)J(0)/2>0$.
+For $\omega\ne0$ we have $|J(2\omega)|<J(0)$, since $h^2$ is
+positive on an interval and the phase varies there. Thus the
+diagonal stays of order $\log X$ even at phases where
+$\Re(X^{i\omega})$ vanishes.
+
+\leaf{522af}{The two limits}{13.3 \quad ONE CHARACTER AND ONE FIXED FREQUENCY}{The lower limit of the signed prime correlation}
+For every fixed $\chi$ and all but finitely many $\omega\in[1,2]$,
+\[
+ \liminf_{t\to\infty}\frac{C_\omega(t)}{D_\omega(t)}=-1.
+ \tag{52}
+\]
+The same conclusion holds at $\omega=0$ if $L_{F,f}(s,\chi)$ has no
+real zero in $[1/2,1)$. For every real $\omega$, boundedness above of
+$C_\omega(t)/D_\omega(t)$ for all sufficiently large $t$ is equivalent
+to the Riemann hypothesis for this $\chi$. Under that hypothesis the
+ratio tends to $-1$.
+
+To prove the lower limit, choose $\omega$ so that the shifted zeros
+have no real point in the closed right half of the centered strip.
+The excluded values $\omega=-\Im\rho$ with $\Re\rho\ge1/2$
+form a finite set in $[1,2]$ by the zero count.
+For $\Re z>1/2$ the Laplace transform of $R_\omega$ is
+\[
+ \tfrac12\sum_\lambda m_\lambda
+     \left(\frac{H(w)}{z-w}+\frac{H(\overline w)}{z-\overline w}\right),
+                     \qquad w=\lambda+i\omega .
+\]
+The series extends meromorphically by rapid vertical decay. At a
+coincident pole both multiplicities multiply the same nonzero value
+of $H$, since $h$ is real and (45) gives $H\ne0$ on the strip.
+There is at least one pole with $\Re z\ge0$ by the zero count and
+reflection. None lies on the nonnegative real axis for this $\omega$.
+
+If $R_\omega$ had constant weak sign on a tail, its Laplace integral
+there, with the sign chosen positive, would have a real singularity
+at its abscissa of convergence. That abscissa lies in $[0,1/2]$
+by the preceding pole and the bound $R_\omega(t)=O(e^{t/2})$.
+The assertion for a positive integral follows by Taylor expansion
+at a real point to the right and monotone convergence of the
+exponential series, as on \pg{520h}. Removing a finite initial
+interval changes the transform by an entire function.
+This contradiction proves that the continuous $R_\omega$ takes
+both signs on every tail. At its arbitrarily large zeros,
+$P_\omega(t)=O(1)$, so (50)--(51) give (52). The global lower
+bound $C_\omega\ge-D_\omega$ is immediate from (50).
+
+On the critical line the sum defining $R_\omega$ is bounded by
+$\sum_\lambda m_\lambda |H(\lambda+i\omega)|$, so
+$C_\omega=-D_\omega+O(1)$ at all scales. Conversely, any finite
+upper bound for the ratio gives $P_\omega(t)=O(\sqrt t)$ by (51).
+The transform is then holomorphic on $\Re z>0$. Its residues exclude
+every right-hand zero whether or not one of them is real, proving
+the stated equivalence for every $\omega$.
+
+\leaf{522ag}{Distances between primes}{13.3 \quad UPPER SIEVE FOR NEARBY PAIRS}{Which prime separations supply the cancellation}
+For $X=e^t$ let $C_\omega^{\le Y}(t)$ denote the integral in (50)
+restricted to $0<|x-y|\le Y$. Uniformly for $1\le Y\le X$ and $t$
+sufficiently large, even its absolute contribution satisfies
+\[
+ \iint_{0<|x-y|\le Y}|w_t(x)w_t(y)|\,
+       \mathrm d|\mu_\omega|(x)\,\mathrm d|\mu_\omega|(y)
+                 \ll_{d,h}Y .
+ \tag{53}
+\]
+For a prime pair with difference $k>0$, both primes are in
+$[X/2,2X]$ and each product of weights costs $O_{d,h}((\log X)^2/X)$.
+Odd differences are absent there. For even $k$, the number of such
+pairs is
+\[
+ \ll\frac{X}{(\log X)^2}\prod_{p\mid k,\,p>2}
+                       \left(1+\frac1{p-2}\right).
+\]
+Indeed the two primes avoid $0,-k$ modulo every prime up to
+$X^{1/100}$. The sieve upper bound and Mertens' theorem give the
+display, since these residues coincide exactly at divisors of $k$.
+See \citetitle{https://doi.org/10.1112/jlms.12663}{Tao and Ter\"av\"ainen, Lemma 3.2}.
+On expanding the product in squarefree divisors, its sum over
+$k\le Y$ is at most $Y\prod_{p>2}(1+1/(p(p-2)))\ll Y$.
+The reverse ordering has the same bound.
+
+The continuous pole density has absolute value at most $x^{-1/2}$.
+Its mass within $Y$ of a point, restricted to the support, is
+$O(Y/\sqrt X)$. The total atomic mass on the support is $O_d(\sqrt X)$
+by Chebyshev, and the continuous mass there is $O(\sqrt X)$ as well.
+This proves (53) including the mixed and continuous pairs.
+
+Along the sequence in (52) one has $C_\omega=-D_\omega+O(1)$.
+By (51)--(53) there is a fixed $c_{\chi,h,\omega}>0$ such that the
+signed contribution from $|x-y|>c_{\chi,h,\omega}\log X$ is at most
+$-D_\omega/2$ on an unbounded sequence of $X$. For a nonprincipal
+component this is cancellation among actual pairs of distinct primes.
+
+For ordinary $\zeta$, the alternating eta series gives nonvanishing
+on $[1/2,1)$. For the two characters of \pg{522r}, the Mellin kernels
+of the eta products on \pg{522s} are strictly positive on real
+arguments and their gamma factors are regular in this segment.
+All three functions have real Dirichlet coefficients. Thus at
+$\omega=0$ the real function $R_0$ above is the original
+$B_{\chi,1}$ itself. In all three examples the fixed-width correlation
+in (45) vanishes at arbitrarily large separations.
+
+\leaf{522ah}{Frequency averages}{13.3 \quad THE UPPER BOUND FOR ONE HECKE COMPONENT}{A mean-square bound over norm twists}
+Keep $F$, $\chi$ and $h=h_1$ fixed. For $t\ge1$ set $X=e^t$,
+$a_p(t)=b_\chi(p)(\log p)p^{-1/2}h(\log p-t)$ and
+\[
+ F_t(v)=\sum_p a_p(t)e^{iv(\log p-t)}
+               -\delta_\chi\sqrt X\,H(1/2+iv).
+\]
+Then $P_v(t)=\Re(e^{ivt}F_t(v))$ in (50). Write $Z_v(t)$ for the
+complex zero sum whose real part is $R_v(t)$ on \pg{522ad}. The same
+explicit formula gives $Z_v(t)=-e^{ivt}F_t(v)+O_{F,h}(1)$ uniformly
+in real $v$. The absolute bounds for the higher prime powers and the
+archimedean kernels are independent of $v$, and the remaining pole
+is $O_h(X^{-1/2})$.
+
+For every $U\ge1$ and $A>0$ one has
+\[
+ \frac1U\int_U^{2U}|F_t(v)|^2\dd v
+ \ll_{F,h,A}(1+X/U)(1+t)+\delta_\chi X(1+U)^{-A}.
+ \tag{54}
+\]
+In particular for $U\ge X$ the mean of $\max(C_v(t),0)$ is
+$O_{F,h}(1+t)$, since $C_v(t)\le P_v(t)^2$. All the norm
+twists use the same base character $\chi$ over $F$.
+
+For coefficients supported on integers $n\le N$, the mean-value
+bound for $\sum_n c_n n^{iv}$ on $[U,2U]$ is
+$\int|\sum c_n n^{iv}|^2\dd v\ll (U+N)\sum|c_n|^2$.
+For a direct proof, majorize the interval indicator by a smooth
+nonnegative bump in $v/U$. After expansion, the absolute kernel
+is $\ll U(1+U|\log(n/m)|)^{-2}$. As
+$|\log(n/m)|\ge |n-m|/N$, its row sums are $O(U+N)$. The inequality
+$2|c_nc_m|\le |c_n|^2+|c_m|^2$ gives the bound. The sharper classical
+mean-value theorem is due to
+\citetitle{https://doi.org/10.1112/jlms/s2-8.1.73}{Montgomery and Vaughan}.
+
+Here $p\le e^\ell X$. Chebyshev's estimate gives
+$\sum_p|a_p(t)|^2\ll_{F,h}1+t$, and the same bound holds after
+differentiating $h(\log p-t)$ in $t$. Apply the mean-value bound to
+the prime sum, removing the common phase $e^{-ivt}$. The pole
+contributes $O_{h,A}(X(1+U)^{-A})$ by the rapid decay of $H$.
+This proves (54).
+
+\leaf{522ai}{Frequency averages}{13.3 \quad RETURN TO THE ORIGINAL CHARACTER}{How fast the frequency interval may move}
+Let $U=U(t)\ge1$ with $U(t)=o(t)$ as $t\to\infty$. For every such
+function the two statements below are equivalent for the fixed $\chi$.
+\[
+ \mathrm{RH}_\chi\quad\Longleftrightarrow\quad
+ \frac1U\int_U^{2U}|F_t(v)|^2\dd v
+             \ll_{\chi,h,U,\epsilon} e^{\epsilon t}
+        \quad\text{for every }\epsilon>0 .
+ \tag{55}
+\]
+In particular the band may move to infinity. To recover the value at
+frequency zero, regard $F_t(v)$ as a Fourier transform in $v$. Its
+measure is supported on $[-\ell,\ell]$ and has total variation
+$O_{F,h}(\sqrt X)$. The atoms have displacements $\log p-t$.
+The continuous term has density $-\delta_\chi\sqrt X e^{y/2}h(y)$.
+
+Write $L=\log(t/U)$ and $n=\lceil2t/L\rceil$ for large $t$. The
+degree-$n$ Taylor polynomial $p$ of $F_t$ at zero satisfies
+\[
+ \sup_{0\le v\le2U}|F_t(v)-p(v)|
+ \ll_{F,h}e^{t/2}\big(2e\ell U/(n+1)\big)^{n+1}\ll e^{-t}.
+\]
+Indeed the real-axis exponential remainder is at most
+$|vy|^{n+1}/(n+1)!$, and $\log((n+1)/(2e\ell U))=L-\log L+O(1)$.
+Here $L\to\infty$, $L\le\log t$, and $n=o(t)$.
+
+For any polynomial of this degree,
+$|p(0)|\le C^n\sqrt{2(n+1)}\,\|p\|_{L^2([U,2U],\,\dd v/U)}$
+with an absolute $C$. Split the interval into $n+1$ equal parts of
+length $a=U/(n+1)$. In the middle half of each choose a node where
+$|p|\le\sqrt{2(n+1)}\|p\|_2$ in this normalized norm. Nodes $i,j$
+are separated by at least $a|i-j|/2$. The sum of the absolute
+Lagrange weights at zero is at most
+$(4(n+1))^n\sum_{i=0}^n1/(i!(n-i)!)\le C^n$.
+
+Thus the right side of (55) gives $|F_t(0)|\ll_\epsilon e^{\epsilon t}$
+for every $\epsilon>0$. The bounded remainder in $Z_0(t)$ preserves
+this estimate. Its Laplace residues in (45) exclude every right-hand
+zero. Conversely, on the critical line $|Z_v(t)|\le Z_v(0)$ by the
+nonnegative spectral weights. The diagonal bound on \pg{522aj} gives
+$|F_t(v)|\ll_{\chi,h}\log(2+|v|)$, which proves (55) for $U=o(t)$.
+
+\leaf{522aj}{Simultaneous estimates}{13.3 \quad ONE FREQUENCY AT A CONTINUUM OF SCALES}{Which norm twists satisfy the correlation bound}
+For $U$ sufficiently large, outside a subset of $[U,2U]$ of
+Lebesgue measure $O_{\chi,h}(U/\log U)$, the same frequency $v$ satisfies
+\[
+ |Z_v(t)|\le\tfrac12 Z_v(0)
+ \qquad\left(1\le t\le \tfrac12\log(U\log U)\right).
+ \tag{56}
+\]
+Here $Z_v(0)=dM\log |v|+O_{\chi,h}(1)$ as $|v|\to\infty$,
+where $M=h(0)$. In fact the archimedean multiplier of each shifted
+gamma factor in (44) is $\log|v|+O_\chi(1)$ for integration
+frequencies $|u|\le |v|/2$ by Stirling's formula. Elsewhere its
+absolute value is $O_\chi(\log(2+|u|+|v|))$ and $|G(iu)|^2$ decays
+rapidly. Plancherel gives the factor $M$. On the diagonal there are no
+prime shifts, and the conductor and pole terms are bounded. On a
+bounded range of $v$ the same formula gives $Z_v(0)=O_{\chi,h}(1)$.
+
+Set $S_v(t)=\sum_p a_p(t)p^{iv}$. Its square has coefficients
+supported up to $e^{2\ell}X^2$. Each product of two primes has at
+most two ordered factorizations. The squared coefficient norm is
+therefore at most $2(\sum_p|a_p(t)|^2)^2$. Applying the mean-value
+estimate on \pg{522ah} gives
+\[
+ \int_U^{2U}\big(|S_v(t)|^4+|\partial_t S_v(t)|^4\big)\dd v
+                   \ll_{F,h}(U+e^{2t})(1+t)^2 .
+\]
+The derivative uses the same argument with $a'_p(t)$.
+On a unit interval the fourth power of the supremum of a smooth
+function is bounded by a constant times the integral of its fourth
+power and that of its derivative, by the fundamental theorem of
+calculus and H\"older's inequality. Cover $[1,T]$ by unit intervals
+and integrate in $v$. This bounds the integral of the supremum
+of $|S_v|^4$ by $O_{F,h}(U(1+T)^3+e^{2T}(1+T)^2)$.
+
+At $T=\tfrac12\log(U\log U)$ the bound is $O_{F,h}(U\log^3 U)$.
+Markov's inequality at threshold $dM\log U/3$ gives the asserted
+exceptional measure. The positive pole is $O_{\chi,h}(1)$ throughout
+this range by rapid decay, so $Z_v(t)=-S_v(t)+O_{F,h}(1)$ there.
+This proves (56). For any fixed zero, its individual contribution
+on this range is $O_{\rho,h,A}(U^{-A})$ for every $A>0$, since its
+coefficient is $H(\rho-1/2+iv)$ and $e^{t/2}\le(U\log U)^{1/4}$.
+The mean needed in (55) concerns frequencies $U=o(\log X)$.
+
+\leaf{522ak}{The mean over a frequency interval}{13.3 \quad THE CONTRIBUTION FROM DISTINCT PRIMES}{The diagonal term in the frequency mean}
+Put $X=e^t$, $t\ge1$, and retain $a_p(t)$ and $F_t$ from \pg{522ah}.
+On the log interval $[-\ell,\ell]$ define the complex measure
+\[
+ \nu_t=\sum_p a_p(t)\,\delta_{\log p-t}
+       -\delta_\chi\sqrt X\,e^{y/2}h(y)\dd y,\qquad
+ \mathcal D_\chi(t)=\sum_p|a_p(t)|^2 .
+\]
+Its Fourier transform with exponent $ivy$ is $F_t(v)$. For every
+$W\in C_c^\infty(\R)$, $U\ge1$ and $b\in\R$ one has
+\[
+ \frac1U\int_\R W\big((v-b)/U\big)|F_t(v)|^2\dd v
+ =\mathcal D_\chi(t)\int_\R W(u)\dd u+O_{F,h,W}(X/U).
+ \tag{57}
+\]
+Here $\mathcal D_\chi(t)/t\to r_\chi J(0)>0$ by (20m) and the
+partial summation on \pg{522ae}. On a sharp interval $[b,b+U]$ the
+mean square is $O_{F,h}(t+X/U)$, uniformly in $b$. As $X\to\infty$
+it is asymptotic to $r_\chi J(0)\log X$ whenever $U\log X/X\to\infty$.
+
+Indeed the proof of (53) bounds each prime coefficient by
+$d(\log p)|h(\log p-t)|/\sqrt p$ and the continuous density in the
+original variable $x$ by $|h(\log x-t)|/\sqrt x$. These same majorants
+apply to $|\nu_t|$. For pairs of distinct points at distance at most
+$Y$ in $x$, their product measure is $O_{F,h}(Y)$ also for $0<Y<1$.
+Distinct primes then contribute zero, and the continuous terms satisfy
+the bound for every $Y$. For $Y>X$ the squared total mass is $O_{F,h}(X)$.
+On the log support, $|x-x'|\le e^\ell X|y-y'|$. Consequently
+\[
+ (|\nu_t|\otimes|\nu_t|)\{0<|y-y'|\le r\}\ll_{F,h} Xr\qquad(r>0).
+\]
+
+Expanding the integral in (57) gives the kernel
+$e^{ibz}\int W(u)e^{iUzu}\dd u$ at $z=y-y'$. On the diagonal only
+prime atoms contribute. Off the diagonal the kernel is
+$O_W((1+U|z|)^{-2})$. The preceding bound on $|z|\le1/U$ and on
+successive dyadic intervals gives a total $O_{F,h,W}(X/U)$.
+A fixed nonnegative smooth majorant of $\mathbf1_{[0,1]}$ gives the
+sharp-interval upper bound. Squeezing that indicator between smooth
+minorants and majorants whose integrals tend to one gives the asymptotic.
+
+\leaf{522al}{Counts in log intervals}{13.3 \quad THE VARIANCE OF LOCAL PRIME COUNTS}{Which pairs enter the short-interval variance}
+For the measure of \pg{522ak} define
+\[
+ E_t(s,U)=\nu_t([s,s+1/U]),\qquad
+ \mathcal V_\chi(t,U)=U\int_\R |E_t(s,U)|^2\dd s \qquad(U\ge1).
+\]
+The prime atoms counted in $E_t(s,U)$ have
+$Xe^s\le p\le Xe^{s+1/U}$ with weight $a_p(t)$. For the principal
+character the continuous mass of exactly the same interval is subtracted.
+For $T(w)=(1-|w|)_+$ and $\operatorname{sinc} u=\sin(u)/u$ extended
+by continuity at zero, one has
+\begin{align*}
+ \mathcal V_\chi(t,U)
+ &=\iint T(U(y-y'))\,\mathrm d\nu_t(y)\,\mathrm d\overline{\nu_t}(y')\\
+ &=\frac1{2\pi U}\int_\R
+       \operatorname{sinc}^2\!\big(v/(2U)\big)|F_t(v)|^2\dd v .
+ \tag{58}
+\end{align*}
+In the first line distinct contributing primes satisfy
+$|p-q|\le e^\ell X/U$. For every $U\ge1$,
+\[
+ \big|\mathcal V_\chi(t,U)-\mathcal D_\chi(t)\big|\ll_{F,h} X/U .
+\]
+In particular $\mathcal V_\chi(t,U)\sim r_\chi J(0)\log X$ when
+$U\log X/X\to\infty$ and $X\to\infty$.
+
+For the first identity in (58), the set of $s$ for which $y$ and $y'$
+belong to the same interval $[s,s+1/U]$ has length
+$U^{-1}T(U(y-y'))$. Fubini applies since $\nu_t$ has finite total
+variation and compact support. The function $T$ is the autocorrelation
+of $\mathbf1_{[-1/2,1/2]}$. Its Fourier representation is
+\[
+ T(w)=(2\pi)^{-1}\int_\R\operatorname{sinc}^2(u/2)e^{iuw}\dd u .
+\]
+Substitution and the change of variable $v=Uu$ give the second line.
+The diagonal in the first line equals $\mathcal D_\chi(t)$. The
+off-diagonal support has $0<|y-y'|\le1/U$, whose absolute mass was
+bounded on \pg{522ak}. This proves the estimate.
+
+\leaf{522am}{A local variance criterion}{13.3 \quad RETURN FROM LOCAL COUNTS TO ZERO LOCATION}{How much cancellation suffices in the variance}
+For every prescribed $U=U(t)\ge1$ satisfying $\log U=o(t)$,
+\[
+ \mathrm{RH}_\chi\quad\Longleftrightarrow\quad
+ \mathcal V_\chi(t,U)\ll_{\chi,h,U,\epsilon} X^\epsilon
+       \quad\text{for every }\epsilon>0\text{ as }X=e^t\to\infty .
+ \tag{59}
+\]
+For example, $U=\exp(\sqrt{\log X})$ only involves pairs of prime
+norms at distance $O(X\exp(-\sqrt{\log X}))$. The variance is an
+integral of the squared centered count over the positions of these
+intervals. Its frequency weight in (58) includes a neighborhood of zero.
+
+Integrating the interval count gives
+$F_t(0)=\nu_t(\R)=U\int E_t(s,U)\dd s$. The support in $s$ has length
+at most $2\ell+1/U$. Cauchy--Schwarz gives
+\[
+ |F_t(0)|^2\le(2\ell U+1)\mathcal V_\chi(t,U).
+\]
+Under the variance estimate in (59) this makes $F_t(0)=O_\epsilon(X^\epsilon)$
+for every $\epsilon>0$. Its bounded difference from $-Z_0(t)$ in (54)
+then makes the Laplace transform of $Z_0$ holomorphic in $\Re z>0$.
+Equation (45) assigns a nonzero residue to every zero in that half-plane.
+Reflection gives zero location for the fixed character.
+
+Conversely, under $\mathrm{RH}_\chi$ the spectral weights on the line
+are nonnegative. Equations (45) and (54) and the diagonal estimate
+on \pg{522aj} give $|F_t(v)|\ll_{\chi,h}\log(2+|v|)$ for all real
+$v$ and $t\ge1$. Thus (58) gives
+$\mathcal V_\chi(t,U)\ll_{\chi,h}\log^2(2+U)$ for every $U\ge1$
+by substituting $v=Uu$ and using the integrability of
+$(1+|u|)^{-2}\log^2(2+|u|)$. This proves the forward implication.
+
+More generally, if $\limsup_{t\to\infty}t^{-1}\log U=\theta<\infty$
+and $\mathcal V_\chi(t,U)\ll_\epsilon X^{\kappa+\epsilon}$ for every
+$\epsilon>0$, with $\kappa\ge0$, the same residue argument gives
+$|\Re\rho-1/2|\le(\theta+\kappa)/2$ for every nontrivial zero.
+At $U=X/\log X$ the unconditional variance bound gives
+$\theta=1$ and $\kappa=0$. An independent bound in (59) for each
+character would give the Hecke generalization of the Riemann hypothesis.
+
+\leaf{522an}{The variance at finite height}{13.3 \quad THE SHARP SHORT-INTERVAL COUNT}{An upper bound from zeros up to a chosen height}
+Fix the normalized unitary Hecke character $\chi$ and the test $h$
+of (54). Let $t=\log X\ge1$ and $R\ge\max(2,U)$, where $U\ge1$.
+Write $\rho=\beta+i\gamma$ for a nontrivial zero of $L_{F,f}(s,\chi)$
+and count multiplicities throughout. For the variance in (58),
+\[
+ \mathcal V_\chi(t,U)\ll_{\chi,h}
+  1+\frac{tU}{R}+\frac{XU}{R^2}
+  +\frac{X\log(3R)}{U}\sum_{|\gamma|\le2R}X^{-2(1-\beta)} .
+ \tag{60}
+\]
+The cutoff applies equally when the intervals defining $E_t(s,U)$
+have sharp endpoints and when the character has a pole.
+
+On $|v|\ge R$ the frequency weight in (58) is $O(U/v^2)$.
+By (57), the integral of $|F_t|^2$ on any interval of length $V\ge1$
+is $O_{F,h}(Vt+X)$. Applying this on the two frequency intervals
+$V\le|v|\le2V$ and summing over $V=2^jR$ gives
+$O_{F,h}(tU/R+XU/R^2)$.
+
+On $|v|\le R$, use $F_t(v)=-e^{-ivt}Z_v(t)+O_{F,h}(1)$ from (54).
+The weight in (58) has integral one. For $|\gamma|>2R$ one has
+$|\gamma+v|\ge|\gamma|/2$. Rapid vertical decay of $H$ on the strip
+and the bound $O_\chi(\log(3+|k|))$ for the number of zeros in each
+unit height interval $[k,k+1]$ give a uniform tail $O_{\chi,h}(\sqrt X R^{-2})$.
+The square of this error is absorbed by $XU/R^2$.
+
+Put $w(a)=(1+|a|)^{-2}$. The remaining sum has modulus at most
+$C_h\sum_{|\gamma|\le2R}X^{\beta-1/2}w(\gamma+v)$.
+By Cauchy--Schwarz its square is at most
+\[
+ C_h^2\left(\sum_{|\gamma|\le2R}w(\gamma+v)\right)
+       \left(\sum_{|\gamma|\le2R}X^{2\beta-1}w(\gamma+v)\right).
+\]
+The first factor in parentheses is $O_\chi(\log(3R))$ by the same
+unit-interval count. In the second, the integral of each translate
+of $w$ against the frequency weight is $O(1/U)$, since the weight is
+pointwise at most $1/(2\pi U)$. This proves (60).
+
+\leaf{522ao}{The unconditional variance bound}{13.3 \quad SAVING AT THE SCALE OF THE VARIANCE CRITERION}{A saving for every fixed Hecke character}
+For $t=\log X$ sufficiently large set
+\[
+ S(t)=t^{3/5}(\log t)^{-1/5},\qquad L=S(t)+\log(3U).
+\]
+There are $a_\chi,c_\chi>0$ such that, for $1\le U\le X^{a_\chi}$,
+\[
+ \mathcal V_\chi(t,U)\ll_{\chi,h}\frac XU
+       \exp\!\left(-\frac{c_\chi t}{L^{2/3}(\log L)^{1/3}}\right).
+ \tag{61}
+\]
+At $U=e^{\sqrt t}$ the right side is $O_{\chi,h}((X/U)e^{-c'_\chi S(t)})$.
+For fixed $0<\theta\le a_\chi$ and $U=X^\theta$, the saving over
+$X/U$ is at least $\exp(c_{\chi,\theta}(t/\log t)^{1/3})$.
+
+Let $N_\chi(\sigma,T)$ count zeros with $\beta\ge\sigma$ and
+$|\gamma|\le T$. For fixed $\chi$ and large $T$, the
+\citetitle{https://lemkeoliver.github.io/papers/15-AutoLFZDE.pdf}{density
+theorem of Lemke Oliver and Thorner, Corollary 1.2}, applied in degree
+one over $F$, gives $N_\chi(\sigma,T)\ll_\chi T^{A_\chi(1-\sigma)}$
+for $1/2\le\sigma\le1$ and a fixed $A_\chi>0$.
+\citetitle{https://doi.org/10.1112/S0025579300013000}{Coleman's
+zero-free region, Theorem 2}, gives $\beta\le1-\eta$ up to $2R$ with
+$\eta=b_\chi L^{-2/3}(\log L)^{-1/3}$ and $R=e^L$.
+At bounded height all zeros have $\beta<1$. Their finite gaps from
+one, including that of a possible exceptional real zero for this fixed
+character, are absorbed by taking $t$ sufficiently large.
+
+Choose $a_\chi<1/4$ small enough that $A_\chi\log(2R)\le t$
+throughout the stated range for large $t$. Reflection pairs $\beta$
+and $1-\beta$ at the same height. The sum in (60) is therefore at most
+twice the sum for $\beta\ge1/2$. The latter is bounded by
+\[
+ e^{-t}N_\chi(1/2,2R)+
+ 2t\int_{1/2}^{1-\eta} e^{-2t(1-\sigma)}N_\chi(\sigma,2R)\dd\sigma
+ \ll_\chi e^{-t/2}+e^{-\eta t}.
+\]
+Here the density bound costs at most $\exp(t(1-\sigma))$ inside the
+integral. The factor $\log(3R)$ in (60) is absorbed by reducing the
+constant in the exponent, since $\eta t\gg_\chi(t/\log t)^{1/3}$.
+Finally $R=3Ue^{S(t)}$ and $t/(L^{2/3}(\log L)^{1/3})\ll S(t)$.
+The other terms in (60) obey (61). At $U=e^{\sqrt t}$ the exponent
+$\log((X/U)e^{-c'_\chi S(t)})/t$ tends to one. Equation (59) requires
+an upper exponent of zero.
 
 \sourcepages{523}{535}{The multiplicity assertion and its dependence on the norm section are treated on pages 522f--h.}
 \sourcepages{536}{555}{}
