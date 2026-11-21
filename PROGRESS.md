@@ -1,5 +1,16 @@
 # Proof progress
 
+## 2026-11-21 · Revision `2026-11-21.3`
+
+Folios 522z–522ac are pages 587–590 of the [1,009-page edition][pdf3]. Here $X$ is the central prime norm and $t=\log X$ is the separation of the two test functions.
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [522ac · (49)][f522ac] | For ordinary zeta at fixed log support length $1/128$, the correlation bound holds for every $1\le X\le10^{19}e^{-1/128}$. The proof uses Büthe’s published square-root estimate for the Chebyshev function and an elementary bound at small $X$. | [41d0a7d][intervals] |
+| [522ab · (48)][f522ab] | The Brun–Titchmarsh inequality gives positivity at every sufficiently large separation for all normalized unitary Hecke characters when the sampled prime interval has length comparable to $\sqrt X\log X$. The threshold is independent of field and character. | [41d0a7d][intervals] |
+| [522aa · (47)][f522aa] | If the correlation bound holds at every large separation using widths $r_j$ with $\limsup j^{-1}\log(1/r_j)=\theta$, all zeros lie within $\theta$ of the critical line in real part. An independent bound for one sequence with $\log(1/r_j)=o(j)$ remains open for a fixed general character. | [41d0a7d][intervals] |
+| [522z · (46)][f522z] | Splitting the dyadic uniforms that define the fixed test gives an exact positive-measure reconstruction from narrower tests. Its mass grows as $1/r$. At the widths established in (48), the resulting zero strip has half-width $1/2$. | [41d0a7d][intervals] |
+
 ## 2026-11-21 · Revision `2026-11-21.2`
 
 Folios 522w–522y are pages 584–586 of this [1,005-page edition][pdf2]. They treat the full Weil form, including the terms at log norm zero.
@@ -31,6 +42,12 @@ The [1,002-page edition][pdf1] records the following results. Folio numbers are 
 | [446–446d · (4)–(9), original Theorem 10.2.2.1][f446] | Translates of an arithmetic theta generator span the closed space defined by the zero conditions. Formula (4) gives the exact boundary multiplicity at every strip width and Sobolev degree, including width zero. | [4a9ad57][edition] |
 | [29 · (1)–(3)][f29] | Translating a compactly supported test and taking a Laplace transform produces a pole at each omitted zero. Equality of the full and narrow traces on all these tests forces the omitted set to be empty. | [4a9ad57][edition] |
 
+[intervals]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/41d0a7dda379e7a0443c68e1dc35fd6c7d852266
+[pdf3]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/41d0a7dda379e7a0443c68e1dc35fd6c7d852266/output/pdf/the-music-of-the-primes-revised.pdf
+[f522ac]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/41d0a7dda379e7a0443c68e1dc35fd6c7d852266/src/the-music-of-the-primes-revised.tex#L3578
+[f522ab]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/41d0a7dda379e7a0443c68e1dc35fd6c7d852266/src/the-music-of-the-primes-revised.tex#L3539
+[f522aa]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/41d0a7dda379e7a0443c68e1dc35fd6c7d852266/src/the-music-of-the-primes-revised.tex#L3495
+[f522z]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/41d0a7dda379e7a0443c68e1dc35fd6c7d852266/src/the-music-of-the-primes-revised.tex#L3453
 [positivity]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/f9159dc95c748a43c0eefad4b801c9f993302220
 [pdf2]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/f9159dc95c748a43c0eefad4b801c9f993302220/output/pdf/the-music-of-the-primes-revised.pdf
 [f522y]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/f9159dc95c748a43c0eefad4b801c9f993302220/src/the-music-of-the-primes-revised.tex#L3400
