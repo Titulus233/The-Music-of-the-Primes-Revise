@@ -55,7 +55,7 @@
 \afterfolio{514}{a,b}
 \afterfolio{518}{a}
 \afterfolio{520}{a,b,c,d,e,f,g,h,i,j,k,l,m,n}
-\afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v}
+\afterfolio{522}{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y}
 \afterfolio{558}{a}
 \newcount\originalfolio
 \newcount\physicalfolio
@@ -146,7 +146,7 @@ the closed strip. The last sum includes every missing boundary copy.
 \pagelink{514a}{514a--b}, \pagelink{520}{520--520b} & The full-strip formula, the omitted zeros and the consequence of a fixed zero-free half-plane.\\[3pt]
 \pagelink{520c}{520c--n}, \pagelink{522i}{522i--m} & The balanced prime sum and a one-sided criterion counting only principal prime ideals over totally imaginary fields.\\[3pt]
 \pagelink{522}{522--522e}, \pagelink{522f}{522f--h} & The prime-sum criterion, the Chapter~13 test space and a CM curve for which the cap loses multiplicity.\\[3pt]
-\pagelink{522n}{522n--o}, \pagelink{522p}{522p--v} & A square-root term for principal primes and two-sided oscillations in the cubic splitting count.\\
+\pagelink{522n}{522n--o}, \pagelink{522p}{522p--v}, \mbox{\pagelink{522w}{522w--y}} & Cubic splitting oscillations, Weil positivity on short intervals, and a criterion using two translates.\\
 \end{tabular}
 
 \point{Scope} The Hecke prime-sum criterion is an equivalence.
@@ -2425,8 +2425,10 @@ the most highly factored integer indices. In the trivial component
 (20p) computes the opposite terms of order $X/\log X$ from prime
 pairs and composite indices. Equation (35) uses only principal prime
 generators. Equations (40)--(42) give a square-root term after Gaussian
-averaging and oscillations for the cubic splitting count. The estimate (38) for arbitrarily small
-averaging coefficients and every remaining character is open.
+averaging and oscillations for the cubic splitting count. Equations
+(43)--(45) give positivity on short log intervals and isolate the
+correlation between two translates. The bound (38) as $\kappa\downarrow0$
+for every remaining character is open.
 
 The fixed-place calculation on page 495 fails over $\Q$. The two-prime
 obstruction on page 495b rules out a fixed norm-translation-invariant
@@ -3301,6 +3303,150 @@ Here $|2^{1/2+i\gamma}-1|>2.36$ since
 $|\gamma\log2-\pi|<0.407$, and $|1/2+i\gamma|<5.141$.
 Thus $|V_2(1/2+i\gamma)|>0.416\,V(1/2)$, whereas
 $c=(\sqrt2-1)V(1/2)$. These inequalities give (42).
+
+\leaf{522w}{Weil positivity}{13.3 \quad THE GEOMETRIC SIDE ON A LOG INTERVAL}{A lower bound for every Hecke character}
+Let $\chi$ be a normalized unitary Hecke character of a number field $F$,
+$d=[F:\Q]$, $D_\chi=|\operatorname{disc}F|N\mathfrak f_\chi$,
+and $\delta_\chi=\mathbf1_{\chi=1}$. For $g\in C_c^\infty(\R)$ supported
+on an interval of length $L>0$, put $g^\sharp(x)=\overline{g(-x)}$,
+$h=g*g^\sharp$, $M=h(0)=\|g\|_2^2$ and $G(z)=\int g(x)e^{zx}\dd x$.
+The centered transform is $H(z)=G(z)\overline{G(-\overline z)}$.
+For each distinct nontrivial zero $\rho$ of $L_{F,f}(s,\chi)$, write
+$\lambda=\rho-1/2$ and $m_\lambda=\operatorname{ord}_\rho L_{F,f}$. Define the Weil form
+$Q_\chi(g)=\sum_\lambda m_\lambda H(\lambda)$. Define
+\[
+ c(L)=-\gamma_E-\log\!\big(\pi(e^{2L}-1)\big),\qquad
+ S(L)=\sum_{2\le n\le e^L}\frac{\Lambda(n)}{\sqrt n}.
+\]
+Then
+\begin{align*}
+ Q_\chi(g)&\ge K_\chi(L)\|g\|_2^2,\\
+ K_\chi(L)&=\log D_\chi+d\big(c(L)-2S(L)\big)
+              -\delta_\chi\big(2\sinh(L/2)-L\big).
+ \tag{43}
+\end{align*}
+In particular $Q_\chi(g)>\|g\|_2^2/4$ for $g\ne0$ and $L\le1/16$,
+uniformly over fields and characters. A unitary norm twist modulates
+$g$ by a phase $e^{itx}$, preserving its support and norm.
+
+\point{The archimedean terms} In the completed function write the
+gamma factor as $\prod_{j=1}^d\Gamma_\R(s+\mu_j)$ as on \pg{520d}.
+Real parity and the absolute value of the complex angular exponent
+give $\Re\mu_j\ge0$. Put $a=1/4+\Re\mu_j/2$, $b=\Im\mu_j$. In the
+full explicit formula the contribution $A_j$ is the integral of
+$2\Re(\Gamma_\R'/\Gamma_\R)(1/2+it+\mu_j)$ against
+$|G(it)|^2\dd t/(2\pi)$. This normalization retains the terms at log
+norm zero for $h(0)=M$. See
+\citetitle{https://arxiv.org/abs/math/9902080}{Burnol's Hecke explicit formula}.
+
+The integral for $\psi=\Gamma'/\Gamma$ and Fourier inversion give
+\[
+ A_j=-(\log\pi+\gamma_E)M+
+ \int_0^\infty
+ \frac{e^{-u}M-e^{-au}\Re\!\big(e^{-ibu/2}h(u/2)\big)}
+      {1-e^{-u}}\dd u .
+\]
+Near zero the numerator is $O_g((1+|\mu_j|)u)$. The rapid decay of $G(it)$ justifies
+integration against the digamma formula by truncation at both ends.
+See \citetitle{https://dlmf.nist.gov/5.9.E16}{DLMF 5.9.16}.
+By Cauchy--Schwarz $|h(x)|\le M$, and $h(x)=0$ for $|x|\ge L$.
+On $0<u<2L$ the integrand is at least $-M$. Beyond $2L$ its integral
+is $-M\log(1-e^{-2L})$. Thus $A_j\ge c(L)M$ for every shift.
+
+\leaf{522x}{Primes and conductors}{13.3 \quad THE FINITE AND POLAR TERMS}{How the interval length depends on the conductor}
+At an unramified prime write $a_{\mathfrak p}=\chi(\mathfrak p)$ and
+put $a_{\mathfrak p}=0$ at the primes of the conductor. With the
+conventions of \pg{522w}, the remaining terms of the explicit formula are
+\begin{align*}
+ Q_\chi(g)={}&M\log D_\chi+\sum_{j=1}^d A_j+
+     2\delta_\chi\Re\big(G(1/2)\overline{G(-1/2)}\big)\\
+ &-2\Re\sum_{\mathfrak p,\,m\ge1}
+ \frac{a_{\mathfrak p}^{\,m}\log N\mathfrak p}{(N\mathfrak p)^{m/2}}
+                         h(m\log N\mathfrak p).
+ \tag{44}
+\end{align*}
+Indeed the logarithmic derivative of each Euler factor gives the
+positive log shifts in (44), and the functional equation gives their
+conjugates. The two poles of the completed principal function have
+centered coordinates $\pm1/2$. The conductor factor $D_\chi^{s/2}$
+contributes $\log D_\chi$ after reflection.
+
+For $(N\mathfrak p)^m=p^k$ the residue degree $f_{\mathfrak p}$ divides
+$k$ and fixes $m$. As $\sum_{\mathfrak p\mid p}f_{\mathfrak p}\le d$,
+the absolute logarithmic coefficient at $p^k$ is at most $d\log p$.
+Only powers up to $e^L$ occur. The finite-place contribution is
+therefore at least $-2d S(L)M$.
+
+To bound the poles, translate the support interval to $[-L/2,L/2]$.
+The product $G(1/2)\overline{G(-1/2)}$ is translation invariant. The
+vectors $u_\pm(x)=e^{\pm x/2}$ on this interval have equal squared
+norm $2\sinh(L/2)$ and inner product $L$. The polar form represents
+the operator $u_+\otimes u_-+u_-\otimes u_+$. Its eigenvectors
+$u_+\pm u_-$ have eigenvalues $L\pm2\sinh(L/2)$. The orthogonal
+complement of their span lies in the kernel. This gives the last term of (43).
+At $L=1/16$ the sum $S(L)$ is empty, $c(L)>0.29$, and
+$2\sinh(L/2)-L<0.00002$. The lower bound improves for smaller $L$.
+
+\point{Growing conductors} Write $R=\log D_\chi/d$. Chebyshev's
+estimate and partial summation give $S(L)\ll e^{L/2}$ with an absolute
+constant. Also $c(L)=-2L+O(1)$ as $L\to\infty$. For any
+$0<\epsilon<2$, (43) is positive for every
+$L\le(2-\epsilon)\log R$ once $R$ is sufficiently large in terms
+of $\epsilon$. Indeed the terms subtracted from $dR$ are
+$O(d(R^{1-\epsilon/2}+\log R))$ at this endpoint, and $K_\chi$ is
+nonincreasing in $L$. This gives a range of support lengths using
+only the conductor, archimedean factors and rational prime powers.
+
+\leaf{522y}{Two translates}{13.3 \quad A FIXED TEST AT TWO LOGARITHMIC POSITIONS}{Which correlation must stay bounded}
+Use the density $b$ and transform $V$ of (22). Fix $g(x)=e^x b(8x)$,
+so its support length is $\ell=1/16$. Its transform
+$G(z)=V((z+1)/8)/8$ has no zeros on $|\Re z|\le1/2$, since the
+product in (22) has none on $\Re s>0$. The same holds for
+$H(z)=G(z)\overline{G(-\overline z)}$. For a fixed normalized $\chi$
+put $q=Q_\chi(g)>0$, $T_\tau g(x)=g(x-\tau)$, and
+\[
+ B_\chi(\tau)=\sum_\lambda m_\lambda H(\lambda)e^{\tau\lambda}.
+\]
+Zero location is equivalent to either of the two bounds below.
+\begin{align*}
+ &\Re\rho=1/2\quad\text{for every nontrivial zero of }L_{F,f}(s,\chi),\\
+ &|B_\chi(\tau)|\le q\quad\text{for all }\tau\ge0,\\
+ &Q_\chi(c_0g+c_1T_\tau g)\ge0
+             \quad\text{for all }c_0,c_1\in\C,\ \tau\ge0 .
+ \tag{45}
+\end{align*}
+Indeed reflection $\lambda\mapsto-\overline\lambda$ gives
+$B_\chi(-\tau)=\overline{B_\chi(\tau)}$. The two translates have
+the same diagonal value $q$, and the mixed coefficients of their
+Hermitian form are $B_\chi(\tau)$ and its conjugate. The eigenvalues
+of the coefficient matrix are $q\pm|B_\chi(\tau)|$. On the critical
+line $H(\lambda)=|G(\lambda)|^2$, proving the bound there.
+
+Conversely, boundedness of $B_\chi$ on the positive half-line makes
+its Laplace transform holomorphic for $\Re z>0$. For $\Re z>1/2$
+that transform equals $\sum_\lambda m_\lambda H(\lambda)/(z-\lambda)$.
+Rapid decay and the zero count give locally uniform convergence off
+the zeros, as in (3). A right-hand zero would have nonzero residue
+$m_\lambda H(\lambda)$. Reflection now gives the first line of (45).
+
+Equation (43) proves the last line of (45) whenever
+$K_\chi(\ell+\tau)\ge0$, since the combined support fits in an
+interval of length $\ell+\tau$. In particular this holds for every
+component when $0\le\tau\le1/64$, since $S(5/64)=0$ and
+$c(5/64)>0.05>2\sinh(5/128)-5/64$. For $\tau>\ell$ the translated
+autocorrelation $T_\tau h$ vanishes at zero, and only positive prime
+shifts occur. In particular as $\tau\to\infty$,
+\[
+ B_\chi(\tau)=\delta_\chi e^{\tau/2}H(1/2)
+ -\sum_{\mathfrak p,\,m\ge1}
+ \frac{a_{\mathfrak p}^{\,m}\log N\mathfrak p}{(N\mathfrak p)^{m/2}}
+ h(m\log N\mathfrak p-\tau)+O_{g,d}(e^{-\tau/2}).
+\]
+In the polarized archimedean integral only $u/2\in[\tau-\ell,\tau+\ell]$
+contributes, with $e^{-au}\le e^{-u/4}$. The second polar term is
+also $O_g(e^{-\tau/2})$. The remaining bound is thus a cancellation
+estimate for prime powers near $e^\tau$ at arbitrarily large separations
+for the same character.
 
 \sourcepages{523}{535}{The multiplicity assertion and its dependence on the norm section are treated on pages 522f--h.}
 \sourcepages{536}{555}{}
