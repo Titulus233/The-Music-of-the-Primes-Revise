@@ -1,8 +1,24 @@
 # Proof progress
 
+## 2026-11-21 · Revision `2026-11-21.16`
+
+Folios 514u–514x are pages 557–560 of the [1,060-page edition][pdf16]. Section 12.3 restricts the product of the outer norms to a squarefree integer and groups all its factorizations into a single divisor weight. [Open proof obligation](OPEN_PROBLEMS.md)
+
+| Folios and equations | Result | Commit |
+| --- | --- | --- |
+| [514u · (17.4p)][f514u] | Over the required Galois fields, the contributing products consist of distinct completely split rational primes. For the trivial character, each prime contributes the factor $-[F:\mathbb Q]$. The nonnegative divisor weight counts every allowed factorization with its smooth cutoff. | [8f1027a][split] |
+| [514v–514w · (17.4q)–(17.4r)][f514v] | The linear term in the prime-sum comparison is $O_\varepsilon(X^{b_*/2+\varepsilon})$, where $b_*=\sup_\rho(\operatorname{Re}\rho-1/2)$. Hu’s $7/8$ input gives exponent $3/16+\varepsilon$ uniformly on the moving intervals for each fixed character. | [8f1027a][split] |
+| [514x · (17.4s)][f514x] | A bounded one-sided mean of the squarefree sum along arbitrarily distant intervals is equivalent to zero location at the fixed width. If $b_*>\alpha$, there exists an exterior zero beyond both $\alpha$ and the linear-error exponent, including when the supremum is unattained. | [8f1027a][split] |
+
+[split]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/commit/8f1027abb49e5c42b38ee7ce978b4b6de814d7d2
+[pdf16]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/8f1027abb49e5c42b38ee7ce978b4b6de814d7d2/output/pdf/the-music-of-the-primes-revised.pdf
+[f514u]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/8f1027abb49e5c42b38ee7ce978b4b6de814d7d2/src/the-music-of-the-primes-revised.tex#L2183
+[f514v]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/8f1027abb49e5c42b38ee7ce978b4b6de814d7d2/src/the-music-of-the-primes-revised.tex#L2230
+[f514x]: https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/8f1027abb49e5c42b38ee7ce978b4b6de814d7d2/src/the-music-of-the-primes-revised.tex#L2314
+
 ## 2026-11-21 · Revision `2026-11-21.15`
 
-Folios 514o–514t are pages 551–556 of the [1,056-page edition][pdf15]. Section 12.3 bounds the part of the original trace from a large common rational prime and reduces the one-sided estimate to a sum over coprime integer norms. [Open proof obligation](OPEN_PROBLEMS.md)
+Folios 514o–514t are pages 551–556 of the [1,056-page edition][pdf15]. Section 12.3 bounds the part of the original trace from a large common rational prime and reduces the one-sided estimate to a sum over coprime integer norms. [Open proof obligation in this edition](https://github.com/Titulus233/The-Music-of-the-Primes-Revise/blob/f71026622960f3b08485f4dcbf72439fefe8834d/OPEN_PROBLEMS.md)
 
 | Folios and equations | Result | Commit |
 | --- | --- | --- |
