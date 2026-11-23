@@ -29,6 +29,10 @@ For the norm-one torus of $K/\mathbb Q$, let $r$ be the class of a prime above $
 
 ## Reading the revision
 
+Crossley uses the same verified zero height as (20x) to prove that the tent-weighted sum over ordinary primes at width $3/2$ stays strictly below its main term for every $0<y\le10^{28}$. For comparison with (22), the tent at any width $b>1$ has Mellin transform $(b^s-1)(b^s-b)/(s(s-1))$, which has no zeros for $0<\Re s<1$. [Finite-range proof](https://doi.org/10.5281/zenodo.24410819) and [Mellin transform](https://doi.org/10.5281/zenodo.24410836).
+
+At $n=31$, each of the eight Dirichlet characters in Crossley’s 547/727 field has value $-1$. Summing their limits for $G_{\alpha,\chi}$ in (20z) gives $-8\log(31)/\sqrt{31}$. The second difference of three signed prime-ideal sums at $30/4$, $31/4$ and $32/4$ is $8\log(31)/31$, which gives the same value after multiplication by $-\sqrt{31}$. [Three finite prime-race scores](https://doi.org/10.5281/zenodo.24413207).
+
 | Manuscript folios | What to read there |
 | --- | --- |
 | 29, 446–446d, 463–463b | A residue detects each omitted zero. The arithmetic theta space determines the multiplicities at the strip boundary. A resolvent estimate gives the trace without a zero-spacing assumption. |
